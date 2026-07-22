@@ -1,0 +1,109 @@
+.hero {
+  position: relative;
+  min-height: 440px;
+  background: #030305;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+  padding: 80px 20px;
+}
+
+.imageWrap {
+  position: absolute;
+  inset: 0;
+}
+
+.heroImage {
+  object-fit: cover;
+  object-position: center;
+  filter: brightness(0.4);
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at center,
+    rgba(5, 5, 8, 0.3) 0%,
+    rgba(3, 3, 5, 0.92) 100%
+  );
+}
+
+.content {
+  position: relative;
+  z-index: 10;
+  max-width: 720px;
+  width: 100%;
+}
+
+.title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 46px;
+  font-weight: 700;
+  color: var(--white);
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  line-height: 1.15;
+  margin-bottom: 12px;
+  text-shadow: 0 4px 24px rgba(0, 0, 0, 0.8);
+}
+
+.subtitle {
+  font-size: 16px;
+  color: #ff3355;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 28px;
+}
+
+.btnRow {
+  display: flex;
+  justify-content: center;
+}
+
+.redBtn {
+  background: linear-gradient(135deg, #e60023, #b8001c);
+  color: var(--white);
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 14px 36px;
+  border-radius: 30px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 6px 24px rgba(230, 0, 35, 0.45);
+  transition: all var(--transition);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.redBtn:hover {
+  background: linear-gradient(135deg, #ff1a3c, #cc001f);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 32px rgba(230, 0, 35, 0.65);
+}
+
+@media (max-width: 768px) {
+  .hero {
+    min-height: 340px;
+    padding: 60px 16px;
+  }
+  .title {
+    font-size: 28px;
+    letter-spacing: 1.5px;
+  }
+  .subtitle {
+    font-size: 13.5px;
+    letter-spacing: 1px;
+    margin-bottom: 24px;
+  }
+  .redBtn {
+    width: 100%;
+    justify-content: center;
+    padding: 14px 20px;
+  }
+}
