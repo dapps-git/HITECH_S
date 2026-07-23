@@ -1,135 +1,105 @@
 .isoSection {
-  padding: 40px 0;
-  background-color: #ffffff;
+  padding: 60px 0;
+  background-color: #f8fafc;
 }
 
 .container {
   width: 100%;
-}
-
-.isoCard {
-  background: linear-gradient(135deg, #fef2f2 0%, #ffffff 50%, #f8fafc 100%);
-  border: 1.5px solid #fecaca;
-  border-left: 5px solid #dc2626;
-  border-radius: 14px;
-  padding: 32px 36px;
-  display: grid;
-  grid-template-columns: auto 1fr 1.1fr;
-  gap: 36px;
-  align-items: center;
-  box-shadow: 0 8px 24px rgba(220, 38, 38, 0.05);
-}
-
-.sealCol {
-  display: flex;
-  justify-content: center;
-}
-
-.isoSeal {
-  width: 110px;
-  height: 110px;
-  border-radius: 50%;
-  background: #ffffff;
-  border: 3px double #dc2626;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  gap: 32px;
+}
+
+/* ── Title Block ── */
+.titleBlock {
   text-align: center;
-  box-shadow: 0 6px 18px rgba(220, 38, 38, 0.15);
-  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
 }
 
-.sealIcon {
-  color: #dc2626;
-  margin-bottom: 2px;
+.redBar {
+  width: 48px;
+  height: 3px;
+  background: #dc2626;
+  border-radius: 2px;
+  margin-bottom: 4px;
 }
 
-.sealTitle {
-  font-family: 'Poppins', sans-serif;
+.sectionTitle {
+  font-size: 1.65rem;
   font-weight: 700;
-  font-size: 0.68rem;
   color: #0f172a;
   letter-spacing: 0.04em;
-  line-height: 1;
-}
-
-.sealSub {
-  font-family: 'Poppins', sans-serif;
-  font-weight: 600;
-  font-size: 0.58rem;
-  color: #dc2626;
-  letter-spacing: 0.08em;
   text-transform: uppercase;
+  line-height: 1.2;
 }
 
-.infoCol {
+.sectionSubtitle {
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: #dc2626;
+  letter-spacing: 0.02em;
+}
+
+/* ── Certificate Image ── */
+.certWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 480px;
+  width: 100%;
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.12);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.certImage {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+
+/* ── Description Block ── */
+.descBlock {
+  text-align: center;
+  max-width: 600px;
   display: flex;
   flex-direction: column;
-}
-
-.badgeRow {
-  margin-bottom: 8px;
-}
-
-.certifiedBadge {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-family: 'Poppins', sans-serif;
-  font-size: 0.68rem;
-  font-weight: 600;
-  color: #dc2626;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.heading {
-  font-family: 'Poppins', sans-serif;
-  font-size: 1.35rem;
-  font-weight: 600;
-  color: #0f172a;
-  text-transform: uppercase;
-  letter-spacing: 0.02em;
-  margin-bottom: 8px;
-  line-height: 1.25;
+  gap: 8px;
 }
 
 .desc {
-  font-family: 'Poppins', sans-serif;
-  font-size: 0.88rem;
-  color: #475569;
-  line-height: 1.6;
+  font-size: 0.92rem;
+  font-weight: 400;
+  color: #334155;
+  line-height: 1.7;
+}
+
+.descMuted {
+  font-size: 0.78rem;
   font-weight: 300;
+  color: #94a3b8;
+  line-height: 1.5;
 }
 
-.specsCol {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  background: #ffffff;
-  border: 1px solid #e2e8f0;
-  border-radius: 10px;
-  padding: 18px 20px;
-}
-
-.specItem {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-family: 'Times New Roman', Times, serif;
-  font-size: 0.84rem;
-  font-weight: 500;
-  color: #1e293b;
-}
-
-@media (max-width: 1024px) {
-  .isoCard {
-    grid-template-columns: 1fr;
-    gap: 24px;
-    padding: 24px;
+@media (max-width: 600px) {
+  .isoSection {
+    padding: 40px 16px;
   }
-  .sealCol {
-    justify-content: flex-start;
+  .certWrapper {
+    max-width: 100%;
+  }
+  .sectionTitle {
+    font-size: 1.25rem;
+  }
+  .desc {
+    font-size: 0.85rem;
+  }
+  .descMuted {
+    font-size: 0.72rem;
   }
 }

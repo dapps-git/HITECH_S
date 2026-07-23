@@ -17,18 +17,15 @@ export default function Header() {
   return (
     <nav className={styles.navbar}>
       <div className={`container ${styles.container}`}>
-        {/* 15 Logo image — Height 60px */}
+        {/* Hi Quality Silencers Logo */}
         <a href="#hero" className={styles.logoLink}>
           <Image
-            src="/images/15.webp"
-            alt="Hi Quality Silencers - 15 Years Experience"
-            width={120}
-            height={60}
+            src="/images/logo_hq.png"
+            alt="Hi Quality Silencers Logo"
+            width={48}
+            height={56}
             priority
             className={styles.logoImg}
-            onError={(e) => {
-              e.currentTarget.style.display = 'none';
-            }}
           />
         </a>
 
