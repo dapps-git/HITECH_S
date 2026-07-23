@@ -1,6 +1,7 @@
 'use client';
 import styles from './ProductGrid.module.css';
 import { FaFlask, FaWind, FaFire, FaTachometerAlt, FaShieldAlt, FaCheckCircle, FaTruck, FaClock } from 'react-icons/fa';
+import { useScrollReveal } from '@/hooks/useScrollReveal';
 
 const cleaningStages = [
   {
@@ -39,6 +40,8 @@ const benefits = [
 ];
 
 export default function ProductGrid() {
+  useScrollReveal();
+
   return (
     <section className={styles.section} id="cleaning-process">
       {/* 4-STAGE CLEANING PROCESS */}
@@ -53,7 +56,7 @@ export default function ProductGrid() {
 
         <div className={styles.fourGrid}>
           {cleaningStages.map((s, i) => (
-            <div key={i} className={styles.stageCard}>
+            <div key={i} className={`${styles.stageCard} reveal-up`}>
               <div className={styles.stageTop}>
                 <span className={styles.stageIcon}>{s.icon}</span>
                 <span className={styles.stageLabel}>{s.stage}</span>
@@ -69,23 +72,23 @@ export default function ProductGrid() {
       <div className={styles.midBannerWrapper}>
         <div className={styles.midBanner}>
           <div className={styles.midBannerLeft}>
-            <span className={styles.midBannerBadge}>NATIONWIDE PARCEL SERVICE</span>
-            <h3 className={styles.midBannerTitle}>SEND YOUR DPF UNIT TO US FROM ANYWHERE IN INDIA</h3>
+            <span className={styles.midBannerBadge}>TUNEX® BRAND EXCELLENCE</span>
+            <h3 className={styles.midBannerTitle}>HEAVY DUTY 2.00mm & 1.60mm GALVANISED STEEL</h3>
             <p className={styles.midBannerDesc}>
-              Remove the DPF unit from your vehicle and send it via any courier or parcel service. After 4-stage professional cleaning & pressure certification, we return it ready for direct installation.
+              Manufactured using premium grade tube pipes and heavy-gauge galvanised sheets for superior strength, rust resistance, and a 10+ year minimum service life.
             </p>
-            <a href="tel:+919876543210" className={styles.midBannerBtn}>
-              <FaTruck /> Contact Us for Parcel Details
+            <a href="https://wa.me/919645888250" target="_blank" rel="noreferrer" className={styles.midBannerBtn}>
+              <FaShieldAlt /> Inquire for Silencer Orders
             </a>
           </div>
           <div className={styles.midBannerRight}>
             <div className={styles.priceCard}>
-              <span className={styles.pFrom}>DPF Cleaning From</span>
-              <span className={styles.pPrice}>₹6,000</span>
-              <span className={styles.pNote}>Final price varies by vehicle model, DPF size & condition</span>
+              <span className={styles.pFrom}>TUNEX® SILENCERS</span>
+              <span className={styles.pPrice}>15 MONTH</span>
+              <span className={styles.pNote}>Comprehensive Warranty Backing Every Product</span>
               <div className={styles.pItems}>
-                <span><FaClock /> 1–2 Working Days</span>
-                <span><FaShieldAlt /> Pressure Certified</span>
+                <span><FaClock color="#DC2626" /> 10+ Year Service Life</span>
+                <span><FaShieldAlt color="#DC2626" /> ISO 9001:2015 Certified</span>
               </div>
             </div>
           </div>

@@ -58,8 +58,8 @@
 .card:active .overlay {
   background: linear-gradient(
     to top,
-    rgba(230, 0, 35, 0.88) 0%,
-    rgba(8, 9, 13, 0.5) 60%,
+    rgba(8, 9, 13, 0.96) 0%,
+    rgba(8, 9, 13, 0.6) 60%,
     transparent 100%
   );
 }

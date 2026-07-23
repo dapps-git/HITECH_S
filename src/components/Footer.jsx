@@ -1,75 +1,167 @@
 'use client';
+import Image from 'next/image';
 import styles from './Footer.module.css';
-import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaShieldAlt, FaTruck } from 'react-icons/fa';
+import { LuMapPin, LuPhone, LuMail, LuFacebook, LuInstagram } from 'react-icons/lu';
+import { FaWhatsapp } from 'react-icons/fa';
+
+const quickLinks = ['Home', 'Products', 'About Us', 'Contact Us'];
+const services = ['OEM Silencers', 'Sedan & Hatchback', 'SUV & MUV Silencers', 'Commercial Vehicles', 'DPF Cleaning', 'Custom Exhaust'];
 
 export default function Footer() {
   return (
-    <footer className={styles.footer}>
-      <div className={styles.container}>
-        <div className={styles.widgets}>
-          {/* Col 1 */}
-          <div className={styles.widget}>
-            <div className={styles.logo}>
-              <span className={styles.logoBox}>HI QUALITY</span>
-              <span className={styles.logoText}>SILENCERS</span>
+    <footer id="contact" className={styles.footer}>
+      <div className={`container ${styles.container}`}>
+        <div className={styles.footerGrid}>
+
+          {/* Col 1: Brand */}
+          <div>
+            <div className={styles.logoWrap}>
+              <Image
+                src="/images/15.webp"
+                alt="Hi Quality Silencers"
+                width={140}
+                height={48}
+                className={styles.logoImg}
+                onError={(e) => {
+                  e.currentTarget.style.display = 'none';
+                }}
+              />
             </div>
-            <p className={styles.text}>
-              ISO Certified OEM specification silencer manufacturer with 15+ years of experience. Professional scientific DPF, DOC, SCR & ASC cleaning services in Kerala.
+
+            <p className={styles.brandDesc}>
+              Manufacturer of TUNEX® OEM specification silencers for passenger and commercial vehicles. ISO 9001:2015 certified, based in Calicut, Kerala.
             </p>
-            <div className={styles.contactList}>
-              <p><FaMapMarkerAlt className={styles.icon} /> Workshop & Factory: Kerala, India</p>
-              <p><FaPhone className={styles.icon} /> Helpline: +91 98765 43210</p>
-              <p><FaEnvelope className={styles.icon} /> info@hiqualitysilencers.demo</p>
+
+            {/* Social Icons */}
+            <div className={styles.socialList}>
+              <a
+                href="https://www.facebook.com/share/1JCThxqeps/"
+                target="_blank"
+                rel="noreferrer"
+                className={styles.socialLink}
+              >
+                <LuFacebook size={15} />
+              </a>
+              <a
+                href="https://www.instagram.com/hi_quality_silencers?igsh=MXIwemZtNGhwaThyZw=="
+                target="_blank"
+                rel="noreferrer"
+                className={styles.socialLink}
+              >
+                <LuInstagram size={15} />
+              </a>
+              <a
+                href="https://wa.me/919645888250"
+                target="_blank"
+                rel="noreferrer"
+                className={styles.socialLink}
+              >
+                <FaWhatsapp size={15} />
+              </a>
             </div>
           </div>
 
-          {/* Col 2 */}
-          <div className={styles.widget}>
-            <h4 className={styles.title}>DPF CLEANING SERVICES</h4>
-            <ul className={styles.list}>
-              <li><a href="#faq">Diesel Particulate Filter (DPF)</a></li>
-              <li><a href="#faq">Diesel Oxidation Catalyst (DOC)</a></li>
-              <li><a href="#faq">Selective Catalytic Reduction (SCR)</a></li>
-              <li><a href="#faq">Ammonia Slip Catalyst (ASC)</a></li>
-              <li><a href="#faq">4-Stage Scientific Cleaning</a></li>
-              <li><a href="#faq">Pressure & Airflow Certification</a></li>
+          {/* Col 2: Quick Links */}
+          <div>
+            <h4 className={styles.colTitle}>
+              Quick Links
+            </h4>
+            <div className={styles.titleLine} />
+            <ul className={styles.linkList}>
+              {quickLinks.map((l, i) => (
+                <li key={i}>
+                  <a
+                    href={`#${l.toLowerCase().replace(/\s/g, '-')}`}
+                    className={styles.footerLink}
+                  >
+                    {l}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
 
-          {/* Col 3 */}
-          <div className={styles.widget}>
-            <h4 className={styles.title}>SILENCER MANUFACTURING</h4>
-            <ul className={styles.list}>
-              <li><a href="#products">OEM Specification Silencers</a></li>
-              <li><a href="#products">Heavy Duty Truck Exhausts</a></li>
-              <li><a href="#products">Bus & Commercial Exhausts</a></li>
-              <li><a href="#products">Exhaust Manifolds & Pipes</a></li>
-              <li><a href="#products">ISO Quality Certified</a></li>
-              <li><a href="#products">Custom Fabrication</a></li>
+          {/* Col 3: Our Services */}
+          <div>
+            <h4 className={styles.colTitle}>
+              Our Services
+            </h4>
+            <div className={styles.titleLine} />
+            <ul className={styles.linkList}>
+              {services.map((s, i) => (
+                <li key={i}>
+                  <a
+                    href="#products"
+                    className={styles.footerLink}
+                  >
+                    {s}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
 
-          {/* Col 4 */}
-          <div className={styles.widget}>
-            <h4 className={styles.title}>PARCEL SERVICE INDIA</h4>
-            <div className={styles.parcelNotice}>
-              <FaTruck className={styles.truckIcon} />
-              <div>
-                <strong>Send DPF Unit via Courier</strong>
-                <p>We receive, clean, pressure-test, and return DPF units from anywhere in Kerala & all India.</p>
+          {/* Col 4: Contact Info */}
+          <div>
+            <h4 className={styles.colTitle}>
+              Contact Info
+            </h4>
+            <div className={styles.titleLine} />
+
+            <div className={styles.contactCol}>
+              <a
+                href="https://maps.google.com/?q=Hi+Quality+Silencers+Beypore+Calicut+Kerala+673015"
+                target="_blank"
+                rel="noreferrer"
+                className={styles.contactItem}
+              >
+                <div className={styles.iconCircle}>
+                  <LuMapPin size={14} color="#DC2626" />
+                </div>
+                <span className={styles.contactText}>
+                  47/1302C, Cheerpupalam BC Road,<br />Beypore, Calicut, Kerala – 673015
+                </span>
+              </a>
+
+              <div className={styles.contactItem}>
+                <div className={styles.iconCircle}>
+                  <LuPhone size={14} color="#DC2626" />
+                </div>
+                <div className={styles.phoneSub}>
+                  <a href="tel:+919645888253" className={styles.contactText}>
+                    +91 9645 888 253
+                  </a>
+                  <a href="https://wa.me/919645888250" target="_blank" rel="noreferrer" className={styles.contactText}>
+                    +91 9645 888 250 (WhatsApp)
+                  </a>
+                </div>
               </div>
-            </div>
-            <div className={styles.priceTag}>
-              <span>DPF Cleaning Starts From</span>
-              <strong>₹6,000</strong>
+
+              <a
+                href="mailto:hiqualitysilencer@gmail.com"
+                className={styles.contactItem}
+              >
+                <div className={styles.iconCircle}>
+                  <LuMail size={14} color="#DC2626" />
+                </div>
+                <span className={styles.contactText}>
+                  hiqualitysilencer@gmail.com
+                </span>
+              </a>
             </div>
           </div>
+
         </div>
       </div>
 
-      <div className={styles.bottom}>
-        <div className={styles.container}>
-          <p>© {new Date().getFullYear()} Hi Quality Silencers. All Rights Reserved. ISO Certified OEM Specification Manufacturer & Professional DPF Cleaning Services.</p>
+      {/* Bottom Bar */}
+      <div className={styles.bottomBar}>
+        <div className={`container ${styles.bottomContainer}`}>
+          <span className={styles.copyText}>© {new Date().getFullYear()} Hi Quality Silencers. All rights reserved.</span>
+          <div className={styles.policyLinks}>
+            <a href="#" className={styles.policyLink}>Privacy Policy</a>
+            <a href="#" className={styles.policyLink}>Terms of Service</a>
+          </div>
         </div>
       </div>
     </footer>

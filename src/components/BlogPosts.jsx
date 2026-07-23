@@ -35,21 +35,7 @@ const guides = [
   },
 ];
 
-const testimonials = [
-  {
-    quote: "Hi Quality Silencers restored our truck DPF perfectly. Fuel consumption reduced noticeably and the DPF warning light has not come back. The parcel service from our location was very convenient.",
-    author: "FLEET MANAGER — KERALA LOGISTICS",
-    role: "Heavy Commercial Vehicles",
-  },
-  {
-    quote: "After trying local cleaning services with no result, Hi Quality Silencers used their 4-stage process. Within 2 days the DPF was clean, pressure tested and returned. Excellent service.",
-    author: "AUTHORIZED WORKSHOP — KOCHI",
-    role: "Passenger Vehicle Service Center",
-  },
-];
-
 export default function BlogPosts() {
-  const [active, setActive] = useState(0);
 
   return (
     <section className={styles.section} id="journal">
@@ -69,30 +55,9 @@ export default function BlogPosts() {
               <div className={styles.content}>
                 <h3 className={styles.title}>{post.title}</h3>
                 <p className={styles.excerpt}>{post.excerpt}</p>
-                <a href="#faq" className={styles.readMore}>Read Full Guide →</a>
               </div>
             </article>
           ))}
-        </div>
-      </div>
-
-      {/* TESTIMONIAL SLIDER */}
-      <div className={styles.testimonialBlock}>
-        <div className={styles.innerContainer}>
-          <span className={styles.quoteMark}>"</span>
-          <p className={styles.quoteText}>{testimonials[active].quote}</p>
-          <span className={styles.author}>{testimonials[active].author}</span>
-          <span className={styles.role}>{testimonials[active].role}</span>
-          <div className={styles.dots}>
-            {testimonials.map((_, i) => (
-              <button
-                key={i}
-                className={`${styles.dot} ${i === active ? styles.dotActive : ''}`}
-                onClick={() => setActive(i)}
-                aria-label={`Testimonial ${i + 1}`}
-              />
-            ))}
-          </div>
         </div>
       </div>
 
@@ -101,15 +66,15 @@ export default function BlogPosts() {
         <div className={styles.container}>
           <div className={styles.ctaInner}>
             <div>
-              <h3 className={styles.ctaTitle}>READY TO RESTORE YOUR DPF?</h3>
-              <p className={styles.ctaDesc}>Send your DPF unit via parcel to our workshop anywhere in India. Starting from ₹6,000.</p>
+              <h3 className={styles.ctaTitle}>READY TO RESTORE YOUR EXHAUST SYSTEM?</h3>
+              <p className={styles.ctaDesc}>Get in touch with Hi Quality Silencers for TUNEX® silencers & professional DPF cleaning starting from ₹6,000.</p>
             </div>
             <div className={styles.ctaBtns}>
-              <a href="tel:+919876543210" className={styles.ctaRed}>
-                <FaPhone /> Call for Booking
+              <a href="https://wa.me/919645888250" target="_blank" rel="noreferrer" className={styles.ctaRed}>
+                <FaPhone /> Contact via WhatsApp
               </a>
-              <a href="#faq" className={styles.ctaOutline}>
-                Read FAQ Guide
+              <a href="#about" className={styles.ctaOutline}>
+                About Us
               </a>
             </div>
           </div>

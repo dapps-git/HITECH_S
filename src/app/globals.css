@@ -1,24 +1,26 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap');
 
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  font-family: 'Poppins', sans-serif !important;
 }
 
 :root {
-  --primary: #e60023;
-  --primary-hover: #ff1a3c;
-  --primary-dark: #b8001c;
-  --primary-glow: rgba(230, 0, 35, 0.45);
-  --primary-soft: rgba(230, 0, 35, 0.08);
+  --font-main: 'Poppins', sans-serif;
+  --primary: #dc2626;
+  --primary-hover: #b91c1c;
+  --primary-dark: #991b1b;
+  --primary-glow: rgba(220, 38, 38, 0.45);
+  --primary-soft: rgba(220, 38, 38, 0.08);
   
-  --dark-0: #030305;
-  --dark-1: #090a0e;
-  --dark-2: #0f1117;
-  --dark-3: #151821;
-  --dark-card: #12141c;
-  --dark-card-hover: #1a1d28;
+  --dark-0: #0a0e14;
+  --dark-1: #0f141d;
+  --dark-2: #151b26;
+  --dark-3: #1a2230;
+  --dark-card: #121824;
+  --dark-card-hover: #1b2333;
   
   --light-bg: #f4f6fb;
   --light-card: #ffffff;
@@ -37,8 +39,8 @@
   --shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.04);
   --shadow-md: 0 8px 30px rgba(0, 0, 0, 0.08);
   --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.15);
-  --shadow-red: 0 8px 30px rgba(230, 0, 35, 0.45);
-  --shadow-red-hover: 0 12px 36px rgba(230, 0, 35, 0.65);
+  --shadow-red: 0 8px 30px rgba(220, 38, 38, 0.45);
+  --shadow-red-hover: 0 12px 36px rgba(220, 38, 38, 0.65);
   
   --radius-sm: 6px;
   --radius-md: 10px;
@@ -52,16 +54,26 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 100px;
+  font-family: 'Poppins', sans-serif !important;
+  overflow-x: hidden !important;
+  width: 100%;
 }
 
 body {
-  font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: 'Poppins', sans-serif !important;
+  font-weight: 300;
   background: var(--white);
   color: var(--text-dark);
   line-height: 1.6;
   font-size: 14px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden !important;
+  width: 100%;
+}
+
+h1, h2, h3, h4, h5, h6, p, span, a, button, input, textarea, select {
+  font-family: 'Poppins', sans-serif !important;
 }
 
 a {
@@ -111,10 +123,10 @@ button {
 
 .section-title {
   font-family: 'Montserrat', sans-serif;
-  font-size: 28px;
-  font-weight: 800;
+  font-size: 26px;
+  font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 1.5px;
+  letter-spacing: 1px;
   color: var(--text-dark);
   text-align: center;
   position: relative;
@@ -154,6 +166,44 @@ button {
 ::selection {
   background: rgba(230,0,35,0.3);
   color: var(--white);
+}
+
+/* ─── Scroll Reveal Animations ───────────────────── */
+.reveal, .reveal-up {
+  opacity: 0;
+  transform: translateY(35px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-right {
+  opacity: 0;
+  transform: translateX(40px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-scale {
+  opacity: 0;
+  transform: scale(0.94);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal.active,
+.reveal-up.active,
+.reveal-left.active,
+.reveal-right.active,
+.reveal-scale.active {
+  opacity: 1;
+  transform: translateY(0) translateX(0) scale(1);
 }
 
 /* ─── Keyframe Animations ──────────────────────── */

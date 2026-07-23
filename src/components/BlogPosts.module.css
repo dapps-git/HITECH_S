@@ -168,75 +168,125 @@
 }
 .dotActive { background: var(--primary); width: 24px; border-radius: 4px; }
 
-/* CTA Strip */
+/* CTA Strip — Light & Red Theme */
 .ctaStrip {
-  background: linear-gradient(135deg, #0d0e12, #16161e);
-  border-top: 3px solid var(--primary);
-  padding: 40px 0;
+  background: linear-gradient(135deg, #fef2f2 0%, #ffffff 50%, #f8fafc 100%);
+  border-top: 2px solid #fecaca;
+  border-bottom: 2px solid #fecaca;
+  padding: 50px 0;
 }
 
 .ctaInner {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  gap: 24px;
-  flex-wrap: wrap;
+  text-align: center;
+  gap: 16px;
+  max-width: 720px;
+  margin: 0 auto;
 }
 
 .ctaTitle {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 22px;
-  font-weight: 500;
-  color: var(--white);
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.85rem;
+  font-weight: 600;
+  color: #0f172a;
   text-transform: uppercase;
-  margin-bottom: 6px;
+  margin-bottom: 4px;
+  letter-spacing: 0.02em;
+  line-height: 1.25;
 }
 
 .ctaDesc {
-  font-size: 13px;
-  color: #94a3b8;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.95rem;
+  color: #475569;
+  line-height: 1.65;
+  font-weight: 300;
 }
 
 .ctaBtns {
   display: flex;
+  align-items: center;
+  justify-content: center;
   gap: 14px;
   flex-wrap: wrap;
+  margin-top: 8px;
+  width: 100%;
 }
 
 .ctaRed {
-  background: var(--primary);
-  color: var(--white);
-  padding: 13px 26px;
-  border-radius: 4px;
-  font-size: 12px;
-  font-weight: 400;
-  letter-spacing: 1px;
+  background: #dc2626;
+  color: #ffffff;
+  padding: 12px 26px;
+  border-radius: 0px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
-  box-shadow: 0 4px 16px rgba(230, 0, 35, 0.4);
-  transition: all var(--transition);
+  box-shadow: 0 4px 16px rgba(220, 38, 38, 0.25);
+  transition: all 0.25s ease;
+  border: 1.5px solid #dc2626;
+  text-decoration: none;
 }
-.ctaRed:hover { background: var(--primary-hover); transform: translateY(-1px); }
+
+.ctaRed:hover {
+  background: #b91c1c;
+  border-color: #b91c1c;
+  color: #ffffff;
+}
 
 .ctaOutline {
-  background: rgba(255,255,255,0.08);
-  color: var(--white);
-  border: 1px solid rgba(255,255,255,0.2);
-  padding: 13px 26px;
-  border-radius: 4px;
-  font-size: 12px;
+  background: transparent;
+  color: #1e232a;
+  border: 1.5px solid #cbd5e1;
+  padding: 12px 26px;
+  border-radius: 0px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.85rem;
   font-weight: 500;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
-  transition: all var(--transition);
+  transition: all 0.25s ease;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
-.ctaOutline:hover { background: rgba(255,255,255,0.15); }
 
-@media (max-width: 1024px) { .grid { grid-template-columns: repeat(2, 1fr); } }
+.ctaOutline:hover {
+  border-color: #dc2626;
+  color: #dc2626;
+}
+
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 @media (max-width: 640px) {
-  .grid { grid-template-columns: 1fr; }
-  .ctaInner { flex-direction: column; text-align: center; }
-  .ctaBtns { justify-content: center; }
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  .ctaInner {
+    padding: 0 12px;
+  }
+  .ctaTitle {
+    font-size: 1.4rem;
+  }
+  .ctaBtns {
+    flex-direction: column;
+    width: 100%;
+  }
+  .ctaRed,
+  .ctaOutline {
+    width: 100%;
+    max-width: 320px;
+  }
 }

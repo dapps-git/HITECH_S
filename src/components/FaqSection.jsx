@@ -234,16 +234,16 @@ const faqs = [
   {
     id: 10,
     question: "10. Should the DPF unit be removed before cleaning?",
-    summary: "Yes. DPF must be removed from vehicle. Send to us via courier/parcel from anywhere in India.",
+    summary: "Yes. DPF unit must be removed from vehicle for 4-stage scientific workshop cleaning & pressure test.",
     answer: (
       <div className={styles.faqBody}>
         <div className={styles.parcelBox}>
-          <FaTruck className={styles.truckIcon} />
+          <FaTools className={styles.truckIcon} />
           <div>
-            <h4>YES. DPF UNIT MUST BE REMOVED FROM THE VEHICLE.</h4>
-            <p>📦 You can send your removed DPF filter unit to our workshop via <strong>courier or parcel service from anywhere in Kerala or across India</strong>.</p>
+            <h4>YES. DPF UNIT IS REMOVED FOR COMPLETE SUBSTRATE CLEANING.</h4>
+            <p>🔧 Removal allows complete 360° chemical soaking, dual hydro-pneumatic flushing, thermal baking, and final back-pressure airflow certification.</p>
             <p className={styles.subNote} style={{ marginTop: '8px' }}>
-              After cleaning, the unit is pressure tested, certified, and safely dispatched back ready for direct installation and use.
+              After workshop cleaning, the unit is pressure tested, certified, and ready for immediate re-installation.
             </p>
           </div>
         </div>
@@ -253,7 +253,7 @@ const faqs = [
 ];
 
 export default function FaqSection() {
-  const [openId, setOpenId] = useState(1);
+  const [openId, setOpenId] = useState(null);
 
   const toggleFaq = (id) => {
     setOpenId(openId === id ? null : id);

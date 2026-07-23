@@ -1,6 +1,7 @@
 'use client';
 import Image from 'next/image';
 import styles from './FeaturedCategories.module.css';
+import { useScrollReveal } from '@/hooks/useScrollReveal';
 
 const services = [
   {
@@ -16,20 +17,22 @@ const services = [
     link: '#products',
   },
   {
-    title: 'PARCEL SERVICE INDIA',
-    desc: 'Courier parcel pick-up & delivery service across Kerala & nationwide',
+    title: '15-MONTH WARRANTY',
+    desc: 'Backed by 15 years of manufacturing excellence & ISO 9001:2015 certified quality',
     image: '/feature-leather.png',
-    link: '#faq',
+    link: '#about',
   },
 ];
 
 export default function FeaturedCategories() {
+  useScrollReveal();
+
   return (
     <section className={styles.section} id="dpf-cleaning">
       <div className={styles.container}>
         <div className={styles.grid}>
           {services.map((item, i) => (
-            <a key={i} href={item.link} className={styles.card}>
+            <a key={i} href={item.link} className={`${styles.card} reveal-up`}>
               <div className={styles.imageWrap}>
                 <Image
                   src={item.image}

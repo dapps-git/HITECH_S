@@ -1,82 +1,89 @@
 'use client';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
+import Image from 'next/image';
 import styles from './Header.module.css';
-import { FaBars, FaTimes, FaPhone } from 'react-icons/fa';
+import { LuMessageCircle, LuMenu, LuX } from 'react-icons/lu';
 
-const navLinks = [
-  { label: 'Home', href: '/' },
-  { label: 'DPF Cleaning', href: '#dpf-cleaning' },
-  { label: 'Process', href: '#cleaning-process' },
-  { label: 'FAQ', href: '#faq' },
+const links = [
+  { label: 'Home', href: '#hero' },
+  { label: 'Products', href: '#products' },
+  { label: 'About Us', href: '#about' },
+  { label: 'Contact Us', href: '#contact' },
 ];
 
 export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 10);
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
 
   return (
-    <header className={`${styles.header} ${scrolled ? styles.scrolled : ''}`}>
-      <div className={styles.inner}>
-        {/* Logo */}
-        <a href="/" className={styles.logo}>
-          <span className={styles.logoRed}>HI QUALITY</span>
-          <span className={styles.logoWhite}>SILENCERS</span>
+    <nav className={styles.navbar}>
+      <div className={`container ${styles.container}`}>
+        {/* 15 Logo image — Height 60px */}
+        <a href="#hero" className={styles.logoLink}>
+          <Image
+            src="/images/15.webp"
+            alt="Hi Quality Silencers - 15 Years Experience"
+            width={120}
+            height={60}
+            priority
+            className={styles.logoImg}
+            onError={(e) => {
+              e.currentTarget.style.display = 'none';
+            }}
+          />
         </a>
 
         {/* Desktop Nav Links */}
-        <nav className={styles.desktopNav}>
-          {navLinks.map((link, i) => (
-            <a
-              key={i}
-              href={link.href}
-              className={`${styles.navLink} ${i === 1 ? styles.active : ''}`}
-            >
-              {link.label}
+        <div className={styles.navLinks}>
+          {links.map((l) => (
+            <a key={l.label} href={l.href} className={styles.navLink}>
+              {l.label}
             </a>
           ))}
-        </nav>
-
-        {/* Action Button */}
-        <div className={styles.actions}>
-          <a href="tel:+919876543210" className={styles.callBtn}>
-            <FaPhone /> <span>+91 98765 43210</span>
-          </a>
-
-          <button
-            className={styles.burger}
-            onClick={() => setMobileOpen(!mobileOpen)}
-            aria-label="Toggle menu"
-          >
-            {mobileOpen ? <FaTimes /> : <FaBars />}
-          </button>
         </div>
+
+        {/* WhatsApp CTA Link */}
+        <a
+          href="https://wa.me/919645888250"
+          target="_blank"
+          rel="noreferrer"
+          className={styles.navCta}
+        >
+          <LuMessageCircle size={15} /> +91 9645 888 250
+        </a>
+
+        {/* Mobile Toggle */}
+        <button
+          onClick={() => setMobileOpen(!mobileOpen)}
+          className={styles.mobileMenuBtn}
+          aria-label="Toggle menu"
+        >
+          {mobileOpen ? <LuX size={26} /> : <LuMenu size={26} />}
+        </button>
       </div>
 
       {/* Mobile Drawer */}
-      <div className={`${styles.mobileDrawer} ${mobileOpen ? styles.drawerOpen : ''}`}>
-        <ul className={styles.mobileList}>
-          {navLinks.map((link, i) => (
-            <li key={i}>
-              <a
-                href={link.href}
-                className={styles.mobileLink}
-                onClick={() => setMobileOpen(false)}
-              >
-                {link.label}
-              </a>
-            </li>
+      {mobileOpen && (
+        <div className={styles.mobileDrawer}>
+          {links.map((l) => (
+            <a
+              key={l.label}
+              href={l.href}
+              onClick={() => setMobileOpen(false)}
+              className={styles.mobileDrawerLink}
+            >
+              {l.label}
+            </a>
           ))}
-        </ul>
-        <a href="tel:+919876543210" className={styles.mobileCall}>
-          <FaPhone /> Call Helpline: +91 98765 43210
-        </a>
-      </div>
-    </header>
+          <a
+            href="https://wa.me/919645888250"
+            target="_blank"
+            rel="noreferrer"
+            className={styles.mobileDrawerCta}
+          >
+            <LuMessageCircle size={16} /> +91 9645 888 250
+          </a>
+        </div>
+      )}
+    </nav>
   );
 }
