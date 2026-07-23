@@ -67,6 +67,15 @@
   color: #ffffff;
 }
 
+.mobileMenuBtn {
+  display: none !important;
+  padding: 8px;
+  color: #1e232a;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
 .mobileDrawer {
   position: absolute;
   top: 100%;
@@ -130,12 +139,21 @@
 
 @media (max-width: 900px) {
   .navLinks {
-    display: none;
+    display: none !important;
   }
   .navCta {
-    display: none;
+    display: none !important;
   }
   .mobileMenuBtn {
-    display: flex;
+    display: flex !important;
+  }
+}
+
+@media (min-width: 901px) {
+  .mobileMenuBtn {
+    display: none !important;
+  }
+  .mobileDrawer {
+    display: none !important;
   }
 }
