@@ -414,31 +414,33 @@
   .heroH1 {
     font-size: 1.3rem;
     line-height: 1.22;
-    margin-bottom: 0.45rem;
+    margin-bottom: 0.65rem;
     font-weight: 400;
+    text-shadow: 0 2px 16px rgba(0,0,0,0.98), 0 0 30px rgba(0,0,0,0.9);
   }
   .heroH2 {
-    font-size: 0.75rem !important;
-    margin-bottom: 0.4rem;
-    letter-spacing: 0.05em !important;
+    font-size: 0.78rem !important;
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.06em !important;
+    color: #f43f3f !important;
   }
   .redUnderline {
-    margin-bottom: 0.55rem;
-    width: 26px;
+    margin-bottom: 0.7rem;
+    width: 28px;
     height: 2px;
   }
   .heroDesc {
-    font-size: 0.71rem;
-    line-height: 1.4;
-    margin-bottom: 0.75rem;
+    font-size: 0.72rem;
+    line-height: 1.45;
+    margin-bottom: 0.9rem;
     padding: 0;
   }
   .btnWrapper {
     flex-direction: row;
     justify-content: flex-start;
-    gap: 0.5rem;
+    gap: 0.55rem;
     width: 100%;
-    margin-bottom: 0.75rem;
+    margin-bottom: 0.9rem;
     flex-wrap: nowrap;
   }
   .callNowBtn, .whatsappBtn {
