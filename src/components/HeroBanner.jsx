@@ -91,12 +91,12 @@ export default function HeroBanner() {
   return (
     <section id="hero" ref={heroRef} className={styles.heroSection}>
       <div className={styles.heroContainer}>
-        {/* Crisp Background Image (bg.webp) */}
+        {/* Yellow Workshop Hero Image */}
         <div className={styles.bgWrap}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src="/images/bg.webp"
-            alt="OEM Specification Silencer Manufacturer Workshop"
+            src="/images/bgg.webp"
+            alt="Hi Quality Silencers OEM Specification Manufacturer"
             className={styles.bgImage}
           />
           <div className={styles.bgOverlay} />
@@ -108,7 +108,7 @@ export default function HeroBanner() {
             {/* Main Headline - OEM SPECIFICATION SILENCER MANUFACTURER */}
             <h1 className={styles.heroH1}>
               OEM SPECIFICATION<br />
-              SILENCER MANUFACTURER
+              <span className={styles.goldText}>SILENCER MANUFACTURER</span>
             </h1>
 
             {/* Red Accent Subtitle - PROFESSIONAL DPF RESTORATION EXPERTS */}
@@ -195,13 +195,13 @@ export default function HeroBanner() {
             {/* Trust Badges */}
             <div className={styles.heroTrustItems}>
               <span className={styles.trustItem}>
-                <LuCheck size={14} color="#dc2626" /> QUALITY
+                <LuCheck size={14} color="#E5A300" /> QUALITY
               </span>
               <span className={styles.trustItem}>
-                <LuGauge size={14} color="#dc2626" /> PERFORMANCE
+                <LuGauge size={14} color="#E5A300" /> PERFORMANCE
               </span>
               <span className={styles.trustItem}>
-                <LuHandshake size={14} color="#dc2626" /> RELIABILITY
+                <LuHandshake size={14} color="#E5A300" /> RELIABILITY
               </span>
             </div>
           </div>

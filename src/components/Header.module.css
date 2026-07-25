@@ -24,7 +24,7 @@
 }
 
 .logoImg {
-  height: 36px;
+  height: 48px;
   width: auto;
   object-fit: contain;
   display: block;
@@ -37,9 +37,9 @@
 }
 
 .navLink {
-  font-size: 0.72rem;
-  font-weight: 500;
-  color: #374151;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #1E242B;
   letter-spacing: 0.05em;
   text-transform: uppercase;
   transition: all 0.2s ease;
@@ -47,24 +47,27 @@
 }
 
 .navLink:hover {
-  color: #dc2626;
+  color: #D8B153;
 }
 
 .faqLink {
   font-size: 0.72rem;
   font-weight: 600;
-  color: #dc2626;
+  color: #C68A00;
   letter-spacing: 0.05em;
   text-transform: uppercase;
   transition: all 0.2s ease;
-  padding: 4px 0;
+  padding: 0.35rem 0.85rem;
   display: inline-flex;
   align-items: center;
   text-decoration: none;
+  border: 1.5px solid #C68A00;
+  border-radius: 5px;
 }
 
 .faqLink:hover {
-  color: #b91c1c;
+  background-color: #C68A00;
+  color: #ffffff;
 }
 
 .headerActions {
@@ -86,8 +89,8 @@
 }
 
 .callNowBox:hover {
-  border-color: #dc2626;
-  color: #dc2626;
+  border-color: #E5A300;
+  color: #E5A300;
   background: rgba(220, 38, 38, 0.05);
 }
 
@@ -96,7 +99,7 @@
 }
 
 .callNowBox:hover .callIcon {
-  color: #dc2626;
+  color: #E5A300;
 }
 
 .callTextWrap {
@@ -120,16 +123,16 @@
 }
 
 .callNowBox:hover .callNumber {
-  color: #dc2626;
+  color: #E5A300;
 }
 
 .navCtaRed {
   display: inline-flex;
   align-items: center;
   gap: 0.45rem;
-  background-color: #dc2626;
+  background-color: #E5A300;
   color: #ffffff;
-  border: 1px solid #dc2626;
+  border: 1px solid #E5A300;
   padding: 0.55rem 1.1rem;
   border-radius: 4px;
   font-weight: 700;
@@ -141,7 +144,7 @@
 }
 
 .navCtaRed:hover {
-  background-color: #b91c1c;
+  background-color: #C68A00;
   transform: translateY(-1px);
   box-shadow: 0 6px 18px rgba(220, 38, 38, 0.5);
 }
@@ -161,7 +164,7 @@
   left: 0;
   right: 0;
   background-color: #ffffff;
-  border-top: 2px solid #dc2626;
+  border-top: 2px solid #E5A300;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
   padding: 1.25rem 1.5rem;
   display: flex;
@@ -181,13 +184,13 @@
 }
 
 .mobileDrawerLink:hover {
-  color: #dc2626;
+  color: #E5A300;
 }
 
 .mobileFaqLink {
   font-size: 0.9rem;
   font-weight: 500;
-  color: #dc2626;
+  color: #E5A300;
   padding: 10px 0;
   border-bottom: 1px solid #f3f4f6;
   text-decoration: none;
@@ -197,7 +200,7 @@
 }
 
 .mobileFaqLink:hover {
-  color: #b91c1c;
+  color: #C68A00;
 }
 
 .mobileDrawerCall {
@@ -215,9 +218,9 @@
 }
 
 .mobileDrawerCta {
-  background-color: #dc2626;
+  background-color: #E5A300;
   color: #ffffff;
-  border: 1.5px solid #dc2626;
+  border: 1.5px solid #E5A300;
   padding: 0.75rem;
   border-radius: 4px;
   font-weight: 700;

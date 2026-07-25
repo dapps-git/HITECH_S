@@ -3,7 +3,7 @@
   overflow: hidden;
   position: relative;
   width: 100%;
-  background-color: #0a0e14;
+  background-color: #F8F6F2;
 }
 
 .heroContainer {
@@ -35,11 +35,15 @@
   display: block;
 }
 
-/* Dark Overlay to make white and red text 100% crystal clear & visible */
+/* Minimal Overlay — Maximum Image Clarity */
 .bgOverlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(10, 14, 20, 0.88) 0%, rgba(10, 14, 20, 0.65) 55%, rgba(10, 14, 20, 0.35) 100%);
+  background: linear-gradient(to right, 
+    rgba(248, 246, 242, 0.45) 0%, 
+    rgba(248, 246, 242, 0.15) 45%, 
+    transparent 100%
+  );
   z-index: 1;
 }
 
@@ -67,53 +71,61 @@
 /* BIGGER H1 Headline */
 .heroH1 {
   font-family: var(--font-heading);
-  font-weight: 500;
-  color: #ffffff;
+  font-weight: 700;
+  color: #1E242B;
   line-height: 1.12;
   margin-bottom: 0.45rem;
   letter-spacing: -0.015em;
   font-size: 2.5rem;
-  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.95), 0 0 24px rgba(0, 0, 0, 0.85);
+  text-shadow: none;
+}
+
+.goldText {
+  color: #C68A00;
 }
 
 .heroH2 {
   font-family: var(--font-heading);
-  font-weight: 500;
-  color: #dc2626;
+  font-weight: 800;
+  color: #1E242B;
   line-height: 1.25;
   margin-bottom: 0.45rem;
   letter-spacing: 0.02em;
   font-size: 1.05rem;
   text-transform: uppercase;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.95), 0 0 16px rgba(0, 0, 0, 0.9);
+  text-shadow: none;
 }
 
 .redUnderline {
   width: 44px;
   height: 3px;
-  background-color: #dc2626;
+  background-color: #E5A300;
   margin-bottom: 0.85rem;
   border-radius: 2px;
-  box-shadow: 0 2px 8px rgba(220, 38, 38, 0.6);
+  box-shadow: none;
 }
 
 .heroDesc {
-  color: #ffffff;
+  color: #1E242B;
   line-height: 1.45;
   margin-bottom: 1.25rem;
-  font-weight: 500;
+  font-weight: 700;
   max-width: 460px;
   font-size: 0.88rem;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.95), 0 0 16px rgba(0, 0, 0, 0.8);
+  text-shadow: none;
 }
 
 .btnWrapper {
   margin-bottom: 1.25rem;
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 0.75rem;
-  width: 100%;
-  flex-wrap: wrap;
+  gap: 4px;
+  border-radius: 8px;
+  border: 1.5px solid rgba(229, 163, 0, 0.6);
+  background: rgba(20, 15, 5, 0.45);
+  padding: 4px;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
 }
 
 .callNowBtn {
@@ -122,21 +134,19 @@
   align-items: center;
   justify-content: center;
   gap: 0.45rem;
-  padding: 0.55rem 1.45rem;
-  border-radius: 5px;
-  background-color: transparent;
-  border: 1.5px solid #dc2626;
-  color: #ffffff;
-  font-weight: 500;
+  padding: 0.55rem 1.25rem;
+  border-radius: 6px;
+  background-color: #E5A300;
+  border: none;
+  color: #1A1207;
+  font-weight: 800;
   font-size: 0.8rem;
   letter-spacing: 0.04em;
   transition: all 0.25s ease;
 }
 
 .callNowBtn:hover {
-  background-color: #dc2626;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 16px rgba(220, 38, 38, 0.35);
+  background-color: #D49400;
 }
 
 .whatsappBtn {
@@ -145,24 +155,22 @@
   align-items: center;
   justify-content: center;
   gap: 0.45rem;
-  padding: 0.55rem 1.45rem;
-  border-radius: 5px;
+  padding: 0.55rem 1.25rem;
+  border-radius: 6px;
   background-color: transparent;
-  border: 1.5px solid #ffffff;
+  border: none;
   color: #ffffff;
-  font-weight: 500;
+  font-weight: 700;
   font-size: 0.8rem;
   letter-spacing: 0.04em;
   transition: all 0.25s ease;
 }
 
 .whatsappBtn:hover {
-  background-color: rgba(255, 255, 255, 0.12);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 14px rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.15);
 }
 
-/* 4 Feature Badges (Transparent Inline Row) */
+/* 4 Feature Badges */
 .heroBadgesContainer {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -187,47 +195,47 @@
   width: 34px;
   height: 34px;
   border-radius: 50%;
-  border: 1.5px solid #dc2626;
+  border: 1.5px solid #D8B153;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 0.15rem;
-  background: rgba(220, 38, 38, 0.3);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+  background: rgba(216, 177, 83, 0.12);
+  box-shadow: none;
 }
 
 .badgeSvgIcon {
-  color: #ffffff;
+  color: #D8B153;
   width: 16px;
   height: 16px;
 }
 
 .badgeValue {
   font-size: 0.85rem;
-  font-weight: 600;
-  color: #ffffff;
+  font-weight: 700;
+  color: #1E242B;
   line-height: 1.1;
   letter-spacing: 0.02em;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.95);
+  text-shadow: none;
 }
 
 .badgeLabel {
   font-size: 0.52rem;
-  font-weight: 400;
-  color: #ffffff;
+  font-weight: 500;
+  color: #4B5563;
   text-transform: uppercase;
   letter-spacing: 0.02em;
   line-height: 1.15;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.95);
+  text-shadow: none;
 }
 
-/* Transparent Stats Bar at Bottom of Hero Banner (No backdrop blur to preserve full image sharpness) */
+/* Light Warm Stats Bar */
 .heroTransparentStatsBar {
   position: relative;
   z-index: 5;
   width: 100%;
-  background: rgba(15, 20, 28, 0.55);
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  background: #F6F2EA;
+  border-top: 1px solid #E2D7C3;
   padding: 0.65rem 1.25rem;
 }
 
@@ -250,12 +258,12 @@
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  border: 1.5px solid #dc2626;
+  border: 1.5px solid #D8B153;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(216, 177, 83, 0.12);
   flex-shrink: 0;
 }
 
@@ -269,12 +277,12 @@
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  background: #dc2626;
+  background: #D8B153;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  box-shadow: 0 3px 10px rgba(220, 38, 38, 0.4);
+  box-shadow: 0 3px 10px rgba(216, 177, 83, 0.35);
 }
 
 .statTextGroup {
@@ -284,17 +292,17 @@
 
 .statNumber {
   font-size: 1.3rem;
-  font-weight: 700;
-  color: #dc2626;
+  font-weight: 800;
+  color: #D8B153;
   line-height: 1;
   letter-spacing: -0.02em;
-  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.8);
+  text-shadow: none;
 }
 
 .statTitle {
   font-size: 0.58rem;
-  font-weight: 400;
-  color: #f3f4f6;
+  font-weight: 600;
+  color: #1E242B;
   letter-spacing: 0.03em;
   text-transform: uppercase;
   line-height: 1.25;
@@ -304,7 +312,7 @@
 .statDivider {
   width: 1px;
   height: 36px;
-  background-color: rgba(255, 255, 255, 0.18);
+  background-color: #E2D7C3;
 }
 
 .heroTrustItems {
@@ -312,9 +320,9 @@
   align-items: center;
   gap: 1.25rem;
   font-size: 0.6rem;
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: 0.05em;
-  color: #ffffff;
+  color: #1E242B;
   text-transform: uppercase;
 }
 
@@ -332,18 +340,18 @@
   z-index: 9999;
   width: 50px;
   height: 50px;
-  background: #25d366;
+  background: #D8B153;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5);
+  box-shadow: 0 6px 20px rgba(216, 177, 83, 0.5);
   transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .floatingWhatsappIcon:hover {
   transform: scale(1.1) translateY(-3px);
-  box-shadow: 0 10px 25px rgba(37, 211, 102, 0.7);
+  box-shadow: 0 10px 25px rgba(216, 177, 83, 0.7);
 }
 
 /* Laptop Responsiveness (768px - 1100px) */
@@ -371,31 +379,31 @@
 /* Mobile Responsiveness (< 768px) */
 @media (max-width: 767px) {
   .heroContainer {
-    height: calc(100svh - 96px);
-    min-height: 480px;
-    max-height: none;
+    height: 540px !important;
+    min-height: 540px !important;
+    max-height: 540px !important;
     padding: 0 0 56px 0;
     justify-content: center;
     flex-direction: column;
-    overflow: visible;
+    overflow: hidden;
     position: relative;
   }
   .bgWrap {
     height: 100%;
-    background-color: #0a0e14;
+    background-color: #F8F6F2;
   }
   .bgImage {
     height: 100% !important;
     object-fit: cover !important;
     object-position: center top !important;
+    transform: none !important;
+    will-change: auto;
   }
   .bgOverlay {
     background: linear-gradient(to bottom,
-      rgba(10, 14, 20, 0.3) 0%,
-      rgba(10, 14, 20, 0.55) 35%,
-      rgba(10, 14, 20, 0.82) 60%,
-      rgba(10, 14, 20, 0.97) 85%,
-      #0a0e14 100%
+      rgba(248, 246, 242, 0.45) 0%,
+      rgba(248, 246, 242, 0.15) 50%,
+      transparent 100%
     ) !important;
   }
   .contentWrapper {
@@ -415,75 +423,110 @@
     font-size: 1.55rem;
     line-height: 1.2;
     margin-bottom: 0.65rem;
-    font-weight: 600;
-    text-shadow: 0 2px 16px rgba(0,0,0,0.98), 0 0 30px rgba(0,0,0,0.9);
+    font-weight: 700;
+    color: #1E242B !important;
+    text-shadow: none !important;
   }
   .heroH2 {
     font-size: 0.88rem !important;
     margin-bottom: 0.5rem;
     letter-spacing: 0.06em !important;
-    color: #f43f3f !important;
-    font-weight: 600 !important;
+    color: #1E242B !important;
+    font-weight: 800 !important;
+    text-shadow: none !important;
   }
   .redUnderline {
     margin-bottom: 0.7rem;
     width: 28px;
     height: 2px;
+    background-color: #E5A300 !important;
+    box-shadow: none !important;
   }
   .heroDesc {
-    font-size: 0.8rem;
-    line-height: 1.5;
+    font-size: 0.82rem;
+    line-height: 1.45;
     margin-bottom: 0.9rem;
     padding: 0;
-    font-weight: 500;
+    font-weight: 700 !important;
+    color: #1E242B !important;
+    text-shadow: none !important;
   }
   .btnWrapper {
-    flex-direction: row;
-    justify-content: flex-start;
-    gap: 0.55rem;
-    width: 100%;
-    margin-bottom: 0.9rem;
-    flex-wrap: nowrap;
+    display: flex !important;
+    flex-direction: row !important;
+    width: 100% !important;
+    gap: 4px !important;
+    border-radius: 8px !important;
+    border: 1.5px solid rgba(229, 163, 0, 0.6) !important;
+    background: rgba(20, 15, 5, 0.55) !important;
+    padding: 4px !important;
+    backdrop-filter: blur(8px) !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2) !important;
+    margin-bottom: 0.85rem !important;
   }
-  .callNowBtn, .whatsappBtn {
-    flex: 0 0 auto;
-    white-space: nowrap;
-    padding: 0.35rem 0.6rem !important;
-    font-size: 0.63rem !important;
-    gap: 0.2rem !important;
+  .callNowBtn {
+    flex: 1 !important;
+    width: auto !important;
+    justify-content: center !important;
+    padding: 0.65rem 0.5rem !important;
+    font-size: 0.75rem !important;
+    font-weight: 800 !important;
+    background-color: #E5A300 !important;
+    color: #1a1207 !important;
+    border-radius: 5px !important;
+    border: none !important;
+    box-shadow: none !important;
   }
-  .callNowBtn svg, .whatsappBtn svg {
-    width: 11px !important;
-    height: 11px !important;
-    flex-shrink: 0;
+  .whatsappBtn {
+    flex: 1 !important;
+    width: auto !important;
+    justify-content: center !important;
+    padding: 0.65rem 0.5rem !important;
+    font-size: 0.75rem !important;
+    font-weight: 700 !important;
+    background-color: transparent !important;
+    border: none !important;
+    color: #ffffff !important;
+    border-radius: 5px !important;
   }
-  /* 4 Badges in 1 single row on mobile */
   .heroBadgesContainer {
     grid-template-columns: repeat(4, 1fr);
-    gap: 0.25rem;
+    gap: 0.5rem;
     width: 100%;
     max-width: 100%;
     margin-bottom: 0;
+    background: rgba(20, 15, 5, 0.55) !important;
+    border-radius: 10px !important;
+    padding: 0.65rem 0.5rem !important;
+    backdrop-filter: blur(6px) !important;
+    border: 1px solid rgba(229, 163, 0, 0.25) !important;
   }
   .badgeIconWrap {
-    width: 30px;
-    height: 30px;
+    width: 28px;
+    height: 28px;
     margin-bottom: 0.1rem;
+    border: 1.5px solid rgba(229, 163, 0, 0.7) !important;
+    background: rgba(229, 163, 0, 0.15) !important;
+    box-shadow: none !important;
   }
   .badgeSvgIcon {
-    width: 15px;
-    height: 15px;
+    width: 13px;
+    height: 13px;
+    color: #E5A300 !important;
   }
   .badgeValue {
     font-size: 0.88rem;
     font-weight: 800;
+    color: #ffffff !important;
+    text-shadow: none !important;
   }
   .badgeLabel {
-    font-size: 0.5rem;
+    font-size: 0.45rem;
     line-height: 1.15;
-    font-weight: 500;
+    font-weight: 600;
+    color: rgba(255,255,255,0.75) !important;
+    text-shadow: none !important;
   }
-  /* Stats bar — absolutely pinned to bottom of hero */
   .heroTransparentStatsBar {
     position: absolute !important;
     bottom: 0 !important;
@@ -492,9 +535,8 @@
     width: 100% !important;
     padding: 0.6rem 0.85rem !important;
     z-index: 10;
-    background: rgba(8, 9, 13, 0.88) !important;
-    border-top: 1px solid rgba(220, 38, 38, 0.35) !important;
-    backdrop-filter: blur(8px) !important;
+    background: #F6F2EA !important;
+    border-top: 1px solid #E2D7C3 !important;
   }
   .statsContainer {
     flex-direction: row;
@@ -512,33 +554,34 @@
   .statIconWrap, .statIconWrapRed {
     width: 30px;
     height: 30px;
-  }
-  .statIconWrapRed {
-    box-shadow: 0 0 8px rgba(220, 38, 38, 0.5);
+    border: 1.5px solid #B8860B !important;
+    background: #ffffff !important;
   }
   .statNumber {
     font-size: 1.35rem;
     font-weight: 800;
-    color: #ffffff;
+    color: #B8860B !important;
     letter-spacing: -0.01em;
+    text-shadow: none !important;
   }
   .statTitle {
     font-size: 0.52rem;
     line-height: 1.15;
-    color: rgba(255,255,255,0.75);
-    font-weight: 500;
+    color: #1E242B !important;
+    font-weight: 600;
   }
   .statDivider {
     display: block;
     width: 1px;
     height: 26px;
-    background-color: rgba(220, 38, 38, 0.3);
+    background-color: #E2D7C3 !important;
   }
   .floatingWhatsappIcon {
     bottom: 80px;
     right: 14px;
     width: 40px;
     height: 40px;
+    background: #D8B153 !important;
   }
 }
 

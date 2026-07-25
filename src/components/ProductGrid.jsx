@@ -20,45 +20,45 @@ import {
 const defaultProducts = [
   {
     id: 'prod-1',
-    title: 'PASSENGER CAR SILENCERS',
+    title: 'CAR SILENCERS',
     image: '/images/prod_passenger_car.png',
     icon: <FaCar />,
-    desc: 'High performance silencers for all passenger cars. Built for durability and perfect fit.'
+    desc: 'High performance OEM specification silencers for all passenger cars. Built for durability.'
   },
   {
     id: 'prod-2',
-    title: 'SUV & PICKUP SILENCERS',
+    title: 'SUV SILENCERS',
     image: '/images/prod_suv_pickup.png',
     icon: <FaShuttleVan />,
-    desc: 'Robust silencers designed for SUVs and pickup trucks for powerful performance.'
+    desc: 'Robust silencers designed for SUVs, MUVs and pickup trucks for powerful performance.'
   },
   {
     id: 'prod-3',
-    title: 'LCV SILENCERS',
-    image: '/images/prod_lcv.png',
+    title: 'COMMERCIAL VEHICLE SILENCERS',
+    image: '/images/prod_truck_bus.png',
     icon: <FaTruck />,
-    desc: 'OEM specification silencers for Light Commercial Vehicles. Strong. Reliable. Long lasting.'
+    desc: 'Heavy duty OEM specification silencers for LCV, trucks and buses. Built for high mileage.'
   },
   {
     id: 'prod-4',
-    title: 'TRUCK & BUS SILENCERS',
-    image: '/images/prod_truck_bus.png',
-    icon: <FaBus />,
-    desc: 'Heavy duty silencers for trucks and buses. Built for high performance and extended life.'
+    title: 'CATALYTIC CONVERTER SERVICE',
+    image: '/images/prod_catalytic.png',
+    icon: <FaCogs />,
+    desc: 'High quality catalytic converter cleaning, restoration and emission optimization.'
   },
   {
     id: 'prod-5',
-    title: 'CATALYTIC CONVERTERS',
-    image: '/images/prod_catalytic.png',
-    icon: <FaCogs />,
-    desc: 'High quality catalytic converters for reduced emissions and better engine performance.'
+    title: 'FLEX PIPE REPLACEMENT',
+    image: '/images/prod_lcv.png',
+    icon: <FaWrench />,
+    desc: 'Precision flex pipe replacement for seamless vibration absorption and leak-free exhaust.'
   },
   {
     id: 'prod-6',
-    title: 'DPF / DOC / SCR SERVICES',
+    title: 'PROFESSIONAL DPF RESTORATION & EXHAUST REPAIR',
     image: '/images/prod_dpf_service.png',
     icon: <FaWrench />,
-    desc: 'Professional DPF cleaning, restoration & replacement services with advanced technology.'
+    desc: '4-stage scientific DPF cleaning, DOC restoration & custom exhaust repair services.'
   }
 ];
 
@@ -272,7 +272,7 @@ export default function ProductGrid() {
                 {/* Arrow Connector (between steps) */}
                 {i < dpfSteps.length - 1 && (
                   <div className={styles.arrowConnector}>
-                    <FaArrowRight size={18} color="#dc2626" />
+                    <FaArrowRight size={18} color="#E5A300" />
                   </div>
                 )}
               </div>
@@ -283,7 +283,7 @@ export default function ProductGrid() {
           <div className={styles.processTrustBanner}>
             <div className={styles.trustBannerGrid}>
               <div className={styles.trustBannerItem}>
-                <FaCheckCircle size={18} color="#dc2626" />
+                <FaCheckCircle size={18} color="#E5A300" />
                 <div className={styles.trustText}>
                   <span className={styles.trustTitle}>RESTORED TO OEM</span>
                   <span className={styles.trustSub}>PERFORMANCE</span>
@@ -291,7 +291,7 @@ export default function ProductGrid() {
               </div>
 
               <div className={styles.trustBannerItem}>
-                <FaChartLine size={18} color="#dc2626" />
+                <FaChartLine size={18} color="#E5A300" />
                 <div className={styles.trustText}>
                   <span className={styles.trustTitle}>BETTER MILEAGE</span>
                   <span className={styles.trustSub}>&amp; POWER</span>
@@ -299,7 +299,7 @@ export default function ProductGrid() {
               </div>
 
               <div className={styles.trustBannerItem}>
-                <FaLeaf size={18} color="#dc2626" />
+                <FaLeaf size={18} color="#E5A300" />
                 <div className={styles.trustText}>
                   <span className={styles.trustTitle}>REDUCED EMISSIONS</span>
                   <span className={styles.trustSub}>&amp; POLLUTION</span>
@@ -307,7 +307,7 @@ export default function ProductGrid() {
               </div>
 
               <div className={styles.trustBannerItem}>
-                <FaCheckCircle size={18} color="#dc2626" />
+                <FaCheckCircle size={18} color="#E5A300" />
                 <div className={styles.trustText}>
                   <span className={styles.trustTitle}>COST EFFECTIVE</span>
                   <span className={styles.trustSub}>SOLUTION</span>

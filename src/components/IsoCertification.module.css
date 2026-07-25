@@ -23,7 +23,7 @@
 .redBar {
   width: 48px;
   height: 3px;
-  background: #dc2626;
+  background: #E5A300;
   border-radius: 2px;
   margin-bottom: 4px;
 }
@@ -40,7 +40,7 @@
 .sectionSubtitle {
   font-size: 0.9rem;
   font-weight: 400;
-  color: #dc2626;
+  color: #E5A300;
   letter-spacing: 0.02em;
 }
 

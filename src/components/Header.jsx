@@ -24,8 +24,8 @@ export default function Header() {
           <Image
             src="/images/logo_hq.png"
             alt="Hi Quality Silencers Logo"
-            width={150}
-            height={42}
+            width={175}
+            height={48}
             priority
             className={styles.logoImg}
           />

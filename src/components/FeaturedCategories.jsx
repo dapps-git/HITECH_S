@@ -5,22 +5,22 @@ import { useScrollReveal } from '@/hooks/useScrollReveal';
 
 const services = [
   {
-    title: 'DPF | DOC CLEANING',
+    title: 'PROFESSIONAL DPF RESTORATION',
     desc: '4-stage scientific cleaning restoring original exhaust flow & back pressure',
     image: '/feature-wheels.png',
-    link: '#faq',
+    link: '#dpf-cleaning',
   },
   {
-    title: 'OEM SILENCER MFG',
+    title: 'OEM SILENCER MANUFACTURING',
     desc: 'ISO certified silencer manufacturing with 15+ years of OEM precision experience',
     image: '/feature-cockpit.png',
     link: '#products',
   },
   {
-    title: '15-MONTH WARRANTY',
-    desc: 'Backed by 15 years of manufacturing excellence & ISO 9001:2015 certified quality',
+    title: 'CATALYTIC CONVERTER & EXHAUST REPAIR',
+    desc: 'High performance catalytic converter service, flex pipe replacement & custom exhaust repair',
     image: '/feature-leather.png',
-    link: '#about',
+    link: '#products',
   },
 ];
 

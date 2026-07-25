@@ -5,7 +5,14 @@ import { LuMapPin, LuPhone, LuMail, LuFacebook, LuInstagram } from 'react-icons/
 import { FaWhatsapp } from 'react-icons/fa';
 
 const quickLinks = ['Home', 'Products', 'About Us', 'Contact Us'];
-const services = ['OEM Silencers', 'Sedan & Hatchback', 'SUV & MUV Silencers', 'Commercial Vehicles', 'DPF Cleaning', 'Custom Exhaust'];
+const productsList = ['Car Silencers', 'SUV Silencers', 'Commercial Vehicle Silencers'];
+const services = [
+  'Professional DPF Restoration',
+  'OEM Silencer Manufacturing',
+  'Catalytic Converter Service',
+  'Flex Pipe Replacement',
+  'Exhaust Repair'
+];
 
 export default function Footer() {
   return (
@@ -104,7 +111,7 @@ export default function Footer() {
                 className={styles.contactItem}
               >
                 <div className={styles.iconCircle}>
-                  <LuMapPin size={14} color="#DC2626" />
+                  <LuMapPin size={14} color="#E5A300" />
                 </div>
                 <span className={styles.contactText}>
                   47/1302C, Cheerpupalam BC Road,<br />Beypore, Calicut, Kerala – 673015
@@ -113,7 +120,7 @@ export default function Footer() {
 
               <div className={styles.contactItem}>
                 <div className={styles.iconCircle}>
-                  <LuPhone size={14} color="#DC2626" />
+                  <LuPhone size={14} color="#E5A300" />
                 </div>
                 <div className={styles.phoneSub}>
                   <a href="tel:+919645888253" className={styles.contactText}>
@@ -130,7 +137,7 @@ export default function Footer() {
                 className={styles.contactItem}
               >
                 <div className={styles.iconCircle}>
-                  <LuMail size={14} color="#DC2626" />
+                  <LuMail size={14} color="#E5A300" />
                 </div>
                 <span className={styles.contactText}>
                   hiqualitysilencer@gmail.com

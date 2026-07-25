@@ -50,8 +50,8 @@
 }
 
 .socialLink:hover {
-  border-color: #dc2626;
-  color: #dc2626;
+  border-color: #E5A300;
+  color: #E5A300;
 }
 
 .colTitle {
@@ -66,7 +66,7 @@
 .titleLine {
   width: 28px;
   height: 2px;
-  background: #dc2626;
+  background: #E5A300;
   margin-bottom: 1.1rem;
 }
 
@@ -85,7 +85,7 @@
 }
 
 .footerLink:hover {
-  color: #dc2626;
+  color: #E5A300;
 }
 
 .contactCol {
@@ -122,7 +122,7 @@
 }
 
 .contactText:hover {
-  color: #dc2626;
+  color: #E5A300;
 }
 
 .phoneSub {
@@ -162,7 +162,7 @@
 }
 
 .policyLink:hover {
-  color: #dc2626;
+  color: #E5A300;
 }
 
 @media (max-width: 900px) {

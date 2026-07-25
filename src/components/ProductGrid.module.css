@@ -28,7 +28,7 @@
 .headerLine {
   width: 50px;
   height: 2px;
-  background-color: #dc2626;
+  background-color: #E5A300;
 }
 
 .headerTitle {
@@ -42,7 +42,7 @@
 }
 
 .titleRed {
-  color: #dc2626;
+  color: #E5A300;
 }
 
 .headerSub {
@@ -125,7 +125,7 @@
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  background: #dc2626;
+  background: #E5A300;
   color: #ffffff;
   display: flex;
   align-items: center;
@@ -222,7 +222,7 @@
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  background: #dc2626;
+  background: #E5A300;
   color: #ffffff;
   font-size: 0.85rem;
   font-weight: 800;
@@ -335,7 +335,7 @@
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
-  background-color: #dc2626;
+  background-color: #E5A300;
   color: #ffffff;
   border: none;
   padding: 0.45rem 1rem;
@@ -349,7 +349,7 @@
 }
 
 .addProductBtn:hover {
-  background-color: #b91c1c;
+  background-color: #C68A00;
   transform: translateY(-2px);
   box-shadow: 0 6px 16px rgba(220, 38, 38, 0.45);
 }
@@ -405,7 +405,7 @@
 }
 
 .closeBtn:hover {
-  color: #dc2626;
+  color: #E5A300;
 }
 
 .modalForm {
@@ -441,11 +441,11 @@
 
 .formGroup input:focus,
 .formGroup textarea:focus {
-  border-color: #dc2626;
+  border-color: #E5A300;
 }
 
 .submitBtn {
-  background-color: #dc2626;
+  background-color: #E5A300;
   color: #ffffff;
   border: none;
   padding: 0.65rem 1rem;
@@ -457,7 +457,7 @@
 }
 
 .submitBtn:hover {
-  background-color: #b91c1c;
+  background-color: #C68A00;
 }
 
 /* RESPONSIVENESS */

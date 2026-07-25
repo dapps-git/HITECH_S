@@ -60,16 +60,11 @@ export default function AdminLogin() {
         {/* Logo & Header */}
         <div style={{ marginBottom: '2rem' }}>
           <div style={{
-            display: 'inline-flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            width: '56px',
-            height: '56px',
-            borderRadius: '50%',
-            backgroundColor: 'rgba(220, 38, 38, 0.08)',
-            color: '#dc2626',
-            marginBottom: '1rem',
-            border: '1.5px solid rgba(220, 38, 38, 0.3)'
+            display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
+            width: '56px', height: '56px', borderRadius: '50%',
+            backgroundColor: 'rgba(229, 163, 0, 0.1)',
+            color: '#E5A300', marginBottom: '1rem',
+            border: '1.5px solid rgba(229, 163, 0, 0.4)'
           }}>
             <FaShieldAlt size={26} />
           </div>
@@ -162,15 +157,15 @@ export default function AdminLogin() {
             disabled={loading}
             style={{
               marginTop: '0.5rem',
-              backgroundColor: '#dc2626',
-              color: '#ffffff',
+              backgroundColor: '#E5A300',
+              color: '#1a1207',
               border: 'none',
               borderRadius: '6px',
               padding: '0.75rem 1rem',
               fontSize: '0.88rem',
-              fontWeight: '700',
+              fontWeight: '800',
               cursor: 'pointer',
-              boxShadow: '0 4px 14px rgba(220, 38, 38, 0.35)',
+              boxShadow: '0 4px 14px rgba(229, 163, 0, 0.4)',
               transition: 'background-color 0.2s ease'
             }}
           >
