@@ -10,8 +10,8 @@
 
 .footerGrid {
   display: grid;
-  grid-template-columns: 1.6fr 1fr 1fr 1.4fr;
-  gap: 3rem;
+  grid-template-columns: 1.4fr 0.8fr 1fr 0.8fr 1.2fr;
+  gap: 2rem;
   padding-bottom: 2.5rem;
 }
 
@@ -50,8 +50,8 @@
 }
 
 .socialLink:hover {
-  border-color: #E5A300;
-  color: #E5A300;
+  border-color: #dc2626;
+  color: #dc2626;
 }
 
 .colTitle {
@@ -66,7 +66,7 @@
 .titleLine {
   width: 28px;
   height: 2px;
-  background: #E5A300;
+  background: #dc2626;
   margin-bottom: 1.1rem;
 }
 
@@ -85,7 +85,7 @@
 }
 
 .footerLink:hover {
-  color: #E5A300;
+  color: #dc2626;
 }
 
 .contactCol {
@@ -122,7 +122,7 @@
 }
 
 .contactText:hover {
-  color: #E5A300;
+  color: #dc2626;
 }
 
 .phoneSub {
@@ -162,7 +162,7 @@
 }
 
 .policyLink:hover {
-  color: #E5A300;
+  color: #dc2626;
 }
 
 @media (max-width: 900px) {

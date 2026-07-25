@@ -1,5 +1,5 @@
 .topTicker {
-  background-color: #D8B153;
+  background-color: #dc2626;
   overflow: hidden;
   height: 34px;
   display: flex;
@@ -15,7 +15,7 @@
   bottom: 0;
   width: 60px;
   z-index: 2;
-  background: linear-gradient(to right, #D8B153, transparent);
+  background: linear-gradient(to right, #dc2626, transparent);
   pointer-events: none;
 }
 
@@ -26,7 +26,7 @@
   bottom: 0;
   width: 60px;
   z-index: 2;
-  background: linear-gradient(to left, #D8B153, transparent);
+  background: linear-gradient(to left, #dc2626, transparent);
   pointer-events: none;
 }
 
@@ -49,15 +49,15 @@
 
 .itemText {
   font-size: 0.72rem;
-  font-weight: 600;
-  color: #1E242B;
+  font-weight: 500;
+  color: #ffffff;
   letter-spacing: 0.06em;
   padding: 0 1.5rem;
   text-transform: uppercase;
 }
 
 .dot {
-  color: rgba(30, 36, 43, 0.45);
+  color: rgba(255, 255, 255, 0.6);
   font-size: 0.5rem;
   flex-shrink: 0;
 }

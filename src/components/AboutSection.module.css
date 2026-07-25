@@ -31,13 +31,13 @@
 .redBar {
   width: 36px;
   height: 2px;
-  background: #E5A300;
+  background: #dc2626;
 }
 
 .badgeText {
   font-size: 0.78rem;
   font-weight: 600;
-  color: #E5A300;
+  color: #dc2626;
   letter-spacing: 0.12em;
   text-transform: uppercase;
 }
@@ -56,7 +56,7 @@
   font-family: 'Poppins', sans-serif;
   font-weight: 500;
   font-size: 1.75rem;
-  color: #E5A300;
+  color: #dc2626;
   line-height: 1.18;
   margin-bottom: 2rem;
   letter-spacing: -0.01em;
@@ -81,7 +81,7 @@
 }
 
 .redText {
-  color: #E5A300;
+  color: #dc2626;
 }
 
 .btnRow {
@@ -91,7 +91,7 @@
 }
 
 .warrantyBtn {
-  background-color: #E5A300;
+  background-color: #dc2626;
   color: #ffffff;
   padding: 0.8rem 1.6rem;
   border-radius: 0px;
@@ -101,7 +101,7 @@
   align-items: center;
   gap: 0.5rem;
   transition: all 0.2s ease;
-  border: 1.5px solid #E5A300;
+  border: 1.5px solid #dc2626;
   text-transform: uppercase;
   letter-spacing: 0.04em;
   text-decoration: none;
@@ -109,7 +109,7 @@
 
 .warrantyBtn:hover {
   background-color: transparent;
-  color: #E5A300;
+  color: #dc2626;
 }
 
 .aboutRight {
@@ -141,7 +141,7 @@
   right: 0;
   width: 5px;
   height: 100%;
-  background: linear-gradient(180deg, #E5A300, #C68A00);
+  background: linear-gradient(180deg, #dc2626, #b91c1c);
 }
 
 .featuresGrid {
@@ -160,7 +160,7 @@
 }
 
 .featureCard:hover {
-  border-color: #E5A300;
+  border-color: #dc2626;
 }
 
 .featureIcon {
@@ -208,7 +208,7 @@
   width: 52px;
   height: 52px;
   border-radius: 50%;
-  border: 1.5px solid #E5A300;
+  border: 1.5px solid #dc2626;
   background: #fef2f2;
   display: flex;
   align-items: center;
@@ -219,7 +219,7 @@
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
   font-size: 1.1rem;
-  color: #E5A300;
+  color: #dc2626;
 }
 
 .bottomBadgeTitle {
@@ -271,7 +271,7 @@
     font-size: 0.85rem !important;
     font-weight: 600 !important;
     margin-left: 0.25rem !important;
-    color: #E5A300 !important;
+    color: #dc2626 !important;
   }
 }
 

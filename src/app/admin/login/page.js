@@ -63,7 +63,7 @@ export default function AdminLogin() {
             display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
             width: '56px', height: '56px', borderRadius: '50%',
             backgroundColor: 'rgba(229, 163, 0, 0.1)',
-            color: '#E5A300', marginBottom: '1rem',
+            color: '#dc2626', marginBottom: '1rem',
             border: '1.5px solid rgba(229, 163, 0, 0.4)'
           }}>
             <FaShieldAlt size={26} />
@@ -157,8 +157,8 @@ export default function AdminLogin() {
             disabled={loading}
             style={{
               marginTop: '0.5rem',
-              backgroundColor: '#E5A300',
-              color: '#1a1207',
+              backgroundColor: '#dc2626',
+              color: '#0f172a',
               border: 'none',
               borderRadius: '6px',
               padding: '0.75rem 1rem',

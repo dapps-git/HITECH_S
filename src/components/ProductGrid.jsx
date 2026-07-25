@@ -2,15 +2,15 @@
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import styles from './ProductGrid.module.css';
-import { 
-  FaCar, 
-  FaTruck, 
-  FaBus, 
-  FaCogs, 
-  FaWrench, 
-  FaCheckCircle, 
-  FaChartLine, 
-  FaLeaf, 
+import {
+  FaCar,
+  FaTruck,
+  FaBus,
+  FaCogs,
+  FaWrench,
+  FaCheckCircle,
+  FaChartLine,
+  FaLeaf,
   FaArrowRight,
   FaShuttleVan,
   FaPlus,
@@ -30,35 +30,14 @@ const defaultProducts = [
     title: 'SUV SILENCERS',
     image: '/images/prod_suv_pickup.png',
     icon: <FaShuttleVan />,
-    desc: 'Robust silencers designed for SUVs, MUVs and pickup trucks for powerful performance.'
+    desc: 'Robust silencers designed for SUVs and pickup trucks for powerful performance.'
   },
   {
     id: 'prod-3',
     title: 'COMMERCIAL VEHICLE SILENCERS',
     image: '/images/prod_truck_bus.png',
     icon: <FaTruck />,
-    desc: 'Heavy duty OEM specification silencers for LCV, trucks and buses. Built for high mileage.'
-  },
-  {
-    id: 'prod-4',
-    title: 'CATALYTIC CONVERTER SERVICE',
-    image: '/images/prod_catalytic.png',
-    icon: <FaCogs />,
-    desc: 'High quality catalytic converter cleaning, restoration and emission optimization.'
-  },
-  {
-    id: 'prod-5',
-    title: 'FLEX PIPE REPLACEMENT',
-    image: '/images/prod_lcv.png',
-    icon: <FaWrench />,
-    desc: 'Precision flex pipe replacement for seamless vibration absorption and leak-free exhaust.'
-  },
-  {
-    id: 'prod-6',
-    title: 'PROFESSIONAL DPF RESTORATION & EXHAUST REPAIR',
-    image: '/images/prod_dpf_service.png',
-    icon: <FaWrench />,
-    desc: '4-stage scientific DPF cleaning, DOC restoration & custom exhaust repair services.'
+    desc: 'Heavy duty silencers for LCVs, trucks, and commercial fleet vehicles.'
   }
 ];
 
@@ -120,17 +99,8 @@ export default function ProductGrid() {
           return <FaWrench />;
         };
 
-        if (data.success && data.products) {
-          const formattedDynamic = data.products.map(p => ({
-            id: p._id || p.id,
-            title: p.title,
-            image: p.image || '/images/prod_passenger_car.png',
-            desc: p.desc,
-            icon: getIcon(p.iconType, p.title)
-          }));
-
-          // Combine default static products with dynamic MongoDB products
-          setProductList([...defaultProducts, ...formattedDynamic]);
+        if (data.success && data.products && data.products.length > 0) {
+          // If backend has items, format them
         }
       } catch (err) {
         // Fallback to default list if offline
@@ -250,7 +220,7 @@ export default function ProductGrid() {
                 <div className={styles.stepCard}>
                   {/* Step Number Badge */}
                   <div className={styles.stepBadge}>{s.step}</div>
-                  
+
                   {/* Step Title */}
                   <h4 className={styles.stepTitle}>{s.title}</h4>
 
@@ -272,7 +242,7 @@ export default function ProductGrid() {
                 {/* Arrow Connector (between steps) */}
                 {i < dpfSteps.length - 1 && (
                   <div className={styles.arrowConnector}>
-                    <FaArrowRight size={18} color="#E5A300" />
+                    <FaArrowRight size={18} color="#dc2626" />
                   </div>
                 )}
               </div>
@@ -283,7 +253,7 @@ export default function ProductGrid() {
           <div className={styles.processTrustBanner}>
             <div className={styles.trustBannerGrid}>
               <div className={styles.trustBannerItem}>
-                <FaCheckCircle size={18} color="#E5A300" />
+                <FaCheckCircle size={18} color="#dc2626" />
                 <div className={styles.trustText}>
                   <span className={styles.trustTitle}>RESTORED TO OEM</span>
                   <span className={styles.trustSub}>PERFORMANCE</span>
@@ -291,7 +261,7 @@ export default function ProductGrid() {
               </div>
 
               <div className={styles.trustBannerItem}>
-                <FaChartLine size={18} color="#E5A300" />
+                <FaChartLine size={18} color="#dc2626" />
                 <div className={styles.trustText}>
                   <span className={styles.trustTitle}>BETTER MILEAGE</span>
                   <span className={styles.trustSub}>&amp; POWER</span>
@@ -299,7 +269,7 @@ export default function ProductGrid() {
               </div>
 
               <div className={styles.trustBannerItem}>
-                <FaLeaf size={18} color="#E5A300" />
+                <FaLeaf size={18} color="#dc2626" />
                 <div className={styles.trustText}>
                   <span className={styles.trustTitle}>REDUCED EMISSIONS</span>
                   <span className={styles.trustSub}>&amp; POLLUTION</span>
@@ -307,7 +277,7 @@ export default function ProductGrid() {
               </div>
 
               <div className={styles.trustBannerItem}>
-                <FaCheckCircle size={18} color="#E5A300" />
+                <FaCheckCircle size={18} color="#dc2626" />
                 <div className={styles.trustText}>
                   <span className={styles.trustTitle}>COST EFFECTIVE</span>
                   <span className={styles.trustSub}>SOLUTION</span>

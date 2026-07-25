@@ -47,13 +47,13 @@
 }
 
 .navLink:hover {
-  color: #D8B153;
+  color: #dc2626;
 }
 
 .faqLink {
   font-size: 0.72rem;
   font-weight: 600;
-  color: #C68A00;
+  color: #b91c1c;
   letter-spacing: 0.05em;
   text-transform: uppercase;
   transition: all 0.2s ease;
@@ -61,12 +61,12 @@
   display: inline-flex;
   align-items: center;
   text-decoration: none;
-  border: 1.5px solid #C68A00;
+  border: 1.5px solid #b91c1c;
   border-radius: 5px;
 }
 
 .faqLink:hover {
-  background-color: #C68A00;
+  background-color: #b91c1c;
   color: #ffffff;
 }
 
@@ -89,8 +89,8 @@
 }
 
 .callNowBox:hover {
-  border-color: #E5A300;
-  color: #E5A300;
+  border-color: #dc2626;
+  color: #dc2626;
   background: rgba(220, 38, 38, 0.05);
 }
 
@@ -99,7 +99,7 @@
 }
 
 .callNowBox:hover .callIcon {
-  color: #E5A300;
+  color: #dc2626;
 }
 
 .callTextWrap {
@@ -123,16 +123,16 @@
 }
 
 .callNowBox:hover .callNumber {
-  color: #E5A300;
+  color: #dc2626;
 }
 
 .navCtaRed {
   display: inline-flex;
   align-items: center;
   gap: 0.45rem;
-  background-color: #E5A300;
+  background-color: #dc2626;
   color: #ffffff;
-  border: 1px solid #E5A300;
+  border: 1px solid #dc2626;
   padding: 0.55rem 1.1rem;
   border-radius: 4px;
   font-weight: 700;
@@ -144,7 +144,7 @@
 }
 
 .navCtaRed:hover {
-  background-color: #C68A00;
+  background-color: #b91c1c;
   transform: translateY(-1px);
   box-shadow: 0 6px 18px rgba(220, 38, 38, 0.5);
 }
@@ -164,7 +164,7 @@
   left: 0;
   right: 0;
   background-color: #ffffff;
-  border-top: 2px solid #E5A300;
+  border-top: 2px solid #dc2626;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
   padding: 1.25rem 1.5rem;
   display: flex;
@@ -184,13 +184,13 @@
 }
 
 .mobileDrawerLink:hover {
-  color: #E5A300;
+  color: #dc2626;
 }
 
 .mobileFaqLink {
   font-size: 0.9rem;
   font-weight: 500;
-  color: #E5A300;
+  color: #dc2626;
   padding: 10px 0;
   border-bottom: 1px solid #f3f4f6;
   text-decoration: none;
@@ -200,7 +200,7 @@
 }
 
 .mobileFaqLink:hover {
-  color: #C68A00;
+  color: #b91c1c;
 }
 
 .mobileDrawerCall {
@@ -218,9 +218,9 @@
 }
 
 .mobileDrawerCta {
-  background-color: #E5A300;
+  background-color: #dc2626;
   color: #ffffff;
-  border: 1.5px solid #E5A300;
+  border: 1.5px solid #dc2626;
   padding: 0.75rem;
   border-radius: 4px;
   font-weight: 700;

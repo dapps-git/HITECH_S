@@ -5,14 +5,14 @@ import { LuMapPin, LuPhone, LuMail, LuFacebook, LuInstagram } from 'react-icons/
 import { FaWhatsapp } from 'react-icons/fa';
 
 const quickLinks = ['Home', 'Products', 'About Us', 'Contact Us'];
-const productsList = ['Car Silencers', 'SUV Silencers', 'Commercial Vehicle Silencers'];
 const services = [
   'Professional DPF Restoration',
   'OEM Silencer Manufacturing',
   'Catalytic Converter Service',
   'Flex Pipe Replacement',
-  'Exhaust Repair'
+  'Exhaust Repair',
 ];
+const productsList = ['Car Silencers', 'SUV Silencers', 'Commercial Vehicle Silencers'];
 
 export default function Footer() {
   return (
@@ -76,21 +76,27 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Col 3: Our Services */}
+          {/* Col 3: Services + Products in two sub-columns */}
           <div>
-            <h4 className={styles.colTitle}>
-              Our Services
-            </h4>
+            <h4 className={styles.colTitle}>Services</h4>
             <div className={styles.titleLine} />
             <ul className={styles.linkList}>
               {services.map((s, i) => (
                 <li key={i}>
-                  <a
-                    href="#products"
-                    className={styles.footerLink}
-                  >
-                    {s}
-                  </a>
+                  <a href="#products" className={styles.footerLink}>{s}</a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Col 4: Products */}
+          <div>
+            <h4 className={styles.colTitle}>Products</h4>
+            <div className={styles.titleLine} />
+            <ul className={styles.linkList}>
+              {productsList.map((p, i) => (
+                <li key={i}>
+                  <a href="#products" className={styles.footerLink}>{p}</a>
                 </li>
               ))}
             </ul>
@@ -111,7 +117,7 @@ export default function Footer() {
                 className={styles.contactItem}
               >
                 <div className={styles.iconCircle}>
-                  <LuMapPin size={14} color="#E5A300" />
+                  <LuMapPin size={14} color="#dc2626" />
                 </div>
                 <span className={styles.contactText}>
                   47/1302C, Cheerpupalam BC Road,<br />Beypore, Calicut, Kerala – 673015
@@ -120,7 +126,7 @@ export default function Footer() {
 
               <div className={styles.contactItem}>
                 <div className={styles.iconCircle}>
-                  <LuPhone size={14} color="#E5A300" />
+                  <LuPhone size={14} color="#dc2626" />
                 </div>
                 <div className={styles.phoneSub}>
                   <a href="tel:+919645888253" className={styles.contactText}>
@@ -137,7 +143,7 @@ export default function Footer() {
                 className={styles.contactItem}
               >
                 <div className={styles.iconCircle}>
-                  <LuMail size={14} color="#E5A300" />
+                  <LuMail size={14} color="#dc2626" />
                 </div>
                 <span className={styles.contactText}>
                   hiqualitysilencer@gmail.com

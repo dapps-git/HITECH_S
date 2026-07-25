@@ -14,10 +14,10 @@ import {
   FaGlobe
 } from 'react-icons/fa';
 
-const YELLOW = '#E5A300';
-const YELLOW_DARK = '#C68A00';
-const YELLOW_BG = '#FFF8E6';
-const YELLOW_BORDER = '#F5D68A';
+const RED = '#dc2626';
+const RED_DARK = '#b91c1c';
+const RED_BG = '#fef2f2';
+const RED_BORDER = '#fecaca';
 
 export default function AdminDashboard() {
   const [activeTab, setActiveTab] = useState('blogs');
@@ -121,19 +121,19 @@ export default function AdminDashboard() {
 
       {/* Top Navbar */}
       <header className="admin-header" style={{
-        backgroundColor: '#1a1207',
+        backgroundColor: '#0f172a',
         color: '#ffffff',
         padding: '0.85rem 2rem',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
         boxShadow: `0 4px 14px rgba(0,0,0,0.2)`,
-        borderBottom: `3px solid ${YELLOW}`
+        borderBottom: `3px solid ${RED}`
       }}>
         <div className="admin-brand" style={{ display: 'flex', alignItems: 'center', gap: '0.65rem' }}>
-          <FaNewspaper size={20} color={YELLOW} />
+          <FaNewspaper size={20} color={RED} />
           <span style={{ fontSize: '1.05rem', fontWeight: '800', fontFamily: 'var(--font-heading)', letterSpacing: '0.02em', color: '#ffffff' }}>
-            HI QUALITY <span style={{ color: YELLOW }}>SILENCERS</span>{' '}
+            HI QUALITY <span style={{ color: RED }}>SILENCERS</span>{' '}
             <span style={{ color: '#94a3b8', fontWeight: '600' }}>ADMIN</span>
           </span>
         </div>
@@ -144,7 +144,7 @@ export default function AdminDashboard() {
           </Link>
           <button onClick={handleLogout} className="admin-logout" style={{
             backgroundColor: `rgba(229, 163, 0, 0.15)`,
-            color: YELLOW,
+            color: RED,
             border: `1px solid rgba(229, 163, 0, 0.4)`,
             padding: '0.45rem 0.85rem',
             borderRadius: '4px',
@@ -179,16 +179,16 @@ export default function AdminDashboard() {
 
           <div className="admin-btn-group" style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
             <Link href="/admin/products/new" style={{
-              backgroundColor: '#1a1207', color: '#ffffff',
+              backgroundColor: '#0f172a', color: '#ffffff',
               padding: '0.65rem 1.15rem', borderRadius: '6px',
               fontSize: '0.82rem', fontWeight: '700',
               display: 'inline-flex', alignItems: 'center', gap: '0.45rem',
-              border: `1px solid ${YELLOW}`, textDecoration: 'none'
+              border: `1px solid ${RED}`, textDecoration: 'none'
             }}>
               <FaPlus /> Add Product
             </Link>
             <Link href="/admin/blogs/new" style={{
-              backgroundColor: YELLOW, color: '#1a1207',
+              backgroundColor: RED, color: '#0f172a',
               padding: '0.65rem 1.15rem', borderRadius: '6px',
               fontSize: '0.82rem', fontWeight: '800',
               display: 'inline-flex', alignItems: 'center', gap: '0.45rem',
@@ -206,7 +206,7 @@ export default function AdminDashboard() {
               onClick={() => { setActiveTab(tab); setSearch(''); }}
               style={{
                 padding: '0.7rem 1.1rem', border: 'none', cursor: 'pointer',
-                borderBottom: activeTab === tab ? `3px solid ${YELLOW}` : '3px solid transparent',
+                borderBottom: activeTab === tab ? `3px solid ${RED}` : '3px solid transparent',
                 marginBottom: '-2px',
                 backgroundColor: 'transparent',
                 color: activeTab === tab ? '#0f172a' : '#64748b',
@@ -233,7 +233,7 @@ export default function AdminDashboard() {
               fontSize: '0.84rem', outline: 'none', boxSizing: 'border-box',
               transition: 'border-color 0.2s'
             }}
-            onFocus={e => e.target.style.borderColor = YELLOW}
+            onFocus={e => e.target.style.borderColor = RED}
             onBlur={e => e.target.style.borderColor = '#e2e8f0'}
           />
         </div>
@@ -250,13 +250,13 @@ export default function AdminDashboard() {
             ) : filteredBlogs.length === 0 ? (
               <div style={{ padding: '3rem', textAlign: 'center', color: '#64748b' }}>
                 <p>No blog posts found.</p>
-                <Link href="/admin/blogs/new" style={{ color: YELLOW_DARK, fontWeight: '700' }}>Create your first blog post →</Link>
+                <Link href="/admin/blogs/new" style={{ color: RED_DARK, fontWeight: '700' }}>Create your first blog post →</Link>
               </div>
             ) : (
               <div style={{ overflowX: 'auto' }}>
                 <table className="admin-table" style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', fontSize: '0.85rem' }}>
                   <thead>
-                    <tr style={{ backgroundColor: YELLOW_BG, borderBottom: `2px solid ${YELLOW_BORDER}`, color: '#334155' }}>
+                    <tr style={{ backgroundColor: RED_BG, borderBottom: `2px solid ${RED_BORDER}`, color: '#334155' }}>
                       <th style={{ padding: '0.85rem 1rem', fontWeight: '700' }}>Article Title</th>
                       <th style={{ padding: '0.85rem 1rem', fontWeight: '700' }}>Visibility</th>
                       <th style={{ padding: '0.85rem 1rem', fontWeight: '700' }}>Date</th>
@@ -303,7 +303,7 @@ export default function AdminDashboard() {
                                 <FaGlobe size={12} />
                               </Link>
                               <button onClick={() => handleDelete(bId)} title="Delete"
-                                style={{ padding: '0.35rem 0.55rem', border: `1px solid ${YELLOW_BORDER}`, borderRadius: '4px', backgroundColor: YELLOW_BG, color: YELLOW_DARK, cursor: 'pointer' }}>
+                                style={{ padding: '0.35rem 0.55rem', border: `1px solid ${RED_BORDER}`, borderRadius: '4px', backgroundColor: RED_BG, color: RED_DARK, cursor: 'pointer' }}>
                                 <FaTrash size={12} />
                               </button>
                             </div>
@@ -321,13 +321,13 @@ export default function AdminDashboard() {
             ) : filteredProducts.length === 0 ? (
               <div style={{ padding: '3rem', textAlign: 'center', color: '#64748b' }}>
                 <p>No products found.</p>
-                <Link href="/admin/products/new" style={{ color: YELLOW_DARK, fontWeight: '700' }}>Add your first product →</Link>
+                <Link href="/admin/products/new" style={{ color: RED_DARK, fontWeight: '700' }}>Add your first product →</Link>
               </div>
             ) : (
               <div style={{ overflowX: 'auto' }}>
                 <table className="admin-table" style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', fontSize: '0.85rem' }}>
                   <thead>
-                    <tr style={{ backgroundColor: YELLOW_BG, borderBottom: `2px solid ${YELLOW_BORDER}`, color: '#334155' }}>
+                    <tr style={{ backgroundColor: RED_BG, borderBottom: `2px solid ${RED_BORDER}`, color: '#334155' }}>
                       <th style={{ padding: '0.85rem 1rem', fontWeight: '700' }}>Image</th>
                       <th style={{ padding: '0.85rem 1rem', fontWeight: '700' }}>Product Title</th>
                       <th style={{ padding: '0.85rem 1rem', fontWeight: '700' }}>Category</th>
@@ -343,7 +343,7 @@ export default function AdminDashboard() {
                           <td style={{ padding: '0.85rem 1rem' }}>
                             {/* eslint-disable-next-line @next/next/no-img-element */}
                             <img src={p.image} alt={p.title}
-                              style={{ width: '50px', height: '40px', objectFit: 'contain', borderRadius: '4px', border: `1px solid ${YELLOW_BORDER}`, backgroundColor: YELLOW_BG }} />
+                              style={{ width: '50px', height: '40px', objectFit: 'contain', borderRadius: '4px', border: `1px solid ${RED_BORDER}`, backgroundColor: RED_BG }} />
                           </td>
                           <td style={{ padding: '0.85rem 1rem', fontWeight: '700', color: '#0f172a' }}>
                             <div style={{ display: 'flex', flexDirection: 'column' }}>
@@ -364,7 +364,7 @@ export default function AdminDashboard() {
                                     <FaEdit size={12} />
                                   </Link>
                                   <button onClick={() => handleProductDelete(pId)} title="Delete"
-                                    style={{ padding: '0.35rem 0.55rem', border: `1px solid ${YELLOW_BORDER}`, borderRadius: '4px', backgroundColor: YELLOW_BG, color: YELLOW_DARK, cursor: 'pointer' }}>
+                                    style={{ padding: '0.35rem 0.55rem', border: `1px solid ${RED_BORDER}`, borderRadius: '4px', backgroundColor: RED_BG, color: RED_DARK, cursor: 'pointer' }}>
                                     <FaTrash size={12} />
                                   </button>
                                 </>

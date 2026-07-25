@@ -2,18 +2,20 @@
 import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import styles from './HeroBanner.module.css';
-import { 
-  LuPhoneCall, 
-  LuMessageCircle, 
-  LuAward, 
-  LuSettings, 
-  LuShieldCheck, 
+import {
+  LuPhoneCall,
+  LuMessageCircle,
+  LuAward,
+  LuSettings,
+  LuShieldCheck,
   LuGlobe,
   LuUsers,
   LuCheck,
   LuGauge,
-  LuHandshake
+  LuHandshake,
+  LuWrench
 } from 'react-icons/lu';
+import { FaCog } from 'react-icons/fa';
 
 const heroBadges = [
   {
@@ -24,7 +26,7 @@ const heroBadges = [
   {
     icon: <LuSettings size={18} className={styles.badgeSvgIcon} />,
     value: 'OEM',
-    label: 'SPECIFICATION MANUFACTURER'
+    label: <>SPECIFICATION<br />MANUFACTURER</>
   },
   {
     icon: <LuShieldCheck size={18} className={styles.badgeSvgIcon} />,
@@ -91,12 +93,12 @@ export default function HeroBanner() {
   return (
     <section id="hero" ref={heroRef} className={styles.heroSection}>
       <div className={styles.heroContainer}>
-        {/* Yellow Workshop Hero Image */}
+        {/* Dark Workshop Hero Image */}
         <div className={styles.bgWrap}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src="/images/bgg.webp"
-            alt="Hi Quality Silencers OEM Specification Manufacturer"
+            src="/images/bg.webp"
+            alt="OEM Specification Silencer Manufacturer Workshop"
             className={styles.bgImage}
           />
           <div className={styles.bgOverlay} />
@@ -105,10 +107,10 @@ export default function HeroBanner() {
         {/* Main Content Area */}
         <div className={styles.contentWrapper}>
           <div className={styles.leftColumn}>
-            {/* Main Headline - OEM SPECIFICATION SILENCER MANUFACTURER */}
+            {/* Main Headline */}
             <h1 className={styles.heroH1}>
               OEM SPECIFICATION<br />
-              <span className={styles.goldText}>SILENCER MANUFACTURER</span>
+              SILENCER MANUFACTURER
             </h1>
 
             {/* Red Accent Subtitle - PROFESSIONAL DPF RESTORATION EXPERTS */}
@@ -122,12 +124,12 @@ export default function HeroBanner() {
               High Quality OEM Specification Silencers &amp; Professional DPF Cleaning Services with 15+ Years of Manufacturing Excellence.
             </p>
 
-            {/* CTA Action Buttons */}
+            {/* CTA Action Buttons — single dark frosted pill box */}
             <div className={styles.btnWrapper}>
               <a href="tel:+917907700850" className={styles.callNowBtn}>
                 <LuPhoneCall size={15} /> CALL NOW
               </a>
-
+              <span className={styles.btnDivider} />
               <a
                 href="https://wa.me/917907700850"
                 target="_blank"
@@ -156,16 +158,10 @@ export default function HeroBanner() {
         {/* Transparent Stats Bar (Directly Inside Hero at the Bottom) */}
         <div className={styles.heroTransparentStatsBar}>
           <div className={styles.statsContainer}>
-            {/* Left Stat */}
+            {/* Left Stat - 3500+ Silencers */}
             <div className={styles.statBox}>
               <div className={styles.statIconWrap}>
-                <Image
-                  src="/images/silencer_stat.png"
-                  alt="Silencer Model"
-                  width={44}
-                  height={44}
-                  className={styles.statImage}
-                />
+                <FaCog size={20} color="#ffffff" />
               </div>
               <div className={styles.statTextGroup}>
                 <span className={styles.statNumber}>{silencerCount}+</span>
@@ -177,9 +173,9 @@ export default function HeroBanner() {
 
             <div className={styles.statDivider} />
 
-            {/* Right Stat */}
+            {/* Right Stat - 1800+ Network */}
             <div className={styles.statBox}>
-              <div className={styles.statIconWrapRed}>
+              <div className={styles.statIconWrap}>
                 <LuUsers size={22} color="#ffffff" />
               </div>
               <div className={styles.statTextGroup}>
@@ -195,13 +191,13 @@ export default function HeroBanner() {
             {/* Trust Badges */}
             <div className={styles.heroTrustItems}>
               <span className={styles.trustItem}>
-                <LuCheck size={14} color="#E5A300" /> QUALITY
+                <LuCheck size={14} color="#dc2626" /> QUALITY
               </span>
               <span className={styles.trustItem}>
-                <LuGauge size={14} color="#E5A300" /> PERFORMANCE
+                <LuGauge size={14} color="#dc2626" /> PERFORMANCE
               </span>
               <span className={styles.trustItem}>
-                <LuHandshake size={14} color="#E5A300" /> RELIABILITY
+                <LuHandshake size={14} color="#dc2626" /> RELIABILITY
               </span>
             </div>
           </div>

@@ -3,7 +3,7 @@
   overflow: hidden;
   position: relative;
   width: 100%;
-  background-color: #F8F6F2;
+  background-color: #0a0e14;
 }
 
 .heroContainer {
@@ -30,20 +30,18 @@
   height: 100%;
   object-fit: cover;
   object-position: center;
-  image-rendering: -webkit-optimize-contrast;
-  image-rendering: crisp-edges;
   display: block;
+  /* Disable scroll-linked zoom */
+  transform: none !important;
+  will-change: auto !important;
+  transition: none !important;
 }
 
-/* Minimal Overlay — Maximum Image Clarity */
+/* Dark Overlay */
 .bgOverlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to right, 
-    rgba(248, 246, 242, 0.45) 0%, 
-    rgba(248, 246, 242, 0.15) 45%, 
-    transparent 100%
-  );
+  background: linear-gradient(135deg, rgba(10, 14, 20, 0.88) 0%, rgba(10, 14, 20, 0.65) 55%, rgba(10, 14, 20, 0.35) 100%);
   z-index: 1;
 }
 
@@ -68,64 +66,78 @@
   text-align: left;
 }
 
-/* BIGGER H1 Headline */
 .heroH1 {
   font-family: var(--font-heading);
-  font-weight: 700;
-  color: #1E242B;
+  font-weight: 800;
+  color: #ffffff;
   line-height: 1.12;
   margin-bottom: 0.45rem;
   letter-spacing: -0.015em;
   font-size: 2.5rem;
-  text-shadow: none;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.95), 0 0 24px rgba(0, 0, 0, 0.85);
 }
 
-.goldText {
-  color: #C68A00;
+.boldText {
+  font-weight: 800;
+  color: #ffffff;
 }
 
+.redText {
+  color: #dc2626;
+  text-shadow: 0 0 20px rgba(220, 38, 38, 0.45);
+}
+
+/* ✅ HIGHLIGHTED SUBTITLE — dark red text inside a light black transparent box */
 .heroH2 {
   font-family: var(--font-heading);
   font-weight: 800;
-  color: #1E242B;
-  line-height: 1.25;
-  margin-bottom: 0.45rem;
-  letter-spacing: 0.02em;
-  font-size: 1.05rem;
+  color: #dc2626;
+  line-height: 1.2;
+  margin-bottom: 0.75rem;
+  letter-spacing: 0.08em;
+  font-size: 0.92rem;
   text-transform: uppercase;
-  text-shadow: none;
+  display: inline-block;
+  padding: 0.45rem 0.95rem;
+  background: rgba(40, 44, 55, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 6px;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.9);
 }
 
 .redUnderline {
   width: 44px;
   height: 3px;
-  background-color: #E5A300;
+  background-color: #dc2626;
   margin-bottom: 0.85rem;
   border-radius: 2px;
-  box-shadow: none;
+  box-shadow: 0 2px 8px rgba(220, 38, 38, 0.6);
 }
 
 .heroDesc {
-  color: #1E242B;
-  line-height: 1.45;
-  margin-bottom: 1.25rem;
-  font-weight: 700;
+  color: #e5e7eb;
+  line-height: 1.55;
+  margin-bottom: 1.35rem;
+  font-weight: 500;
   max-width: 460px;
   font-size: 0.88rem;
-  text-shadow: none;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.95), 0 0 16px rgba(0, 0, 0, 0.8);
 }
 
+/* ✅ PREMIUM BUTTON BOX — single frosted container */
 .btnWrapper {
-  margin-bottom: 1.25rem;
+  margin-bottom: 1.35rem;
   display: inline-flex;
-  align-items: center;
-  gap: 4px;
+  align-items: stretch;
+  gap: 0;
   border-radius: 8px;
-  border: 1.5px solid rgba(229, 163, 0, 0.6);
-  background: rgba(20, 15, 5, 0.45);
-  padding: 4px;
-  backdrop-filter: blur(8px);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  background: rgba(30, 32, 40, 0.65);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.08);
 }
 
 .callNowBtn {
@@ -133,20 +145,27 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.45rem;
-  padding: 0.55rem 1.25rem;
-  border-radius: 6px;
-  background-color: #E5A300;
+  gap: 0.5rem;
+  padding: 0.65rem 1.4rem;
+  background-color: #dc2626;
   border: none;
-  color: #1A1207;
-  font-weight: 800;
+  color: #ffffff;
+  font-weight: 700;
   font-size: 0.8rem;
-  letter-spacing: 0.04em;
-  transition: all 0.25s ease;
+  letter-spacing: 0.06em;
+  transition: background-color 0.2s ease;
+  white-space: nowrap;
 }
 
 .callNowBtn:hover {
-  background-color: #D49400;
+  background-color: #b91c1c;
+}
+
+/* thin divider between buttons */
+.btnDivider {
+  width: 1px;
+  background: rgba(255, 255, 255, 0.15);
+  flex-shrink: 0;
 }
 
 .whatsappBtn {
@@ -154,33 +173,29 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.45rem;
-  padding: 0.55rem 1.25rem;
-  border-radius: 6px;
+  gap: 0.5rem;
+  padding: 0.65rem 1.4rem;
   background-color: transparent;
   border: none;
   color: #ffffff;
-  font-weight: 700;
+  font-weight: 600;
   font-size: 0.8rem;
-  letter-spacing: 0.04em;
-  transition: all 0.25s ease;
+  letter-spacing: 0.06em;
+  transition: background-color 0.2s ease;
+  white-space: nowrap;
 }
 
 .whatsappBtn:hover {
-  background-color: rgba(255, 255, 255, 0.15);
+  background-color: rgba(255, 255, 255, 0.08);
 }
 
-/* 4 Feature Badges */
+/* ✅ PREMIUM BADGES — larger icons with glowing ring */
 .heroBadgesContainer {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 0.75rem;
+  gap: 1.25rem;
   width: 100%;
-  max-width: 480px;
-  background: transparent;
-  border: none;
-  padding: 0;
-  box-shadow: none;
+  max-width: 560px;
 }
 
 .badgeCol {
@@ -188,55 +203,57 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-  gap: 0.2rem;
+  gap: 0.3rem;
 }
 
 .badgeIconWrap {
-  width: 34px;
-  height: 34px;
+  width: 52px;
+  height: 52px;
   border-radius: 50%;
-  border: 1.5px solid #D8B153;
+  border: 2px solid rgba(220, 38, 38, 0.85);
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 0.15rem;
-  background: rgba(216, 177, 83, 0.12);
-  box-shadow: none;
+  margin-bottom: 0.35rem;
+  background: radial-gradient(circle at 35% 35%, rgba(220, 38, 38, 0.45), rgba(10, 14, 20, 0.9));
+  box-shadow: 0 0 16px rgba(220, 38, 38, 0.4), 0 4px 12px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.15);
 }
 
 .badgeSvgIcon {
-  color: #D8B153;
-  width: 16px;
-  height: 16px;
+  color: #ffffff;
+  width: 24px;
+  height: 24px;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.8));
 }
 
 .badgeValue {
-  font-size: 0.85rem;
-  font-weight: 700;
-  color: #1E242B;
-  line-height: 1.1;
+  font-size: 0.88rem;
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1;
   letter-spacing: 0.02em;
-  text-shadow: none;
+  white-space: nowrap;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.95);
 }
 
 .badgeLabel {
-  font-size: 0.52rem;
-  font-weight: 500;
-  color: #4B5563;
+  font-size: 0.48rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.85);
   text-transform: uppercase;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.03em;
   line-height: 1.15;
-  text-shadow: none;
 }
 
-/* Light Warm Stats Bar */
+/* ✅ STATS BAR — light gray premium background */
 .heroTransparentStatsBar {
   position: relative;
   z-index: 5;
   width: 100%;
-  background: #F6F2EA;
-  border-top: 1px solid #E2D7C3;
-  padding: 0.65rem 1.25rem;
+  background: #86888A;
+  border-top: 2px solid rgba(220, 38, 38, 0.4);
+  padding: 0.75rem 1.25rem;
+  box-shadow: 0 -3px 14px rgba(0, 0, 0, 0.25);
 }
 
 .statsContainer {
@@ -258,31 +275,12 @@
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  border: 1.5px solid #D8B153;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  background: rgba(216, 177, 83, 0.12);
-  flex-shrink: 0;
-}
-
-.statImage {
-  object-fit: contain;
-  width: 75%;
-  height: 75%;
-}
-
-.statIconWrapRed {
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  background: #D8B153;
+  background: #dc2626;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  box-shadow: 0 3px 10px rgba(216, 177, 83, 0.35);
+  box-shadow: 0 3px 10px rgba(220, 38, 38, 0.4);
 }
 
 .statTextGroup {
@@ -292,8 +290,8 @@
 
 .statNumber {
   font-size: 1.3rem;
-  font-weight: 800;
-  color: #D8B153;
+  font-weight: 700;
+  color: #dc2626;
   line-height: 1;
   letter-spacing: -0.02em;
   text-shadow: none;
@@ -302,7 +300,7 @@
 .statTitle {
   font-size: 0.58rem;
   font-weight: 600;
-  color: #1E242B;
+  color: #111827;
   letter-spacing: 0.03em;
   text-transform: uppercase;
   line-height: 1.25;
@@ -312,7 +310,7 @@
 .statDivider {
   width: 1px;
   height: 36px;
-  background-color: #E2D7C3;
+  background-color: #d1d5db;
 }
 
 .heroTrustItems {
@@ -320,9 +318,9 @@
   align-items: center;
   gap: 1.25rem;
   font-size: 0.6rem;
-  font-weight: 600;
+  font-weight: 500;
   letter-spacing: 0.05em;
-  color: #1E242B;
+  color: #ffffff;
   text-transform: uppercase;
 }
 
@@ -332,7 +330,7 @@
   gap: 0.35rem;
 }
 
-/* Pure Floating WhatsApp Icon Button */
+/* Floating WhatsApp Button */
 .floatingWhatsappIcon {
   position: fixed;
   bottom: 24px;
@@ -340,204 +338,252 @@
   z-index: 9999;
   width: 50px;
   height: 50px;
-  background: #D8B153;
+  background: #25d366;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 6px 20px rgba(216, 177, 83, 0.5);
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5);
   transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .floatingWhatsappIcon:hover {
   transform: scale(1.1) translateY(-3px);
-  box-shadow: 0 10px 25px rgba(216, 177, 83, 0.7);
+  box-shadow: 0 10px 25px rgba(37, 211, 102, 0.7);
 }
 
-/* Laptop Responsiveness (768px - 1100px) */
+/* Laptop (768px - 1100px) */
 @media (max-width: 1100px) {
   .heroH1 {
     font-size: 2.15rem;
   }
+
   .heroH2 {
-    font-size: 1.1rem;
+    font-size: 1rem;
   }
+
   .heroDesc {
     font-size: 0.82rem;
   }
+
   .statNumber {
     font-size: 1.4rem;
   }
+
   .statTitle {
     font-size: 0.6rem;
   }
+
   .heroTrustItems {
     display: none;
   }
 }
 
-/* Mobile Responsiveness (< 768px) */
+/* ✅ MOBILE (< 768px) */
 @media (max-width: 767px) {
   .heroContainer {
-    height: 540px !important;
-    min-height: 540px !important;
-    max-height: 540px !important;
-    padding: 0 0 56px 0;
+    height: 570px !important;
+    min-height: 570px !important;
+    max-height: 570px !important;
+    padding: 0 0 60px 0;
     justify-content: center;
     flex-direction: column;
     overflow: hidden;
     position: relative;
   }
+
   .bgWrap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     height: 100%;
-    background-color: #F8F6F2;
+    background-color: #0a0e14;
+    overflow: hidden;
   }
+
   .bgImage {
+    width: 100% !important;
     height: 100% !important;
     object-fit: cover !important;
     object-position: center top !important;
     transform: none !important;
-    will-change: auto;
+    will-change: auto !important;
+    transition: none !important;
   }
+
   .bgOverlay {
     background: linear-gradient(to bottom,
-      rgba(248, 246, 242, 0.45) 0%,
-      rgba(248, 246, 242, 0.15) 50%,
-      transparent 100%
-    ) !important;
+        rgba(10, 14, 20, 0.2) 0%,
+        rgba(10, 14, 20, 0.4) 35%,
+        rgba(10, 14, 20, 0.65) 60%,
+        rgba(10, 14, 20, 0.78) 85%,
+        rgba(10, 14, 20, 0.85) 100%) !important;
   }
+
   .contentWrapper {
     flex: 0 0 auto !important;
-    padding: 0 0.85rem 0 !important;
+    padding: 0 0.9rem !important;
     margin: 0 !important;
     width: 100% !important;
     max-width: 100% !important;
     align-items: flex-start !important;
   }
+
   .leftColumn {
     align-items: flex-start;
     text-align: left;
     max-width: 100%;
   }
+
   .heroH1 {
-    font-size: 1.55rem;
-    line-height: 1.2;
-    margin-bottom: 0.65rem;
-    font-weight: 700;
-    color: #1E242B !important;
-    text-shadow: none !important;
-  }
-  .heroH2 {
-    font-size: 0.88rem !important;
+    font-size: 1.6rem;
+    line-height: 1.18;
     margin-bottom: 0.5rem;
-    letter-spacing: 0.06em !important;
-    color: #1E242B !important;
-    font-weight: 800 !important;
-    text-shadow: none !important;
+    font-weight: 600;
+    text-shadow: 0 2px 16px rgba(0, 0, 0, 0.98), 0 0 30px rgba(0, 0, 0, 0.9);
   }
+
+  /* ✅ Hero subtitle dark red in transparent light-black box on mobile */
+  .heroH2 {
+    font-size: 0.78rem !important;
+    margin-bottom: 0.65rem;
+    letter-spacing: 0.06em !important;
+    color: #ef4444 !important;
+    font-weight: 800 !important;
+    padding: 0.4rem 0.75rem !important;
+    background: rgba(40, 44, 55, 0.5) !important;
+    border: 1px solid rgba(255, 255, 255, 0.18) !important;
+    border-radius: 6px !important;
+    backdrop-filter: blur(8px) !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.9) !important;
+  }
+
   .redUnderline {
-    margin-bottom: 0.7rem;
+    margin-bottom: 0.6rem;
     width: 28px;
     height: 2px;
-    background-color: #E5A300 !important;
-    box-shadow: none !important;
+    background-color: #dc2626 !important;
+    box-shadow: 0 0 8px rgba(220, 38, 38, 0.6) !important;
   }
+
   .heroDesc {
-    font-size: 0.82rem;
-    line-height: 1.45;
-    margin-bottom: 0.9rem;
+    font-size: 0.78rem;
+    line-height: 1.5;
+    margin-bottom: 0.85rem;
     padding: 0;
-    font-weight: 700 !important;
-    color: #1E242B !important;
-    text-shadow: none !important;
+    font-weight: 500;
+    color: #e5e7eb !important;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.95) !important;
   }
+
+  /* ✅ MOBILE BUTTONS — proper gray frosted box */
   .btnWrapper {
-    display: flex !important;
+    display: inline-flex !important;
     flex-direction: row !important;
+    align-items: stretch !important;
     width: 100% !important;
-    gap: 4px !important;
+    gap: 0 !important;
     border-radius: 8px !important;
-    border: 1.5px solid rgba(229, 163, 0, 0.6) !important;
-    background: rgba(20, 15, 5, 0.55) !important;
-    padding: 4px !important;
-    backdrop-filter: blur(8px) !important;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2) !important;
+    overflow: hidden !important;
+    background: rgba(30, 32, 40, 0.75) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    backdrop-filter: blur(12px) !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4) !important;
     margin-bottom: 0.85rem !important;
+    padding: 0 !important;
   }
+
   .callNowBtn {
     flex: 1 !important;
-    width: auto !important;
-    justify-content: center !important;
-    padding: 0.65rem 0.5rem !important;
-    font-size: 0.75rem !important;
-    font-weight: 800 !important;
-    background-color: #E5A300 !important;
-    color: #1a1207 !important;
-    border-radius: 5px !important;
+    padding: 0.6rem 0.5rem !important;
+    font-size: 0.72rem !important;
+    font-weight: 700 !important;
+    background-color: #dc2626 !important;
     border: none !important;
-    box-shadow: none !important;
+    color: #ffffff !important;
+    border-radius: 0 !important;
+    white-space: nowrap;
+    gap: 0.3rem !important;
   }
+
+  .callNowBtn svg,
+  .whatsappBtn svg {
+    width: 12px !important;
+    height: 12px !important;
+    flex-shrink: 0;
+  }
+
   .whatsappBtn {
     flex: 1 !important;
-    width: auto !important;
-    justify-content: center !important;
-    padding: 0.65rem 0.5rem !important;
-    font-size: 0.75rem !important;
-    font-weight: 700 !important;
+    padding: 0.6rem 0.5rem !important;
+    font-size: 0.72rem !important;
+    font-weight: 600 !important;
     background-color: transparent !important;
     border: none !important;
     color: #ffffff !important;
-    border-radius: 5px !important;
+    border-radius: 0 !important;
+    white-space: nowrap;
+    gap: 0.3rem !important;
   }
+
+  /* ✅ MOBILE PREMIUM BADGES — bigger icons in transparent box */
   .heroBadgesContainer {
     grid-template-columns: repeat(4, 1fr);
-    gap: 0.5rem;
+    gap: 0.6rem;
     width: 100%;
     max-width: 100%;
     margin-bottom: 0;
-    background: rgba(20, 15, 5, 0.55) !important;
-    border-radius: 10px !important;
-    padding: 0.65rem 0.5rem !important;
-    backdrop-filter: blur(6px) !important;
-    border: 1px solid rgba(229, 163, 0, 0.25) !important;
   }
+
   .badgeIconWrap {
-    width: 28px;
-    height: 28px;
-    margin-bottom: 0.1rem;
-    border: 1.5px solid rgba(229, 163, 0, 0.7) !important;
-    background: rgba(229, 163, 0, 0.15) !important;
-    box-shadow: none !important;
+    width: 44px;
+    height: 44px;
+    margin-bottom: 0.2rem;
+    border: 2px solid rgba(220, 38, 38, 0.85) !important;
+    background: radial-gradient(circle at 30% 30%, rgba(220, 38, 38, 0.45), rgba(10, 14, 20, 0.88)) !important;
+    box-shadow: 0 0 12px rgba(220, 38, 38, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.15) !important;
   }
+
   .badgeSvgIcon {
-    width: 13px;
-    height: 13px;
-    color: #E5A300 !important;
+    width: 20px;
+    height: 20px;
+    color: #ffffff !important;
+    filter: drop-shadow(0 1px 4px rgba(0, 0, 0, 0.8));
   }
+
   .badgeValue {
-    font-size: 0.88rem;
+    font-size: 0.8rem;
     font-weight: 800;
     color: #ffffff !important;
-    text-shadow: none !important;
+    white-space: nowrap !important;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.95) !important;
   }
+
   .badgeLabel {
-    font-size: 0.45rem;
+    font-size: 0.44rem;
     line-height: 1.15;
     font-weight: 600;
-    color: rgba(255,255,255,0.75) !important;
+    color: rgba(255, 255, 255, 0.85) !important;
     text-shadow: none !important;
   }
+
+  /* ✅ STATS BAR — light gray on mobile */
   .heroTransparentStatsBar {
     position: absolute !important;
     bottom: 0 !important;
     left: 0 !important;
     right: 0 !important;
     width: 100% !important;
-    padding: 0.6rem 0.85rem !important;
+    padding: 0.55rem 0.85rem !important;
     z-index: 10;
-    background: #F6F2EA !important;
-    border-top: 1px solid #E2D7C3 !important;
+    background: #86888A !important;
+    border-top: 2px solid rgba(220, 38, 38, 0.4) !important;
+    backdrop-filter: none !important;
+    box-shadow: 0 -3px 14px rgba(0, 0, 0, 0.3) !important;
   }
+
   .statsContainer {
     flex-direction: row;
     justify-content: space-around;
@@ -545,44 +591,49 @@
     gap: 0.25rem;
     width: 100%;
   }
+
   .statBox {
     width: auto;
     flex: 1;
     justify-content: center;
     gap: 0.3rem;
   }
-  .statIconWrap, .statIconWrapRed {
-    width: 30px;
-    height: 30px;
-    border: 1.5px solid #B8860B !important;
-    background: #ffffff !important;
+
+  .statIconWrap,
+  .statIconWrapRed {
+    width: 34px;
+    height: 34px;
+    background: #dc2626 !important;
+    border: none !important;
   }
+
   .statNumber {
-    font-size: 1.35rem;
+    font-size: 1.2rem;
     font-weight: 800;
-    color: #B8860B !important;
+    color: #dc2626 !important;
     letter-spacing: -0.01em;
     text-shadow: none !important;
   }
+
   .statTitle {
-    font-size: 0.52rem;
+    font-size: 0.48rem;
     line-height: 1.15;
-    color: #1E242B !important;
+    color: #111827 !important;
     font-weight: 600;
   }
+
   .statDivider {
     display: block;
     width: 1px;
     height: 26px;
-    background-color: #E2D7C3 !important;
+    background-color: #d1d5db !important;
   }
+
   .floatingWhatsappIcon {
     bottom: 80px;
     right: 14px;
-    width: 40px;
-    height: 40px;
-    background: #D8B153 !important;
+    width: 42px;
+    height: 42px;
+    background: #25d366 !important;
   }
 }
-
-
