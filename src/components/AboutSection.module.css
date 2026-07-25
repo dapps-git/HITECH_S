@@ -238,6 +238,10 @@
   font-weight: 300;
 }
 
+.headingBlock {
+  margin-bottom: 1.5rem;
+}
+
 @media (max-width: 900px) {
   .aboutGrid {
     grid-template-columns: 1fr;
@@ -245,26 +249,34 @@
   }
   .aboutH2,
   .aboutH3 {
-    font-size: 1.85rem;
+    font-size: 1.5rem;
   }
   .badgesGrid {
     grid-template-columns: repeat(3, 1fr);
   }
 }
 
-@media (max-width: 540px) {
-  .aboutH2,
-  .aboutH3 {
-    font-size: 1.3rem;
+@media (max-width: 767px) {
+  .headingBlock {
+    margin-bottom: 1rem;
+    line-height: 1.4;
   }
-  .badgesGrid {
-    grid-template-columns: repeat(2, 1fr);
+  .aboutH2 {
+    display: inline !important;
+    font-size: 0.85rem !important;
+    font-weight: 600 !important;
+  }
+  .aboutH3 {
+    display: inline !important;
+    font-size: 0.85rem !important;
+    font-weight: 600 !important;
+    margin-left: 0.25rem !important;
+    color: #dc2626 !important;
   }
 }
 
-@media (max-width: 400px) {
-  .aboutH2,
-  .aboutH3 {
-    font-size: 1.15rem;
+@media (max-width: 540px) {
+  .badgesGrid {
+    grid-template-columns: repeat(2, 1fr);
   }
 }

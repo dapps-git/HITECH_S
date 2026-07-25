@@ -19,12 +19,10 @@ export default function AboutSection() {
               <span className={styles.badgeText}>About Us</span>
             </div>
 
-            <h2 className={styles.aboutH2}>
-              ENGINEERED FOR<br />PERFORMANCE.
-            </h2>
-            <h3 className={styles.aboutH3}>
-              BUILT TO LAST.
-            </h3>
+            <div className={styles.headingBlock}>
+              <h2 className={styles.aboutH2}>ENGINEERED FOR PERFORMANCE, </h2>
+              <h3 className={styles.aboutH3}>BUILT TO LAST.</h3>
+            </div>
 
             <div className={styles.parasWrap}>
               <p className={styles.para}>

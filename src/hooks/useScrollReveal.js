@@ -3,6 +3,9 @@ import { useEffect } from 'react';
 
 export function useScrollReveal() {
   useEffect(() => {
+    // Disable scroll-reveal on mobile — prevents layout shifts / auto-zoom
+    if (typeof window !== 'undefined' && window.innerWidth <= 767) return;
+
     const observerCallback = (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {

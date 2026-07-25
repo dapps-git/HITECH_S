@@ -406,6 +406,12 @@
 }
 
 @media (max-width: 768px) {
+  .section {
+    padding: 2.25rem 0 !important;
+  }
+  .faqTitle {
+    font-size: 1.15rem !important;
+  }
   .warningGrid,
   .processGrid {
     grid-template-columns: 1fr;

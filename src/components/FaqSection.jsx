@@ -264,7 +264,7 @@ export default function FaqSection() {
       <div className={styles.container}>
         <div className={styles.header}>
           <span className={styles.badge}>PROFESSIONAL KNOWLEDGE BASE</span>
-          <h2 className="section-title">FREQUENTLY ASKED QUESTIONS (FAQ)</h2>
+          <h2 className={`section-title ${styles.faqTitle}`}>FREQUENTLY ASKED QUESTIONS (FAQ)</h2>
           <p className={styles.subtitle}>
             Everything you need to know about DPF | DOC | SCR | ASC cleaning, pre-cleaning scanner diagnostics, 4-stage scientific cleaning, troubleshooting warning lights, and nationwide parcel service.
           </p>

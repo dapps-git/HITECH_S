@@ -66,10 +66,10 @@
   border: 1px solid #e5e7eb;
   border-radius: 8px;
   padding: 1.75rem 1.1rem 1.5rem;
-  text-align: center;
+  text-align: left;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
   transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
@@ -132,7 +132,8 @@
   min-height: 2.4em;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
+  text-align: left;
 }
 
 .cardDesc {
@@ -140,6 +141,7 @@
   color: #4b5563;
   line-height: 1.45;
   margin: 0;
+  text-align: left;
 }
 
 /* RESPONSIVENESS */
@@ -152,13 +154,34 @@
 
 @media (max-width: 640px) {
   .cardsGrid {
-    grid-template-columns: repeat(1, 1fr);
-    gap: 1rem;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 0.65rem !important;
+  }
+  .card {
+    padding: 1rem 0.65rem !important;
+  }
+  .cardTitle {
+    font-size: 0.68rem !important;
+    min-height: 2.8em !important;
+    margin-bottom: 0.35rem !important;
+  }
+  .cardDesc {
+    font-size: 0.62rem !important;
+    line-height: 1.35 !important;
+  }
+  .badgeRing {
+    width: 40px !important;
+    height: 40px !important;
+    margin-bottom: 0.65rem !important;
+  }
+  .badgeRing svg {
+    width: 16px !important;
+    height: 16px !important;
   }
   .headerTitle {
-    font-size: 1.35rem;
+    font-size: 1.1rem !important;
   }
   .headerSub {
-    font-size: 0.78rem;
+    font-size: 0.72rem !important;
   }
 }
