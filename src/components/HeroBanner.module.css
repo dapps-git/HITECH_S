@@ -412,17 +412,18 @@
     max-width: 100%;
   }
   .heroH1 {
-    font-size: 1.3rem;
-    line-height: 1.22;
+    font-size: 1.55rem;
+    line-height: 1.2;
     margin-bottom: 0.65rem;
-    font-weight: 400;
+    font-weight: 600;
     text-shadow: 0 2px 16px rgba(0,0,0,0.98), 0 0 30px rgba(0,0,0,0.9);
   }
   .heroH2 {
-    font-size: 0.78rem !important;
+    font-size: 0.88rem !important;
     margin-bottom: 0.5rem;
     letter-spacing: 0.06em !important;
     color: #f43f3f !important;
+    font-weight: 600 !important;
   }
   .redUnderline {
     margin-bottom: 0.7rem;
@@ -430,10 +431,11 @@
     height: 2px;
   }
   .heroDesc {
-    font-size: 0.72rem;
-    line-height: 1.45;
+    font-size: 0.8rem;
+    line-height: 1.5;
     margin-bottom: 0.9rem;
     padding: 0;
+    font-weight: 500;
   }
   .btnWrapper {
     flex-direction: row;
@@ -473,12 +475,13 @@
     height: 15px;
   }
   .badgeValue {
-    font-size: 0.78rem;
-    font-weight: 700;
+    font-size: 0.88rem;
+    font-weight: 800;
   }
   .badgeLabel {
-    font-size: 0.46rem;
+    font-size: 0.5rem;
     line-height: 1.15;
+    font-weight: 500;
   }
   /* Stats bar — absolutely pinned to bottom of hero */
   .heroTransparentStatsBar {
@@ -514,15 +517,16 @@
     box-shadow: 0 0 8px rgba(220, 38, 38, 0.5);
   }
   .statNumber {
-    font-size: 1.2rem;
+    font-size: 1.35rem;
     font-weight: 800;
     color: #ffffff;
     letter-spacing: -0.01em;
   }
   .statTitle {
-    font-size: 0.48rem;
+    font-size: 0.52rem;
     line-height: 1.15;
     color: rgba(255,255,255,0.75);
+    font-weight: 500;
   }
   .statDivider {
     display: block;
