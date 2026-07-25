@@ -240,6 +240,9 @@ app.post('/api/bookings', (req, res) => {
 });
 
 // Start Express Server
-app.listen(PORT, () => {
-  console.log(`Backend Express server running on port ${PORT}`);
+const serverPort = process.env.PORT || 5000;
+app.listen(serverPort, () => {
+  console.log(`Backend Express server running on ${serverPort}`);
 });
+
+module.exports = app;
