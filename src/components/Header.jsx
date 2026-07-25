@@ -2,13 +2,15 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import styles from './Header.module.css';
-import { LuMessageCircle, LuMenu, LuX } from 'react-icons/lu';
+import { LuMenu, LuX, LuDownload } from 'react-icons/lu';
 
 const links = [
-  { label: 'Home', href: '#hero' },
-  { label: 'Products', href: '#products' },
-  { label: 'About Us', href: '#about' },
-  { label: 'Contact Us', href: '#contact' },
+  { label: 'HOME', href: '/#hero' },
+  { label: 'ABOUT US', href: '/#about' },
+  { label: 'PRODUCTS', href: '/#products' },
+  { label: 'DPF CLEANING', href: '/#dpf-cleaning' },
+  { label: 'BLOG', href: '/#journal' },
+  { label: 'CONTACT US', href: '/#contact' },
 ];
 
 export default function Header() {
@@ -18,12 +20,12 @@ export default function Header() {
     <nav className={styles.navbar}>
       <div className={`container ${styles.container}`}>
         {/* Hi Quality Silencers Logo */}
-        <a href="#hero" className={styles.logoLink}>
+        <a href="/#hero" className={styles.logoLink}>
           <Image
             src="/images/logo_hq.png"
             alt="Hi Quality Silencers Logo"
-            width={48}
-            height={56}
+            width={150}
+            height={42}
             priority
             className={styles.logoImg}
           />
@@ -36,17 +38,16 @@ export default function Header() {
               {l.label}
             </a>
           ))}
+          <a
+            href="/DPF FAQ 18.5 x 25 cm-3.pdf"
+            download="Hi_Quality_DPF_FAQ_Guide.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.faqLink}
+          >
+            <LuDownload size={13} style={{ marginRight: '4px', display: 'inline-block', verticalAlign: 'middle' }} /> FAQ
+          </a>
         </div>
-
-        {/* WhatsApp CTA Link */}
-        <a
-          href="https://wa.me/919645888250"
-          target="_blank"
-          rel="noreferrer"
-          className={styles.navCta}
-        >
-          <LuMessageCircle size={15} /> +91 9645 888 250
-        </a>
 
         {/* Mobile Toggle */}
         <button
@@ -54,7 +55,7 @@ export default function Header() {
           className={styles.mobileMenuBtn}
           aria-label="Toggle menu"
         >
-          {mobileOpen ? <LuX size={26} /> : <LuMenu size={26} />}
+          {mobileOpen ? <LuX size={24} /> : <LuMenu size={24} />}
         </button>
       </div>
 
@@ -72,15 +73,19 @@ export default function Header() {
             </a>
           ))}
           <a
-            href="https://wa.me/919645888250"
+            href="/DPF FAQ 18.5 x 25 cm-3.pdf"
+            download="Hi_Quality_DPF_FAQ_Guide.pdf"
             target="_blank"
-            rel="noreferrer"
-            className={styles.mobileDrawerCta}
+            rel="noopener noreferrer"
+            onClick={() => setMobileOpen(false)}
+            className={styles.mobileFaqLink}
           >
-            <LuMessageCircle size={16} /> +91 9645 888 250
+            <LuDownload size={15} style={{ marginRight: '6px', display: 'inline-block', verticalAlign: 'middle' }} /> FAQ
           </a>
         </div>
       )}
     </nav>
   );
 }
+
+

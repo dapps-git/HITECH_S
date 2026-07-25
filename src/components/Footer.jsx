@@ -15,18 +15,6 @@ export default function Footer() {
 
           {/* Col 1: Brand */}
           <div>
-            <div className={styles.logoWrap}>
-              <Image
-                src="/images/15.webp"
-                alt="Hi Quality Silencers"
-                width={140}
-                height={48}
-                className={styles.logoImg}
-                onError={(e) => {
-                  e.currentTarget.style.display = 'none';
-                }}
-              />
-            </div>
 
             <p className={styles.brandDesc}>
               Manufacturer of TUNEX® OEM specification silencers for passenger and commercial vehicles. ISO 9001:2015 certified, based in Calicut, Kerala.

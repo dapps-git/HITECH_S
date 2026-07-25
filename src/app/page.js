@@ -2,7 +2,7 @@ import TopTicker from '@/components/TopTicker';
 import Header from '@/components/Header';
 import HeroBanner from '@/components/HeroBanner';
 import AboutSection from '@/components/AboutSection';
-import IsoCertification from '@/components/IsoCertification';
+import WhyChooseSection from '@/components/WhyChooseSection';
 import FeaturedCategories from '@/components/FeaturedCategories';
 import ProductGrid from '@/components/ProductGrid';
 import FaqSection from '@/components/FaqSection';
@@ -18,14 +18,14 @@ export default function Home() {
         <TopTicker />
         <Header />
       </header>
-      <main style={{ flex: 1, paddingTop: '108px' }}>
+      <main style={{ flex: 1, paddingTop: '96px' }}>
         <HeroBanner />
         <AboutSection />
-        <IsoCertification />
+        <WhyChooseSection />
         <FeaturedCategories />
         <ProductGrid />
-        <FaqSection />
         <BlogPosts />
+        <FaqSection />
       </main>
       <Footer />
     </div>

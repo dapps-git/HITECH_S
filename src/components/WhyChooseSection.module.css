@@ -1,0 +1,164 @@
+.whySection {
+  background-color: #ffffff;
+  color: #111827;
+  padding: 3.5rem 0;
+  width: 100%;
+  border-top: 1px solid #e5e7eb;
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+/* SECTION HEADER */
+.sectionHeader {
+  text-align: center;
+  margin-bottom: 2.75rem;
+}
+
+.headerTitleRow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 0.35rem;
+}
+
+.headerLine {
+  width: 50px;
+  height: 2px;
+  background-color: #dc2626;
+}
+
+.headerTitle {
+  font-family: var(--font-heading);
+  font-size: 1.75rem;
+  font-weight: 500;
+  color: #111827;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.titleRed {
+  color: #dc2626;
+}
+
+.headerSub {
+  font-size: 0.88rem;
+  color: #4b5563;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  margin: 0;
+}
+
+/* 8 CARDS GRID (Light Theme) */
+.cardsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+}
+
+.card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 1.75rem 1.1rem 1.5rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 28px rgba(220, 38, 38, 0.15);
+  border-color: rgba(220, 38, 38, 0.4);
+}
+
+/* Red Double Ring Icon Badge */
+.badgeRing {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 1px solid rgba(220, 38, 38, 0.25);
+  padding: 2.5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  transition: all 0.3s ease;
+}
+
+.badgeInner {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: rgba(220, 38, 38, 0.04);
+  border: 1px solid #dc2626;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.card:hover .badgeInner {
+  background: rgba(220, 38, 38, 0.12);
+  transform: scale(1.05);
+}
+
+.iconRed {
+  color: #dc2626;
+  transition: transform 0.3s ease;
+}
+
+.card:hover .iconRed {
+  transform: scale(1.15);
+}
+
+.cardTitle {
+  font-family: var(--font-heading);
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: #111827;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  line-height: 1.25;
+  margin-bottom: 0.65rem;
+  min-height: 2.4em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cardDesc {
+  font-size: 0.76rem;
+  color: #4b5563;
+  line-height: 1.45;
+  margin: 0;
+}
+
+/* RESPONSIVENESS */
+@media (max-width: 1100px) {
+  .cardsGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.1rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .cardsGrid {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 1rem;
+  }
+  .headerTitle {
+    font-size: 1.35rem;
+  }
+  .headerSub {
+    font-size: 0.78rem;
+  }
+}
