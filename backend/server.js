@@ -12,6 +12,14 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+// Subfolder base path middleware for cPanel deployments (e.g. /hiquality)
+app.use((req, res, next) => {
+  if (req.url.startsWith('/hiquality')) {
+    req.url = req.url.replace('/hiquality', '') || '/';
+  }
+  next();
+});
+
 const dbPath = path.join(__dirname, 'data', 'db.json');
 
 // Helper to read database JSON
