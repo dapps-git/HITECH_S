@@ -106,7 +106,8 @@ export default function ProductGrid() {
   useEffect(() => {
     async function fetchProducts() {
       try {
-        const res = await fetch('/api/products');
+        const baseUrl = process.env.NEXT_PUBLIC_API_URL || '';
+        const res = await fetch(`${baseUrl}/api/products`);
         const data = await res.json();
 
         const getIcon = (type, title = '') => {
