@@ -131,34 +131,35 @@ export default async function ServicePage({ params }) {
         <Header />
       </header>
 
-      <main style={{ flex: 1, paddingTop: '90px' }}>
+      <main style={{ flex: 1, paddingTop: 0 }}>
         {/* Light Header Bar */}
         <div style={{
           background: '#ffffff',
           borderBottom: '1px solid #e2e8f0',
-          padding: '1.25rem 1.25rem 1rem',
+          padding: '0.85rem 1rem 0.75rem',
         }}>
           <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
             <Link href="/#dpf-cleaning" style={{
-              display: 'inline-flex', alignItems: 'center', gap: '0.4rem',
-              color: '#dc2626', fontSize: '0.76rem', fontWeight: '600',
-              textDecoration: 'none', marginBottom: '0.6rem'
+              display: 'inline-flex', alignItems: 'center', gap: '0.35rem',
+              color: '#dc2626', fontSize: '0.72rem', fontWeight: '700',
+              textDecoration: 'none', marginBottom: '0.4rem', textTransform: 'uppercase',
+              letterSpacing: '0.04em'
             }}>
-              <FaArrowLeft size={11} /> BACK TO SERVICES
+              <FaArrowLeft size={10} /> BACK TO SERVICES
             </Link>
             <div style={{ display: 'flex', alignItems: 'center', gap: '10px', flexWrap: 'wrap' }}>
               <div style={{
-                width: '36px', height: '36px', borderRadius: '8px',
+                width: '32px', height: '32px', borderRadius: '8px',
                 background: '#fef2f2', display: 'flex', alignItems: 'center',
-                justifyContent: 'center', color: '#dc2626', fontSize: '1rem', flexShrink: 0
+                justifyContent: 'center', color: '#dc2626', fontSize: '0.9rem', flexShrink: 0
               }}>
                 <IconComponent />
               </div>
               <div>
-                <span style={{ fontSize: '0.62rem', fontWeight: '700', color: '#dc2626', letterSpacing: '0.1em', textTransform: 'uppercase', display: 'block' }}>
+                <span style={{ fontSize: '0.6rem', fontWeight: '700', color: '#dc2626', letterSpacing: '0.1em', textTransform: 'uppercase', display: 'block' }}>
                   {service.category}
                 </span>
-                <h1 style={{ fontSize: '1.35rem', fontWeight: '800', color: '#0f172a', margin: 0, textTransform: 'uppercase', fontFamily: 'Montserrat, sans-serif' }}>
+                <h1 style={{ fontSize: '1.2rem', fontWeight: '800', color: '#0f172a', margin: 0, textTransform: 'uppercase', fontFamily: 'Montserrat, sans-serif' }}>
                   {service.title}
                 </h1>
               </div>
@@ -167,7 +168,7 @@ export default async function ServicePage({ params }) {
         </div>
 
         {/* Main Content */}
-        <div style={{ maxWidth: '1000px', margin: '1.75rem auto', padding: '0 1rem' }}>
+        <div style={{ maxWidth: '1000px', margin: '1rem auto 2.5rem', padding: '0 1rem' }}>
 
           {/* Hero Image */}
           {service.heroImage && (
