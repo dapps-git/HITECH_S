@@ -1,5 +1,6 @@
 'use client';
 import { useState, useEffect } from 'react';
+import Link from 'next/link';
 import styles from './FeaturedCategories.module.css';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
 import {
@@ -29,30 +30,35 @@ const iconMap = {
 
 const defaultServices = [
   {
+    slug: 'dpf-restoration',
     title: 'Professional DPF Restoration',
     desc: '4-stage scientific DPF cleaning restoring original exhaust flow & back pressure',
     fullDesc: 'Our 4-stage scientific DPF restoration process removes 98%+ of accumulated soot, ash, and oil residue inside DPF honeycomb channels. Restores engine horsepower, fuel efficiency, and prevents expensive filter replacement.',
     iconName: 'FaFilter',
   },
   {
+    slug: 'oem-silencer-manufacturing',
     title: 'OEM Silencer Manufacturing',
     desc: 'ISO certified silencer manufacturing with 15+ years of OEM precision experience',
     fullDesc: 'Precision engineered silencer manufacturing using heavy-duty 1.6mm & 2.0mm galvanised and stainless steel sheets. Built to exact vehicle specifications for long service life and acoustic dampening.',
     iconName: 'FaIndustry',
   },
   {
+    slug: 'catalytic-converter-service',
     title: 'Catalytic Converter Service',
     desc: 'Complete diagnostic, cleaning & replacement for optimum emission control',
     fullDesc: 'Complete catalytic converter inspection, chemical channel flushing, substrate testing, and replacement services. Ensures your vehicle passes emission checks and operates at peak performance.',
     iconName: 'FaLeaf',
   },
   {
+    slug: 'flex-pipe-replacement',
     title: 'Flex Pipe Replacement',
     desc: 'Precision flex pipe welding, replacement & vibration dampening exhaust repair',
     fullDesc: 'Heavy-duty stainless steel flex pipe replacement and precision TIG welding. Absorbs engine vibrations, prevents exhaust manifold cracking, and eliminates gas leakage.',
     iconName: 'FaLink',
   },
   {
+    slug: 'exhaust-repair',
     title: 'Exhaust Repair',
     desc: 'Complete exhaust system diagnostics, leak repair, and component restoration',
     fullDesc: 'Comprehensive exhaust system diagnostics, pipe sealing, flange welding, acoustic tuning, and full system restoration for all passenger cars, SUVs, and commercial vehicles.',
@@ -121,7 +127,16 @@ export default function FeaturedCategories() {
                 </div>
                 <h3 className={styles.cardTitle}>{item.title ? item.title.toUpperCase() : ''}</h3>
                 <p className={styles.cardDesc}>{item.desc}</p>
-                <div className={styles.tapMoreBtn}>VIEW DETAILS</div>
+                {item.slug && (
+                  <Link
+                    href={`/services/${item.slug}`}
+                    className={styles.tapMoreBtn}
+                    onClick={e => e.stopPropagation()}
+                  >VIEW DETAILS →</Link>
+                )}
+                {!item.slug && (
+                  <div className={styles.tapMoreBtn}>VIEW DETAILS</div>
+                )}
               </div>
             );
           })}
