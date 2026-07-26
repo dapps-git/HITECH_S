@@ -20,8 +20,8 @@ export default function AboutSection() {
             </div>
 
             <div className={styles.headingBlock}>
-              <h2 className={styles.aboutH2}>ENGINEERED FOR PERFORMANCE, </h2>
-              <h3 className={styles.aboutH3}>BUILT TO LAST.</h3>
+              <h2 className={styles.aboutH2}>COMPLETE EXHAUST SYSTEM SOLUTIONS</h2>
+              <h3 className={styles.aboutH3}>OEM Specification Silencer Manufacturing &amp; Professional DPF, DOC, SCR &amp; ASC Cleaning Services</h3>
             </div>
 
             <div className={styles.parasWrap}>
