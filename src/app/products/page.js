@@ -67,15 +67,18 @@ async function getProducts() {
       dbProducts = data.products || [];
     }
 
-    const legacyTitles = new Set([
-      'passenger car silencers', 'suv & pickup silencers', 'lcv silencers',
-      'truck & bus silencers', 'catalytic converters', 'dpf / doc / scr services'
-    ]);
+    const defaultIds = new Set(['prod-1', 'prod-2', 'prod-3', 'prod-4', 'prod-5']);
+    const legacyKeywords = ['passenger car', 'suv & pickup', 'lcv silencers', 'truck & bus', 'catalytic converters', 'dpf / doc / scr'];
 
-    const filteredDb = dbProducts.filter(p => !legacyTitles.has((p.title || '').toLowerCase()));
-    const defaultTitles = new Set(defaultCatalogProducts.map(d => d.title.toLowerCase()));
-    const extraFromDb = filteredDb.filter(p => !defaultTitles.has((p.title || '').toLowerCase()));
-    return [...defaultCatalogProducts, ...extraFromDb];
+    const newFromDb = dbProducts.filter(p => {
+      const pid = p.id || p._id;
+      const t = (p.title || '').toLowerCase();
+      if (defaultIds.has(pid)) return false;
+      if (legacyKeywords.some(kw => t.includes(kw))) return false;
+      return true;
+    });
+
+    return [...defaultCatalogProducts, ...newFromDb];
   } catch (err) {
     return defaultCatalogProducts;
   }

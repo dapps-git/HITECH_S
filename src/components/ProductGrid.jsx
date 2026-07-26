@@ -116,23 +116,23 @@ export default function ProductGrid() {
         };
 
         if (data.success && data.products && data.products.length > 0) {
-          const legacyTitles = new Set([
-            'passenger car silencers', 'suv & pickup silencers', 'lcv silencers',
-            'truck & bus silencers', 'catalytic converters', 'dpf / doc / scr services'
-          ]);
-          // Format backend products with icons
-          const backendProducts = data.products
-            .filter(p => !legacyTitles.has((p.title || '').toLowerCase()))
-            .map(p => ({
-              ...p,
-              icon: getIcon(p.category, p.title)
-            }));
+          const defaultIds = new Set(['prod-1', 'prod-2', 'prod-3', 'prod-4', 'prod-5']);
+          const legacyKeywords = ['passenger car', 'suv & pickup', 'lcv silencers', 'truck & bus', 'catalytic converters', 'dpf / doc / scr'];
 
-          const defaultIds = new Set(defaultProducts.map(d => d.id || d._id));
-          const defaultTitles = new Set(defaultProducts.map(d => (d.title || '').toLowerCase()));
-          const newFromBackend = backendProducts.filter(
-            p => !defaultIds.has(p.id || p._id) && !defaultTitles.has((p.title || '').toLowerCase())
-          );
+          // Format backend products with icons
+          const backendProducts = data.products.map(p => ({
+            ...p,
+            icon: getIcon(p.category, p.title)
+          }));
+
+          const newFromBackend = backendProducts.filter(p => {
+            const pid = p.id || p._id;
+            const t = (p.title || '').toLowerCase();
+            if (defaultIds.has(pid)) return false;
+            if (legacyKeywords.some(kw => t.includes(kw))) return false;
+            return true;
+          });
+
           setProductList([...defaultProducts, ...newFromBackend]);
         }
         // if empty backend → keep defaults (do nothing)
