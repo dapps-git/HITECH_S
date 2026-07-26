@@ -1,4 +1,5 @@
 'use client';
+import { useState, useEffect } from 'react';
 import styles from './FeaturedCategories.module.css';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
 import {
@@ -7,43 +8,77 @@ import {
   FaLeaf,
   FaLink,
   FaWrench,
+  FaCar,
+  FaCogs,
+  FaTools
 } from 'react-icons/fa';
 
-const services = [
+const iconMap = {
+  FaFilter,
+  FaIndustry,
+  FaLeaf,
+  FaLink,
+  FaWrench,
+  FaCar,
+  FaCogs,
+  FaTools
+};
+
+const defaultServices = [
   {
     title: 'Professional DPF Restoration',
     desc: '4-stage scientific DPF cleaning restoring original exhaust flow & back pressure',
-    icon: FaFilter,
+    iconName: 'FaFilter',
     link: '#dpf-cleaning',
   },
   {
     title: 'OEM Silencer Manufacturing',
     desc: 'ISO certified silencer manufacturing with 15+ years of OEM precision experience',
-    icon: FaIndustry,
+    iconName: 'FaIndustry',
     link: '#products',
   },
   {
     title: 'Catalytic Converter Service',
     desc: 'Complete diagnostic, cleaning & replacement for optimum emission control',
-    icon: FaLeaf,
+    iconName: 'FaLeaf',
     link: '#products',
   },
   {
     title: 'Flex Pipe Replacement',
     desc: 'Precision flex pipe welding, replacement & vibration dampening exhaust repair',
-    icon: FaLink,
+    iconName: 'FaLink',
     link: '#products',
   },
   {
     title: 'Exhaust Repair',
     desc: 'Complete exhaust system diagnostics, leak repair, and component restoration',
-    icon: FaWrench,
+    iconName: 'FaWrench',
     link: '#contact',
   },
 ];
 
 export default function FeaturedCategories() {
   useScrollReveal();
+  const [services, setServices] = useState(defaultServices);
+
+  useEffect(() => {
+    async function loadServices() {
+      try {
+        const apiUrl = process.env.NEXT_PUBLIC_API_URL || '';
+        const res = await fetch(`${apiUrl}/api/services`);
+        const data = await res.json();
+        if (data.success && Array.isArray(data.services) && data.services.length > 0) {
+          setServices(data.services.map(s => ({
+            ...s,
+            iconName: s.icon || 'FaWrench'
+          })));
+        }
+      } catch (err) {
+        // Use default fallback if API is offline
+      }
+    }
+    loadServices();
+  }, []);
 
   return (
     <section className={styles.section} id="dpf-cleaning">
@@ -62,14 +97,14 @@ export default function FeaturedCategories() {
           </p>
         </div>
 
-        {/* 5 Service Cards */}
+        {/* Dynamic Service Cards */}
         <div className={styles.grid}>
           {services.map((item, i) => {
-            const Icon = item.icon;
+            const IconComponent = iconMap[item.iconName] || FaWrench;
             return (
-              <a key={i} href={item.link} className={`${styles.card} reveal-up`}>
+              <a key={item.id || i} href={item.link || '#contact'} className={`${styles.card} reveal-up`}>
                 <div className={styles.iconWrap}>
-                  <Icon className={styles.icon} />
+                  <IconComponent className={styles.icon} />
                 </div>
                 <h3 className={styles.cardTitle}>{item.title}</h3>
                 <p className={styles.cardDesc}>{item.desc}</p>
