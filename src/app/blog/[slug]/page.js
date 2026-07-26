@@ -9,22 +9,47 @@ import { connectDB, getJsonDb } from '@/lib/db';
 import BlogPost from '@/lib/models/BlogPost';
 import { FaCalendarAlt, FaArrowLeft, FaQuestionCircle, FaUser, FaTag } from 'react-icons/fa';
 
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
 async function getBlogPost(slug, isPreview = false) {
   try {
+    // 1. Try DB / MongoDB first
     const db = await connectDB();
     if (db) {
-      const query = { slug };
+      const query = { $or: [{ slug }, { id: slug }, { _id: slug }] };
       if (!isPreview) {
         query.visibility = 'visible';
       }
       const post = await BlogPost.findOne(query).lean();
-      return post ? JSON.parse(JSON.stringify(post)) : null;
-    } else {
-      const data = getJsonDb();
-      const post = (data.blogs || []).find(b => b.slug === slug && (isPreview || b.visibility === 'visible'));
-      return post || null;
+      if (post) return JSON.parse(JSON.stringify(post));
     }
+    const data = getJsonDb();
+    let post = (data.blogs || []).find(b => (b.slug === slug || b.id === slug || b._id === slug) && (isPreview || b.visibility === 'visible'));
+    if (post) return post;
+
+    // 2. Fallback to Live Backend API endpoint
+    const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'https://tweaki.pw/hiquality/admin';
+    const res = await fetch(`${apiUrl}/api/blogs?all=true`, { cache: 'no-store' });
+    if (res.ok) {
+      const apiData = await res.json();
+      if (apiData.success && Array.isArray(apiData.blogs)) {
+        const found = apiData.blogs.find(b => (b.slug === slug || b.id === slug || b._id === slug) && (isPreview || b.visibility === 'visible'));
+        if (found) return found;
+      }
+    }
+    return null;
   } catch (err) {
+    try {
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'https://tweaki.pw/hiquality/admin';
+      const res = await fetch(`${apiUrl}/api/blogs?all=true`, { cache: 'no-store' });
+      if (res.ok) {
+        const apiData = await res.json();
+        if (apiData.success && Array.isArray(apiData.blogs)) {
+          return apiData.blogs.find(b => (b.slug === slug || b.id === slug || b._id === slug)) || null;
+        }
+      }
+    } catch (e) {}
     return null;
   }
 }
