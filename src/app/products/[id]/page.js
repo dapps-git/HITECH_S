@@ -4,24 +4,77 @@ import TopTicker from '@/components/TopTicker';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import headerStyles from '@/components/Header.module.css';
-import { connectDB, getJsonDb } from '@/lib/db';
-import Product from '@/lib/models/Product';
 import { FaArrowLeft, FaPhoneAlt, FaWhatsapp, FaCheckCircle, FaShieldAlt } from 'react-icons/fa';
 
-async function getProduct(id) {
-  try {
-    const db = await connectDB();
-    if (db) {
-      const product = await Product.findOne({ $or: [{ id }, { _id: id }] }).lean();
-      if (product) return JSON.parse(JSON.stringify(product));
-    }
-    const data = getJsonDb();
-    const product = (data.products || []).find(p => p.id === id || p._id === id);
-    return product || null;
-  } catch (err) {
-    const data = getJsonDb();
-    return (data.products || []).find(p => p.id === id || p._id === id) || null;
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
+const defaultProducts = [
+  {
+    id: 'prod-1',
+    title: 'CAR SILENCERS',
+    category: 'PASSENGER CARS',
+    image: '/images/prod_passenger_car.png',
+    shortDesc: 'High performance OEM specification silencers for all passenger cars.',
+    fullDesc: 'High performance OEM specification silencer engineered for passenger cars. Features heavy-duty galvanised & stainless steel construction, precision acoustic tuning, and minimum 10-year service life under normal operating conditions.',
+    spec: 'Galvanised / Stainless Steel 1.6mm'
+  },
+  {
+    id: 'prod-2',
+    title: 'SUV SILENCERS',
+    category: 'SUV & PICKUP',
+    image: '/images/prod_suv_pickup.png',
+    shortDesc: 'Robust silencers designed for SUVs and pickup trucks for powerful performance.',
+    fullDesc: 'Robust silencers specially engineered for SUVs and 4x4 pickup trucks. Designed for high exhaust flow, maximum backpressure reduction, and durable performance under extreme driving conditions.',
+    spec: 'Heavy Duty 2.0mm Steel'
+  },
+  {
+    id: 'prod-3',
+    title: 'COMMERCIAL VEHICLE SILENCERS',
+    category: 'COMMERCIAL LCV',
+    image: '/images/prod_truck_bus.png',
+    shortDesc: 'Heavy duty silencers for LCVs, trucks, and commercial fleet vehicles.',
+    fullDesc: 'Heavy-duty commercial silencers built for LCVs, trucks, and buses. Engineered to handle high thermal stress and continuous long-distance fleet operations with OEM precision fitment.',
+    spec: 'OEM Grade Flange Fitment'
+  },
+  {
+    id: 'prod-4',
+    title: 'GENERATED SILENCERS',
+    category: 'SPECIALIZED SILENCERS',
+    image: '/images/prod_lcv.png',
+    shortDesc: 'Precision generated silencers for consistent flow dynamics and low back pressure.',
+    fullDesc: 'Precision generated silencers engineered for stationary generators, industrial engines, and heavy-duty machinery. Provides superior acoustic dampening and low backpressure flow dynamics.',
+    spec: 'Industrial Heavy Drum Assembly'
+  },
+  {
+    id: 'prod-5',
+    title: 'CUSTOM SILENCERS',
+    category: 'CUSTOM FABRICATION',
+    image: '/images/prod_catalytic.png',
+    shortDesc: 'Bespoke custom-built silencers tailored to exact vehicle specifications.',
+    fullDesc: 'Custom-engineered silencers built to exact client specifications, custom vehicle dimensions, and specialized noise control requirements. Crafted using premium corrosion-resistant alloys with precision baffle tuning.',
+    spec: 'Custom Flange & Baffle Assembly'
   }
+];
+
+async function getProduct(id) {
+  // 1. Check static defaults first
+  const staticMatch = defaultProducts.find(p => p.id === id || String(p._id) === id);
+  if (staticMatch) return staticMatch;
+
+  // 2. Fetch from live backend API
+  try {
+    const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'https://tweaki.pw/hiquality/admin';
+    const res = await fetch(`${apiUrl}/api/products`, { cache: 'no-store' });
+    if (res.ok) {
+      const data = await res.json();
+      if (data.success && data.products) {
+        return data.products.find(p => (p.id === id || String(p._id) === id)) || null;
+      }
+    }
+  } catch (err) {}
+
+  return null;
 }
 
 export async function generateMetadata({ params }) {
@@ -76,12 +129,8 @@ export default async function ProductDetailPage({ params }) {
             }
           }
           @media (max-width: 600px) {
-            .prod-detail-title {
-              font-size: 1.5rem !important;
-            }
-            .prod-detail-grid {
-              padding: 1.15rem;
-            }
+            .prod-detail-title { font-size: 1.5rem !important; }
+            .prod-detail-grid { padding: 1.15rem; }
           }
         `}} />
 
@@ -139,10 +188,10 @@ export default async function ProductDetailPage({ params }) {
           </div>
         </div>
 
-        {/* Main Card Container */}
+        {/* Main Content Card */}
         <div className="container" style={{ maxWidth: '1100px', margin: '2rem auto 0', padding: '0 1rem' }}>
           <div className="prod-detail-grid">
-            {/* Left Box: Product Image Showcase */}
+            {/* Left: Image */}
             <div>
               <div style={{
                 backgroundColor: '#ffffff',
@@ -162,7 +211,6 @@ export default async function ProductDetailPage({ params }) {
                 />
               </div>
 
-              {/* Technical Spec Box */}
               <div style={{
                 marginTop: '1.25rem',
                 backgroundColor: '#f8fafc',
@@ -187,7 +235,7 @@ export default async function ProductDetailPage({ params }) {
               </div>
             </div>
 
-            {/* Right Box: Product Overview & Actions */}
+            {/* Right: Description & Actions */}
             <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
               <div>
                 <h2 style={{ fontSize: '1.25rem', fontWeight: '800', color: '#0f172a', margin: '0 0 0.85rem 0', fontFamily: 'var(--font-heading)' }}>
@@ -219,7 +267,6 @@ export default async function ProductDetailPage({ params }) {
                 </div>
               </div>
 
-              {/* Action Buttons */}
               <div style={{
                 backgroundColor: '#0f172a',
                 color: '#ffffff',
@@ -238,19 +285,12 @@ export default async function ProductDetailPage({ params }) {
                     target="_blank"
                     rel="noopener noreferrer"
                     style={{
-                      flex: 1,
-                      minWidth: '160px',
-                      backgroundColor: '#22c55e',
-                      color: '#ffffff',
-                      padding: '0.75rem 1rem',
-                      borderRadius: '8px',
-                      fontWeight: '800',
-                      fontSize: '0.82rem',
-                      textDecoration: 'none',
-                      display: 'inline-flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      gap: '0.5rem'
+                      flex: 1, minWidth: '160px',
+                      backgroundColor: '#22c55e', color: '#ffffff',
+                      padding: '0.75rem 1rem', borderRadius: '8px',
+                      fontWeight: '800', fontSize: '0.82rem',
+                      textDecoration: 'none', display: 'inline-flex',
+                      alignItems: 'center', justifyContent: 'center', gap: '0.5rem'
                     }}
                   >
                     <FaWhatsapp size={18} /> WhatsApp Inquiry
@@ -258,19 +298,12 @@ export default async function ProductDetailPage({ params }) {
                   <a
                     href="tel:+919876543210"
                     style={{
-                      flex: 1,
-                      minWidth: '160px',
-                      backgroundColor: '#dc2626',
-                      color: '#ffffff',
-                      padding: '0.75rem 1rem',
-                      borderRadius: '8px',
-                      fontWeight: '800',
-                      fontSize: '0.82rem',
-                      textDecoration: 'none',
-                      display: 'inline-flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      gap: '0.5rem'
+                      flex: 1, minWidth: '160px',
+                      backgroundColor: '#dc2626', color: '#ffffff',
+                      padding: '0.75rem 1rem', borderRadius: '8px',
+                      fontWeight: '800', fontSize: '0.82rem',
+                      textDecoration: 'none', display: 'inline-flex',
+                      alignItems: 'center', justifyContent: 'center', gap: '0.5rem'
                     }}
                   >
                     <FaPhoneAlt size={15} /> Call Sales Team

@@ -3,9 +3,10 @@ import TopTicker from '@/components/TopTicker';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import headerStyles from '@/components/Header.module.css';
-import { connectDB, getJsonDb } from '@/lib/db';
-import Product from '@/lib/models/Product';
-import { FaArrowRight, FaCar, FaShuttleVan, FaTruck, FaCogs, FaWrench } from 'react-icons/fa';
+import { FaArrowRight } from 'react-icons/fa';
+
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
 
 export const metadata = {
   title: "All Products | OEM Silencers & DPF Catalog | Hi Quality Silencers",
@@ -48,7 +49,7 @@ const defaultCatalogProducts = [
   {
     id: 'prod-5',
     title: 'CUSTOM SILENCERS',
-    category: 'EMISSION CONTROL',
+    category: 'CUSTOM FABRICATION',
     image: '/images/prod_catalytic.png',
     shortDesc: 'Bespoke custom-built silencers tailored to exact vehicle specifications and customer performance requirements.',
     spec: 'Custom Flange & Baffle Tuning'
@@ -57,28 +58,28 @@ const defaultCatalogProducts = [
 
 async function getProducts() {
   try {
-    const db = await connectDB();
-    let dbProducts = [];
-    if (db) {
-      const items = await Product.find({}).sort({ createdAt: -1 }).lean();
-      dbProducts = JSON.parse(JSON.stringify(items));
-    } else {
-      const data = getJsonDb();
-      dbProducts = data.products || [];
-    }
+    const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'https://tweaki.pw/hiquality/admin';
+    const res = await fetch(`${apiUrl}/api/products`, { cache: 'no-store' });
+    if (!res.ok) return defaultCatalogProducts;
+
+    const data = await res.json();
+    if (!data.success || !data.products) return defaultCatalogProducts;
 
     const defaultIds = new Set(['prod-1', 'prod-2', 'prod-3', 'prod-4', 'prod-5']);
-    const legacyKeywords = ['passenger car', 'suv & pickup', 'lcv silencers', 'truck & bus', 'catalytic converters', 'dpf / doc / scr'];
+    const legacyKeywords = [
+      'passenger car silencers', 'suv & pickup silencers', 'lcv silencers',
+      'truck & bus silencers', 'catalytic converters', 'dpf / doc / scr'
+    ];
 
-    const newFromDb = dbProducts.filter(p => {
-      const pid = p.id || p._id;
+    const newFromApi = data.products.filter(p => {
+      const pid = p.id || String(p._id);
       const t = (p.title || '').toLowerCase();
       if (defaultIds.has(pid)) return false;
       if (legacyKeywords.some(kw => t.includes(kw))) return false;
       return true;
     });
 
-    return [...defaultCatalogProducts, ...newFromDb];
+    return [...defaultCatalogProducts, ...newFromApi];
   } catch (err) {
     return defaultCatalogProducts;
   }
@@ -88,7 +89,7 @@ export default async function ProductsPage() {
   const products = await getProducts();
 
   return (
-    <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', backgroundColor: '#f8fafc', color: '#0f172a' }}>
+    <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', backgroundColor: '#f8fafc' }}>
       <header className={headerStyles.headerWrapper}>
         <TopTicker />
         <Header />
@@ -158,8 +159,8 @@ export default async function ProductsPage() {
             }
             .prod-page-img-wrap {
               background: #ffffff;
-              height: 180px;
-              padding: 1.25rem;
+              height: 160px;
+              padding: 1rem;
               display: flex;
               align-items: center;
               justify-content: center;
@@ -167,7 +168,7 @@ export default async function ProductsPage() {
               position: relative;
             }
             .prod-page-img-wrap img {
-              max-height: 130px;
+              max-height: 120px;
               width: auto;
               object-fit: contain;
               transition: transform 0.3s ease;
@@ -188,7 +189,7 @@ export default async function ProductsPage() {
               text-transform: uppercase;
             }
             .prod-page-body {
-              padding: 1.25rem 1rem 1rem;
+              padding: 1rem 0.85rem 0.85rem;
               flex: 1;
               display: flex;
               flex-direction: column;
@@ -196,18 +197,19 @@ export default async function ProductsPage() {
               background: #ffffff;
             }
             .prod-page-title {
-              font-size: 0.88rem;
+              font-size: 0.82rem;
               font-weight: 800;
               color: #0f172a;
-              margin: 0 0 0.4rem 0;
+              margin: 0 0 0.35rem 0;
               text-transform: uppercase;
               letter-spacing: 0.01em;
+              line-height: 1.25;
             }
             .prod-page-desc {
-              font-size: 0.76rem;
+              font-size: 0.72rem;
               color: #64748b;
-              margin: 0 0 1rem 0;
-              line-height: 1.45;
+              margin: 0 0 0.75rem 0;
+              line-height: 1.4;
               display: -webkit-box;
               -webkit-line-clamp: 2;
               -webkit-box-orient: vertical;
@@ -217,9 +219,9 @@ export default async function ProductsPage() {
               display: flex;
               align-items: center;
               justify-content: space-between;
-              padding-top: 0.65rem;
+              padding-top: 0.55rem;
               border-top: 1px solid #f1f5f9;
-              font-size: 0.72rem;
+              font-size: 0.68rem;
               font-weight: 800;
               color: #dc2626;
               text-transform: uppercase;
@@ -231,17 +233,21 @@ export default async function ProductsPage() {
             }
             @media (max-width: 768px) {
               .prod-page-grid { grid-template-columns: repeat(2, 1fr); gap: 0.85rem; }
-              .prod-page-img-wrap { height: 140px; padding: 0.75rem; }
-              .prod-page-img-wrap img { max-height: 100px; }
-              .prod-page-body { padding: 0.85rem 0.75rem; }
-              .prod-page-title { font-size: 0.78rem; }
-              .prod-page-desc { font-size: 0.7rem; margin-bottom: 0.65rem; }
+              .prod-page-img-wrap { height: 130px; padding: 0.75rem; }
+              .prod-page-img-wrap img { max-height: 95px; }
+              .prod-page-body { padding: 0.75rem 0.65rem; }
+              .prod-page-title { font-size: 0.75rem; }
+              .prod-page-desc { font-size: 0.65rem; margin-bottom: 0.5rem; }
             }
           `}} />
 
           <div className="prod-page-grid">
             {products.map((p, idx) => (
-              <Link href={`/products/${p.id || p._id || idx}`} key={`all-prod-${p.id || p._id || idx}-${idx}`} className="prod-page-card">
+              <Link
+                href={`/products/${p.id || p._id || idx}`}
+                key={`all-prod-${p.id || p._id || idx}-${idx}`}
+                className="prod-page-card"
+              >
                 <div className="prod-page-img-wrap">
                   <span className="prod-page-badge">{p.category || 'SILENCER'}</span>
                   <img
