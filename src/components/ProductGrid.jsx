@@ -116,16 +116,22 @@ export default function ProductGrid() {
         };
 
         if (data.success && data.products && data.products.length > 0) {
+          const legacyTitles = new Set([
+            'passenger car silencers', 'suv & pickup silencers', 'lcv silencers',
+            'truck & bus silencers', 'catalytic converters', 'dpf / doc / scr services'
+          ]);
           // Format backend products with icons
-          const backendProducts = data.products.map(p => ({
-            ...p,
-            icon: getIcon(p.category, p.title)
-          }));
-          // Always keep ALL defaults first, then append backend items
-          // that aren't already represented in defaults (match by title)
-          const defaultTitles = new Set(defaultProducts.map(d => d.title.toLowerCase()));
+          const backendProducts = data.products
+            .filter(p => !legacyTitles.has((p.title || '').toLowerCase()))
+            .map(p => ({
+              ...p,
+              icon: getIcon(p.category, p.title)
+            }));
+
+          const defaultIds = new Set(defaultProducts.map(d => d.id || d._id));
+          const defaultTitles = new Set(defaultProducts.map(d => (d.title || '').toLowerCase()));
           const newFromBackend = backendProducts.filter(
-            p => !defaultTitles.has((p.title || '').toLowerCase())
+            p => !defaultIds.has(p.id || p._id) && !defaultTitles.has((p.title || '').toLowerCase())
           );
           setProductList([...defaultProducts, ...newFromBackend]);
         }
@@ -195,7 +201,7 @@ export default function ProductGrid() {
           {/* Product Cards Grid */}
           <div className={styles.productGrid}>
             {productList.map((p, i) => (
-              <a key={p.id || i} href={`/products/${p.id || p._id || i}`} className={styles.productCard} style={{ textDecoration: 'none' }}>
+              <a key={`prod-card-${p.id || p._id || i}-${i}`} href={`/products/${p.id || p._id || i}`} className={styles.productCard} style={{ textDecoration: 'none' }}>
                 {/* Card Top: White Box with Image */}
                 <div className={styles.cardTop}>
                   <div className={styles.imgWrapper}>

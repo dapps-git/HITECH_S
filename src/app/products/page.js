@@ -67,9 +67,14 @@ async function getProducts() {
       dbProducts = data.products || [];
     }
 
-    // Merge default products with db products
+    const legacyTitles = new Set([
+      'passenger car silencers', 'suv & pickup silencers', 'lcv silencers',
+      'truck & bus silencers', 'catalytic converters', 'dpf / doc / scr services'
+    ]);
+
+    const filteredDb = dbProducts.filter(p => !legacyTitles.has((p.title || '').toLowerCase()));
     const defaultTitles = new Set(defaultCatalogProducts.map(d => d.title.toLowerCase()));
-    const extraFromDb = dbProducts.filter(p => !defaultTitles.has((p.title || '').toLowerCase()));
+    const extraFromDb = filteredDb.filter(p => !defaultTitles.has((p.title || '').toLowerCase()));
     return [...defaultCatalogProducts, ...extraFromDb];
   } catch (err) {
     return defaultCatalogProducts;
@@ -233,7 +238,7 @@ export default async function ProductsPage() {
 
           <div className="prod-page-grid">
             {products.map((p, idx) => (
-              <Link href={`/products/${p.id || p._id || idx}`} key={p.id || p._id || idx} className="prod-page-card">
+              <Link href={`/products/${p.id || p._id || idx}`} key={`all-prod-${p.id || p._id || idx}-${idx}`} className="prod-page-card">
                 <div className="prod-page-img-wrap">
                   <span className="prod-page-badge">{p.category || 'SILENCER'}</span>
                   <img
