@@ -5,11 +5,11 @@ import styles from './Header.module.css';
 import { LuMenu, LuX, LuDownload } from 'react-icons/lu';
 
 const links = [
-  { label: 'HOME', href: '/#hero' },
+  { label: 'HOME', href: '/' },
   { label: 'ABOUT US', href: '/#about' },
-  { label: 'PRODUCTS', href: '/#products' },
+  { label: 'PRODUCTS', href: '/products' },
   { label: 'DPF CLEANING', href: '/#dpf-cleaning' },
-  { label: 'BLOG', href: '/#journal' },
+  { label: 'BLOG', href: '/blog' },
   { label: 'CONTACT US', href: '/#contact' },
 ];
 

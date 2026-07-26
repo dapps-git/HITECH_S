@@ -111,7 +111,7 @@ export default function FeaturedCategories() {
           {services.map((item, i) => {
             const IconComponent = iconMap[item.iconName] || FaWrench;
             return (
-              <a key={item.id || i} href={item.link || '#contact'} className={`${styles.card} reveal-up`}>
+              <a key={item.id || i} href={item.link || '#contact'} className={styles.card}>
                 <div className={styles.iconWrap}>
                   <IconComponent className={styles.icon} />
                 </div>
