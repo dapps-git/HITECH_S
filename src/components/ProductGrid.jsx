@@ -38,6 +38,20 @@ const defaultProducts = [
     image: '/images/prod_truck_bus.png',
     icon: <FaTruck />,
     desc: 'Heavy duty silencers for LCVs, trucks, and commercial fleet vehicles.'
+  },
+  {
+    id: 'prod-4',
+    title: 'GENERATED SILENCERS',
+    image: '/images/prod_lcv.png',
+    icon: <FaCogs />,
+    desc: 'Precision generated silencers engineered for consistent flow dynamics and low back pressure.'
+  },
+  {
+    id: 'prod-5',
+    title: 'CUSTOM SILENCERS',
+    image: '/images/prod_catalytic.png',
+    icon: <FaWrench />,
+    desc: 'Bespoke custom-built silencers tailored to exact vehicle specifications and customer requirements.'
   }
 ];
 
@@ -203,6 +217,9 @@ export default function ProductGrid() {
                 <div className={styles.cardBottom}>
                   <h3 className={styles.cardTitle}>{p.title}</h3>
                   <p className={styles.cardDesc}>{p.shortDesc || p.desc}</p>
+                  <div className={styles.cardCta}>
+                    VIEW DETAILS <FaArrowRight size={10} />
+                  </div>
                 </div>
               </a>
             ))}

@@ -46,7 +46,7 @@ export default function AboutSection() {
           <div className={`${styles.aboutRight} reveal-right`}>
             <div className={styles.imgCard}>
               <Image
-                src="/images/about.webp"
+                src="/images/aboutus.webp"
                 alt="Hi Quality Silencers TUNEX About"
                 width={600}
                 height={360}
