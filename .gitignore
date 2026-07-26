@@ -20,6 +20,9 @@
 # production
 /build
 
+# backend separate repo
+backend/
+
 # misc
 .DS_Store
 *.pem
