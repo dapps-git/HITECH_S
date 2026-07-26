@@ -59,16 +59,12 @@
   line-height: 1.6;
 }
 
-/* ── 5-card grid (3 + 2 centred) ── */
+/* ── Service cards grid ── */
 .grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+  gap: 24px;
 }
-
-/* Row-2: shift cols 4 & 5 to be centred */
-.card:nth-child(4) { grid-column: 1; }
-.card:nth-child(5) { grid-column: 2; }
 
 /* ── Cards ── */
 .card {
