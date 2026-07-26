@@ -97,53 +97,53 @@ export default async function ProductsPage() {
 
       <main style={{ flex: 1, paddingTop: '100px', paddingBottom: '4rem' }}>
         {/* Pretty Light Hero Header */}
-        <div style={{
+        <div className="prod-hero-header" style={{
           backgroundColor: '#ffffff',
           color: '#0f172a',
-          padding: '2.5rem 1.5rem 2rem',
+          padding: '1.75rem 1.25rem 1.25rem',
           textAlign: 'center',
           borderBottom: '1px solid #e2e8f0',
           position: 'relative'
         }}>
-          <div style={{ maxWidth: '1200px', margin: '0 auto', textAlign: 'left', padding: '0 0.5rem 1rem' }}>
+          <div className="prod-hero-back" style={{ maxWidth: '1200px', margin: '0 auto', textAlign: 'left', padding: '0 0.5rem 0.65rem' }}>
             <Link href="/" style={{
               display: 'inline-flex',
               alignItems: 'center',
               gap: '0.45rem',
               color: '#dc2626',
-              fontSize: '0.8rem',
+              fontSize: '0.78rem',
               fontWeight: '600',
               textDecoration: 'none',
               transition: 'opacity 0.2s'
             }}>
-              <FaArrowLeft size={12} /> BACK TO HOME
+              <FaArrowLeft size={11} /> BACK TO HOME
             </Link>
           </div>
 
           <div style={{ maxWidth: '800px', margin: '0 auto' }}>
-            <span style={{
-              fontSize: '0.7rem',
+            <span className="prod-hero-badge" style={{
+              fontSize: '0.68rem',
               fontWeight: '700',
               color: '#dc2626',
-              letterSpacing: '0.15em',
+              letterSpacing: '0.12em',
               textTransform: 'uppercase',
-              marginBottom: '0.3rem',
+              marginBottom: '0.2rem',
               display: 'block'
             }}>
               ALL PRODUCTS CATALOG
             </span>
-            <h1 style={{
-              fontSize: '1.85rem',
+            <h1 className="prod-hero-title" style={{
+              fontSize: '1.65rem',
               fontWeight: '800',
               textTransform: 'uppercase',
-              margin: '0 0 0.4rem 0',
+              margin: '0 0 0.3rem 0',
               fontFamily: 'var(--font-heading)',
               letterSpacing: '0.02em',
               color: '#0f172a'
             }}>
               OEM SILENCER <span style={{ color: '#dc2626' }}>MODELS</span>
             </h1>
-            <p style={{ fontSize: '0.82rem', color: '#64748b', margin: 0, fontWeight: '400' }}>
+            <p className="prod-hero-sub" style={{ fontSize: '0.8rem', color: '#64748b', margin: 0, fontWeight: '400' }}>
               Select a model below to view full specifications &amp; technical details.
             </p>
           </div>
@@ -249,12 +249,17 @@ export default async function ProductsPage() {
               .prod-page-grid { grid-template-columns: repeat(3, 1fr); }
             }
             @media (max-width: 768px) {
-              .prod-page-grid { grid-template-columns: repeat(2, 1fr); gap: 0.85rem; }
-              .prod-page-img-wrap { height: 130px; padding: 0.75rem; }
-              .prod-page-img-wrap img { max-height: 95px; }
-              .prod-page-body { padding: 0.75rem 0.65rem; }
+              .prod-hero-header { padding: 0.85rem 1rem 0.75rem !important; }
+              .prod-hero-title { font-size: 1.15rem !important; margin-bottom: 0.15rem !important; }
+              .prod-hero-sub { display: none !important; }
+              .prod-hero-badge { font-size: 0.62rem !important; margin-bottom: 0.15rem !important; }
+              .prod-hero-back { padding-bottom: 0.35rem !important; }
+              .prod-page-grid { grid-template-columns: repeat(2, 1fr); gap: 0.75rem; margin-top: 0.85rem !important; }
+              .prod-page-img-wrap { height: 120px; padding: 0.5rem; }
+              .prod-page-img-wrap img { max-height: 90px; }
+              .prod-page-body { padding: 0.65rem 0.55rem; }
               .prod-page-title { font-size: 0.75rem; }
-              .prod-page-desc { font-size: 0.65rem; margin-bottom: 0.5rem; }
+              .prod-page-desc { font-size: 0.65rem; margin-bottom: 0.4rem; }
             }
           `}} />
 

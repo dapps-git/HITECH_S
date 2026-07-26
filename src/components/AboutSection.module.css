@@ -257,6 +257,24 @@
 }
 
 @media (max-width: 767px) {
+  .aboutRight {
+    padding: 0 1rem;
+    margin-top: 1rem;
+  }
+  .imgCard {
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    overflow: hidden;
+    background: #ffffff;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+  }
+  .silencerImg {
+    min-height: 200px;
+    max-height: 300px;
+    object-fit: contain;
+    background: #ffffff;
+    padding: 0.5rem;
+  }
   .headingBlock {
     margin-bottom: 1rem;
     line-height: 1.4;

@@ -121,42 +121,76 @@ export default async function ProductDetailPage({ params }) {
             box-shadow: 0 10px 30px rgba(0,0,0,0.05);
             border: 1px solid #e2e8f0;
           }
+          .prod-img-box {
+            background-color: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 1.5rem 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 280px;
+            box-shadow: inset 0 0 20px rgba(0,0,0,0.02);
+          }
+          .prod-img-box img {
+            max-width: 100%;
+            max-height: 260px;
+            object-fit: contain;
+          }
           @media (max-width: 900px) {
             .prod-detail-grid {
               grid-template-columns: 1fr;
               padding: 1.5rem;
-              gap: 1.75rem;
+              gap: 1.5rem;
             }
           }
-          @media (max-width: 600px) {
-            .prod-detail-title { font-size: 1.5rem !important; }
-            .prod-detail-grid { padding: 1.15rem; }
+          @media (max-width: 768px) {
+            .prod-detail-header {
+              padding: 0.75rem 1rem 0.65rem !important;
+            }
+            .prod-detail-title {
+              font-size: 1.2rem !important;
+              margin-top: 0.2rem !important;
+            }
+            .prod-detail-grid {
+              padding: 1rem !important;
+              gap: 1rem !important;
+              border-radius: 12px !important;
+            }
+            .prod-img-box {
+              min-height: 170px !important;
+              padding: 0.75rem !important;
+              border-radius: 10px !important;
+            }
+            .prod-img-box img {
+              max-height: 160px !important;
+            }
           }
         `}} />
 
         {/* Light Hero Breadcrumb Header */}
-        <div style={{ backgroundColor: '#ffffff', color: '#0f172a', padding: '2rem 1.25rem', borderBottom: '1px solid #e2e8f0' }}>
+        <div className="prod-detail-header" style={{ backgroundColor: '#ffffff', color: '#0f172a', padding: '1.75rem 1.25rem 1.25rem', borderBottom: '1px solid #e2e8f0' }}>
           <div className="container" style={{ maxWidth: '1100px', margin: '0 auto' }}>
             <Link href="/products" style={{
               display: 'inline-flex',
               alignItems: 'center',
               gap: '0.45rem',
               color: '#dc2626',
-              fontSize: '0.8rem',
+              fontSize: '0.78rem',
               fontWeight: '600',
               textDecoration: 'none',
-              marginBottom: '0.85rem'
+              marginBottom: '0.5rem'
             }}>
-              <FaArrowLeft size={12} /> BACK TO ALL PRODUCTS
+              <FaArrowLeft size={11} /> BACK TO ALL PRODUCTS
             </Link>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', flexWrap: 'wrap' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', flexWrap: 'wrap' }}>
               <span style={{
                 backgroundColor: '#fef2f2',
                 color: '#dc2626',
                 border: '1px solid #fecaca',
-                fontSize: '0.68rem',
+                fontSize: '0.65rem',
                 fontWeight: '700',
-                padding: '3px 10px',
+                padding: '2px 8px',
                 borderRadius: '4px',
                 textTransform: 'uppercase'
               }}>
@@ -166,9 +200,9 @@ export default async function ProductDetailPage({ params }) {
                 <span style={{
                   backgroundColor: '#f1f5f9',
                   color: '#475569',
-                  fontSize: '0.68rem',
+                  fontSize: '0.65rem',
                   fontWeight: '600',
-                  padding: '3px 10px',
+                  padding: '2px 8px',
                   borderRadius: '4px',
                   border: '1px solid #e2e8f0'
                 }}>
@@ -177,10 +211,10 @@ export default async function ProductDetailPage({ params }) {
               )}
             </div>
             <h1 className="prod-detail-title" style={{
-              fontSize: '1.85rem',
+              fontSize: '1.65rem',
               fontWeight: '800',
               textTransform: 'uppercase',
-              margin: '0.5rem 0 0 0',
+              margin: '0.35rem 0 0 0',
               fontFamily: 'var(--font-heading)',
               letterSpacing: '0.01em',
               color: '#0f172a'
@@ -191,25 +225,14 @@ export default async function ProductDetailPage({ params }) {
         </div>
 
         {/* Main Content Card */}
-        <div className="container" style={{ maxWidth: '1100px', margin: '2rem auto 0', padding: '0 1rem' }}>
+        <div className="container" style={{ maxWidth: '1100px', margin: '1.5rem auto 0', padding: '0 0.85rem' }}>
           <div className="prod-detail-grid">
             {/* Left: Image */}
             <div>
-              <div style={{
-                backgroundColor: '#ffffff',
-                border: '1px solid #e2e8f0',
-                borderRadius: '12px',
-                padding: '2rem 1.25rem',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                minHeight: '300px',
-                boxShadow: 'inset 0 0 20px rgba(0,0,0,0.02)'
-              }}>
+              <div className="prod-img-box">
                 <img
                   src={product.image || '/images/prod_passenger_car.png'}
                   alt={product.title}
-                  style={{ maxWidth: '100%', maxHeight: '280px', objectFit: 'contain' }}
                 />
               </div>
 
