@@ -233,21 +233,8 @@ export default function ProductGrid() {
 
           {/* VIEW ALL PRODUCTS BUTTON */}
           <div style={{ marginTop: '2.5rem', textAlign: 'center' }}>
-            <a href="/products" className="btn btn-primary" style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '0.5rem',
-              backgroundColor: '#dc2626',
-              color: '#ffffff',
-              padding: '0.85rem 2rem',
-              borderRadius: '8px',
-              fontWeight: '800',
-              fontSize: '0.9rem',
-              textDecoration: 'none',
-              boxShadow: '0 4px 14px rgba(220, 38, 38, 0.4)',
-              transition: 'all 0.2s'
-            }}>
-              VIEW ALL PRODUCTS <FaArrowRight size={14} />
+            <a href="/products" className={styles.viewAllBtn}>
+              VIEW ALL PRODUCTS <FaArrowRight size={12} />
             </a>
           </div>
         </div>

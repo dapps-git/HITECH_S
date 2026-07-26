@@ -115,7 +115,7 @@ export default function FeaturedCategories() {
                 <div className={styles.iconWrap}>
                   <IconComponent className={styles.icon} />
                 </div>
-                <h3 className={styles.cardTitle}>{item.title}</h3>
+                <h3 className={styles.cardTitle}>{item.title ? item.title.toUpperCase() : ''}</h3>
                 <p className={styles.cardDesc}>{item.desc}</p>
               </a>
             );

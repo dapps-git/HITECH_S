@@ -407,17 +407,49 @@
 
 @media (max-width: 768px) {
   .section {
-    padding: 2.25rem 0 !important;
+    padding: 1.75rem 0 !important;
   }
   .faqTitle {
-    font-size: 1.15rem !important;
+    font-size: 1.1rem !important;
+  }
+  .subtitle {
+    font-size: 0.75rem !important;
+  }
+  .faqList {
+    gap: 10px;
+  }
+  .faqCard {
+    border-radius: 8px;
+  }
+  .questionBtn {
+    padding: 12px 14px;
+  }
+  .answerWrapper {
+    padding: 0 14px 14px;
+    font-size: 12px;
   }
   .warningGrid,
   .processGrid {
     grid-template-columns: 1fr;
+    gap: 8px;
   }
-  .qTitle { font-size: 14.5px; }
-  .parcelBox { flex-direction: column; text-align: center; }
-  .questionBtn { padding: 18px 20px; }
-  .answerWrapper { padding: 0 20px 20px; }
+  .warningCard, .symptomItem {
+    padding: 8px 12px;
+    font-size: 11.5px;
+  }
+  .processCard {
+    padding: 12px;
+  }
+  .processCard h5 {
+    font-size: 12.5px;
+  }
+  .processCard p {
+    font-size: 11px;
+  }
+  .qTitle { font-size: 13px; font-weight: 600; }
+  .qSummary { font-size: 11px; }
+  .parcelBox { flex-direction: column; text-align: center; padding: 14px; gap: 10px; }
+  .truckIcon { font-size: 24px; }
+  .parcelBox h4 { font-size: 12.5px; }
+  .parcelBox p { font-size: 11.5px; }
 }

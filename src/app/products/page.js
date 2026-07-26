@@ -3,7 +3,7 @@ import TopTicker from '@/components/TopTicker';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import headerStyles from '@/components/Header.module.css';
-import { FaArrowRight } from 'react-icons/fa';
+import { FaArrowRight, FaArrowLeft } from 'react-icons/fa';
 
 export const dynamic = 'force-dynamic';
 export const revalidate = 0;
@@ -96,38 +96,55 @@ export default async function ProductsPage() {
       </header>
 
       <main style={{ flex: 1, paddingTop: '100px', paddingBottom: '4rem' }}>
-        {/* Minimal Hero Header */}
+        {/* Pretty Light Hero Header */}
         <div style={{
-          backgroundColor: '#0f172a',
-          color: '#ffffff',
-          padding: '3rem 1.5rem 2.5rem',
+          backgroundColor: '#ffffff',
+          color: '#0f172a',
+          padding: '2.5rem 1.5rem 2rem',
           textAlign: 'center',
-          borderBottom: '3px solid #dc2626'
+          borderBottom: '1px solid #e2e8f0',
+          position: 'relative'
         }}>
+          <div style={{ maxWidth: '1200px', margin: '0 auto', textAlign: 'left', padding: '0 0.5rem 1rem' }}>
+            <Link href="/" style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '0.45rem',
+              color: '#dc2626',
+              fontSize: '0.8rem',
+              fontWeight: '600',
+              textDecoration: 'none',
+              transition: 'opacity 0.2s'
+            }}>
+              <FaArrowLeft size={12} /> BACK TO HOME
+            </Link>
+          </div>
+
           <div style={{ maxWidth: '800px', margin: '0 auto' }}>
             <span style={{
-              fontSize: '0.72rem',
-              fontWeight: '800',
+              fontSize: '0.7rem',
+              fontWeight: '700',
               color: '#dc2626',
               letterSpacing: '0.15em',
               textTransform: 'uppercase',
-              marginBottom: '0.4rem',
+              marginBottom: '0.3rem',
               display: 'block'
             }}>
-              OEM EXHAUST CATALOG
+              ALL PRODUCTS CATALOG
             </span>
             <h1 style={{
-              fontSize: '2rem',
+              fontSize: '1.85rem',
               fontWeight: '800',
               textTransform: 'uppercase',
-              margin: '0 0 0.5rem 0',
+              margin: '0 0 0.4rem 0',
               fontFamily: 'var(--font-heading)',
-              letterSpacing: '0.02em'
+              letterSpacing: '0.02em',
+              color: '#0f172a'
             }}>
-              ALL PRODUCT <span style={{ color: '#dc2626' }}>MODELS</span>
+              OEM SILENCER <span style={{ color: '#dc2626' }}>MODELS</span>
             </h1>
-            <p style={{ fontSize: '0.85rem', color: '#94a3b8', margin: 0, lineHeight: '1.5' }}>
-              Precision engineered silencers, DPF systems &amp; exhaust components for all vehicle segments.
+            <p style={{ fontSize: '0.82rem', color: '#64748b', margin: 0, fontWeight: '400' }}>
+              Select a model below to view full specifications &amp; technical details.
             </p>
           </div>
         </div>

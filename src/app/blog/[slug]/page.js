@@ -97,31 +97,32 @@ export default async function BlogPostDetail({ params, searchParams }) {
       </header>
 
       <main style={{ flex: 1, paddingTop: '96px', paddingBottom: '5rem' }}>
-        {/* Article Banner */}
-        <div style={{ backgroundColor: '#0f172a', color: '#ffffff', padding: '4rem 1.5rem 3.5rem' }}>
+        {/* Article Header */}
+        <div style={{ backgroundColor: '#ffffff', color: '#0f172a', padding: '2.5rem 1.5rem 2rem', borderBottom: '1px solid #e2e8f0' }}>
           <div className="container" style={{ maxWidth: '860px', margin: '0 auto' }}>
             <Link href="/blog" style={{
               display: 'inline-flex',
               alignItems: 'center',
-              gap: '0.5rem',
-              color: '#ef4444',
+              gap: '0.45rem',
+              color: '#dc2626',
               fontSize: '0.8rem',
-              fontWeight: '700',
+              fontWeight: '600',
               textDecoration: 'none',
-              marginBottom: '1.5rem',
+              marginBottom: '1rem',
               transition: 'color 0.2s'
             }}>
-              <FaArrowLeft /> Back to Technical Guides
+              <FaArrowLeft size={12} /> BACK TO TECHNICAL GUIDES
             </Link>
 
             <h1 style={{
-              fontSize: '2.4rem',
+              fontSize: '2rem',
               fontWeight: '800',
               lineHeight: '1.25',
-              margin: '0 0 1.5rem 0',
+              margin: '0 0 1.25rem 0',
               fontFamily: 'var(--font-heading)',
               textTransform: 'uppercase',
-              letterSpacing: '0.02em',
+              letterSpacing: '0.01em',
+              color: '#0f172a'
             }}>
               {post.title}
             </h1>
@@ -130,19 +131,19 @@ export default async function BlogPostDetail({ params, searchParams }) {
               display: 'flex',
               flexWrap: 'wrap',
               gap: '1.5rem',
-              fontSize: '0.8rem',
-              color: '#94a3b8',
-              borderTop: '1px solid #334155',
-              paddingTop: '1.25rem'
+              fontSize: '0.78rem',
+              color: '#64748b',
+              borderTop: '1px solid #e2e8f0',
+              paddingTop: '1rem'
             }}>
               <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.4rem' }}>
-                <FaUser color="#dc2626" /> {post.author || 'Hi Quality Silencers Editorial'}
+                <FaUser color="#dc2626" size={12} /> {post.author || 'Hi Quality Silencers Editorial'}
               </span>
               <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.4rem' }}>
-                <FaCalendarAlt color="#dc2626" /> {new Date(post.publishDate || Date.now()).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
+                <FaCalendarAlt color="#dc2626" size={12} /> {new Date(post.publishDate || Date.now()).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
               </span>
               <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.4rem' }}>
-                <FaTag color="#dc2626" /> {post.category || 'DPF & Silencer Guide'}
+                <FaTag color="#dc2626" size={12} /> {post.category || 'DPF & Silencer Guide'}
               </span>
             </div>
           </div>

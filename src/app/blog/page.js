@@ -4,9 +4,10 @@ import TopTicker from '@/components/TopTicker';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import headerStyles from '@/components/Header.module.css';
-import { connectDB, getJsonDb } from '@/lib/db';
-import BlogPost from '@/lib/models/BlogPost';
-import { FaCalendarAlt, FaArrowRight, FaTag } from 'react-icons/fa';
+import { FaCalendarAlt, FaArrowRight, FaTag, FaArrowLeft } from 'react-icons/fa';
+
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
 
 export const metadata = {
   title: "DPF Maintenance & Silencer Technical Guides | Hi Quality Silencers",
@@ -15,20 +16,19 @@ export const metadata = {
 
 async function getPublishedBlogs() {
   try {
-    const db = await connectDB();
-    if (db) {
-      const blogs = await BlogPost.find({ visibility: 'visible' }).sort({ publishDate: -1 }).lean();
-      return JSON.parse(JSON.stringify(blogs));
-    } else {
-      const data = getJsonDb();
-      return (data.blogs || []).filter(b => b.visibility === 'visible');
+    const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'https://tweaki.pw/hiquality/admin';
+    const res = await fetch(`${apiUrl}/api/blogs`, { cache: 'no-store' });
+    if (res.ok) {
+      const data = await res.json();
+      if (data.success && data.blogs) {
+        return data.blogs.filter(b => b.visibility === 'visible' || !b.visibility);
+      }
     }
-  } catch (err) {
-    return [];
-  }
+  } catch (err) {}
+  return [];
 }
 
-export default async function BlogListing() {
+export default async function BlogIndexPage() {
   const blogs = await getPublishedBlogs();
 
   return (
@@ -64,37 +64,53 @@ export default async function BlogListing() {
         <Header />
       </header>
 
-      <main style={{ flex: 1, paddingTop: '110px', paddingBottom: '4rem' }}>
-        {/* Page Header */}
+      <main style={{ flex: 1, paddingTop: '96px', paddingBottom: '5rem' }}>
+        {/* Light Hero Header */}
         <div style={{
-          backgroundColor: '#0f172a',
-          color: '#ffffff',
-          padding: '3rem 1.5rem',
+          backgroundColor: '#ffffff',
+          color: '#0f172a',
+          padding: '2.5rem 1.5rem 2rem',
           textAlign: 'center',
-          borderBottom: '3px solid #dc2626'
+          borderBottom: '1px solid #e2e8f0'
         }}>
+          <div style={{ maxWidth: '1200px', margin: '0 auto', textAlign: 'left', padding: '0 0.5rem 1rem' }}>
+            <Link href="/" style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '0.45rem',
+              color: '#dc2626',
+              fontSize: '0.8rem',
+              fontWeight: '600',
+              textDecoration: 'none',
+              transition: 'opacity 0.2s'
+            }}>
+              <FaArrowLeft size={12} /> BACK TO HOME
+            </Link>
+          </div>
+
           <div className="container" style={{ maxWidth: '900px', margin: '0 auto' }}>
             <span style={{
-              fontSize: '0.75rem',
+              fontSize: '0.7rem',
               fontWeight: '700',
               color: '#dc2626',
               letterSpacing: '0.15em',
               textTransform: 'uppercase',
-              marginBottom: '0.5rem',
+              marginBottom: '0.4rem',
               display: 'block'
             }}>
               TECHNICAL KNOWLEDGE BASE
             </span>
             <h1 style={{
-              fontSize: '2.2rem',
+              fontSize: '1.85rem',
               fontWeight: '800',
               textTransform: 'uppercase',
-              margin: '0 0 0.5rem 0',
-              fontFamily: 'var(--font-heading)'
+              margin: '0 0 0.4rem 0',
+              fontFamily: 'var(--font-heading)',
+              color: '#0f172a'
             }}>
               DPF &amp; SILENCER <span style={{ color: '#dc2626' }}>TECHNICAL GUIDES</span>
             </h1>
-            <p style={{ fontSize: '0.9rem', color: '#94a3b8', margin: 0, lineHeight: '1.5' }}>
+            <p style={{ fontSize: '0.82rem', color: '#64748b', margin: 0, fontWeight: '400' }}>
               Expert articles to help vehicle owners understand DPF maintenance, warning signs, scanner values, and professional restoration.
             </p>
           </div>

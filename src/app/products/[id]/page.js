@@ -134,28 +134,29 @@ export default async function ProductDetailPage({ params }) {
           }
         `}} />
 
-        {/* Hero Breadcrumb Header */}
-        <div style={{ backgroundColor: '#0f172a', color: '#ffffff', padding: '2rem 1.25rem' }}>
+        {/* Light Hero Breadcrumb Header */}
+        <div style={{ backgroundColor: '#ffffff', color: '#0f172a', padding: '2rem 1.25rem', borderBottom: '1px solid #e2e8f0' }}>
           <div className="container" style={{ maxWidth: '1100px', margin: '0 auto' }}>
             <Link href="/products" style={{
               display: 'inline-flex',
               alignItems: 'center',
-              gap: '0.5rem',
-              color: '#ef4444',
+              gap: '0.45rem',
+              color: '#dc2626',
               fontSize: '0.8rem',
-              fontWeight: '700',
+              fontWeight: '600',
               textDecoration: 'none',
               marginBottom: '0.85rem'
             }}>
-              <FaArrowLeft /> Back to All Products
+              <FaArrowLeft size={12} /> BACK TO ALL PRODUCTS
             </Link>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', flexWrap: 'wrap' }}>
               <span style={{
-                backgroundColor: '#dc2626',
-                color: '#ffffff',
-                fontSize: '0.7rem',
-                fontWeight: '800',
-                padding: '4px 10px',
+                backgroundColor: '#fef2f2',
+                color: '#dc2626',
+                border: '1px solid #fecaca',
+                fontSize: '0.68rem',
+                fontWeight: '700',
+                padding: '3px 10px',
                 borderRadius: '4px',
                 textTransform: 'uppercase'
               }}>
@@ -163,25 +164,26 @@ export default async function ProductDetailPage({ params }) {
               </span>
               {product.spec && (
                 <span style={{
-                  backgroundColor: 'rgba(255,255,255,0.1)',
-                  color: '#cbd5e1',
-                  fontSize: '0.7rem',
+                  backgroundColor: '#f1f5f9',
+                  color: '#475569',
+                  fontSize: '0.68rem',
                   fontWeight: '600',
-                  padding: '4px 10px',
+                  padding: '3px 10px',
                   borderRadius: '4px',
-                  border: '1px solid rgba(255,255,255,0.15)'
+                  border: '1px solid #e2e8f0'
                 }}>
                   {product.spec}
                 </span>
               )}
             </div>
             <h1 className="prod-detail-title" style={{
-              fontSize: '2rem',
+              fontSize: '1.85rem',
               fontWeight: '800',
               textTransform: 'uppercase',
-              margin: '0.65rem 0 0 0',
+              margin: '0.5rem 0 0 0',
               fontFamily: 'var(--font-heading)',
-              letterSpacing: '0.01em'
+              letterSpacing: '0.01em',
+              color: '#0f172a'
             }}>
               {product.title}
             </h1>
@@ -218,18 +220,18 @@ export default async function ProductDetailPage({ params }) {
                 borderRadius: '10px',
                 padding: '1.15rem'
               }}>
-                <h4 style={{ fontSize: '0.8rem', fontWeight: '800', color: '#0f172a', margin: '0 0 0.65rem 0', textTransform: 'uppercase' }}>
+                <h4 style={{ fontSize: '0.78rem', fontWeight: '700', color: '#0f172a', margin: '0 0 0.65rem 0', textTransform: 'uppercase' }}>
                   Technical Highlights
                 </h4>
-                <ul style={{ listStyle: 'none', padding: 0, margin: 0, fontSize: '0.8rem', color: '#475569', display: 'flex', flexDirection: 'column', gap: '0.45rem' }}>
+                <ul style={{ listStyle: 'none', padding: 0, margin: 0, fontSize: '0.78rem', color: '#475569', display: 'flex', flexDirection: 'column', gap: '0.45rem' }}>
                   <li style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                    <FaCheckCircle color="#dc2626" size={14} /> ISO Certified OEM Precision Fitment
+                    <FaCheckCircle color="#dc2626" size={13} /> ISO Certified OEM Precision Fitment
                   </li>
                   <li style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                    <FaCheckCircle color="#dc2626" size={14} /> Heavy-duty Galvanised &amp; Stainless Steel
+                    <FaCheckCircle color="#dc2626" size={13} /> Heavy-duty Galvanised &amp; Stainless Steel
                   </li>
                   <li style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                    <FaShieldAlt color="#dc2626" size={14} /> 15-Month Manufacturer Warranty Included
+                    <FaShieldAlt color="#dc2626" size={13} /> 15-Month Manufacturer Warranty Included
                   </li>
                 </ul>
               </div>
@@ -238,13 +240,13 @@ export default async function ProductDetailPage({ params }) {
             {/* Right: Description & Actions */}
             <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
               <div>
-                <h2 style={{ fontSize: '1.25rem', fontWeight: '800', color: '#0f172a', margin: '0 0 0.85rem 0', fontFamily: 'var(--font-heading)' }}>
+                <h2 style={{ fontSize: '1.15rem', fontWeight: '800', color: '#0f172a', margin: '0 0 0.85rem 0', fontFamily: 'var(--font-heading)' }}>
                   PRODUCT OVERVIEW
                 </h2>
 
                 {product.shortDesc && (
                   <p style={{
-                    fontSize: '0.9rem',
+                    fontSize: '0.85rem',
                     fontWeight: '600',
                     color: '#dc2626',
                     marginBottom: '1rem',
@@ -257,7 +259,7 @@ export default async function ProductDetailPage({ params }) {
                 )}
 
                 <div style={{
-                  fontSize: '0.88rem',
+                  fontSize: '0.85rem',
                   lineHeight: '1.75',
                   color: '#475569',
                   whiteSpace: 'pre-line',
@@ -267,46 +269,49 @@ export default async function ProductDetailPage({ params }) {
                 </div>
               </div>
 
+              {/* Premium Light Action Box */}
               <div style={{
-                backgroundColor: '#0f172a',
-                color: '#ffffff',
+                backgroundColor: '#f8fafc',
+                border: '1px solid #e2e8f0',
                 borderRadius: '12px',
                 padding: '1.25rem',
                 display: 'flex',
                 flexDirection: 'column',
                 gap: '0.85rem'
               }}>
-                <div style={{ fontSize: '0.8rem', color: '#94a3b8' }}>
+                <div style={{ fontSize: '0.78rem', color: '#64748b', fontWeight: '500' }}>
                   Interested in bulk OEM order or silencer replacement for this model?
                 </div>
-                <div style={{ display: 'flex', gap: '0.85rem', flexWrap: 'wrap' }}>
+                <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
                   <a
                     href={`https://wa.me/919876543210?text=Hi%20Quality%20Silencers,%20I%20would%20like%20to%20inquire%20about%20${encodeURIComponent(product.title)}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     style={{
-                      flex: 1, minWidth: '160px',
+                      flex: 1, minWidth: '150px',
                       backgroundColor: '#22c55e', color: '#ffffff',
-                      padding: '0.75rem 1rem', borderRadius: '8px',
-                      fontWeight: '800', fontSize: '0.82rem',
+                      padding: '0.7rem 1rem', borderRadius: '8px',
+                      fontWeight: '600', fontSize: '0.8rem',
                       textDecoration: 'none', display: 'inline-flex',
-                      alignItems: 'center', justifyContent: 'center', gap: '0.5rem'
+                      alignItems: 'center', justifyContent: 'center', gap: '0.5rem',
+                      boxShadow: '0 2px 8px rgba(34, 197, 94, 0.2)'
                     }}
                   >
-                    <FaWhatsapp size={18} /> WhatsApp Inquiry
+                    <FaWhatsapp size={16} /> WhatsApp Inquiry
                   </a>
                   <a
                     href="tel:+919876543210"
                     style={{
-                      flex: 1, minWidth: '160px',
+                      flex: 1, minWidth: '150px',
                       backgroundColor: '#dc2626', color: '#ffffff',
-                      padding: '0.75rem 1rem', borderRadius: '8px',
-                      fontWeight: '800', fontSize: '0.82rem',
+                      padding: '0.7rem 1rem', borderRadius: '8px',
+                      fontWeight: '600', fontSize: '0.8rem',
                       textDecoration: 'none', display: 'inline-flex',
-                      alignItems: 'center', justifyContent: 'center', gap: '0.5rem'
+                      alignItems: 'center', justifyContent: 'center', gap: '0.5rem',
+                      boxShadow: '0 2px 8px rgba(220, 38, 38, 0.2)'
                     }}
                   >
-                    <FaPhoneAlt size={15} /> Call Sales Team
+                    <FaPhoneAlt size={13} /> Call Sales Team
                   </a>
                 </div>
               </div>
