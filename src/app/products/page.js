@@ -195,15 +195,17 @@ export default async function ProductsPage() {
             }
             .prod-page-badge {
               position: absolute;
-              top: 10px;
-              right: 10px;
-              background: #dc2626;
-              color: #ffffff;
-              font-size: 0.65rem;
-              font-weight: 800;
-              padding: 3px 8px;
-              border-radius: 4px;
+              top: 8px;
+              right: 8px;
+              background: #fef2f2;
+              color: #dc2626;
+              border: 1px solid #fecaca;
+              font-size: 0.56rem;
+              font-weight: 600;
+              padding: 2px 6px;
+              border-radius: 3px;
               text-transform: uppercase;
+              letter-spacing: 0.02em;
             }
             .prod-page-body {
               padding: 1rem 0.85rem 0.85rem;
