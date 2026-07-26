@@ -11,6 +11,9 @@ import Footer from '@/components/Footer';
 
 import headerStyles from '@/components/Header.module.css';
 
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
 export default function Home() {
   return (
     <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>

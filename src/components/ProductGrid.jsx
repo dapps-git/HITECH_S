@@ -99,7 +99,7 @@ export default function ProductGrid() {
   useEffect(() => {
     async function fetchProducts() {
       try {
-        const baseUrl = process.env.NEXT_PUBLIC_API_URL || '';
+        const baseUrl = process.env.NEXT_PUBLIC_API_URL || 'https://tweaki.pw/hiquality/admin';
         const res = await fetch(`${baseUrl}/api/products`);
         if (!res.ok) return; // keep defaults on HTTP error
 

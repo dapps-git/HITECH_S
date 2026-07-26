@@ -64,7 +64,7 @@ export default function FeaturedCategories() {
   useEffect(() => {
     async function loadServices() {
       try {
-        const apiUrl = process.env.NEXT_PUBLIC_API_URL || '';
+        const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'https://tweaki.pw/hiquality/admin';
         const res = await fetch(`${apiUrl}/api/services`);
         if (!res.ok) return;
         const data = await res.json();

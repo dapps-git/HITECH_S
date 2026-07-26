@@ -10,7 +10,8 @@ export default function BlogPosts() {
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
-        const res = await fetch('/api/blogs');
+        const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'https://tweaki.pw/hiquality/admin';
+        const res = await fetch(`${apiUrl}/api/blogs`);
         const data = await res.json();
         if (data.success && data.blogs && data.blogs.length > 0) {
           setBlogs(data.blogs.slice(0, 4));
