@@ -160,7 +160,7 @@ export default async function ProductsPage() {
             .prod-page-card {
               background: #ffffff;
               border: 1px solid #e2e8f0;
-              border-radius: 10px;
+              border-radius: 0;
               overflow: hidden;
               box-shadow: 0 4px 16px rgba(0,0,0,0.04);
               transition: all 0.25s ease;
