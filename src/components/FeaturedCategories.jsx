@@ -66,15 +66,24 @@ export default function FeaturedCategories() {
       try {
         const apiUrl = process.env.NEXT_PUBLIC_API_URL || '';
         const res = await fetch(`${apiUrl}/api/services`);
+        if (!res.ok) return;
         const data = await res.json();
         if (data.success && Array.isArray(data.services) && data.services.length > 0) {
-          setServices(data.services.map(s => ({
+          const apiServices = data.services.map(s => ({
             ...s,
-            iconName: s.icon || 'FaWrench'
-          })));
+            iconName: s.icon || s.iconName || 'FaWrench'
+          }));
+          // Always keep ALL defaults, then append backend items that don't
+          // already exist in the defaults list (match by title)
+          const defaultTitles = new Set(defaultServices.map(d => d.title.toLowerCase()));
+          const newFromBackend = apiServices.filter(
+            s => !defaultTitles.has((s.title || '').toLowerCase())
+          );
+          setServices([...defaultServices, ...newFromBackend]);
         }
+        // if no backend services → stay on defaults (do nothing)
       } catch (err) {
-        // Use default fallback if API is offline
+        // Network error → keep defaults (do nothing)
       }
     }
     loadServices();

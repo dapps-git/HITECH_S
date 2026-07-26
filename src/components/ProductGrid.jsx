@@ -87,6 +87,8 @@ export default function ProductGrid() {
       try {
         const baseUrl = process.env.NEXT_PUBLIC_API_URL || '';
         const res = await fetch(`${baseUrl}/api/products`);
+        if (!res.ok) return; // keep defaults on HTTP error
+
         const data = await res.json();
 
         const getIcon = (type, title = '') => {
@@ -100,10 +102,22 @@ export default function ProductGrid() {
         };
 
         if (data.success && data.products && data.products.length > 0) {
-          // If backend has items, format them
+          // Format backend products with icons
+          const backendProducts = data.products.map(p => ({
+            ...p,
+            icon: getIcon(p.category, p.title)
+          }));
+          // Always keep ALL defaults first, then append backend items
+          // that aren't already represented in defaults (match by title)
+          const defaultTitles = new Set(defaultProducts.map(d => d.title.toLowerCase()));
+          const newFromBackend = backendProducts.filter(
+            p => !defaultTitles.has((p.title || '').toLowerCase())
+          );
+          setProductList([...defaultProducts, ...newFromBackend]);
         }
+        // if empty backend → keep defaults (do nothing)
       } catch (err) {
-        // Fallback to default list if offline
+        // Network error → keep defaults (do nothing)
       }
     }
     fetchProducts();
@@ -167,7 +181,7 @@ export default function ProductGrid() {
           {/* Product Cards Grid */}
           <div className={styles.productGrid}>
             {productList.map((p, i) => (
-              <div key={p.id || i} className={styles.productCard}>
+              <a key={p.id || i} href={`/products/${p.id || p._id || i}`} className={styles.productCard} style={{ textDecoration: 'none' }}>
                 {/* Card Top: White Box with Image */}
                 <div className={styles.cardTop}>
                   <div className={styles.imgWrapper}>
@@ -188,10 +202,30 @@ export default function ProductGrid() {
                 {/* Card Bottom: Dark Box with Text */}
                 <div className={styles.cardBottom}>
                   <h3 className={styles.cardTitle}>{p.title}</h3>
-                  <p className={styles.cardDesc}>{p.desc}</p>
+                  <p className={styles.cardDesc}>{p.shortDesc || p.desc}</p>
                 </div>
-              </div>
+              </a>
             ))}
+          </div>
+
+          {/* VIEW ALL PRODUCTS BUTTON */}
+          <div style={{ marginTop: '2.5rem', textAlign: 'center' }}>
+            <a href="/products" className="btn btn-primary" style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '0.5rem',
+              backgroundColor: '#dc2626',
+              color: '#ffffff',
+              padding: '0.85rem 2rem',
+              borderRadius: '8px',
+              fontWeight: '800',
+              fontSize: '0.9rem',
+              textDecoration: 'none',
+              boxShadow: '0 4px 14px rgba(220, 38, 38, 0.4)',
+              transition: 'all 0.2s'
+            }}>
+              VIEW ALL PRODUCTS <FaArrowRight size={14} />
+            </a>
           </div>
         </div>
       </section>
