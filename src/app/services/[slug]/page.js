@@ -136,33 +136,44 @@ export default async function ServicePage({ params }) {
         <div style={{
           background: '#ffffff',
           borderBottom: '1px solid #e2e8f0',
-          padding: '0.85rem 1rem 0.75rem',
+          padding: '0.85rem 1rem 0.85rem',
         }}>
           <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
             <Link href="/#dpf-cleaning" style={{
               display: 'inline-flex', alignItems: 'center', gap: '0.35rem',
               color: '#dc2626', fontSize: '0.72rem', fontWeight: '700',
-              textDecoration: 'none', marginBottom: '0.4rem', textTransform: 'uppercase',
+              textDecoration: 'none', marginBottom: '0.5rem', textTransform: 'uppercase',
               letterSpacing: '0.04em'
             }}>
               <FaArrowLeft size={10} /> BACK TO SERVICES
             </Link>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '10px', flexWrap: 'wrap' }}>
-              <div style={{
-                width: '32px', height: '32px', borderRadius: '8px',
-                background: '#fef2f2', display: 'flex', alignItems: 'center',
-                justifyContent: 'center', color: '#dc2626', fontSize: '0.9rem', flexShrink: 0
+            <div>
+              <span style={{
+                backgroundColor: '#fef2f2',
+                color: '#dc2626',
+                border: '1px solid #fecaca',
+                fontSize: '0.62rem',
+                fontWeight: '700',
+                padding: '2px 8px',
+                borderRadius: '4px',
+                textTransform: 'uppercase',
+                letterSpacing: '0.06em',
+                display: 'inline-block',
+                marginBottom: '0.35rem'
               }}>
-                <IconComponent />
-              </div>
-              <div>
-                <span style={{ fontSize: '0.6rem', fontWeight: '700', color: '#dc2626', letterSpacing: '0.1em', textTransform: 'uppercase', display: 'block' }}>
-                  {service.category}
-                </span>
-                <h1 style={{ fontSize: '1.2rem', fontWeight: '800', color: '#0f172a', margin: 0, textTransform: 'uppercase', fontFamily: 'Montserrat, sans-serif' }}>
-                  {service.title}
-                </h1>
-              </div>
+                {service.category}
+              </span>
+              <h1 style={{
+                fontSize: '1.35rem',
+                fontWeight: '800',
+                color: '#0f172a',
+                margin: 0,
+                textTransform: 'uppercase',
+                fontFamily: 'Montserrat, sans-serif',
+                letterSpacing: '0.01em'
+              }}>
+                {service.title}
+              </h1>
             </div>
           </div>
         </div>
