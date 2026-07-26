@@ -119,8 +119,9 @@ We service all makes and models of passenger cars, SUVs, LCVs, and heavy commerc
 
 const iconMap = { FaFilter, FaIndustry, FaLeaf, FaLink, FaWrench };
 
-export default function ServicePage({ params }) {
-  const service = SERVICES.find(s => s.slug === params.slug);
+export default async function ServicePage({ params }) {
+  const { slug } = await params;
+  const service = SERVICES.find(s => s.slug === slug);
   if (!service) notFound();
   const IconComponent = iconMap[service.iconName] || FaWrench;
 
