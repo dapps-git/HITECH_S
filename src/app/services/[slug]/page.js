@@ -164,13 +164,13 @@ export default async function ServicePage({ params }) {
                 {service.category}
               </span>
               <h1 style={{
-                fontSize: '1.35rem',
-                fontWeight: '800',
+                fontSize: '1.1rem',
+                fontWeight: '600',
                 color: '#0f172a',
                 margin: 0,
                 textTransform: 'uppercase',
                 fontFamily: 'Montserrat, sans-serif',
-                letterSpacing: '0.01em'
+                letterSpacing: '0.02em'
               }}>
                 {service.title}
               </h1>
