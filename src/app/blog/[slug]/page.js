@@ -154,6 +154,17 @@ export default async function BlogPostDetail({ params, searchParams }) {
                 font-weight: 700;
               }
             `}} />
+            {/* Featured Main Image */}
+            {post.featuredImage && (
+              <div style={{ marginBottom: '2rem', borderRadius: '10px', overflow: 'hidden', maxHeight: '420px', position: 'relative' }}>
+                <img
+                  src={post.featuredImage}
+                  alt={post.title}
+                  style={{ width: '100%', height: 'auto', maxHeight: '420px', objectFit: 'cover', display: 'block' }}
+                />
+              </div>
+            )}
+
             <div
               dangerouslySetInnerHTML={{ __html: post.content }}
               className="blog-article-content"
@@ -164,6 +175,22 @@ export default async function BlogPostDetail({ params, searchParams }) {
                 fontFamily: 'var(--font-sans)',
               }}
             />
+
+            {/* Reference Images Gallery */}
+            {post.referenceImages && post.referenceImages.length > 0 && (
+              <div style={{ marginTop: '3rem', paddingTop: '2rem', borderTop: '1px solid #e2e8f0' }}>
+                <h3 style={{ fontSize: '1.1rem', fontWeight: '800', color: '#0f172a', marginBottom: '1.2rem', textTransform: 'uppercase' }}>
+                  Reference Images &amp; Technical Diagrams
+                </h3>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))', gap: '1rem' }}>
+                  {post.referenceImages.map((imgUrl, idx) => (
+                    <div key={idx} style={{ borderRadius: '8px', overflow: 'hidden', border: '1px solid #cbd5e1', boxShadow: '0 2px 8px rgba(0,0,0,0.04)' }}>
+                      <img src={imgUrl} alt={`Reference ${idx + 1}`} style={{ width: '100%', height: '160px', objectFit: 'cover', display: 'block' }} />
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
 
           {/* BLOG SPECIFIC FAQs (Rendered as interactive accordion if present) */}
