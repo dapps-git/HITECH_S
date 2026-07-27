@@ -111,7 +111,7 @@ We service all makes and models of passenger cars, SUVs, LCVs, and heavy commerc
       'Commercial Vehicles Welcome',
       'Quality Materials & Fast Service',
     ],
-    heroImage: '/images/prod_dpf_service.png',
+    heroImage: '/images/service-exhaust-repair.jpg',
     beforeAfterImage: null,
     iconName: 'FaWrench',
   },
