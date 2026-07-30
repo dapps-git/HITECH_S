@@ -58,7 +58,7 @@
 }
 
 .leftColumn {
-  max-width: 560px;
+  max-width: 680px;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -73,8 +73,8 @@
   line-height: 1.12;
   margin-bottom: 0.45rem;
   letter-spacing: -0.015em;
-  font-size: 2.5rem;
-  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.95), 0 0 24px rgba(0, 0, 0, 0.85);
+  font-size: 2.3rem;
+  text-shadow: none;
 }
 
 .boldText {
@@ -84,12 +84,12 @@
 
 .redText {
   color: #dc2626;
-  text-shadow: 0 0 20px rgba(220, 38, 38, 0.45);
+  text-shadow: none;
 }
 
 .yellowText {
   color: #facc15;
-  text-shadow: 0 0 20px rgba(250, 204, 21, 0.45);
+  text-shadow: none;
 }
 
 /* ✅ HIGHLIGHTED SUBTITLE — dark red text inside a light black transparent box */
@@ -447,7 +447,7 @@
     line-height: 1.18;
     margin-bottom: 0.5rem;
     font-weight: 600;
-    text-shadow: 0 2px 16px rgba(0, 0, 0, 0.98), 0 0 30px rgba(0, 0, 0, 0.9);
+    text-shadow: none !important;
   }
 
   /* ✅ Hero subtitle dark red in transparent light-black box on mobile */

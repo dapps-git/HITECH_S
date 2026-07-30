@@ -26,7 +26,7 @@ const heroBadges = [
   {
     icon: <LuSettings size={18} className={styles.badgeSvgIcon} />,
     value: 'OEM',
-    label: <>SPECIFICATION<br /><span style={{ color: '#facc15' }}>MANUFACTURER</span></>
+    label: <>SPECIFICATION<br />MANUFACTURER</>
   },
   {
     icon: <LuShieldCheck size={18} className={styles.badgeSvgIcon} />,
