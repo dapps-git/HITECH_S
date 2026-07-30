@@ -225,7 +225,7 @@ export default async function ServicePage({ params }) {
           {isDpfRestoration ? (
             <div>
               {/* 1. Hero Section */}
-              <section style={{
+              <section className="dpf-hero-section" style={{
                 background: 'linear-gradient(135deg, #0f172a 0%, #1e293b 100%)',
                 color: '#ffffff',
                 borderRadius: '16px',
@@ -249,7 +249,7 @@ export default async function ServicePage({ params }) {
                 }}>
                   EMISSION RESTORATION SERVICES
                 </span>
-                <h1 style={{
+                <h1 className="dpf-hero-title" style={{
                   fontSize: '2rem',
                   fontWeight: '800',
                   margin: '0 0 1rem 0',
@@ -258,7 +258,7 @@ export default async function ServicePage({ params }) {
                 }}>
                   Professional DPF Restoration Service
                 </h1>
-                <p style={{
+                <p className="dpf-hero-sub" style={{
                   fontSize: '0.98rem',
                   color: '#cbd5e1',
                   maxWidth: '750px',
@@ -291,11 +291,11 @@ export default async function ServicePage({ params }) {
               </section>
 
               {/* 2. What is DPF Restoration? */}
-              <section style={{
+              <section className="dpf-card-section" style={{
                 background: '#ffffff', borderRadius: '12px', border: '1px solid #e2e8f0',
                 padding: '1.75rem', marginBottom: '1.5rem', boxShadow: '0 2px 10px rgba(0,0,0,0.03)'
               }}>
-                <h2 style={{ fontSize: '1.2rem', fontWeight: '800', color: '#0f172a', margin: '0 0 1rem 0', fontFamily: 'Montserrat, sans-serif' }}>
+                <h2 className="dpf-section-title" style={{ fontSize: '1.2rem', fontWeight: '800', color: '#0f172a', margin: '0 0 1rem 0', fontFamily: 'Montserrat, sans-serif' }}>
                   What is DPF Restoration?
                 </h2>
                 <p style={{ fontSize: '0.92rem', color: '#334155', lineHeight: '1.7', marginBottom: '1rem' }}>
@@ -307,11 +307,11 @@ export default async function ServicePage({ params }) {
               </section>
 
               {/* 3. Signs Your DPF Needs Restoration */}
-              <section style={{
+              <section className="dpf-card-section" style={{
                 background: '#ffffff', borderRadius: '12px', border: '1px solid #e2e8f0',
                 padding: '1.75rem', marginBottom: '1.5rem', boxShadow: '0 2px 10px rgba(0,0,0,0.03)'
               }}>
-                <h2 style={{ fontSize: '1.2rem', fontWeight: '800', color: '#0f172a', margin: '0 0 0.5rem 0', fontFamily: 'Montserrat, sans-serif' }}>
+                <h2 className="dpf-section-title" style={{ fontSize: '1.2rem', fontWeight: '800', color: '#0f172a', margin: '0 0 0.5rem 0', fontFamily: 'Montserrat, sans-serif' }}>
                   Signs Your DPF Needs Restoration
                 </h2>
                 <p style={{ fontSize: '0.88rem', color: '#64748b', marginBottom: '1.25rem' }}>
@@ -334,11 +334,11 @@ export default async function ServicePage({ params }) {
               </section>
 
               {/* 4. Common Causes of DPF Blockage */}
-              <section style={{
+              <section className="dpf-card-section" style={{
                 background: '#ffffff', borderRadius: '12px', border: '1px solid #e2e8f0',
                 padding: '1.75rem', marginBottom: '1.5rem', boxShadow: '0 2px 10px rgba(0,0,0,0.03)'
               }}>
-                <h2 style={{ fontSize: '1.2rem', fontWeight: '800', color: '#0f172a', margin: '0 0 0.5rem 0', fontFamily: 'Montserrat, sans-serif' }}>
+                <h2 className="dpf-section-title" style={{ fontSize: '1.2rem', fontWeight: '800', color: '#0f172a', margin: '0 0 0.5rem 0', fontFamily: 'Montserrat, sans-serif' }}>
                   Common Causes of DPF Blockage
                 </h2>
                 <p style={{ fontSize: '0.88rem', color: '#64748b', marginBottom: '1.25rem' }}>
@@ -361,11 +361,11 @@ export default async function ServicePage({ params }) {
               </section>
 
               {/* 5. Our Professional Restoration Process */}
-              <section style={{
+              <section className="dpf-card-section" style={{
                 background: '#ffffff', borderRadius: '12px', border: '1px solid #e2e8f0',
                 padding: '1.75rem', marginBottom: '1.5rem', boxShadow: '0 2px 10px rgba(0,0,0,0.03)'
               }}>
-                <h2 style={{ fontSize: '1.2rem', fontWeight: '800', color: '#0f172a', margin: '0 0 1.5rem 0', fontFamily: 'Montserrat, sans-serif' }}>
+                <h2 className="dpf-section-title" style={{ fontSize: '1.2rem', fontWeight: '800', color: '#0f172a', margin: '0 0 1.5rem 0', fontFamily: 'Montserrat, sans-serif' }}>
                   Our Professional Restoration Process
                 </h2>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
@@ -420,11 +420,11 @@ export default async function ServicePage({ params }) {
               </section>
 
               {/* 6. Benefits of Professional DPF Restoration */}
-              <section style={{
+              <section className="dpf-card-section" style={{
                 background: '#ffffff', borderRadius: '12px', border: '1px solid #e2e8f0',
                 padding: '1.75rem', marginBottom: '1.5rem', boxShadow: '0 2px 10px rgba(0,0,0,0.03)'
               }}>
-                <h2 style={{ fontSize: '1.2rem', fontWeight: '800', color: '#0f172a', margin: '0 0 1.25rem 0', fontFamily: 'Montserrat, sans-serif' }}>
+                <h2 className="dpf-section-title" style={{ fontSize: '1.2rem', fontWeight: '800', color: '#0f172a', margin: '0 0 1.25rem 0', fontFamily: 'Montserrat, sans-serif' }}>
                   Benefits of Professional DPF Restoration
                 </h2>
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(230px, 1fr))', gap: '0.85rem' }}>
@@ -444,11 +444,11 @@ export default async function ServicePage({ params }) {
               </section>
 
               {/* 7. Supported Vehicles */}
-              <section style={{
+              <section className="dpf-card-section" style={{
                 background: '#ffffff', borderRadius: '12px', border: '1px solid #e2e8f0',
                 padding: '1.75rem', marginBottom: '1.5rem', boxShadow: '0 2px 10px rgba(0,0,0,0.03)'
               }}>
-                <h2 style={{ fontSize: '1.2rem', fontWeight: '800', color: '#0f172a', margin: '0 0 0.5rem 0', fontFamily: 'Montserrat, sans-serif' }}>
+                <h2 className="dpf-section-title" style={{ fontSize: '1.2rem', fontWeight: '800', color: '#0f172a', margin: '0 0 0.5rem 0', fontFamily: 'Montserrat, sans-serif' }}>
                   Supported Vehicles
                 </h2>
                 <p style={{ fontSize: '0.88rem', color: '#64748b', marginBottom: '1.25rem' }}>
@@ -473,11 +473,11 @@ export default async function ServicePage({ params }) {
               </section>
 
               {/* 8. Common DPF Fault Codes */}
-              <section style={{
+              <section className="dpf-card-section" style={{
                 background: '#ffffff', borderRadius: '12px', border: '1px solid #e2e8f0',
                 padding: '1.75rem', marginBottom: '1.5rem', boxShadow: '0 2px 10px rgba(0,0,0,0.03)'
               }}>
-                <h2 style={{ fontSize: '1.2rem', fontWeight: '800', color: '#0f172a', margin: '0 0 0.5rem 0', fontFamily: 'Montserrat, sans-serif' }}>
+                <h2 className="dpf-section-title" style={{ fontSize: '1.2rem', fontWeight: '800', color: '#0f172a', margin: '0 0 0.5rem 0', fontFamily: 'Montserrat, sans-serif' }}>
                   Common DPF Fault Codes
                 </h2>
                 <p style={{ fontSize: '0.88rem', color: '#64748b', marginBottom: '1.25rem' }}>
@@ -497,11 +497,11 @@ export default async function ServicePage({ params }) {
               </section>
 
               {/* 9. Why Choose Hi Quality Silencers? */}
-              <section style={{
+              <section className="dpf-card-section" style={{
                 background: '#ffffff', borderRadius: '12px', border: '1px solid #e2e8f0',
                 padding: '1.75rem', marginBottom: '1.5rem', boxShadow: '0 2px 10px rgba(0,0,0,0.03)'
               }}>
-                <h2 style={{ fontSize: '1.2rem', fontWeight: '800', color: '#0f172a', margin: '0 0 1.25rem 0', fontFamily: 'Montserrat, sans-serif' }}>
+                <h2 className="dpf-section-title" style={{ fontSize: '1.2rem', fontWeight: '800', color: '#0f172a', margin: '0 0 1.25rem 0', fontFamily: 'Montserrat, sans-serif' }}>
                   Why Choose Hi Quality Silencers?
                 </h2>
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))', gap: '0.85rem' }}>
@@ -522,16 +522,16 @@ export default async function ServicePage({ params }) {
               </section>
 
               {/* 10. Final Call To Action */}
-              <section style={{
+              <section className="dpf-hero-section" style={{
                 background: 'linear-gradient(135deg, #dc2626 0%, #991b1b 100%)',
                 color: '#ffffff', borderRadius: '16px', padding: '2.5rem 1.75rem',
                 marginBottom: '2rem', boxShadow: '0 10px 30px rgba(220,38,38,0.25)',
                 textAlign: 'center'
               }}>
-                <h2 style={{ fontSize: '1.75rem', fontWeight: '800', margin: '0 0 0.5rem 0', fontFamily: 'Montserrat, sans-serif' }}>
+                <h2 className="dpf-cta-title" style={{ fontSize: '1.75rem', fontWeight: '800', margin: '0 0 0.5rem 0', fontFamily: 'Montserrat, sans-serif' }}>
                   Don't Replace Your DPF Without Inspection
                 </h2>
-                <p style={{ fontSize: '1.05rem', fontWeight: '700', color: '#fecaca', margin: '0 0 1rem 0' }}>
+                <p className="dpf-cta-sub" style={{ fontSize: '1.05rem', fontWeight: '700', color: '#fecaca', margin: '0 0 1rem 0' }}>
                   A blocked DPF doesn't always need replacement.
                 </p>
                 <p style={{ fontSize: '0.92rem', color: '#ffffff', maxWidth: '650px', margin: '0 auto 1.75rem', lineHeight: '1.6' }}>
@@ -789,6 +789,27 @@ export default async function ServicePage({ params }) {
             @media (max-width: 680px) {
               .svc-content-grid {
                 grid-template-columns: 1fr !important;
+              }
+              .dpf-hero-section {
+                padding: 1.75rem 1rem !important;
+              }
+              .dpf-hero-title {
+                font-size: 1.35rem !important;
+              }
+              .dpf-hero-sub {
+                font-size: 0.85rem !important;
+              }
+              .dpf-section-title {
+                font-size: 1.02rem !important;
+              }
+              .dpf-cta-title {
+                font-size: 1.25rem !important;
+              }
+              .dpf-cta-sub {
+                font-size: 0.88rem !important;
+              }
+              .dpf-card-section {
+                padding: 1.2rem 1rem !important;
               }
             }
             .gallery-item-card:hover {
