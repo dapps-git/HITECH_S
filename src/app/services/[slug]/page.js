@@ -268,22 +268,24 @@ export default async function ServicePage({ params }) {
                 }}>
                   Restore Your Diesel Particulate Filter to OEM Performance Standards Without Unnecessary Replacement.
                 </p>
-                <div style={{ display: 'flex', justifyContent: 'center', gap: '1rem', flexWrap: 'wrap' }}>
+                <div style={{ display: 'flex', justifyContent: 'center', gap: '1.25rem', flexWrap: 'wrap' }}>
                   <a href="tel:+919645888250" style={{
-                    background: '#dc2626', color: '#fff', padding: '0.85rem 1.75rem',
-                    borderRadius: '8px', fontWeight: '700', fontSize: '0.9rem',
-                    textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '0.5rem',
-                    boxShadow: '0 4px 14px rgba(220,38,38,0.4)'
+                    background: '#dc2626', color: '#ffffff', padding: '0.8rem 1.6rem',
+                    borderRadius: '50px', fontWeight: '700', fontSize: '0.88rem',
+                    textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '0.6rem',
+                    boxShadow: '0 4px 16px rgba(220,38,38,0.4)', transition: 'all 0.2s ease',
+                    letterSpacing: '0.03em'
                   }}>
-                    <FaPhoneAlt size={15} /> 📞 Call Now
+                    <FaPhoneAlt size={14} /> Call Now
                   </a>
                   <a href="https://wa.me/919645888250?text=Hi%20Quality%20Silencers,%20I%20need%20Professional%20DPF%20Restoration%20service" target="_blank" rel="noopener noreferrer" style={{
-                    background: '#22c55e', color: '#fff', padding: '0.85rem 1.75rem',
-                    borderRadius: '8px', fontWeight: '700', fontSize: '0.9rem',
-                    textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '0.5rem',
-                    boxShadow: '0 4px 14px rgba(34,197,94,0.4)'
+                    background: '#22c55e', color: '#ffffff', padding: '0.8rem 1.6rem',
+                    borderRadius: '50px', fontWeight: '700', fontSize: '0.88rem',
+                    textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '0.6rem',
+                    boxShadow: '0 4px 16px rgba(34,197,94,0.4)', transition: 'all 0.2s ease',
+                    letterSpacing: '0.03em'
                   }}>
-                    <FaWhatsapp size={17} /> 💬 WhatsApp Us
+                    <FaWhatsapp size={16} /> WhatsApp Us
                   </a>
                 </div>
               </section>
@@ -535,22 +537,24 @@ export default async function ServicePage({ params }) {
                 <p style={{ fontSize: '0.92rem', color: '#ffffff', maxWidth: '650px', margin: '0 auto 1.75rem', lineHeight: '1.6' }}>
                   Book a Professional DPF Inspection today and let our experts determine the most suitable solution for your vehicle.
                 </p>
-                <div style={{ display: 'flex', justifyContent: 'center', gap: '1rem', flexWrap: 'wrap' }}>
+                <div style={{ display: 'flex', justifyContent: 'center', gap: '1.25rem', flexWrap: 'wrap' }}>
                   <a href="tel:+919645888250" style={{
-                    background: '#ffffff', color: '#dc2626', padding: '0.85rem 1.75rem',
-                    borderRadius: '8px', fontWeight: '800', fontSize: '0.9rem',
-                    textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '0.5rem',
-                    boxShadow: '0 4px 14px rgba(0,0,0,0.2)'
+                    background: '#ffffff', color: '#dc2626', padding: '0.8rem 1.6rem',
+                    borderRadius: '50px', fontWeight: '800', fontSize: '0.88rem',
+                    textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '0.6rem',
+                    boxShadow: '0 4px 16px rgba(0,0,0,0.2)', transition: 'all 0.2s ease',
+                    letterSpacing: '0.03em'
                   }}>
-                    <FaPhoneAlt size={15} /> 📞 Call Now
+                    <FaPhoneAlt size={14} /> Call Now
                   </a>
                   <a href="https://wa.me/919645888250?text=Hi%20Quality%20Silencers,%20I%20want%20to%20book%20a%20DPF%20Inspection" target="_blank" rel="noopener noreferrer" style={{
-                    background: '#22c55e', color: '#ffffff', padding: '0.85rem 1.75rem',
-                    borderRadius: '8px', fontWeight: '800', fontSize: '0.9rem',
-                    textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '0.5rem',
-                    boxShadow: '0 4px 14px rgba(0,0,0,0.2)'
+                    background: '#22c55e', color: '#ffffff', padding: '0.8rem 1.6rem',
+                    borderRadius: '50px', fontWeight: '800', fontSize: '0.88rem',
+                    textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '0.6rem',
+                    boxShadow: '0 4px 16px rgba(0,0,0,0.2)', transition: 'all 0.2s ease',
+                    letterSpacing: '0.03em'
                   }}>
-                    <FaWhatsapp size={17} /> 💬 WhatsApp Us
+                    <FaWhatsapp size={16} /> WhatsApp Us
                   </a>
                 </div>
               </section>
