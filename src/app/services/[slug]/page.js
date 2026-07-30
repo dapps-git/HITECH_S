@@ -23,9 +23,29 @@ This process restores engine horsepower, improves fuel efficiency, eliminates DP
       'Improves Fuel Efficiency',
       'Prevents Costly Filter Replacement',
     ],
-    heroImage: '/images/service-dpf-machine.jpg',
-    beforeAfterImage: '/images/service-dpf-before-after.jpg',
+    heroVideo: {
+      src: "/dpf/optimized/IMG_8229.mp4",
+      poster: "/dpf/optimized/IMG_8229_poster.webp"
+    },
+    heroImage: null,
+    beforeAfterImage: null,
     iconName: 'FaFilter',
+    media: [
+      { type: 'video', src: "/dpf/optimized/20260722_095443.mp4", poster: "/dpf/optimized/20260722_095443_poster.webp" },
+      { type: 'video', src: "/dpf/optimized/20260727_121622_1.mp4", poster: "/dpf/optimized/20260727_121622_1_poster.webp" },
+      { type: 'video', src: "/dpf/optimized/IMG_0648.mp4", poster: "/dpf/optimized/IMG_0648_poster.webp" },
+      { type: 'video', src: "/dpf/optimized/IMG_0895.mp4", poster: "/dpf/optimized/IMG_0895_poster.webp" },
+      { type: 'video', src: "/dpf/optimized/km_20260711_1080p_60f_20260711_195534_2.mp4", poster: "/dpf/optimized/km_20260711_1080p_60f_20260711_195534_2_poster.webp" },
+      { type: 'image', src: "/images/service-dpf-before-after.jpg" },
+      { type: 'image', src: "/images/service-dpf-machine.jpg" },
+      { type: 'image', src: "/dpf/optimized/20260713_132457.webp" },
+      { type: 'image', src: "/dpf/optimized/file_0000000077a47209a6d2b72c7688b760.webp" },
+      { type: 'image', src: "/dpf/optimized/file_00000000e23c8207b5f5b8889d4ae494.webp" },
+      { type: 'image', src: "/dpf/optimized/IMG_20260713_WA0001.webp" },
+      { type: 'image', src: "/dpf/optimized/IMG_20260714_WA0003.webp" },
+      { type: 'image', src: "/dpf/optimized/Screenshot_20260713_091246_Gallery.webp" },
+      { type: 'image', src: "/dpf/optimized/Screenshot_20260726_182322_Gallery.webp" }
+    ]
   },
   {
     slug: 'oem-silencer-manufacturing',
@@ -45,9 +65,10 @@ Each unit undergoes stringent quality inspection before dispatch and comes with 
       '15-Month Manufacturer Warranty',
       'Stringent Pre-dispatch Quality Checks',
     ],
-    heroImage: '/images/aboutus.webp',
+    heroImage: null,
     beforeAfterImage: null,
     iconName: 'FaIndustry',
+    gallery: [1, 2, 3, 4, 5, 6, 7, 8, 10, 11, 12, 13, 14, 15, 16, 18, 19, 20, 21, 22, 23].map(i => `/images/dpf${i}.webp`),
   },
   {
     slug: 'catalytic-converter-service',
@@ -181,8 +202,25 @@ export default async function ServicePage({ params }) {
         {/* Main Content */}
         <div style={{ maxWidth: '1000px', margin: '1rem auto 2.5rem', padding: '0 1rem' }}>
 
-          {/* Hero Image */}
-          {service.heroImage && (
+          {/* Hero Video or Image */}
+          {service.heroVideo ? (
+            <div style={{
+              borderRadius: '0', overflow: 'hidden',
+              border: '1px solid #e2e8f0',
+              boxShadow: '0 4px 20px rgba(0,0,0,0.06)',
+              marginBottom: '1.5rem',
+              background: '#000'
+            }}>
+              <video
+                src={service.heroVideo.src}
+                poster={service.heroVideo.poster}
+                controls
+                preload="metadata"
+                playsInline
+                style={{ width: '100%', maxHeight: '480px', objectFit: 'cover', display: 'block' }}
+              />
+            </div>
+          ) : service.heroImage ? (
             <div style={{
               borderRadius: '12px', overflow: 'hidden',
               border: '1px solid #e2e8f0',
@@ -196,9 +234,114 @@ export default async function ServicePage({ params }) {
                 style={{ width: '100%', maxHeight: '420px', objectFit: 'cover', display: 'block' }}
               />
             </div>
+          ) : null}
+
+          {/* Unified Media Showcase (Videos & Photos Together) */}
+          {((service.media && service.media.length > 0) || (service.gallery && service.gallery.length > 0)) && (
+            <div style={{
+              marginBottom: '2rem',
+              background: '#ffffff',
+              borderRadius: '12px',
+              border: '1px solid #e2e8f0',
+              padding: '1.25rem',
+              boxShadow: '0 2px 10px rgba(0,0,0,0.04)'
+            }}>
+              <div style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))',
+                gap: '0.85rem'
+              }}>
+                {service.media ? service.media.map((item, idx) => (
+                  item.type === 'video' ? (
+                    <div key={idx} style={{
+                      borderRadius: '0',
+                      overflow: 'hidden',
+                      border: '1px solid #e2e8f0',
+                      background: '#000',
+                      aspectRatio: '4 / 3',
+                      boxShadow: '0 2px 8px rgba(0,0,0,0.04)'
+                    }}>
+                      <video
+                        src={item.src}
+                        poster={item.poster}
+                        controls
+                        preload="metadata"
+                        playsInline
+                        style={{
+                          width: '100%',
+                          height: '100%',
+                          objectFit: 'cover',
+                          display: 'block'
+                        }}
+                      />
+                    </div>
+                  ) : (
+                    <a
+                      key={idx}
+                      href={item.src}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{
+                        borderRadius: '8px',
+                        overflow: 'hidden',
+                        border: '1px solid #e2e8f0',
+                        display: 'block',
+                        aspectRatio: '4 / 3',
+                        background: '#f8fafc',
+                        transition: 'transform 0.2s ease, box-shadow 0.2s ease'
+                      }}
+                      className="gallery-item-card"
+                    >
+                      <img
+                        src={item.src}
+                        alt={`Media item ${idx + 1}`}
+                        loading="lazy"
+                        style={{
+                          width: '100%',
+                          height: '100%',
+                          objectFit: 'cover',
+                          display: 'block',
+                          transition: 'transform 0.3s ease'
+                        }}
+                      />
+                    </a>
+                  )
+                )) : service.gallery ? service.gallery.map((imgSrc, idx) => (
+                  <a
+                    key={idx}
+                    href={imgSrc}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{
+                      borderRadius: '8px',
+                      overflow: 'hidden',
+                      border: '1px solid #e2e8f0',
+                      display: 'block',
+                      aspectRatio: '4 / 3',
+                      background: '#f8fafc',
+                      transition: 'transform 0.2s ease, box-shadow 0.2s ease'
+                    }}
+                    className="gallery-item-card"
+                  >
+                    <img
+                      src={imgSrc}
+                      alt={`Gallery image ${idx + 1}`}
+                      loading="lazy"
+                      style={{
+                        width: '100%',
+                        height: '100%',
+                        objectFit: 'cover',
+                        display: 'block',
+                        transition: 'transform 0.3s ease'
+                      }}
+                    />
+                  </a>
+                )) : null}
+              </div>
+            </div>
           )}
 
-          {/* Two Column Layout */}
+          {/* Two Column Layout (Overview + Key Highlights + CTA Box AT THE LAST) */}
           <div className="svc-content-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.25rem', alignItems: 'start' }}>
 
             {/* Left: Description */}
@@ -297,6 +440,13 @@ export default async function ServicePage({ params }) {
               .svc-content-grid {
                 grid-template-columns: 1fr !important;
               }
+            }
+            .gallery-item-card:hover {
+              transform: translateY(-3px) !important;
+              box-shadow: 0 8px 20px rgba(0,0,0,0.12) !important;
+            }
+            .gallery-item-card:hover img {
+              transform: scale(1.05) !important;
             }
           `}} />
 

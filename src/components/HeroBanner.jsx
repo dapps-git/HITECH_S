@@ -26,7 +26,7 @@ const heroBadges = [
   {
     icon: <LuSettings size={18} className={styles.badgeSvgIcon} />,
     value: 'OEM',
-    label: <>SPECIFICATION<br />MANUFACTURER</>
+    label: <>SPECIFICATION<br /><span style={{ color: '#facc15' }}>MANUFACTURER</span></>
   },
   {
     icon: <LuShieldCheck size={18} className={styles.badgeSvgIcon} />,
@@ -110,7 +110,7 @@ export default function HeroBanner() {
             {/* Main Headline */}
             <h1 className={styles.heroH1}>
               OEM SPECIFICATION<br />
-              SILENCER MANUFACTURER
+              SILENCER <span className={styles.yellowText}>MANUFACTURER</span>
             </h1>
 
             {/* Red Accent Subtitle - PROFESSIONAL DPF RESTORATION EXPERTS */}

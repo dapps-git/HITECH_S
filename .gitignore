@@ -42,3 +42,13 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# scratch & raw media
+scratch/
+public/dpf/*.mov
+public/dpf/*.mp4
+public/dpf/*.heic
+public/dpf/*.jpg
+public/dpf/*.png
+!public/dpf/optimized/
+

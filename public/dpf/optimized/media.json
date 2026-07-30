@@ -1,0 +1,43 @@
+{
+  "images": [
+    "/dpf/optimized/20260713_132457.webp",
+    "/dpf/optimized/file_0000000077a47209a6d2b72c7688b760.webp",
+    "/dpf/optimized/file_00000000e23c8207b5f5b8889d4ae494.webp",
+    "/dpf/optimized/IMG_20260713_WA0001.webp",
+    "/dpf/optimized/IMG_20260714_WA0003.webp",
+    "/dpf/optimized/Screenshot_20260713_091246_Gallery.webp",
+    "/dpf/optimized/Screenshot_20260726_182322_Gallery.webp"
+  ],
+  "videos": [
+    {
+      "src": "/dpf/optimized/20260722_095443.mp4",
+      "poster": "/dpf/optimized/20260722_095443_poster.webp",
+      "name": "20260722_095443"
+    },
+    {
+      "src": "/dpf/optimized/20260727_121622_1.mp4",
+      "poster": "/dpf/optimized/20260727_121622_1_poster.webp",
+      "name": "20260727_121622_1"
+    },
+    {
+      "src": "/dpf/optimized/IMG_0648.mp4",
+      "poster": "/dpf/optimized/IMG_0648_poster.webp",
+      "name": "IMG_0648"
+    },
+    {
+      "src": "/dpf/optimized/IMG_0895.mp4",
+      "poster": "/dpf/optimized/IMG_0895_poster.webp",
+      "name": "IMG_0895"
+    },
+    {
+      "src": "/dpf/optimized/IMG_8229.mp4",
+      "poster": "/dpf/optimized/IMG_8229_poster.webp",
+      "name": "IMG_8229"
+    },
+    {
+      "src": "/dpf/optimized/km_20260711_1080p_60f_20260711_195534_2.mp4",
+      "poster": "/dpf/optimized/km_20260711_1080p_60f_20260711_195534_2_poster.webp",
+      "name": "km_20260711_1080p_60f_20260711_195534_2"
+    }
+  ]
+}

@@ -87,6 +87,11 @@
   text-shadow: 0 0 20px rgba(220, 38, 38, 0.45);
 }
 
+.yellowText {
+  color: #facc15;
+  text-shadow: 0 0 20px rgba(250, 204, 21, 0.45);
+}
+
 /* ✅ HIGHLIGHTED SUBTITLE — dark red text inside a light black transparent box */
 .heroH2 {
   font-family: var(--font-heading);

@@ -176,6 +176,29 @@ export default function FeaturedCategories() {
                 <div className={styles.highlightItem}>✓ OEM Specification Guaranteed</div>
                 <div className={styles.highlightItem}>✓ Experienced Technicians &amp; 15-Month Warranty</div>
               </div>
+
+              {selectedService.slug && (
+                <Link
+                  href={`/services/${selectedService.slug}`}
+                  style={{
+                    background: '#0f172a',
+                    color: '#ffffff',
+                    padding: '0.65rem 1rem',
+                    borderRadius: '8px',
+                    fontWeight: '700',
+                    fontSize: '0.78rem',
+                    textDecoration: 'none',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    gap: '0.4rem',
+                    marginTop: '1rem',
+                    letterSpacing: '0.04em'
+                  }}
+                >
+                  VIEW FULL GALLERY &amp; DETAILS →
+                </Link>
+              )}
             </div>
 
             <div className={styles.modalFooter}>
