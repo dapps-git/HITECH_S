@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import DpfChartViewer from '@/components/DpfChartViewer';
 import { FaArrowLeft, FaWhatsapp, FaPhoneAlt, FaCheckCircle, FaFilter, FaIndustry, FaLeaf, FaLink, FaWrench } from 'react-icons/fa';
 
 const SERVICES = [
@@ -37,7 +38,6 @@ This process restores engine horsepower, improves fuel efficiency, eliminates DP
       { type: 'video', src: "/dpf/optimized/IMG_0895.mp4", poster: "/dpf/optimized/IMG_0895_poster.webp" },
       { type: 'video', src: "/dpf/optimized/km_20260711_1080p_60f_20260711_195534_2.mp4", poster: "/dpf/optimized/km_20260711_1080p_60f_20260711_195534_2_poster.webp" },
       { type: 'image', src: "/images/service-dpf-before-after.jpg" },
-      { type: 'image', src: "/images/service-dpf-machine.jpg" },
       { type: 'image', src: "/dpf/optimized/20260713_132457.webp" },
       { type: 'image', src: "/dpf/optimized/file_0000000077a47209a6d2b72c7688b760.webp" },
       { type: 'image', src: "/dpf/optimized/file_00000000e23c8207b5f5b8889d4ae494.webp" },
@@ -60,8 +60,8 @@ Each unit undergoes stringent quality inspection before dispatch and comes with 
     highlights: [
       'ISO 9001:2015 Certified Manufacturing',
       'TUNEX® Brand — OEM Specification',
-      '1.6mm & 2.0mm Galvanised Steel Sheets',
-      '250+ Vehicle Models Covered',
+      '1.6mm & 2.0mm Galvanised Steel Sheets & Pipes',
+      '1000+ Vehicle Models Covered',
       '15-Month Manufacturer Warranty',
       'Stringent Pre-dispatch Quality Checks',
     ],
@@ -140,9 +140,13 @@ We service all makes and models of passenger cars, SUVs, LCVs, and heavy commerc
 
 const iconMap = { FaFilter, FaIndustry, FaLeaf, FaLink, FaWrench };
 
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
 export default async function ServicePage({ params }) {
-  const { slug } = await params;
-  const service = SERVICES.find(s => s.slug === slug);
+  const resolvedParams = await params;
+  const slug = resolvedParams?.slug || params?.slug;
+  const service = SERVICES.find(s => s?.slug === slug);
   if (!service) notFound();
 
   const isDpfRestoration = slug === 'dpf-restoration';
@@ -156,7 +160,6 @@ export default async function ServicePage({ params }) {
     { type: 'video', src: "/dpf/optimized/IMG_0895.mp4", poster: "/dpf/optimized/IMG_0895_poster.webp" },
     { type: 'video', src: "/dpf/optimized/km_20260711_1080p_60f_20260711_195534_2.mp4", poster: "/dpf/optimized/km_20260711_1080p_60f_20260711_195534_2_poster.webp" },
     { type: 'image', src: "/images/service-dpf-before-after.jpg" },
-    { type: 'image', src: "/images/service-dpf-machine.jpg" },
     { type: 'image', src: "/dpf/optimized/20260713_132457.webp" },
     { type: 'image', src: "/dpf/optimized/file_0000000077a47209a6d2b72c7688b760.webp" },
     { type: 'image', src: "/dpf/optimized/file_00000000e23c8207b5f5b8889d4ae494.webp" },
@@ -305,6 +308,9 @@ export default async function ServicePage({ params }) {
                   Our Professional DPF Restoration Process is designed to restore the DPF using OEM-standard procedures instead of simply replacing it.
                 </p>
               </section>
+
+              {/* DPF Reference Chart Viewer (dpf.webp with Zoom & Download) */}
+              <DpfChartViewer />
 
               {/* 3. Signs Your DPF Needs Restoration */}
               <section className="dpf-card-section" style={{
@@ -508,6 +514,187 @@ export default async function ServicePage({ params }) {
                       <span style={{ color: '#dc2626' }}>★</span> {reason}
                     </div>
                   ))}
+                </div>
+              </section>
+
+              {/* Service Pricing Section */}
+              <section className="dpf-card-section" style={{
+                background: '#ffffff', borderRadius: '0', border: '1px solid #e2e8f0',
+                padding: '1.5rem 1.25rem', marginBottom: '1.5rem', boxShadow: '0 2px 10px rgba(0,0,0,0.03)'
+              }}>
+                <div style={{ textAlign: 'center', marginBottom: '1.25rem' }}>
+                  <span style={{
+                    backgroundColor: '#dc2626',
+                    color: '#ffffff',
+                    fontSize: '0.6rem',
+                    fontWeight: '800',
+                    padding: '3px 12px',
+                    borderRadius: '0',
+                    textTransform: 'uppercase',
+                    letterSpacing: '0.08em',
+                    display: 'inline-block',
+                    marginBottom: '0.5rem'
+                  }}>
+                    SERVICE PRICING
+                  </span>
+                  <h2 className="dpf-section-title dpf-price-title" style={{
+                    fontSize: '1.2rem',
+                    fontWeight: '800',
+                    color: '#0f172a',
+                    margin: '0 0 0.3rem 0',
+                    fontFamily: 'Montserrat, sans-serif'
+                  }}>
+                    Professional DPF Restoration Pricing
+                  </h2>
+                  <p className="dpf-price-sub" style={{ fontSize: '0.82rem', color: '#64748b', margin: 0 }}>
+                    Transparent pricing. Reliable service. Lasting performance.
+                  </p>
+                </div>
+
+                {/* Main Price Card */}
+                <div style={{
+                  border: '2px solid #dc2626',
+                  borderRadius: '0',
+                  padding: '1.1rem 0.85rem',
+                  textAlign: 'center',
+                  position: 'relative',
+                  marginBottom: '1.25rem',
+                  background: '#ffffff'
+                }}>
+                  <div style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    gap: '1.25rem',
+                    flexWrap: 'wrap'
+                  }}>
+                    <div>
+                      <div style={{ fontSize: '0.65rem', fontWeight: '800', color: '#64748b', letterSpacing: '0.06em', textTransform: 'uppercase' }}>
+                        STARTS AT
+                      </div>
+                      <div className="dpf-price-num" style={{ fontSize: '1.75rem', fontWeight: '900', color: '#0f172a', fontFamily: 'Montserrat, sans-serif' }}>
+                        ₹6,000
+                      </div>
+                    </div>
+
+                    <span style={{
+                      background: '#f1f5f9',
+                      color: '#475569',
+                      fontSize: '0.65rem',
+                      fontWeight: '800',
+                      padding: '3px 8px',
+                      borderRadius: '0',
+                      border: '1px solid #cbd5e1'
+                    }}>
+                      TO
+                    </span>
+
+                    <div>
+                      <div style={{ fontSize: '0.65rem', fontWeight: '800', color: '#64748b', letterSpacing: '0.06em', textTransform: 'uppercase' }}>
+                        UP TO
+                      </div>
+                      <div className="dpf-price-num" style={{ fontSize: '1.75rem', fontWeight: '900', color: '#dc2626', fontFamily: 'Montserrat, sans-serif' }}>
+                        ₹12,000
+                      </div>
+                    </div>
+                  </div>
+
+                  <span style={{
+                    position: 'absolute',
+                    bottom: '-11px',
+                    left: '50%',
+                    transform: 'translateX(-50%)',
+                    background: '#dc2626',
+                    color: '#ffffff',
+                    fontSize: '0.58rem',
+                    fontWeight: '800',
+                    padding: '2px 10px',
+                    borderRadius: '0',
+                    letterSpacing: '0.08em',
+                    textTransform: 'uppercase'
+                  }}>
+                    PRICE RANGE
+                  </span>
+                </div>
+
+                {/* Info Box */}
+                <div style={{
+                  background: '#f8fafc',
+                  border: '1px solid #e2e8f0',
+                  borderRadius: '0',
+                  padding: '1rem',
+                  marginBottom: '0.85rem',
+                  marginTop: '1.25rem'
+                }}>
+                  <div style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '0.6rem',
+                    marginBottom: '0.75rem',
+                    paddingBottom: '0.6rem',
+                    borderBottom: '1px solid #e2e8f0'
+                  }}>
+                    <span style={{
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      width: '22px',
+                      height: '22px',
+                      borderRadius: '50%',
+                      background: '#0f172a',
+                      color: '#ffffff',
+                      fontSize: '0.75rem',
+                      fontWeight: '800',
+                      flexShrink: 0
+                    }}>
+                      i
+                    </span>
+                    <span style={{ fontSize: '0.85rem', fontWeight: '800', color: '#0f172a' }}>
+                      Final pricing is determined by:
+                    </span>
+                  </div>
+
+                  <div style={{
+                    display: 'grid',
+                    gridTemplateColumns: 'repeat(3, 1fr)',
+                    gap: '0.35rem',
+                    textAlign: 'center'
+                  }}>
+                    <div style={{ padding: '0.25rem 0.15rem' }}>
+                      <div style={{ fontSize: '1.2rem', marginBottom: '0.2rem' }}>🚗</div>
+                      <div className="dpf-price-factor" style={{ fontSize: '0.74rem', fontWeight: '700', color: '#334155', lineHeight: '1.25' }}>
+                        Vehicle Make & Model
+                      </div>
+                    </div>
+                    <div style={{ padding: '0.25rem 0.15rem', borderLeft: '1px solid #e2e8f0' }}>
+                      <div style={{ fontSize: '1.2rem', marginBottom: '0.2rem' }}>⚙️</div>
+                      <div className="dpf-price-factor" style={{ fontSize: '0.74rem', fontWeight: '700', color: '#334155', lineHeight: '1.25' }}>
+                        DPF Size & Condition
+                      </div>
+                    </div>
+                    <div style={{ padding: '0.25rem 0.15rem', borderLeft: '1px solid #e2e8f0' }}>
+                      <div style={{ fontSize: '1.2rem', marginBottom: '0.2rem' }}>🚌</div>
+                      <div className="dpf-price-factor" style={{ fontSize: '0.74rem', fontWeight: '700', color: '#334155', lineHeight: '1.25' }}>
+                        Passenger or Commercial Vehicle
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* GST Warning Alert */}
+                <div style={{
+                  background: '#fef2f2',
+                  border: '1px solid #fecaca',
+                  borderRadius: '0',
+                  padding: '0.75rem 0.85rem',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '0.65rem'
+                }}>
+                  <span style={{ fontSize: '1.1rem', color: '#dc2626', flexShrink: 0 }}>⚠️</span>
+                  <span className="dpf-gst-text" style={{ fontSize: '0.78rem', fontWeight: '700', color: '#991b1b' }}>
+                    All prices are exclusive of 18% GST, which will be added at checkout.
+                  </span>
                 </div>
               </section>
 
@@ -781,49 +968,69 @@ export default async function ServicePage({ params }) {
                 grid-template-columns: 1fr !important;
               }
               .dpf-hero-section {
-                padding: 1.5rem 0.85rem !important;
+                padding: 1.25rem 0.75rem !important;
               }
               .dpf-hero-title {
-                font-size: 1.2rem !important;
-              }
-              .dpf-hero-sub {
-                font-size: 0.8rem !important;
-                margin-bottom: 1.2rem !important;
-              }
-              .dpf-section-title {
-                font-size: 0.98rem !important;
-              }
-              .dpf-cta-title {
                 font-size: 1.15rem !important;
               }
+              .dpf-hero-sub {
+                font-size: 0.78rem !important;
+                margin-bottom: 1rem !important;
+              }
+              .dpf-section-title {
+                font-size: 0.92rem !important;
+              }
+              .dpf-price-title {
+                font-size: 1.02rem !important;
+              }
+              .dpf-price-sub {
+                font-size: 0.74rem !important;
+              }
+              .dpf-price-num {
+                font-size: 1.35rem !important;
+              }
+              .dpf-price-factor {
+                font-size: 0.72rem !important;
+              }
+              .dpf-gst-text {
+                font-size: 0.72rem !important;
+              }
+              .dpf-cta-title {
+                font-size: 1.1rem !important;
+              }
               .dpf-cta-sub {
-                font-size: 0.82rem !important;
+                font-size: 0.78rem !important;
               }
               .dpf-card-section {
-                padding: 1rem 0.75rem !important;
+                padding: 0.9rem 0.65rem !important;
+              }
+              .dpf-card-section p, 
+              .dpf-card-section div, 
+              .dpf-card-section span {
+                font-size: 0.78rem;
               }
               /* Single Row Button Layout on Mobile Phones */
               .dpf-btn-group {
                 display: flex !important;
                 flex-direction: row !important;
                 flex-wrap: nowrap !important;
-                gap: 0.4rem !important;
+                gap: 0.35rem !important;
                 width: 100% !important;
                 justify-content: space-between !important;
               }
               .dpf-btn-group a {
                 flex: 1 1 50% !important;
-                padding: 0.6rem 0.35rem !important;
-                font-size: 0.76rem !important;
+                padding: 0.55rem 0.3rem !important;
+                font-size: 0.72rem !important;
                 justify-content: center !important;
                 white-space: nowrap !important;
-                gap: 0.35rem !important;
+                gap: 0.3rem !important;
                 letter-spacing: 0 !important;
                 box-shadow: none !important;
               }
               .dpf-btn-group a svg {
-                width: 12px !important;
-                height: 12px !important;
+                width: 11px !important;
+                height: 11px !important;
               }
             }
             .gallery-item-card:hover {
