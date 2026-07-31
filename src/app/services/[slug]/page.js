@@ -461,7 +461,7 @@ export default async function ServicePage({ params }) {
                   marginBottom: '1.25rem'
                 }}>
                   {[
-                    'Hyundai', 'Kia', 'Toyota', 'Tata Motors', 'Mahindra', 'MG', 'Isuzu',
+                    'Hyundai', 'Kia', 'Toyota', 'Tata Motors', 'Mahindra', 'MG', 'Isuzu', 'Eicher', 'Mazda',
                     'Force Motors', 'Ashok Leyland', 'BharatBenz', 'Mercedes-Benz', 'BMW', 'Audi', 'Volkswagen', 'Skoda', 'Jeep'
                   ].map((brand, i) => (
                     <div key={i} style={{
@@ -484,35 +484,6 @@ export default async function ServicePage({ params }) {
                 <p style={{ fontSize: '0.85rem', color: '#64748b', margin: 0, fontWeight: '500' }}>
                   and many other BS6 diesel vehicles.
                 </p>
-              </section>
-
-              {/* 8. Common DPF Fault Codes */}
-              <section className="dpf-card-section" style={{
-                background: '#ffffff', borderRadius: '0', border: '1px solid #e2e8f0',
-                padding: '1.75rem', marginBottom: '1.5rem', boxShadow: '0 2px 10px rgba(0,0,0,0.03)'
-              }}>
-                <h2 className="dpf-section-title" style={{ fontSize: '1.2rem', fontWeight: '800', color: '#0f172a', margin: '0 0 0.5rem 0', fontFamily: 'Montserrat, sans-serif' }}>
-                  Common DPF Fault Codes
-                </h2>
-                <p style={{ fontSize: '0.88rem', color: '#64748b', marginBottom: '1.25rem' }}>
-                  Professional inspection is recommended if your vehicle shows fault codes such as:
-                </p>
-                <div style={{
-                  display: 'grid',
-                  gridTemplateColumns: 'repeat(auto-fill, minmax(110px, 1fr))',
-                  gap: '0.75rem'
-                }}>
-                  {['P2002', 'P2463', 'P2452', 'P244A', 'P24A5'].map((code, i) => (
-                    <span key={i} style={{
-                      background: '#fef3c7', border: '1px solid #fde68a', borderRadius: '0',
-                      padding: '8px 18px', fontSize: '0.92rem', fontWeight: '800', color: '#92400e',
-                      fontFamily: 'monospace', textAlign: 'center', display: 'flex',
-                      alignItems: 'center', justifyContent: 'center'
-                    }}>
-                      {code}
-                    </span>
-                  ))}
-                </div>
               </section>
 
               {/* 9. Why Choose Hi Quality Silencers? */}
