@@ -196,7 +196,7 @@ export default async function ServicePage({ params }) {
                 fontSize: '0.62rem',
                 fontWeight: '700',
                 padding: '2px 8px',
-                borderRadius: '4px',
+                borderRadius: '0',
                 textTransform: 'uppercase',
                 letterSpacing: '0.06em',
                 display: 'inline-block',
@@ -228,7 +228,7 @@ export default async function ServicePage({ params }) {
               <section className="dpf-hero-section" style={{
                 background: 'linear-gradient(135deg, #0f172a 0%, #1e293b 100%)',
                 color: '#ffffff',
-                borderRadius: '16px',
+                borderRadius: '0',
                 padding: '2.5rem 1.75rem',
                 marginBottom: '1.5rem',
                 boxShadow: '0 10px 30px rgba(0,0,0,0.12)',
@@ -241,7 +241,7 @@ export default async function ServicePage({ params }) {
                   fontSize: '0.68rem',
                   fontWeight: '700',
                   padding: '4px 12px',
-                  borderRadius: '20px',
+                  borderRadius: '0',
                   textTransform: 'uppercase',
                   letterSpacing: '0.08em',
                   display: 'inline-block',
@@ -271,7 +271,7 @@ export default async function ServicePage({ params }) {
                 <div style={{ display: 'flex', justifyContent: 'center', gap: '1.25rem', flexWrap: 'wrap' }}>
                   <a href="tel:+919645888250" style={{
                     background: '#dc2626', color: '#ffffff', padding: '0.8rem 1.6rem',
-                    borderRadius: '50px', fontWeight: '700', fontSize: '0.88rem',
+                    borderRadius: '0', fontWeight: '700', fontSize: '0.88rem',
                     textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '0.6rem',
                     boxShadow: '0 4px 16px rgba(220,38,38,0.4)', transition: 'all 0.2s ease',
                     letterSpacing: '0.03em'
@@ -280,7 +280,7 @@ export default async function ServicePage({ params }) {
                   </a>
                   <a href="https://wa.me/919645888250?text=Hi%20Quality%20Silencers,%20I%20need%20Professional%20DPF%20Restoration%20service" target="_blank" rel="noopener noreferrer" style={{
                     background: '#22c55e', color: '#ffffff', padding: '0.8rem 1.6rem',
-                    borderRadius: '50px', fontWeight: '700', fontSize: '0.88rem',
+                    borderRadius: '0', fontWeight: '700', fontSize: '0.88rem',
                     textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '0.6rem',
                     boxShadow: '0 4px 16px rgba(34,197,94,0.4)', transition: 'all 0.2s ease',
                     letterSpacing: '0.03em'
@@ -292,7 +292,7 @@ export default async function ServicePage({ params }) {
 
               {/* 2. What is DPF Restoration? */}
               <section className="dpf-card-section" style={{
-                background: '#ffffff', borderRadius: '12px', border: '1px solid #e2e8f0',
+                background: '#ffffff', borderRadius: '0', border: '1px solid #e2e8f0',
                 padding: '1.75rem', marginBottom: '1.5rem', boxShadow: '0 2px 10px rgba(0,0,0,0.03)'
               }}>
                 <h2 className="dpf-section-title" style={{ fontSize: '1.2rem', fontWeight: '800', color: '#0f172a', margin: '0 0 1rem 0', fontFamily: 'Montserrat, sans-serif' }}>
@@ -308,7 +308,7 @@ export default async function ServicePage({ params }) {
 
               {/* 3. Signs Your DPF Needs Restoration */}
               <section className="dpf-card-section" style={{
-                background: '#ffffff', borderRadius: '12px', border: '1px solid #e2e8f0',
+                background: '#ffffff', borderRadius: '0', border: '1px solid #e2e8f0',
                 padding: '1.75rem', marginBottom: '1.5rem', boxShadow: '0 2px 10px rgba(0,0,0,0.03)'
               }}>
                 <h2 className="dpf-section-title" style={{ fontSize: '1.2rem', fontWeight: '800', color: '#0f172a', margin: '0 0 0.5rem 0', fontFamily: 'Montserrat, sans-serif' }}>
@@ -323,7 +323,7 @@ export default async function ServicePage({ params }) {
                     'High Fuel Consumption', 'Limp Mode', 'Poor Acceleration', 'Increased Exhaust Back Pressure'
                   ].map((symptom, i) => (
                     <div key={i} style={{
-                      background: '#fef2f2', border: '1px solid #fecaca', borderRadius: '8px',
+                      background: '#fef2f2', border: '1px solid #fecaca', borderRadius: '0',
                       padding: '0.85rem 1rem', display: 'flex', alignItems: 'center', gap: '0.65rem',
                       fontSize: '0.86rem', fontWeight: '700', color: '#991b1b'
                     }}>
@@ -335,7 +335,7 @@ export default async function ServicePage({ params }) {
 
               {/* 4. Common Causes of DPF Blockage */}
               <section className="dpf-card-section" style={{
-                background: '#ffffff', borderRadius: '12px', border: '1px solid #e2e8f0',
+                background: '#ffffff', borderRadius: '0', border: '1px solid #e2e8f0',
                 padding: '1.75rem', marginBottom: '1.5rem', boxShadow: '0 2px 10px rgba(0,0,0,0.03)'
               }}>
                 <h2 className="dpf-section-title" style={{ fontSize: '1.2rem', fontWeight: '800', color: '#0f172a', margin: '0 0 0.5rem 0', fontFamily: 'Montserrat, sans-serif' }}>
@@ -350,7 +350,7 @@ export default async function ServicePage({ params }) {
                     'Injector problems', 'Turbocharger issues', 'EGR system faults', 'Excessive ash accumulation'
                   ].map((cause, i) => (
                     <div key={i} style={{
-                      background: '#f8fafc', border: '1px solid #e2e8f0', borderRadius: '8px',
+                      background: '#f8fafc', border: '1px solid #e2e8f0', borderRadius: '0',
                       padding: '0.75rem 1rem', fontSize: '0.86rem', color: '#334155', fontWeight: '600',
                       display: 'flex', alignItems: 'center', gap: '0.55rem'
                     }}>
@@ -362,7 +362,7 @@ export default async function ServicePage({ params }) {
 
               {/* 5. Our Professional Restoration Process */}
               <section className="dpf-card-section" style={{
-                background: '#ffffff', borderRadius: '12px', border: '1px solid #e2e8f0',
+                background: '#ffffff', borderRadius: '0', border: '1px solid #e2e8f0',
                 padding: '1.75rem', marginBottom: '1.5rem', boxShadow: '0 2px 10px rgba(0,0,0,0.03)'
               }}>
                 <h2 className="dpf-section-title" style={{ fontSize: '1.2rem', fontWeight: '800', color: '#0f172a', margin: '0 0 1.5rem 0', fontFamily: 'Montserrat, sans-serif' }}>
@@ -398,11 +398,11 @@ export default async function ServicePage({ params }) {
                   ].map((item, i) => (
                     <div key={i} style={{
                       display: 'flex', gap: '1rem', background: '#f8fafc', border: '1px solid #e2e8f0',
-                      borderRadius: '10px', padding: '1.1rem 1.25rem', alignItems: 'flex-start'
+                      borderRadius: '0', padding: '1.1rem 1.25rem', alignItems: 'flex-start'
                     }}>
                       <span style={{
                         background: '#dc2626', color: '#fff', fontWeight: '800', fontSize: '0.78rem',
-                        padding: '5px 12px', borderRadius: '6px', whiteSpace: 'nowrap', flexShrink: 0
+                        padding: '5px 12px', borderRadius: '0', whiteSpace: 'nowrap', flexShrink: 0
                       }}>
                         {item.step}
                       </span>
@@ -421,7 +421,7 @@ export default async function ServicePage({ params }) {
 
               {/* 6. Benefits of Professional DPF Restoration */}
               <section className="dpf-card-section" style={{
-                background: '#ffffff', borderRadius: '12px', border: '1px solid #e2e8f0',
+                background: '#ffffff', borderRadius: '0', border: '1px solid #e2e8f0',
                 padding: '1.75rem', marginBottom: '1.5rem', boxShadow: '0 2px 10px rgba(0,0,0,0.03)'
               }}>
                 <h2 className="dpf-section-title" style={{ fontSize: '1.2rem', fontWeight: '800', color: '#0f172a', margin: '0 0 1.25rem 0', fontFamily: 'Montserrat, sans-serif' }}>
@@ -433,7 +433,7 @@ export default async function ServicePage({ params }) {
                     'Better Fuel Economy', 'Extends DPF Life', 'Reduces Emissions', 'Helps Avoid Unnecessary Replacement Costs'
                   ].map((benefit, i) => (
                     <div key={i} style={{
-                      background: '#f0fdf4', border: '1px solid #bbf7d0', borderRadius: '8px',
+                      background: '#f0fdf4', border: '1px solid #bbf7d0', borderRadius: '0',
                       padding: '0.85rem 1rem', display: 'flex', alignItems: 'center', gap: '0.65rem',
                       fontSize: '0.86rem', fontWeight: '700', color: '#166534'
                     }}>
@@ -445,7 +445,7 @@ export default async function ServicePage({ params }) {
 
               {/* 7. Supported Vehicles */}
               <section className="dpf-card-section" style={{
-                background: '#ffffff', borderRadius: '12px', border: '1px solid #e2e8f0',
+                background: '#ffffff', borderRadius: '0', border: '1px solid #e2e8f0',
                 padding: '1.75rem', marginBottom: '1.5rem', boxShadow: '0 2px 10px rgba(0,0,0,0.03)'
               }}>
                 <h2 className="dpf-section-title" style={{ fontSize: '1.2rem', fontWeight: '800', color: '#0f172a', margin: '0 0 0.5rem 0', fontFamily: 'Montserrat, sans-serif' }}>
@@ -454,17 +454,31 @@ export default async function ServicePage({ params }) {
                 <p style={{ fontSize: '0.88rem', color: '#64748b', marginBottom: '1.25rem' }}>
                   We provide DPF Restoration services for:
                 </p>
-                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.6rem', marginBottom: '1.1rem' }}>
+                <div style={{
+                  display: 'grid',
+                  gridTemplateColumns: 'repeat(auto-fill, minmax(130px, 1fr))',
+                  gap: '0.6rem',
+                  marginBottom: '1.25rem'
+                }}>
                   {[
                     'Hyundai', 'Kia', 'Toyota', 'Tata Motors', 'Mahindra', 'MG', 'Isuzu',
                     'Force Motors', 'Ashok Leyland', 'BharatBenz', 'Mercedes-Benz', 'BMW', 'Audi', 'Volkswagen', 'Skoda', 'Jeep'
                   ].map((brand, i) => (
-                    <span key={i} style={{
-                      background: '#f1f5f9', border: '1px solid #cbd5e1', borderRadius: '6px',
-                      padding: '7px 15px', fontSize: '0.82rem', fontWeight: '700', color: '#0f172a'
+                    <div key={i} style={{
+                      background: '#f1f5f9',
+                      border: '1px solid #cbd5e1',
+                      borderRadius: '0',
+                      padding: '10px 8px',
+                      fontSize: '0.82rem',
+                      fontWeight: '700',
+                      color: '#0f172a',
+                      textAlign: 'center',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center'
                     }}>
                       {brand}
-                    </span>
+                    </div>
                   ))}
                 </div>
                 <p style={{ fontSize: '0.85rem', color: '#64748b', margin: 0, fontWeight: '500' }}>
@@ -474,7 +488,7 @@ export default async function ServicePage({ params }) {
 
               {/* 8. Common DPF Fault Codes */}
               <section className="dpf-card-section" style={{
-                background: '#ffffff', borderRadius: '12px', border: '1px solid #e2e8f0',
+                background: '#ffffff', borderRadius: '0', border: '1px solid #e2e8f0',
                 padding: '1.75rem', marginBottom: '1.5rem', boxShadow: '0 2px 10px rgba(0,0,0,0.03)'
               }}>
                 <h2 className="dpf-section-title" style={{ fontSize: '1.2rem', fontWeight: '800', color: '#0f172a', margin: '0 0 0.5rem 0', fontFamily: 'Montserrat, sans-serif' }}>
@@ -483,12 +497,17 @@ export default async function ServicePage({ params }) {
                 <p style={{ fontSize: '0.88rem', color: '#64748b', marginBottom: '1.25rem' }}>
                   Professional inspection is recommended if your vehicle shows fault codes such as:
                 </p>
-                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.75rem' }}>
+                <div style={{
+                  display: 'grid',
+                  gridTemplateColumns: 'repeat(auto-fill, minmax(110px, 1fr))',
+                  gap: '0.75rem'
+                }}>
                   {['P2002', 'P2463', 'P2452', 'P244A', 'P24A5'].map((code, i) => (
                     <span key={i} style={{
-                      background: '#fef3c7', border: '1px solid #fde68a', borderRadius: '6px',
+                      background: '#fef3c7', border: '1px solid #fde68a', borderRadius: '0',
                       padding: '8px 18px', fontSize: '0.92rem', fontWeight: '800', color: '#92400e',
-                      fontFamily: 'monospace'
+                      fontFamily: 'monospace', textAlign: 'center', display: 'flex',
+                      alignItems: 'center', justifyContent: 'center'
                     }}>
                       {code}
                     </span>
@@ -498,7 +517,7 @@ export default async function ServicePage({ params }) {
 
               {/* 9. Why Choose Hi Quality Silencers? */}
               <section className="dpf-card-section" style={{
-                background: '#ffffff', borderRadius: '12px', border: '1px solid #e2e8f0',
+                background: '#ffffff', borderRadius: '0', border: '1px solid #e2e8f0',
                 padding: '1.75rem', marginBottom: '1.5rem', boxShadow: '0 2px 10px rgba(0,0,0,0.03)'
               }}>
                 <h2 className="dpf-section-title" style={{ fontSize: '1.2rem', fontWeight: '800', color: '#0f172a', margin: '0 0 1.25rem 0', fontFamily: 'Montserrat, sans-serif' }}>
@@ -511,7 +530,7 @@ export default async function ServicePage({ params }) {
                     'Transparent Inspection', 'Customer-Focused Service'
                   ].map((reason, i) => (
                     <div key={i} style={{
-                      background: '#f8fafc', border: '1px solid #e2e8f0', borderRadius: '8px',
+                      background: '#f8fafc', border: '1px solid #e2e8f0', borderRadius: '0',
                       padding: '0.85rem 1rem', display: 'flex', alignItems: 'center', gap: '0.65rem',
                       fontSize: '0.86rem', fontWeight: '700', color: '#0f172a'
                     }}>
@@ -524,7 +543,7 @@ export default async function ServicePage({ params }) {
               {/* 10. Final Call To Action */}
               <section className="dpf-hero-section" style={{
                 background: 'linear-gradient(135deg, #dc2626 0%, #991b1b 100%)',
-                color: '#ffffff', borderRadius: '16px', padding: '2.5rem 1.75rem',
+                color: '#ffffff', borderRadius: '0', padding: '2.5rem 1.75rem',
                 marginBottom: '2rem', boxShadow: '0 10px 30px rgba(220,38,38,0.25)',
                 textAlign: 'center'
               }}>
@@ -540,7 +559,7 @@ export default async function ServicePage({ params }) {
                 <div style={{ display: 'flex', justifyContent: 'center', gap: '1.25rem', flexWrap: 'wrap' }}>
                   <a href="tel:+919645888250" style={{
                     background: '#ffffff', color: '#dc2626', padding: '0.8rem 1.6rem',
-                    borderRadius: '50px', fontWeight: '800', fontSize: '0.88rem',
+                    borderRadius: '0', fontWeight: '800', fontSize: '0.88rem',
                     textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '0.6rem',
                     boxShadow: '0 4px 16px rgba(0,0,0,0.2)', transition: 'all 0.2s ease',
                     letterSpacing: '0.03em'
@@ -549,7 +568,7 @@ export default async function ServicePage({ params }) {
                   </a>
                   <a href="https://wa.me/919645888250?text=Hi%20Quality%20Silencers,%20I%20want%20to%20book%20a%20DPF%20Inspection" target="_blank" rel="noopener noreferrer" style={{
                     background: '#22c55e', color: '#ffffff', padding: '0.8rem 1.6rem',
-                    borderRadius: '50px', fontWeight: '800', fontSize: '0.88rem',
+                    borderRadius: '0', fontWeight: '800', fontSize: '0.88rem',
                     textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '0.6rem',
                     boxShadow: '0 4px 16px rgba(0,0,0,0.2)', transition: 'all 0.2s ease',
                     letterSpacing: '0.03em'
@@ -561,7 +580,7 @@ export default async function ServicePage({ params }) {
 
               {/* ALL VIDEOS & PHOTOS (PLACED AT THE VERY END AFTER SECTION 10) */}
               <section style={{
-                background: '#ffffff', borderRadius: '12px', border: '1px solid #e2e8f0',
+                background: '#ffffff', borderRadius: '0', border: '1px solid #e2e8f0',
                 padding: '1.25rem', boxShadow: '0 2px 10px rgba(0,0,0,0.04)'
               }}>
                 <div style={{
@@ -588,7 +607,7 @@ export default async function ServicePage({ params }) {
                       <a
                         key={idx} href={item.src} target="_blank" rel="noopener noreferrer"
                         style={{
-                          borderRadius: '8px', overflow: 'hidden', border: '1px solid #e2e8f0',
+                          borderRadius: '0', overflow: 'hidden', border: '1px solid #e2e8f0',
                           display: 'block', aspectRatio: '4 / 3', background: '#f8fafc',
                           transition: 'transform 0.2s ease, box-shadow 0.2s ease'
                         }}
@@ -626,7 +645,7 @@ export default async function ServicePage({ params }) {
                 </div>
               ) : service.heroImage ? (
                 <div style={{
-                  borderRadius: '12px', overflow: 'hidden',
+                  borderRadius: '0', overflow: 'hidden',
                   border: '1px solid #e2e8f0',
                   boxShadow: '0 4px 20px rgba(0,0,0,0.06)',
                   marginBottom: '1.5rem',
@@ -645,7 +664,7 @@ export default async function ServicePage({ params }) {
 
                 {/* Left: Description */}
                 <div style={{
-                  background: '#ffffff', borderRadius: '12px',
+                  background: '#ffffff', borderRadius: '0',
                   border: '1px solid #e2e8f0', padding: '1.5rem',
                   boxShadow: '0 2px 10px rgba(0,0,0,0.04)'
                 }}>
@@ -662,7 +681,7 @@ export default async function ServicePage({ params }) {
 
                   {/* Highlights */}
                   <div style={{
-                    background: '#ffffff', borderRadius: '12px',
+                    background: '#ffffff', borderRadius: '0',
                     border: '1px solid #e2e8f0', padding: '1.25rem',
                     boxShadow: '0 2px 10px rgba(0,0,0,0.04)'
                   }}>
@@ -682,7 +701,7 @@ export default async function ServicePage({ params }) {
                   {/* Before/After Image */}
                   {service.beforeAfterImage && (
                     <div style={{
-                      borderRadius: '10px', overflow: 'hidden',
+                      borderRadius: '0', overflow: 'hidden',
                       border: '1px solid #e2e8f0',
                       boxShadow: '0 2px 10px rgba(0,0,0,0.04)'
                     }}>
@@ -696,7 +715,7 @@ export default async function ServicePage({ params }) {
 
                   {/* CTA Box */}
                   <div style={{
-                    background: '#ffffff', borderRadius: '12px',
+                    background: '#ffffff', borderRadius: '0',
                     border: '1px solid #e2e8f0', padding: '1.15rem',
                     boxShadow: '0 2px 10px rgba(0,0,0,0.04)'
                   }}>
@@ -709,7 +728,7 @@ export default async function ServicePage({ params }) {
                         target="_blank" rel="noopener noreferrer"
                         style={{
                           background: '#22c55e', color: '#fff', padding: '0.7rem 1rem',
-                          borderRadius: '8px', fontWeight: '700', fontSize: '0.8rem',
+                          borderRadius: '0', fontWeight: '700', fontSize: '0.8rem',
                           textDecoration: 'none', display: 'flex', alignItems: 'center',
                           justifyContent: 'center', gap: '0.5rem'
                         }}
@@ -720,7 +739,7 @@ export default async function ServicePage({ params }) {
                         href="tel:+919645888250"
                         style={{
                           background: '#dc2626', color: '#fff', padding: '0.7rem 1rem',
-                          borderRadius: '8px', fontWeight: '700', fontSize: '0.8rem',
+                          borderRadius: '0', fontWeight: '700', fontSize: '0.8rem',
                           textDecoration: 'none', display: 'flex', alignItems: 'center',
                           justifyContent: 'center', gap: '0.5rem'
                         }}
@@ -737,7 +756,7 @@ export default async function ServicePage({ params }) {
               {service.gallery && service.gallery.length > 0 && (
                 <div style={{
                   background: '#ffffff',
-                  borderRadius: '12px',
+                  borderRadius: '0',
                   border: '1px solid #e2e8f0',
                   padding: '1.25rem',
                   boxShadow: '0 2px 10px rgba(0,0,0,0.04)'
@@ -754,7 +773,7 @@ export default async function ServicePage({ params }) {
                         target="_blank"
                         rel="noopener noreferrer"
                         style={{
-                          borderRadius: '8px',
+                          borderRadius: '0',
                           overflow: 'hidden',
                           border: '1px solid #e2e8f0',
                           display: 'block',
@@ -832,4 +851,3 @@ export default async function ServicePage({ params }) {
 export function generateStaticParams() {
   return SERVICES.map(s => ({ slug: s.slug }));
 }
-
