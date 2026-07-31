@@ -268,7 +268,7 @@ export default async function ServicePage({ params }) {
                 }}>
                   Restore Your Diesel Particulate Filter to OEM Performance Standards Without Unnecessary Replacement.
                 </p>
-                <div style={{ display: 'flex', justifyContent: 'center', gap: '1.25rem', flexWrap: 'wrap' }}>
+                <div className="dpf-btn-group" style={{ display: 'flex', justifyContent: 'center', gap: '1.25rem', flexWrap: 'wrap' }}>
                   <a href="tel:+919645888250" style={{
                     background: '#dc2626', color: '#ffffff', padding: '0.8rem 1.6rem',
                     borderRadius: '0', fontWeight: '700', fontSize: '0.88rem',
@@ -556,7 +556,7 @@ export default async function ServicePage({ params }) {
                 <p style={{ fontSize: '0.92rem', color: '#ffffff', maxWidth: '650px', margin: '0 auto 1.75rem', lineHeight: '1.6' }}>
                   Book a Professional DPF Inspection today and let our experts determine the most suitable solution for your vehicle.
                 </p>
-                <div style={{ display: 'flex', justifyContent: 'center', gap: '1.25rem', flexWrap: 'wrap' }}>
+                <div className="dpf-btn-group" style={{ display: 'flex', justifyContent: 'center', gap: '1.25rem', flexWrap: 'wrap' }}>
                   <a href="tel:+919645888250" style={{
                     background: '#ffffff', color: '#dc2626', padding: '0.8rem 1.6rem',
                     borderRadius: '0', fontWeight: '800', fontSize: '0.88rem',
@@ -722,7 +722,7 @@ export default async function ServicePage({ params }) {
                     <p style={{ fontSize: '0.76rem', color: '#64748b', margin: '0 0 0.85rem 0', fontWeight: '500' }}>
                       Interested in this service? Get a quick quote now.
                     </p>
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: '0.55rem' }}>
+                    <div className="dpf-btn-group" style={{ display: 'flex', flexDirection: 'column', gap: '0.55rem' }}>
                       <a
                         href={`https://wa.me/919645888250?text=Hi%20Quality%20Silencers,%20I%20need%20${encodeURIComponent(service.title)}%20service`}
                         target="_blank" rel="noopener noreferrer"
@@ -810,25 +810,49 @@ export default async function ServicePage({ params }) {
                 grid-template-columns: 1fr !important;
               }
               .dpf-hero-section {
-                padding: 1.75rem 1rem !important;
+                padding: 1.5rem 0.85rem !important;
               }
               .dpf-hero-title {
-                font-size: 1.35rem !important;
+                font-size: 1.2rem !important;
               }
               .dpf-hero-sub {
-                font-size: 0.85rem !important;
+                font-size: 0.8rem !important;
+                margin-bottom: 1.2rem !important;
               }
               .dpf-section-title {
-                font-size: 1.02rem !important;
+                font-size: 0.98rem !important;
               }
               .dpf-cta-title {
-                font-size: 1.25rem !important;
+                font-size: 1.15rem !important;
               }
               .dpf-cta-sub {
-                font-size: 0.88rem !important;
+                font-size: 0.82rem !important;
               }
               .dpf-card-section {
-                padding: 1.2rem 1rem !important;
+                padding: 1rem 0.75rem !important;
+              }
+              /* Single Row Button Layout on Mobile Phones */
+              .dpf-btn-group {
+                display: flex !important;
+                flex-direction: row !important;
+                flex-wrap: nowrap !important;
+                gap: 0.4rem !important;
+                width: 100% !important;
+                justify-content: space-between !important;
+              }
+              .dpf-btn-group a {
+                flex: 1 1 50% !important;
+                padding: 0.6rem 0.35rem !important;
+                font-size: 0.76rem !important;
+                justify-content: center !important;
+                white-space: nowrap !important;
+                gap: 0.35rem !important;
+                letter-spacing: 0 !important;
+                box-shadow: none !important;
+              }
+              .dpf-btn-group a svg {
+                width: 12px !important;
+                height: 12px !important;
               }
             }
             .gallery-item-card:hover {
