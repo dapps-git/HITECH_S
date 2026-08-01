@@ -201,14 +201,14 @@ const faqs = [
   {
     id: 8,
     question: "8. How long does professional cleaning take?",
-    summary: "Typically 1–2 working days for thorough chemical soaking, baking & pressure testing.",
+    summary: "Typically 1–2 working days for thorough chemical soaking, thermal regeneration & pressure testing.",
     answer: (
       <div className={styles.faqBody}>
         <div className={styles.infoBadge}>
           <FaClock className={styles.badgeIcon} />
           <div>
             <strong>Turnaround Time: 1–2 Working Days</strong>
-            <p>Includes chemical soaking, dual hydro-pneumatic flushing, thermal baking, and final back-pressure airflow certification testing.</p>
+            <p>Includes chemical soaking, dual hydro-pneumatic flushing, thermal regeneration, and final back-pressure airflow certification testing.</p>
           </div>
         </div>
       </div>
@@ -241,7 +241,7 @@ const faqs = [
           <FaTools className={styles.truckIcon} />
           <div>
             <h4>YES. DPF UNIT IS REMOVED FOR COMPLETE SUBSTRATE CLEANING.</h4>
-            <p>🔧 Removal allows complete 360° chemical soaking, dual hydro-pneumatic flushing, thermal baking, and final back-pressure airflow certification.</p>
+            <p>🔧 Removal allows complete 360° chemical soaking, dual hydro-pneumatic flushing, thermal regeneration, and final back-pressure airflow certification.</p>
             <p className={styles.subNote} style={{ marginTop: '8px' }}>
               After workshop cleaning, the unit is pressure tested, certified, and ready for immediate re-installation.
             </p>

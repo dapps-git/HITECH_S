@@ -4,15 +4,28 @@ import styles from './Footer.module.css';
 import { LuMapPin, LuPhone, LuMail, LuFacebook, LuInstagram } from 'react-icons/lu';
 import { FaWhatsapp } from 'react-icons/fa';
 
-const quickLinks = ['Home', 'Products', 'About Us', 'Contact Us'];
-const services = [
-  'Professional DPF Restoration',
-  'OEM Silencer Manufacturing',
-  'Catalytic Converter Service',
-  'Flex Pipe Replacement',
-  'Exhaust Repair',
+const quickLinks = [
+  { label: 'Home', href: '/' },
+  { label: 'Products', href: '/products' },
+  { label: 'About Us', href: '/#about' },
+  { label: 'Contact Us', href: '/#contact' },
 ];
-const productsList = ['Car Silencers', 'SUV Silencers', 'Commercial Vehicle Silencers'];
+
+const servicesList = [
+  { label: 'Professional DPF Restoration', href: '/services/dpf-restoration' },
+  { label: 'OEM Silencer Manufacturing', href: '/services/oem-silencer-manufacturing' },
+  { label: 'Catalytic Converter Service', href: '/services/catalytic-converter-service' },
+  { label: 'Flex Pipe Replacement', href: '/services/flex-pipe-replacement' },
+  { label: 'Exhaust Repair', href: '/services/exhaust-repair' },
+];
+
+const productsList = [
+  { label: 'Car Silencers', href: '/products/prod-1' },
+  { label: 'SUV Silencers', href: '/products/prod-2' },
+  { label: 'Commercial Vehicle Silencers', href: '/products/prod-3' },
+  { label: 'Generated Silencers', href: '/products/prod-4' },
+  { label: 'Custom Silencers', href: '/products/prod-5' },
+];
 
 export default function Footer() {
   return (
@@ -22,7 +35,6 @@ export default function Footer() {
 
           {/* Col 1: Brand */}
           <div>
-
             <p className={styles.brandDesc}>
               Manufacturer of TUNEX® OEM specification silencers for passenger and commercial vehicles. ISO 9001:2015 certified, based in Calicut, Kerala.
             </p>
@@ -66,24 +78,24 @@ export default function Footer() {
               {quickLinks.map((l, i) => (
                 <li key={i}>
                   <a
-                    href={`#${l.toLowerCase().replace(/\s/g, '-')}`}
+                    href={l.href}
                     className={styles.footerLink}
                   >
-                    {l}
+                    {l.label}
                   </a>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Col 3: Services + Products in two sub-columns */}
+          {/* Col 3: Services */}
           <div>
             <h4 className={styles.colTitle}>Services</h4>
             <div className={styles.titleLine} />
             <ul className={styles.linkList}>
-              {services.map((s, i) => (
+              {servicesList.map((s, i) => (
                 <li key={i}>
-                  <a href="#products" className={styles.footerLink}>{s}</a>
+                  <a href={s.href} className={styles.footerLink}>{s.label}</a>
                 </li>
               ))}
             </ul>
@@ -96,13 +108,13 @@ export default function Footer() {
             <ul className={styles.linkList}>
               {productsList.map((p, i) => (
                 <li key={i}>
-                  <a href="#products" className={styles.footerLink}>{p}</a>
+                  <a href={p.href} className={styles.footerLink}>{p.label}</a>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Col 4: Contact Info */}
+          {/* Col 5: Contact Info */}
           <div>
             <h4 className={styles.colTitle}>
               Contact Info
