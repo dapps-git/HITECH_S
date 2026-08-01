@@ -113,9 +113,9 @@ export default function ContactSection() {
                       rel="noreferrer"
                       className={styles.socialItem}
                       title="Facebook"
+                      aria-label="Facebook"
                     >
                       <LuFacebook />
-                      <span>Facebook</span>
                     </a>
                     <a
                       href="https://www.instagram.com/hi_quality_silencers?igsh=MXIwemZtNGhwaThyZw=="
@@ -123,9 +123,9 @@ export default function ContactSection() {
                       rel="noreferrer"
                       className={styles.socialItem}
                       title="Instagram"
+                      aria-label="Instagram"
                     >
                       <LuInstagram />
-                      <span>Instagram</span>
                     </a>
                     <a
                       href="https://youtube.com/@silencerworld?si=yraHU90ehKv0nGuR"
@@ -133,9 +133,9 @@ export default function ContactSection() {
                       rel="noreferrer"
                       className={styles.socialItem}
                       title="YouTube"
+                      aria-label="YouTube"
                     >
                       <LuYoutube />
-                      <span>YouTube</span>
                     </a>
                     <a
                       href="https://wa.me/919645888250"
@@ -143,9 +143,9 @@ export default function ContactSection() {
                       rel="noreferrer"
                       className={styles.socialItem}
                       title="WhatsApp"
+                      aria-label="WhatsApp"
                     >
                       <FaWhatsapp />
-                      <span>WhatsApp</span>
                     </a>
                   </div>
                 </div>
