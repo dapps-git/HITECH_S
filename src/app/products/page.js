@@ -40,10 +40,10 @@ const defaultCatalogProducts = [
   },
   {
     id: 'prod-4',
-    title: 'GENERATED SILENCERS',
+    title: 'GENERATOR SILENCERS',
     category: 'SPECIALIZED SILENCERS',
     image: '/images/prod_lcv.png',
-    shortDesc: 'Precision generated silencers engineered for consistent flow dynamics, low backpressure and long service life.',
+    shortDesc: 'Precision generator silencers engineered for consistent flow dynamics, low backpressure and long service life.',
     spec: 'Industrial Heavy Drum Assembly'
   },
   {

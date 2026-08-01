@@ -23,7 +23,7 @@ const productsList = [
   { label: 'Car Silencers', href: '/products/prod-1' },
   { label: 'SUV Silencers', href: '/products/prod-2' },
   { label: 'Commercial Vehicle Silencers', href: '/products/prod-3' },
-  { label: 'Generated Silencers', href: '/products/prod-4' },
+  { label: 'Generator Silencers', href: '/products/prod-4' },
   { label: 'Custom Silencers', href: '/products/prod-5' },
 ];
 
@@ -142,7 +142,13 @@ export default function Footer() {
                 </span>
               </div>
 
-              <div className={styles.contactItem} style={{ alignItems: 'flex-start' }}>
+              <a
+                href="https://share.google/AROzIKEhcgJSDgOcd"
+                target="_blank"
+                rel="noreferrer"
+                className={styles.contactItem}
+                style={{ alignItems: 'flex-start', textDecoration: 'none' }}
+              >
                 <div className={styles.iconCircle} style={{ marginTop: '2px' }}>
                   <LuMapPin size={14} color="#dc2626" />
                 </div>
@@ -153,7 +159,7 @@ export default function Footer() {
                   Passport Office Cross Road East<br />
                   Nadakkavu, Calicut – 673006
                 </span>
-              </div>
+              </a>
 
               <div className={styles.contactItem}>
                 <div className={styles.iconCircle}>

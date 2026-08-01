@@ -2,7 +2,8 @@
 
 import { useState } from 'react';
 import styles from './ContactSection.module.css';
-import { LuMapPin, LuPhone, LuMail, LuExternalLink, LuBuilding } from 'react-icons/lu';
+import { LuMapPin, LuPhone, LuMail, LuExternalLink, LuBuilding, LuShare2, LuFacebook, LuInstagram, LuYoutube } from 'react-icons/lu';
+import { FaWhatsapp } from 'react-icons/fa';
 
 export default function ContactSection() {
   const [activeTab, setActiveTab] = useState('factory');
@@ -11,7 +12,7 @@ export default function ContactSection() {
   const factoryGoogleLink = "https://maps.google.com/?q=Hi+Quality+Silencers+Beypore+Calicut+Kerala+673015";
 
   const salesMapUrl = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3912.8!2d75.7825!3d11.2685!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTE8MTYnMDYuNiJOIDc1wrA0Nic1Ny4wIkU!5e0!3m2!1sen!2sin!4v1620000000000!5m2!1sen!2sin";
-  const salesGoogleLink = "https://maps.google.com/?q=Passport+Office+Cross+Road+Nadakkavu+Calicut+673006";
+  const salesGoogleLink = "https://share.google/AROzIKEhcgJSDgOcd";
 
   const currentMapUrl = activeTab === 'factory' ? factoryMapUrl : salesMapUrl;
   const currentGoogleLink = activeTab === 'factory' ? factoryGoogleLink : salesGoogleLink;
@@ -19,20 +20,27 @@ export default function ContactSection() {
   return (
     <section className={styles.contactSection} id="contact">
       <div className={styles.container}>
+
+        {/* Standard Section Header */}
+        <div className={styles.sectionHeader}>
+          <div className={styles.headerTitleRow}>
+            <span className={styles.headerLine} />
+            <h2 className={styles.headerTitle}>
+              CONTACT <span className={styles.titleRed}>US</span>
+            </h2>
+            <span className={styles.headerLine} />
+          </div>
+          <p className={styles.headerSub}>
+            Visit our factory or sales point in Calicut to explore our TUNEX® OEM specification silencer models and discuss your requirements.
+          </p>
+        </div>
+
         <div className={styles.grid}>
           {/* Left Column: Contact Information */}
           <div className={styles.leftCol}>
             <div className={styles.pillBadge}>
-              VISIT US
+              DIRECT CONTACT
             </div>
-
-            <h2 className={styles.title}>
-              Contact Us
-            </h2>
-
-            <p className={styles.subtitle}>
-              Visit our factory or sales point in Calicut to explore our TUNEX® OEM specification silencer models and discuss your custom manufacturing or DPF restoration requirements with our experts.
-            </p>
 
             <div className={styles.infoList}>
               {/* Factory Address */}
@@ -87,6 +95,58 @@ export default function ContactSection() {
                   <div className={styles.infoLabel}>EMAIL</div>
                   <div className={styles.infoValue}>
                     <a href="mailto:hiqualitysilencer@gmail.com" className={styles.infoLink}>hiqualitysilencer@gmail.com</a>
+                  </div>
+                </div>
+              </div>
+
+              {/* Social Media Links */}
+              <div className={styles.infoRow}>
+                <div className={styles.iconBadge}>
+                  <LuShare2 />
+                </div>
+                <div className={styles.infoContent}>
+                  <div className={styles.infoLabel}>FOLLOW & CONNECT</div>
+                  <div className={styles.socialList}>
+                    <a
+                      href="https://www.facebook.com/share/1JCThxqeps/"
+                      target="_blank"
+                      rel="noreferrer"
+                      className={styles.socialItem}
+                      title="Facebook"
+                    >
+                      <LuFacebook />
+                      <span>Facebook</span>
+                    </a>
+                    <a
+                      href="https://www.instagram.com/hi_quality_silencers?igsh=MXIwemZtNGhwaThyZw=="
+                      target="_blank"
+                      rel="noreferrer"
+                      className={styles.socialItem}
+                      title="Instagram"
+                    >
+                      <LuInstagram />
+                      <span>Instagram</span>
+                    </a>
+                    <a
+                      href="https://youtube.com/@silencerworld?si=yraHU90ehKv0nGuR"
+                      target="_blank"
+                      rel="noreferrer"
+                      className={styles.socialItem}
+                      title="YouTube"
+                    >
+                      <LuYoutube />
+                      <span>YouTube</span>
+                    </a>
+                    <a
+                      href="https://wa.me/919645888250"
+                      target="_blank"
+                      rel="noreferrer"
+                      className={styles.socialItem}
+                      title="WhatsApp"
+                    >
+                      <FaWhatsapp />
+                      <span>WhatsApp</span>
+                    </a>
                   </div>
                 </div>
               </div>

@@ -10,6 +10,56 @@
   padding: 0 24px;
 }
 
+/* ── Section Header ── */
+.sectionHeader {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.headerTitleRow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.headerLine {
+  flex: 1;
+  max-width: 80px;
+  height: 2px;
+  background: linear-gradient(to right, transparent, #dc2626);
+  border-radius: 2px;
+}
+
+.headerLine:last-child {
+  background: linear-gradient(to left, transparent, #dc2626);
+}
+
+.headerTitle {
+  font-size: 1.7rem;
+  font-weight: 500;
+  color: #111827;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  font-family: Montserrat, var(--font-heading), sans-serif;
+  text-transform: uppercase;
+}
+
+.titleRed {
+  color: #dc2626;
+  font-weight: 500;
+}
+
+.headerSub {
+  font-size: 0.85rem;
+  color: #6b7280;
+  font-weight: 400;
+  max-width: 520px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
 .grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -28,33 +78,15 @@
   display: inline-flex;
   align-items: center;
   align-self: flex-start;
-  background: #e0f2fe;
-  color: #0284c7;
+  background: #fef2f2;
+  color: #dc2626;
   font-size: 11px;
   font-weight: 800;
   letter-spacing: 1.5px;
   text-transform: uppercase;
   padding: 6px 16px;
   border-radius: 50px;
-  margin-bottom: 0.75rem;
-}
-
-.title {
-  font-size: 2.5rem;
-  font-weight: 800;
-  color: #0f172a;
-  margin: 0 0 0.75rem 0;
-  letter-spacing: -0.02em;
-  line-height: 1.15;
-  font-family: Montserrat, var(--font-heading), sans-serif;
-}
-
-.subtitle {
-  font-size: 0.92rem;
-  color: #64748b;
-  line-height: 1.65;
-  margin: 0 0 2rem 0;
-  max-width: 500px;
+  margin-bottom: 1.25rem;
 }
 
 .infoList {
@@ -78,21 +110,21 @@
   width: 48px;
   height: 48px;
   border-radius: 14px;
-  background: #e0f2fe;
-  color: #0284c7;
+  background: #fef2f2;
+  color: #dc2626;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
   font-size: 1.25rem;
   transition: all 0.25s ease;
-  box-shadow: 0 2px 8px rgba(2, 132, 199, 0.08);
+  box-shadow: 0 2px 8px rgba(220, 38, 38, 0.08);
 }
 
 .infoRow:hover .iconBadge {
-  background: #0284c7;
+  background: #dc2626;
   color: #ffffff;
-  box-shadow: 0 6px 16px rgba(2, 132, 199, 0.25);
+  box-shadow: 0 6px 16px rgba(220, 38, 38, 0.25);
   transform: scale(1.04);
 }
 
@@ -106,7 +138,7 @@
 .infoLabel {
   font-size: 11px;
   font-weight: 800;
-  color: #0284c7;
+  color: #dc2626;
   text-transform: uppercase;
   letter-spacing: 1.2px;
   margin-bottom: 4px;
@@ -133,7 +165,43 @@
 }
 
 .infoLink:hover {
-  color: #0284c7;
+  color: #dc2626;
+}
+
+/* ── Social Links ── */
+.socialList {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-top: 4px;
+}
+
+.socialItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 50px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  color: #334155;
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.socialItem svg {
+  font-size: 0.95rem;
+}
+
+.socialItem:hover {
+  background: #dc2626;
+  border-color: #dc2626;
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(220, 38, 38, 0.2);
 }
 
 /* ── Right Column: Map Card ── */
@@ -173,7 +241,7 @@
   background: rgba(255, 255, 255, 0.94);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  color: #0284c7;
+  color: #dc2626;
   border: 1px solid rgba(226, 232, 240, 0.9);
   border-radius: 50px;
   padding: 8px 16px;
@@ -189,9 +257,9 @@
 
 .openMapsBtn:hover {
   background: #ffffff;
-  color: #0369a1;
+  color: #b91c1c;
   transform: translateY(-1px);
-  box-shadow: 0 6px 20px rgba(2, 132, 199, 0.15);
+  box-shadow: 0 6px 20px rgba(220, 38, 38, 0.15);
 }
 
 .mapTabsPills {
@@ -242,8 +310,8 @@
     grid-template-columns: 1fr;
     gap: 2.5rem;
   }
-  .title {
-    font-size: 2rem;
+  .headerTitle {
+    font-size: 1.4rem;
   }
   .mapCard {
     min-height: 380px;
@@ -253,5 +321,14 @@
     flex-direction: column;
     align-items: flex-start;
     gap: 8px;
+  }
+}
+
+@media (max-width: 560px) {
+  .headerTitle {
+    font-size: 1.15rem;
+  }
+  .headerSub {
+    font-size: 0.75rem;
   }
 }

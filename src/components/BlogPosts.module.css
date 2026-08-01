@@ -11,7 +11,51 @@
 
 .sectionHeader {
   text-align: center;
-  margin-bottom: 36px;
+  margin-bottom: 2.5rem;
+}
+
+.headerTitleRow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.headerLine {
+  flex: 1;
+  max-width: 80px;
+  height: 2px;
+  background: linear-gradient(to right, transparent, #dc2626);
+  border-radius: 2px;
+}
+
+.headerLine:last-child {
+  background: linear-gradient(to left, transparent, #dc2626);
+}
+
+.headerTitle {
+  font-size: 1.7rem;
+  font-weight: 500;
+  color: #111827;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  font-family: Montserrat, var(--font-heading), sans-serif;
+  text-transform: uppercase;
+}
+
+.titleRed {
+  color: #dc2626;
+  font-weight: 500;
+}
+
+.headerSub {
+  font-size: 0.85rem;
+  color: #6b7280;
+  font-weight: 400;
+  max-width: 520px;
+  margin: 0 auto;
+  line-height: 1.6;
 }
 
 .subtitle {
@@ -271,14 +315,47 @@
 }
 
 @media (max-width: 640px) {
+  .section {
+    padding: 36px 0 0;
+  }
+  .sectionHeader {
+    margin-bottom: 20px;
+  }
+  .subtitle {
+    font-size: 11px;
+    line-height: 1.5;
+  }
   .grid {
     grid-template-columns: 1fr;
+    gap: 14px;
+  }
+  .imageBox {
+    height: 180px;
+  }
+  .content {
+    padding: 12px;
+  }
+  .title {
+    font-size: 12px;
+    line-height: 1.35;
+    margin-bottom: 6px;
+  }
+  .excerpt {
+    font-size: 10.5px;
+    line-height: 1.45;
+    margin-bottom: 10px;
+  }
+  .readMore {
+    font-size: 10px;
   }
   .ctaInner {
     padding: 0 12px;
   }
   .ctaTitle {
-    font-size: 1.4rem;
+    font-size: 1.15rem;
+  }
+  .ctaDesc {
+    font-size: 0.82rem;
   }
   .ctaBtns {
     flex-direction: column;
@@ -288,5 +365,7 @@
   .ctaOutline {
     width: 100%;
     max-width: 320px;
+    font-size: 0.78rem;
+    padding: 11px 20px;
   }
 }

@@ -7,7 +7,6 @@ import FeaturedCategories from '@/components/FeaturedCategories';
 import ProductGrid from '@/components/ProductGrid';
 import FaqSection from '@/components/FaqSection';
 import BlogPosts from '@/components/BlogPosts';
-import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
 
 import headerStyles from '@/components/Header.module.css';
@@ -30,7 +29,6 @@ export default function Home() {
         <ProductGrid />
         <BlogPosts />
         <FaqSection />
-        <ContactSection />
       </main>
       <Footer />
     </div>

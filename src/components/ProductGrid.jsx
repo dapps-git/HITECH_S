@@ -41,10 +41,10 @@ const defaultProducts = [
   },
   {
     id: 'prod-4',
-    title: 'GENERATED SILENCERS',
+    title: 'GENERATOR SILENCERS',
     image: '/images/prod_lcv.png',
     icon: <FaCogs />,
-    desc: 'Precision generated silencers engineered for consistent flow dynamics and low back pressure.'
+    desc: 'Precision generator silencers engineered for consistent flow dynamics and low back pressure.'
   },
   {
     id: 'prod-5',

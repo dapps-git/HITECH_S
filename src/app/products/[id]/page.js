@@ -39,11 +39,12 @@ const defaultProducts = [
   },
   {
     id: 'prod-4',
-    title: 'GENERATED SILENCERS',
+    title: 'GENERATOR SILENCERS',
     category: 'SPECIALIZED SILENCERS',
     image: '/images/prod_lcv.png',
-    shortDesc: 'Precision generated silencers for consistent flow dynamics and low back pressure.',
-    fullDesc: 'Precision generated silencers engineered for stationary generators, industrial engines, and heavy-duty machinery. Provides superior acoustic dampening and low backpressure flow dynamics.',
+    workImage: '/images/prod_generator_silencer.jpg',
+    shortDesc: 'Precision generator silencers for consistent flow dynamics and low back pressure.',
+    fullDesc: 'Precision generator silencers engineered for stationary generators, industrial engines, and heavy-duty machinery. Provides superior acoustic dampening and low backpressure flow dynamics.',
     spec: 'Industrial Heavy Drum Assembly'
   },
   {
@@ -58,11 +59,9 @@ const defaultProducts = [
 ];
 
 async function getProduct(id) {
-  // 1. Check static defaults first
   const staticMatch = defaultProducts.find(p => p.id === id || String(p._id) === id);
   if (staticMatch) return staticMatch;
 
-  // 2. Fetch from live backend API
   try {
     const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'https://tweaki.pw/hiquality/admin';
     const res = await fetch(`${apiUrl}/api/products`, { cache: 'no-store' });
@@ -103,45 +102,44 @@ export default async function ProductDetailPage({ params }) {
   }
 
   return (
-    <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', backgroundColor: '#f8fafc' }}>
+    <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', backgroundColor: '#ffffff' }}>
       <header className={headerStyles.headerWrapper}>
         <TopTicker />
         <Header />
       </header>
 
-      <main style={{ flex: 1, paddingTop: '100px', paddingBottom: '4rem' }}>
+      <main style={{ flex: 1, paddingTop: '96px', paddingBottom: '3rem' }}>
         <style dangerouslySetInnerHTML={{__html: `
           .prod-detail-grid {
             display: grid;
             grid-template-columns: 1fr 1.2fr;
-            gap: 2.5rem;
+            gap: 2rem;
+            align-items: start;
             background-color: #ffffff;
-            border-radius: 16px;
-            padding: 2.5rem;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border-radius: 0px !important;
+            padding: 1.75rem;
             border: 1px solid #e2e8f0;
           }
           .prod-img-box {
             background-color: #ffffff;
             border: 1px solid #e2e8f0;
-            border-radius: 12px;
-            padding: 1.5rem 1rem;
+            border-radius: 0px !important;
+            padding: 1rem;
             display: flex;
             align-items: center;
             justify-content: center;
-            min-height: 280px;
-            box-shadow: inset 0 0 20px rgba(0,0,0,0.02);
+            height: 220px;
           }
           .prod-img-box img {
             max-width: 100%;
-            max-height: 260px;
+            max-height: 200px;
             object-fit: contain;
           }
           @media (max-width: 900px) {
             .prod-detail-grid {
               grid-template-columns: 1fr;
-              padding: 1.5rem;
-              gap: 1.5rem;
+              padding: 1.25rem;
+              gap: 1.25rem;
             }
           }
           @media (max-width: 768px) {
@@ -155,33 +153,33 @@ export default async function ProductDetailPage({ params }) {
             .prod-detail-grid {
               padding: 1rem !important;
               gap: 1rem !important;
-              border-radius: 12px !important;
             }
             .prod-img-box {
-              min-height: 170px !important;
-              padding: 0.75rem !important;
-              border-radius: 10px !important;
+              height: 160px !important;
+              padding: 0.5rem !important;
             }
             .prod-img-box img {
-              max-height: 160px !important;
+              max-height: 150px !important;
             }
           }
         `}} />
 
-        {/* Light Hero Breadcrumb Header */}
-        <div className="prod-detail-header" style={{ backgroundColor: '#ffffff', color: '#0f172a', padding: '1.75rem 1.25rem 1.25rem', borderBottom: '1px solid #e2e8f0' }}>
+        {/* Light Breadcrumb Header */}
+        <div className="prod-detail-header" style={{ backgroundColor: '#ffffff', color: '#0f172a', padding: '1.5rem 1.25rem 1rem', borderBottom: '1px solid #e2e8f0' }}>
           <div className="container" style={{ maxWidth: '1100px', margin: '0 auto' }}>
             <Link href="/products" style={{
               display: 'inline-flex',
               alignItems: 'center',
-              gap: '0.45rem',
+              gap: '0.4rem',
               color: '#dc2626',
-              fontSize: '0.78rem',
+              fontSize: '0.72rem',
               fontWeight: '600',
               textDecoration: 'none',
-              marginBottom: '0.5rem'
+              marginBottom: '0.4rem',
+              textTransform: 'uppercase',
+              letterSpacing: '0.05em'
             }}>
-              <FaArrowLeft size={11} /> BACK TO ALL PRODUCTS
+              <FaArrowLeft size={10} /> BACK TO ALL PRODUCTS
             </Link>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', flexWrap: 'wrap' }}>
               <span style={{
@@ -191,7 +189,7 @@ export default async function ProductDetailPage({ params }) {
                 fontSize: '0.65rem',
                 fontWeight: '700',
                 padding: '2px 8px',
-                borderRadius: '4px',
+                borderRadius: '0px',
                 textTransform: 'uppercase'
               }}>
                 {product.category || 'SILENCER MODEL'}
@@ -203,7 +201,7 @@ export default async function ProductDetailPage({ params }) {
                   fontSize: '0.65rem',
                   fontWeight: '600',
                   padding: '2px 8px',
-                  borderRadius: '4px',
+                  borderRadius: '0px',
                   border: '1px solid #e2e8f0'
                 }}>
                   {product.spec}
@@ -211,10 +209,10 @@ export default async function ProductDetailPage({ params }) {
               )}
             </div>
             <h1 className="prod-detail-title" style={{
-              fontSize: '1.65rem',
+              fontSize: '1.5rem',
               fontWeight: '800',
               textTransform: 'uppercase',
-              margin: '0.35rem 0 0 0',
+              margin: '0.25rem 0 0 0',
               fontFamily: 'var(--font-heading)',
               letterSpacing: '0.01em',
               color: '#0f172a'
@@ -224,11 +222,11 @@ export default async function ProductDetailPage({ params }) {
           </div>
         </div>
 
-        {/* Main Content Card */}
-        <div className="container" style={{ maxWidth: '1100px', margin: '1.5rem auto 0', padding: '0 0.85rem' }}>
+        {/* Main Content Grid */}
+        <div className="container" style={{ maxWidth: '1100px', margin: '1.25rem auto 0', padding: '0 0.85rem' }}>
           <div className="prod-detail-grid">
-            {/* Left: Image */}
-            <div>
+            {/* Left: Product Image & Highlights */}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
               <div className="prod-img-box">
                 <img
                   src={product.image || '/images/prod_passenger_car.png'}
@@ -237,109 +235,122 @@ export default async function ProductDetailPage({ params }) {
               </div>
 
               <div style={{
-                marginTop: '1.25rem',
                 backgroundColor: '#f8fafc',
                 border: '1px solid #e2e8f0',
-                borderRadius: '10px',
-                padding: '1.15rem'
+                borderRadius: '0px',
+                padding: '1rem'
               }}>
-                <h4 style={{ fontSize: '0.78rem', fontWeight: '700', color: '#0f172a', margin: '0 0 0.65rem 0', textTransform: 'uppercase' }}>
+                <h4 style={{ fontSize: '0.75rem', fontWeight: '700', color: '#0f172a', margin: '0 0 0.5rem 0', textTransform: 'uppercase' }}>
                   Technical Highlights
                 </h4>
-                <ul style={{ listStyle: 'none', padding: 0, margin: 0, fontSize: '0.78rem', color: '#475569', display: 'flex', flexDirection: 'column', gap: '0.45rem' }}>
-                  <li style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                    <FaCheckCircle color="#dc2626" size={13} /> ISO Certified OEM Precision Fitment
+                <ul style={{ listStyle: 'none', padding: 0, margin: 0, fontSize: '0.76rem', color: '#475569', display: 'flex', flexDirection: 'column', gap: '0.35rem' }}>
+                  <li style={{ display: 'flex', alignItems: 'center', gap: '0.45rem' }}>
+                    <FaCheckCircle color="#dc2626" size={12} /> ISO Certified OEM Precision Fitment
                   </li>
-                  <li style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                    <FaCheckCircle color="#dc2626" size={13} /> Heavy-duty Galvanised Sheets or Pipe
+                  <li style={{ display: 'flex', alignItems: 'center', gap: '0.45rem' }}>
+                    <FaCheckCircle color="#dc2626" size={12} /> Heavy-duty Galvanised Sheets or Pipe
                   </li>
-                  <li style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                    <FaShieldAlt color="#dc2626" size={13} /> 15-Month Manufacturer Warranty Included
+                  <li style={{ display: 'flex', alignItems: 'center', gap: '0.45rem' }}>
+                    <FaShieldAlt color="#dc2626" size={12} /> 15-Month Manufacturer Warranty Included
                   </li>
                 </ul>
               </div>
             </div>
 
             {/* Right: Description & Actions */}
-            <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
               <div>
-                <h2 style={{ fontSize: '1.15rem', fontWeight: '800', color: '#0f172a', margin: '0 0 0.85rem 0', fontFamily: 'var(--font-heading)' }}>
+                <h2 style={{ fontSize: '1.05rem', fontWeight: '800', color: '#0f172a', margin: '0 0 0.65rem 0', fontFamily: 'var(--font-heading)' }}>
                   PRODUCT OVERVIEW
                 </h2>
 
                 {product.shortDesc && (
                   <p style={{
-                    fontSize: '0.85rem',
+                    fontSize: '0.82rem',
                     fontWeight: '600',
                     color: '#dc2626',
-                    marginBottom: '1rem',
-                    lineHeight: '1.5',
+                    marginBottom: '0.75rem',
+                    lineHeight: '1.45',
                     borderLeft: '3px solid #dc2626',
-                    paddingLeft: '0.75rem'
+                    paddingLeft: '0.65rem'
                   }}>
                     {product.shortDesc}
                   </p>
                 )}
 
                 <div style={{
-                  fontSize: '0.85rem',
-                  lineHeight: '1.75',
+                  fontSize: '0.84rem',
+                  lineHeight: '1.65',
                   color: '#475569',
                   whiteSpace: 'pre-line',
-                  marginBottom: '1.75rem'
+                  marginBottom: '0.5rem'
                 }}>
                   {product.fullDesc || product.desc || 'High performance OEM specification silencer engineered with precision acoustic dampening and corrosion-resistant galvanised sheets or pipe. Designed to deliver optimal backpressure reduction, enhanced engine efficiency, and quiet exhaust notes.'}
                 </div>
               </div>
 
-              {/* Premium Light Action Box */}
+              {/* Action Box */}
               <div style={{
                 backgroundColor: '#f8fafc',
                 border: '1px solid #e2e8f0',
-                borderRadius: '12px',
-                padding: '1.25rem',
+                borderRadius: '0px',
+                padding: '1rem',
                 display: 'flex',
                 flexDirection: 'column',
-                gap: '0.85rem'
+                gap: '0.75rem'
               }}>
-                <div style={{ fontSize: '0.78rem', color: '#64748b', fontWeight: '500' }}>
+                <div style={{ fontSize: '0.75rem', color: '#64748b', fontWeight: '500' }}>
                   Interested in bulk OEM order or silencer replacement for this model?
                 </div>
-                <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
+                <div style={{ display: 'flex', gap: '0.65rem', flexWrap: 'wrap' }}>
                   <a
-                    href={`https://wa.me/919876543210?text=Hi%20Quality%20Silencers,%20I%20would%20like%20to%20inquire%20about%20${encodeURIComponent(product.title)}`}
+                    href={`https://wa.me/919645888250?text=Hi%20Quality%20Silencers,%20I%20would%20like%20to%20inquire%20about%20${encodeURIComponent(product.title)}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     style={{
-                      flex: 1, minWidth: '150px',
+                      flex: 1, minWidth: '140px',
                       backgroundColor: '#22c55e', color: '#ffffff',
-                      padding: '0.7rem 1rem', borderRadius: '8px',
-                      fontWeight: '600', fontSize: '0.8rem',
+                      padding: '0.65rem 0.85rem', borderRadius: '0px',
+                      fontWeight: '600', fontSize: '0.78rem',
                       textDecoration: 'none', display: 'inline-flex',
-                      alignItems: 'center', justifyContent: 'center', gap: '0.5rem',
-                      boxShadow: '0 2px 8px rgba(34, 197, 94, 0.2)'
+                      alignItems: 'center', justifyContent: 'center', gap: '0.4rem'
                     }}
                   >
-                    <FaWhatsapp size={16} /> WhatsApp Inquiry
+                    <FaWhatsapp size={15} /> WhatsApp Inquiry
                   </a>
                   <a
-                    href="tel:+919876543210"
+                    href="tel:+919645888253"
                     style={{
-                      flex: 1, minWidth: '150px',
+                      flex: 1, minWidth: '140px',
                       backgroundColor: '#dc2626', color: '#ffffff',
-                      padding: '0.7rem 1rem', borderRadius: '8px',
-                      fontWeight: '600', fontSize: '0.8rem',
+                      padding: '0.65rem 0.85rem', borderRadius: '0px',
+                      fontWeight: '600', fontSize: '0.78rem',
                       textDecoration: 'none', display: 'inline-flex',
-                      alignItems: 'center', justifyContent: 'center', gap: '0.5rem',
-                      boxShadow: '0 2px 8px rgba(220, 38, 38, 0.2)'
+                      alignItems: 'center', justifyContent: 'center', gap: '0.4rem'
                     }}
                   >
-                    <FaPhoneAlt size={13} /> Call Sales Team
+                    <FaPhoneAlt size={12} /> Call Sales Team
                   </a>
                 </div>
               </div>
             </div>
           </div>
+
+          {/* Bottom Full-Width Manufacturing Showcase (if workImage exists) */}
+          {product.workImage && (
+            <div style={{ marginTop: '1.25rem', border: '1px solid #e2e8f0', padding: '1rem', backgroundColor: '#ffffff' }}>
+              <h3 style={{ fontSize: '0.85rem', fontWeight: '800', color: '#0f172a', textTransform: 'uppercase', margin: '0 0 0.75rem 0', letterSpacing: '0.04em' }}>
+                Factory Manufacturing Work &amp; Custom Fabrication Showcase
+              </h3>
+              <div style={{ maxHeight: '420px', overflow: 'hidden', border: '1px solid #f1f5f9', display: 'flex', alignItems: 'center', justifyContent: 'center', backgroundColor: '#f8fafc' }}>
+                <img
+                  src={product.workImage}
+                  alt={`${product.title} Factory Manufacturing Work`}
+                  style={{ width: '100%', height: 'auto', maxHeight: '420px', objectFit: 'cover', display: 'block' }}
+                />
+              </div>
+            </div>
+          )}
         </div>
       </main>
 

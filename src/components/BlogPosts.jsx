@@ -49,11 +49,19 @@ export default function BlogPosts() {
   }
 
   return (
-    <section className={styles.section} id="journal">
+    <section className={styles.section} id="blog">
       <div className={styles.container}>
         <div className={styles.sectionHeader}>
-          <h2 className="section-title">OUR BLOG</h2>
-          <p className={styles.subtitle}>Expert articles to help vehicle owners understand DPF maintenance, warning signs & professional restoration.</p>
+          <div className={styles.headerTitleRow}>
+            <span className={styles.headerLine} />
+            <h2 className={styles.headerTitle}>
+              OUR <span className={styles.titleRed}>BLOG</span>
+            </h2>
+            <span className={styles.headerLine} />
+          </div>
+          <p className={styles.headerSub}>
+            Expert articles to help vehicle owners understand DPF maintenance, warning signs &amp; professional restoration.
+          </p>
         </div>
         <div className={styles.grid}>
           {blogs.map(post => (
