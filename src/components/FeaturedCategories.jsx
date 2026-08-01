@@ -40,7 +40,7 @@ const defaultServices = [
     slug: 'oem-silencer-manufacturing',
     title: 'OEM Silencer Manufacturing',
     desc: 'ISO certified silencer manufacturing with 15+ years of OEM precision experience',
-    fullDesc: 'Precision engineered silencer manufacturing using heavy-duty 1.6mm & 2.0mm galvanised and stainless steel sheets. Built to exact vehicle specifications for long service life and acoustic dampening.',
+    fullDesc: 'Precision engineered silencer manufacturing using heavy-duty 1.6mm or 2.0mm galvanised sheets or pipe. Built to exact vehicle specifications for long service life and acoustic dampening.',
     iconName: 'FaIndustry',
   },
   {

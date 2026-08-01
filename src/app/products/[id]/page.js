@@ -16,8 +16,8 @@ const defaultProducts = [
     category: 'PASSENGER CARS',
     image: '/images/prod_passenger_car.png',
     shortDesc: 'High performance OEM specification silencers for all passenger cars.',
-    fullDesc: 'High performance OEM specification silencer engineered for passenger cars. Features heavy-duty galvanised & stainless steel construction, precision acoustic tuning, and minimum 10-year service life under normal operating conditions.',
-    spec: 'Galvanised / Stainless Steel 1.6mm'
+    fullDesc: 'High performance OEM specification silencer engineered for passenger cars. Features heavy-duty galvanised sheets or pipe construction, precision acoustic tuning, and minimum 10-year service life under normal operating conditions.',
+    spec: '1.6mm Galvanised Sheets or Pipe'
   },
   {
     id: 'prod-2',
@@ -26,7 +26,7 @@ const defaultProducts = [
     image: '/images/prod_suv_pickup.png',
     shortDesc: 'Robust silencers designed for SUVs and pickup trucks for powerful performance.',
     fullDesc: 'Robust silencers specially engineered for SUVs and 4x4 pickup trucks. Designed for high exhaust flow, maximum backpressure reduction, and durable performance under extreme driving conditions.',
-    spec: 'Heavy Duty 2.0mm Steel'
+    spec: '2.0mm Galvanised Sheets or Pipe'
   },
   {
     id: 'prod-3',
@@ -251,7 +251,7 @@ export default async function ProductDetailPage({ params }) {
                     <FaCheckCircle color="#dc2626" size={13} /> ISO Certified OEM Precision Fitment
                   </li>
                   <li style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                    <FaCheckCircle color="#dc2626" size={13} /> Heavy-duty Galvanised &amp; Stainless Steel
+                    <FaCheckCircle color="#dc2626" size={13} /> Heavy-duty Galvanised Sheets or Pipe
                   </li>
                   <li style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                     <FaShieldAlt color="#dc2626" size={13} /> 15-Month Manufacturer Warranty Included
@@ -288,7 +288,7 @@ export default async function ProductDetailPage({ params }) {
                   whiteSpace: 'pre-line',
                   marginBottom: '1.75rem'
                 }}>
-                  {product.fullDesc || product.desc || 'High performance OEM specification silencer engineered with precision acoustic dampening and corrosion-resistant stainless steel alloys. Designed to deliver optimal backpressure reduction, enhanced engine efficiency, and quiet exhaust notes.'}
+                  {product.fullDesc || product.desc || 'High performance OEM specification silencer engineered with precision acoustic dampening and corrosion-resistant galvanised sheets or pipe. Designed to deliver optimal backpressure reduction, enhanced engine efficiency, and quiet exhaust notes.'}
                 </div>
               </div>
 

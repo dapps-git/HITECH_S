@@ -20,7 +20,7 @@ const defaultCatalogProducts = [
     category: 'PASSENGER CARS',
     image: '/images/prod_passenger_car.png',
     shortDesc: 'High performance OEM specification silencers for all passenger cars. Built for maximum durability.',
-    spec: 'Galvanised / Stainless Steel 1.6mm'
+    spec: '1.6mm Galvanised Sheets or Pipe'
   },
   {
     id: 'prod-2',
@@ -28,7 +28,7 @@ const defaultCatalogProducts = [
     category: 'SUV & PICKUP',
     image: '/images/prod_suv_pickup.png',
     shortDesc: 'Robust silencers designed for SUVs and pickup trucks for powerful performance and acoustic dampening.',
-    spec: 'Heavy Duty 2.0mm Steel'
+    spec: '2.0mm Galvanised Sheets or Pipe'
   },
   {
     id: 'prod-3',

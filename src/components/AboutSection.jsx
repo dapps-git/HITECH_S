@@ -30,7 +30,7 @@ export default function AboutSection() {
                 TUNEX®️ brand, specializing in OEM Specification Silencers and Professional DPF, DOC, SCR & ASC Cleaning Services for passenger and commercial vehicles.
               </p>
               <p className={styles.para}>
-                Our TUNEX®️ OEM Specification Silencers are engineered for precise OEM fitment, superior noise reduction, and reliable long-term performance. Each silencer is manufactured using high-quality tube pipes and 2.00 mm & 1.60 mm galvanised sheets, ensuring exceptional strength, corrosion resistance, and durability.
+                Our TUNEX®️ OEM Specification Silencers are engineered for precise OEM fitment, superior noise reduction, and reliable long-term performance. Each silencer is manufactured using high-quality tube pipes and 1.60 mm or 2.00 mm galvanised sheets or pipe, ensuring exceptional strength, corrosion resistance, and durability.
               </p>
               <p className={styles.para}>
                 Designed to deliver a minimum service life of 10 years under normal operating conditions, every product undergoes stringent quality inspections before dispatch. In addition, we provide professional DPF, DOC, SCR & ASC cleaning services using advanced cleaning technology to restore exhaust system efficiency without damaging the substrate.

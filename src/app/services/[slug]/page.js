@@ -54,13 +54,13 @@ This process restores engine horsepower, improves fuel efficiency, eliminates DP
     shortDesc: 'ISO certified silencer manufacturing with 15+ years of OEM precision experience.',
     fullDesc: `Hi Quality Silencers is an ISO 9001:2015 certified manufacturer of OEM Specification Silencers under the TUNEX® brand.
 
-Every silencer is precision engineered using 1.6mm & 2.0mm heavy-duty galvanised and stainless steel sheets for exceptional durability and corrosion resistance.
+Every silencer is precision engineered using 1.6mm or 2.0mm heavy-duty galvanised sheets or pipe for exceptional durability and corrosion resistance.
 
 Each unit undergoes stringent quality inspection before dispatch and comes with a 15-month warranty. Designed for precise OEM fitment across all passenger cars, SUVs, LCVs, and commercial vehicles.`,
     highlights: [
       'ISO 9001:2015 Certified Manufacturing',
       'TUNEX® Brand — OEM Specification',
-      '1.6mm & 2.0mm Galvanised Steel Sheets & Pipes',
+      '1.6mm or 2.0mm Galvanised Sheets or Pipe',
       '1000+ Vehicle Models Covered',
       '15-Month Manufacturer Warranty',
       'Stringent Pre-dispatch Quality Checks',

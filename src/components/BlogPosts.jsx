@@ -4,8 +4,29 @@ import Image from 'next/image';
 import Link from 'next/link';
 import styles from './BlogPosts.module.css';
 
+const seedBlogs = [
+  {
+    id: 'blog-dpf-fault-codes',
+    _id: 'blog-dpf-fault-codes',
+    title: 'Common DPF Fault Codes That Can Often Be Resolved by Professional DPF Restoration',
+    slug: 'common-dpf-fault-codes-resolved-by-professional-restoration',
+    category: 'DPF DIAGNOSTICS',
+    featuredImage: '/images/dpf_fault_codes_guide_v2.jpg',
+    excerpt: 'Diagnostic guide to common Diesel Particulate Filter (DPF) fault codes. Learn which soot, ash, and pressure error codes can be resolved through professional restoration, and which require sensor or mechanical repairs.'
+  },
+  {
+    id: 'blog-dpf-sensor-pressure-pipe-cleaning',
+    _id: 'blog-dpf-sensor-pressure-pipe-cleaning',
+    title: 'DPF Sensor & Pressure Pipe Cleaning Guidelines',
+    slug: 'dpf-sensor-pressure-pipe-cleaning-guidelines',
+    category: 'DPF MAINTENANCE',
+    featuredImage: '/images/dpf_sensors_pipes_cleaning_guide.jpg',
+    excerpt: 'Complete cleaning guidelines for DPF sensors (EGT, Oxygen/Lambda) and pressure pipes. Learn safe cleaning procedures, precautions, and how to avoid sensor damage.'
+  }
+];
+
 export default function BlogPosts() {
-  const [blogs, setBlogs] = useState([]);
+  const [blogs, setBlogs] = useState(seedBlogs);
 
   useEffect(() => {
     const fetchBlogs = async () => {
@@ -15,12 +36,9 @@ export default function BlogPosts() {
         const data = await res.json();
         if (data.success && data.blogs && data.blogs.length > 0) {
           setBlogs(data.blogs.slice(0, 4));
-        } else {
-          setBlogs([]);
         }
       } catch (err) {
         console.error('Failed to load blogs:', err);
-        setBlogs([]);
       }
     };
     fetchBlogs();

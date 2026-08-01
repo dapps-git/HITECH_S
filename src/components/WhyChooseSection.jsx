@@ -20,7 +20,7 @@ const whyChooseCards = [
   {
     icon: <LuAward size={24} className={styles.iconRed} />,
     title: 'PREMIUM QUALITY MATERIALS',
-    desc: 'Manufactured using premium quality tube pipes and 2.00 mm & 1.60 mm galvanised steel sheets for superior strength, corrosion resistance, and long-lasting durability.'
+    desc: 'Manufactured using premium quality tube pipes and 1.60 mm or 2.00 mm galvanised sheets or pipe for superior strength, corrosion resistance, and long-lasting durability.'
   },
   {
     icon: <LuSettings size={24} className={styles.iconRed} />,

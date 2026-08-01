@@ -1,14 +1,14 @@
 'use client';
 import Image from 'next/image';
 import styles from './Footer.module.css';
-import { LuMapPin, LuPhone, LuMail, LuFacebook, LuInstagram } from 'react-icons/lu';
+import { LuMapPin, LuPhone, LuMail, LuFacebook, LuInstagram, LuYoutube } from 'react-icons/lu';
 import { FaWhatsapp } from 'react-icons/fa';
 
 const quickLinks = [
   { label: 'Home', href: '/' },
   { label: 'Products', href: '/products' },
   { label: 'About Us', href: '/#about' },
-  { label: 'Contact Us', href: '/#contact' },
+  { label: 'Contact Us', href: '/contact' },
 ];
 
 const servicesList = [
@@ -56,6 +56,14 @@ export default function Footer() {
                 className={styles.socialLink}
               >
                 <LuInstagram size={15} />
+              </a>
+              <a
+                href="https://youtube.com/@silencerworld?si=yraHU90ehKv0nGuR"
+                target="_blank"
+                rel="noreferrer"
+                className={styles.socialLink}
+              >
+                <LuYoutube size={15} />
               </a>
               <a
                 href="https://wa.me/919645888250"
@@ -122,19 +130,30 @@ export default function Footer() {
             <div className={styles.titleLine} />
 
             <div className={styles.contactCol}>
-              <a
-                href="https://maps.google.com/?q=Hi+Quality+Silencers+Beypore+Calicut+Kerala+673015"
-                target="_blank"
-                rel="noreferrer"
-                className={styles.contactItem}
-              >
-                <div className={styles.iconCircle}>
+              <div className={styles.contactItem} style={{ alignItems: 'flex-start' }}>
+                <div className={styles.iconCircle} style={{ marginTop: '2px' }}>
                   <LuMapPin size={14} color="#dc2626" />
                 </div>
                 <span className={styles.contactText}>
-                  47/1302C, Cheerpupalam BC Road,<br />Beypore, Calicut, Kerala – 673015
+                  <strong style={{ color: '#ffffff', display: 'block', marginBottom: '2px', fontSize: '0.78rem' }}>Factory Address:</strong>
+                  47/1302C, Cheerpupalam<br />
+                  BC Road, Beypore, Calicut<br />
+                  Kerala – 673015
                 </span>
-              </a>
+              </div>
+
+              <div className={styles.contactItem} style={{ alignItems: 'flex-start' }}>
+                <div className={styles.iconCircle} style={{ marginTop: '2px' }}>
+                  <LuMapPin size={14} color="#dc2626" />
+                </div>
+                <span className={styles.contactText}>
+                  <strong style={{ color: '#ffffff', display: 'block', marginBottom: '2px', fontSize: '0.78rem' }}>Sales Point Address:</strong>
+                  64/42 AV Building<br />
+                  Behind Ambika Hotel<br />
+                  Passport Office Cross Road East<br />
+                  Nadakkavu, Calicut – 673006
+                </span>
+              </div>
 
               <div className={styles.contactItem}>
                 <div className={styles.iconCircle}>

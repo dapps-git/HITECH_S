@@ -11,7 +11,7 @@ const seedProducts = [
     iconType: 'car',
     category: 'Passenger Cars',
     desc: 'High performance silencers for all passenger cars. Built for durability and perfect fit.',
-    spec: 'Galvanised / Stainless Steel 1.6mm'
+    spec: '1.6mm Galvanised Sheets or Pipe'
   },
   {
     id: 'prod-2',
@@ -20,7 +20,7 @@ const seedProducts = [
     iconType: 'suv',
     category: 'SUV & Pickup',
     desc: 'Robust silencers designed for SUVs and pickup trucks for powerful performance.',
-    spec: 'Heavy Duty 2.0mm Steel'
+    spec: '2.0mm Galvanised Sheets or Pipe'
   },
   {
     id: 'prod-3',

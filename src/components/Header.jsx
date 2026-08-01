@@ -10,7 +10,7 @@ const links = [
   { label: 'PRODUCTS', href: '/products' },
   { label: 'SERVICES', href: '/#dpf-cleaning' },
   { label: 'BLOG', href: '/blog' },
-  { label: 'CONTACT US', href: '/#contact' },
+  { label: 'CONTACT US', href: '/contact' },
 ];
 
 export default function Header() {

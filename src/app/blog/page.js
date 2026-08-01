@@ -14,18 +14,33 @@ export const metadata = {
   description: "Expert articles, technical guides, DPF troubleshooting, and OEM silencer manufacturing insights from Hi Quality Silencers.",
 };
 
+const seedBlogs = [
+  {
+    id: 'blog-dpf-fault-codes',
+    _id: 'blog-dpf-fault-codes',
+    title: 'Common DPF Fault Codes That Can Often Be Resolved by Professional DPF Restoration',
+    slug: 'common-dpf-fault-codes-resolved-by-professional-restoration',
+    category: 'DPF DIAGNOSTICS',
+    featuredImage: '/images/dpf_fault_codes_guide.png',
+    excerpt: 'Diagnostic guide to common Diesel Particulate Filter (DPF) fault codes. Learn which soot, ash, and pressure error codes can be resolved through professional restoration, and which require sensor or mechanical repairs.',
+    publishDate: '2026-08-01T12:00:00.000Z',
+    visibility: 'visible',
+    author: 'Hi Quality Silencers Technical Team'
+  }
+];
+
 async function getPublishedBlogs() {
   try {
     const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'https://tweaki.pw/hiquality/admin';
     const res = await fetch(`${apiUrl}/api/blogs`, { cache: 'no-store' });
     if (res.ok) {
       const data = await res.json();
-      if (data.success && data.blogs) {
+      if (data.success && data.blogs && data.blogs.length > 0) {
         return data.blogs.filter(b => b.visibility === 'visible' || !b.visibility);
       }
     }
   } catch (err) {}
-  return [];
+  return seedBlogs;
 }
 
 export default async function BlogIndexPage() {
