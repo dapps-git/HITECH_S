@@ -42,13 +42,15 @@ export default function AboutSection() {
             </div>
           </div>
 
-          {/* Right: Image */}
+          {/* Right: YouTube Video Card */}
           <div className={`${styles.aboutRight} reveal-right`}>
             <div className={styles.imgCard}>
-              <img
-                src="/images/aboutus_banner.jpg"
-                alt="Hi Quality Silencers Manufacturer & DPF Cleaning Expert"
-                className={styles.silencerImg}
+              <iframe
+                src="https://www.youtube.com/embed/kvNoTJ2T_fw"
+                title="Hi Quality Silencers & DPF Restoration Overview"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+                className={styles.aboutVideoIframe}
               />
               <div className={styles.imgRightBorder} />
             </div>

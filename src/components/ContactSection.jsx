@@ -66,7 +66,7 @@ export default function ContactSection() {
                   <div className={styles.infoLabel}>SALES POINT ADDRESS</div>
                   <div className={styles.infoValue}>
                     64/42 AV Building, Behind Ambika Hotel,
-                    <span className={styles.subText}>Passport Office Cross Road East, Nadakkavu, Calicut – 673006</span>
+                    <span className={styles.subText}>Passport Office Cross Road, East Nadakkavu, Calicut – 673006</span>
                   </div>
                 </div>
               </div>
@@ -108,16 +108,6 @@ export default function ContactSection() {
                   <div className={styles.infoLabel}>FOLLOW & CONNECT</div>
                   <div className={styles.socialList}>
                     <a
-                      href="https://www.facebook.com/share/1JCThxqeps/"
-                      target="_blank"
-                      rel="noreferrer"
-                      className={styles.socialItem}
-                      title="Facebook"
-                      aria-label="Facebook"
-                    >
-                      <LuFacebook />
-                    </a>
-                    <a
                       href="https://www.instagram.com/hi_quality_silencers?igsh=MXIwemZtNGhwaThyZw=="
                       target="_blank"
                       rel="noreferrer"
@@ -136,6 +126,16 @@ export default function ContactSection() {
                       aria-label="YouTube"
                     >
                       <LuYoutube />
+                    </a>
+                    <a
+                      href="https://www.facebook.com/share/1JCThxqeps/"
+                      target="_blank"
+                      rel="noreferrer"
+                      className={styles.socialItem}
+                      title="Facebook"
+                      aria-label="Facebook"
+                    >
+                      <LuFacebook />
                     </a>
                     <a
                       href="https://wa.me/919645888250"

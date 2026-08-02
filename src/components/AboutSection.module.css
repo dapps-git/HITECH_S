@@ -135,6 +135,14 @@
   display: block;
 }
 
+.aboutVideoIframe {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  min-height: 340px;
+  border: none;
+  display: block;
+}
+
 .imgRightBorder {
   position: absolute;
   top: 0;

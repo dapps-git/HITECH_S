@@ -32,8 +32,8 @@ const defaultServices = [
   {
     slug: 'dpf-restoration',
     title: 'Professional DPF Restoration',
-    desc: '4-stage scientific DPF cleaning restoring original exhaust flow & back pressure',
-    fullDesc: 'Our 4-stage scientific DPF restoration process removes 98%+ of accumulated soot, ash, and oil residue inside DPF honeycomb channels. Restores engine horsepower, fuel efficiency, and prevents expensive filter replacement.',
+    desc: '5-stage scientific DPF cleaning restoring original exhaust flow & back pressure',
+    fullDesc: 'Our 5-stage scientific DPF restoration process removes 98%+ of accumulated soot, ash, and oil residue inside DPF honeycomb channels. Restores engine horsepower, fuel efficiency, and prevents expensive filter replacement.',
     iconName: 'FaFilter',
   },
   {
@@ -69,7 +69,6 @@ const defaultServices = [
 export default function FeaturedCategories() {
   useScrollReveal();
   const [services, setServices] = useState(defaultServices);
-  const [selectedService, setSelectedService] = useState(null);
 
   useEffect(() => {
     async function loadServices() {
@@ -115,108 +114,24 @@ export default function FeaturedCategories() {
         <div className={styles.grid}>
           {services.map((item, i) => {
             const IconComponent = iconMap[item.iconName] || FaWrench;
+            const targetHref = item.slug ? `/services/${item.slug}` : '/#dpf-cleaning';
             return (
-              <div
+              <Link
                 key={item.id || i}
+                href={targetHref}
                 className={styles.card}
-                onClick={() => setSelectedService(item)}
-                style={{ cursor: 'pointer' }}
               >
                 <div className={styles.iconWrap}>
                   <IconComponent className={styles.icon} />
                 </div>
                 <h3 className={styles.cardTitle}>{item.title ? item.title.toUpperCase() : ''}</h3>
                 <p className={styles.cardDesc}>{item.desc}</p>
-                {item.slug && (
-                  <Link
-                    href={`/services/${item.slug}`}
-                    className={styles.tapMoreBtn}
-                    onClick={e => e.stopPropagation()}
-                  >VIEW DETAILS →</Link>
-                )}
-                {!item.slug && (
-                  <div className={styles.tapMoreBtn}>VIEW DETAILS</div>
-                )}
-              </div>
+                <div className={styles.tapMoreBtn}>VIEW DETAILS →</div>
+              </Link>
             );
           })}
         </div>
       </div>
-
-      {/* SERVICE POP-UP MODAL */}
-      {selectedService && (
-        <div className={styles.modalOverlay} onClick={() => setSelectedService(null)}>
-          <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
-            <button className={styles.modalCloseBtn} onClick={() => setSelectedService(null)}>
-              <FaTimes />
-            </button>
-
-            <div className={styles.modalHeader}>
-              <div className={styles.modalIconWrap}>
-                {(() => {
-                  const ModalIcon = iconMap[selectedService.iconName] || FaWrench;
-                  return <ModalIcon className={styles.modalIcon} />;
-                })()}
-              </div>
-              <div>
-                <span className={styles.modalBadge}>SERVICE OVERVIEW</span>
-                <h3 className={styles.modalTitle}>
-                  {selectedService.title ? selectedService.title.toUpperCase() : ''}
-                </h3>
-              </div>
-            </div>
-
-            <div className={styles.modalBody}>
-              <p className={styles.modalFullDesc}>
-                {selectedService.fullDesc || selectedService.desc || 'Specialized service engineered for maximum durability, optimal exhaust flow, and OEM specification fitment.'}
-              </p>
-
-              <div className={styles.modalHighlights}>
-                <div className={styles.highlightItem}>✓ 100% Quality Inspected &amp; Tested</div>
-                <div className={styles.highlightItem}>✓ OEM Specification Guaranteed</div>
-                <div className={styles.highlightItem}>✓ Experienced Technicians &amp; 15-Month Warranty</div>
-              </div>
-
-              {selectedService.slug && (
-                <Link
-                  href={`/services/${selectedService.slug}`}
-                  style={{
-                    background: '#0f172a',
-                    color: '#ffffff',
-                    padding: '0.65rem 1rem',
-                    borderRadius: '8px',
-                    fontWeight: '700',
-                    fontSize: '0.78rem',
-                    textDecoration: 'none',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    gap: '0.4rem',
-                    marginTop: '1rem',
-                    letterSpacing: '0.04em'
-                  }}
-                >
-                  VIEW FULL GALLERY &amp; DETAILS →
-                </Link>
-              )}
-            </div>
-
-            <div className={styles.modalFooter}>
-              <a
-                href={`https://wa.me/919876543210?text=Hi%20Quality%20Silencers,%20I%20want%20to%20inquire%20about%20${encodeURIComponent(selectedService.title)}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={styles.modalWaBtn}
-              >
-                <FaWhatsapp size={15} /> WhatsApp Inquiry
-              </a>
-              <a href="tel:+919876543210" className={styles.modalCallBtn}>
-                <FaPhoneAlt size={13} /> Call Us
-              </a>
-            </div>
-          </div>
-        </div>
-      )}
     </section>
   );
 }

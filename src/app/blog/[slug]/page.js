@@ -27,7 +27,7 @@ const defaultSeedBlogs = [
     seoTitle: 'Common DPF Fault Codes & Professional DPF Restoration Guide',
     seoDescription: 'Learn which DPF error codes (P2463, P242F, P2458, P24A4, P244B) are resolvable with professional DPF restoration and which indicate sensor or structural faults.',
     keywords: 'DPF fault codes, P2463 soot accumulation, P242F ash accumulation, P2458 regeneration duration, P24A4 excessive soot, P244B pressure high, DPF restoration Calicut',
-    content: `<p>When the DPF or Check Engine warning light illuminates on your diesel vehicle dashboard, diagnostic OBD-II scanners report specific fault codes. Understanding these error codes is essential to determine whether your Diesel Particulate Filter can be fully restored to OEM performance through 4-stage scientific cleaning, or if underlying sensor or mechanical repairs are required first.</p>
+    content: `<p>When the DPF or Check Engine warning light illuminates on your diesel vehicle dashboard, diagnostic OBD-II scanners report specific fault codes. Understanding these error codes is essential to determine whether your Diesel Particulate Filter can be fully restored to OEM performance through 5-stage scientific cleaning, or if underlying sensor or mechanical repairs are required first.</p>
 
 <h2>✅ Fault Codes Resolved by Professional DPF Restoration</h2>
 <p>The following fault codes indicate heavy soot, ash, or flow restriction within the filter channels. These issues are directly addressed and typically resolved by our professional hydro-pneumatic restoration and thermal regeneration process:</p>
@@ -57,7 +57,7 @@ const defaultSeedBlogs = [
     faqs: [
       {
         question: "Can P2463 DPF Soot Accumulation code be cleared by DPF restoration?",
-        answer: "Yes. Code P2463 is directly caused by high soot loading inside the filter. Professional 4-stage DPF restoration removes 98%+ of soot deposits and restores original exhaust backpressure, allowing the ECU to clear the error."
+        answer: "Yes. Code P2463 is directly caused by high soot loading inside the filter. Professional 5-stage DPF restoration removes 98%+ of soot deposits and restores original exhaust backpressure, allowing the ECU to clear the error."
       },
       {
         question: "Will DPF restoration fix P2452 or P2453 differential pressure sensor codes?",

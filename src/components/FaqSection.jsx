@@ -1,7 +1,7 @@
 'use client';
 import { useState } from 'react';
 import styles from './FaqSection.module.css';
-import { FaChevronDown, FaExclamationTriangle, FaCheckCircle, FaTools, FaTruck, FaClock, FaTag, FaFlask, FaWind, FaFire, FaTachometerAlt } from 'react-icons/fa';
+import { FaChevronDown, FaExclamationTriangle, FaCheckCircle, FaTools, FaTruck, FaClock, FaTag, FaFlask, FaWind, FaFire, FaTachometerAlt, FaSearch } from 'react-icons/fa';
 
 const faqs = [
   {
@@ -84,38 +84,44 @@ const faqs = [
   },
   {
     id: 5,
-    question: "5. What is Professional DPF Cleaning? (Our 4-Stage Process)",
-    summary: "Scientific & safe process involving Chemical Soaking, Hydro-Pneumatic Cleaning, Thermal Regeneration & Pressure Test.",
+    question: "5. What is Professional DPF Cleaning? (Our 5-Stage Process)",
+    summary: "Scientific & safe process involving Pre-Inspection, Chemical Soaking, Hydro-Pneumatic Cleaning, Thermal Regeneration & Pressure Test.",
     answer: (
       <div className={styles.faqBody}>
         <p className={styles.introP}>
-          Professional DPF Cleaning is a scientific and safe process that removes soot, ash, oil residue, and contaminants inside the DPF honeycomb channels. It is not just a simple water wash or heat treatment.
+          Professional DPF Cleaning is a 5-stage scientific and safe process that removes soot, ash, oil residue, and contaminants inside the DPF honeycomb channels. It is not just a simple water wash or heat treatment.
         </p>
 
-        <h4 className={styles.subHeading}>OUR 4-STAGE PROFESSIONAL CLEANING PROCESS:</h4>
+        <h4 className={styles.subHeading}>OUR 5-STAGE PROFESSIONAL CLEANING PROCESS:</h4>
         <div className={styles.processGrid}>
           <div className={styles.processCard}>
-            <div className={styles.stageNumber}><FaFlask /> Stage 1</div>
+            <div className={styles.stageNumber}><FaSearch /> Stage 1</div>
+            <h5>Pre-Inspection & Testing</h5>
+            <p>Endoscope camera inspection, initial flow test, and baseline backpressure analysis before chemical treatment.</p>
+          </div>
+
+          <div className={styles.processCard}>
+            <div className={styles.stageNumber}><FaFlask /> Stage 2</div>
             <h5>Chemical Soaking</h5>
             <p>The DPF is immersed in a specially formulated cleaning solution to soften accumulated soot, ash, and oil residues.</p>
           </div>
 
           <div className={styles.processCard}>
-            <div className={styles.stageNumber}><FaWind /> Stage 2</div>
+            <div className={styles.stageNumber}><FaWind /> Stage 3</div>
             <h5>Hydro-Pneumatic Cleaning</h5>
             <p>Using water and compressed air, contaminants are safely flushed from honeycomb channels in both flow directions.</p>
           </div>
 
           <div className={styles.processCard}>
-            <div className={styles.stageNumber}><FaFire /> Stage 3</div>
+            <div className={styles.stageNumber}><FaFire /> Stage 4</div>
             <h5>Thermal Regeneration</h5>
             <p>Carbon deposits are burned off under controlled temperature cycles without causing structural damage to the DPF.</p>
           </div>
 
           <div className={styles.processCard}>
-            <div className={styles.stageNumber}><FaTachometerAlt /> Stage 4</div>
-            <h5>Final Pressure Test</h5>
-            <p>Back pressure and airflow are tested to ensure the DPF has been restored to factory spec and ready for installation.</p>
+            <div className={styles.stageNumber}><FaTachometerAlt /> Stage 5</div>
+            <h5>Final Flow & Pressure Test</h5>
+            <p>Back pressure and airflow are certified to ensure the DPF is restored to OEM specifications and ready for installation.</p>
           </div>
         </div>
 
@@ -234,7 +240,7 @@ const faqs = [
   {
     id: 10,
     question: "10. Should the DPF unit be removed before cleaning?",
-    summary: "Yes. DPF unit must be removed from vehicle for 4-stage scientific workshop cleaning & pressure test.",
+    summary: "Yes. DPF unit must be removed from vehicle for 5-stage scientific workshop cleaning & pressure test.",
     answer: (
       <div className={styles.faqBody}>
         <div className={styles.parcelBox}>
@@ -266,7 +272,7 @@ export default function FaqSection() {
           <span className={styles.badge}>PROFESSIONAL KNOWLEDGE BASE</span>
           <h2 className={`section-title ${styles.faqTitle}`}>FREQUENTLY ASKED QUESTIONS (FAQ)</h2>
           <p className={styles.subtitle}>
-            Everything you need to know about DPF | DOC | SCR | ASC cleaning, pre-cleaning scanner diagnostics, 4-stage scientific cleaning, troubleshooting warning lights, and nationwide parcel service.
+            Everything you need to know about DPF | DOC | SCR | ASC cleaning, pre-cleaning scanner diagnostics, 5-stage scientific cleaning, troubleshooting warning lights, and nationwide parcel service.
           </p>
         </div>
 

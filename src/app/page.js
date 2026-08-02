@@ -24,9 +24,9 @@ export default function Home() {
       <main style={{ flex: 1, paddingTop: '96px' }}>
         <HeroBanner />
         <AboutSection />
-        <WhyChooseSection />
         <FeaturedCategories />
         <ProductGrid />
+        <WhyChooseSection />
         <BlogPosts />
         <FaqSection />
       </main>

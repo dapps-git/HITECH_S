@@ -10,14 +10,14 @@ const SERVICES = [
     slug: 'dpf-restoration',
     title: 'Professional DPF Restoration',
     category: 'EMISSION SERVICES',
-    shortDesc: '4-stage scientific DPF cleaning restoring original exhaust flow & back pressure.',
-    fullDesc: `Our 4-stage scientific DPF (Diesel Particulate Filter) restoration process removes 98%+ of accumulated soot, ash, and oil residue from inside the DPF honeycomb channels.
+    shortDesc: '5-stage scientific DPF cleaning restoring original exhaust flow & back pressure.',
+    fullDesc: `Our 5-stage scientific DPF (Diesel Particulate Filter) restoration process removes 98%+ of accumulated soot, ash, and oil residue from inside the DPF honeycomb channels.
 
 Using advanced pneumatic flushing and thermal regeneration technology, we restore your DPF to near-original flow capacity — without damaging the fragile substrate.
 
 This process restores engine horsepower, improves fuel efficiency, eliminates DPF warning lights, and prevents expensive filter replacement costs.`,
     highlights: [
-      '4-Stage Scientific Cleaning Process',
+      '5-Stage Scientific Cleaning Process',
       'Removes 98%+ Soot & Ash Buildup',
       'Restores Original Exhaust Backpressure',
       'Eliminates DPF Warning Lights',

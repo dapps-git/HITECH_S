@@ -15,7 +15,7 @@ import {
   LuHandshake,
   LuWrench
 } from 'react-icons/lu';
-import { FaCog } from 'react-icons/fa';
+import { FaCog, FaWhatsapp } from 'react-icons/fa';
 
 const heroBadges = [
   {
@@ -126,17 +126,17 @@ export default function HeroBanner() {
 
             {/* CTA Action Buttons — single dark frosted pill box */}
             <div className={styles.btnWrapper}>
-              <a href="tel:+917907700850" className={styles.callNowBtn}>
+              <a href="tel:+919645888253" className={styles.callNowBtn}>
                 <LuPhoneCall size={15} /> CALL NOW
               </a>
               <span className={styles.btnDivider} />
               <a
-                href="https://wa.me/917907700850"
+                href="https://wa.me/919645888250"
                 target="_blank"
                 rel="noreferrer"
                 className={styles.whatsappBtn}
               >
-                <LuMessageCircle size={15} /> WHATSAPP US
+                <FaWhatsapp size={16} /> WHATSAPP US
               </a>
             </div>
 
@@ -206,13 +206,13 @@ export default function HeroBanner() {
 
       {/* Pure Icon-only Floating WhatsApp Widget */}
       <a
-        href="https://wa.me/917907700850"
+        href="https://wa.me/919645888250"
         target="_blank"
         rel="noreferrer"
         className={styles.floatingWhatsappIcon}
         aria-label="WhatsApp Us"
       >
-        <LuMessageCircle size={26} color="#ffffff" />
+        <FaWhatsapp size={28} color="#ffffff" />
       </a>
     </section>
   );

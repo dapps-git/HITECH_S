@@ -42,14 +42,6 @@ export default function Footer() {
             {/* Social Icons */}
             <div className={styles.socialList}>
               <a
-                href="https://www.facebook.com/share/1JCThxqeps/"
-                target="_blank"
-                rel="noreferrer"
-                className={styles.socialLink}
-              >
-                <LuFacebook size={15} />
-              </a>
-              <a
                 href="https://www.instagram.com/hi_quality_silencers?igsh=MXIwemZtNGhwaThyZw=="
                 target="_blank"
                 rel="noreferrer"
@@ -64,6 +56,14 @@ export default function Footer() {
                 className={styles.socialLink}
               >
                 <LuYoutube size={15} />
+              </a>
+              <a
+                href="https://www.facebook.com/share/1JCThxqeps/"
+                target="_blank"
+                rel="noreferrer"
+                className={styles.socialLink}
+              >
+                <LuFacebook size={15} />
               </a>
               <a
                 href="https://wa.me/919645888250"
@@ -156,8 +156,8 @@ export default function Footer() {
                   <strong style={{ color: '#ffffff', display: 'block', marginBottom: '2px', fontSize: '0.78rem' }}>Sales Point Address:</strong>
                   64/42 AV Building<br />
                   Behind Ambika Hotel<br />
-                  Passport Office Cross Road East<br />
-                  Nadakkavu, Calicut – 673006
+                  Passport Office Cross Road,<br />
+                  East Nadakkavu, Calicut – 673006
                 </span>
               </a>
 

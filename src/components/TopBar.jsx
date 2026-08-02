@@ -18,12 +18,12 @@ export default function TopBar() {
           </span>
         </div>
         <div className={styles.right}>
-          <a href="https://wa.me/919876543210" className={styles.waBtn} target="_blank" rel="noreferrer">
+          <a href="https://wa.me/919645888250" className={styles.waBtn} target="_blank" rel="noreferrer">
             <FaWhatsapp /> WhatsApp
           </a>
-          <a href="tel:+919876543210" className={styles.callLink}>
+          <a href="tel:+919645888253" className={styles.callLink}>
             <FaPhone className={styles.icon} />
-            +91 98765 43210
+            +91 9645 888 253
           </a>
         </div>
       </div>
