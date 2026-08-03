@@ -266,21 +266,20 @@
 
 @media (max-width: 767px) {
   .aboutRight {
-    padding: 0;
-    margin-top: 1.25rem;
-    width: 100vw !important;
-    position: relative;
-    left: 50%;
-    right: 50%;
-    margin-left: -50vw !important;
-    margin-right: -50vw !important;
+    padding: 0 !important;
+    margin-top: 1rem !important;
+    width: 100% !important;
+    position: static !important;
+    left: auto !important;
+    right: auto !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
   }
   .imgCard {
     border-radius: 0 !important;
-    border-left: none !important;
-    border-right: none !important;
-    border-top: 1px solid #e2e8f0;
-    border-bottom: 1px solid #e2e8f0;
+    border: none !important;
+    overflow: hidden !important;
+    background: #ffffff;
     box-shadow: none !important;
     width: 100% !important;
   }
@@ -290,6 +289,7 @@
     min-height: unset;
     height: auto !important;
     object-fit: cover !important;
+    border-radius: 0 !important;
   }
   .silencerImg {
     min-height: 200px;

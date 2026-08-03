@@ -94,7 +94,7 @@ export default function AboutSection() {
               <video
                 ref={videoRef}
                 src="/images/hi_quality_about_video.mp4"
-                poster="/images/aboutus.webp"
+                poster="/images/about_video_poster.jpg"
                 autoPlay
                 loop
                 muted={isMuted}
@@ -105,14 +105,13 @@ export default function AboutSection() {
                 onClick={togglePlay}
               />
 
-              {/* Controls Overlay */}
               <div style={{
                 position: 'absolute',
-                bottom: '14px',
-                right: '14px',
+                bottom: '10px',
+                right: '10px',
                 display: 'flex',
                 alignItems: 'center',
-                gap: '8px',
+                gap: '6px',
                 zIndex: 10,
               }}>
                 <button
@@ -124,18 +123,18 @@ export default function AboutSection() {
                     color: '#ffffff',
                     border: '1px solid rgba(255, 255, 255, 0.25)',
                     borderRadius: '50%',
-                    width: '38px',
-                    height: '38px',
+                    width: '28px',
+                    height: '28px',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
                     cursor: 'pointer',
                     backdropFilter: 'blur(6px)',
-                    boxShadow: '0 4px 12px rgba(0,0,0,0.3)',
+                    boxShadow: '0 2px 8px rgba(0,0,0,0.3)',
                     transition: 'all 0.2s ease',
                   }}
                 >
-                  {isPlaying ? <FaPause size={12} /> : <FaPlay size={12} style={{ marginLeft: '2px' }} />}
+                  {isPlaying ? <FaPause size={10} /> : <FaPlay size={10} style={{ marginLeft: '1px' }} />}
                 </button>
 
                 <button
@@ -147,22 +146,20 @@ export default function AboutSection() {
                     color: '#ffffff',
                     border: '1px solid rgba(255, 255, 255, 0.25)',
                     borderRadius: '50%',
-                    width: '38px',
-                    height: '38px',
+                    width: '28px',
+                    height: '28px',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
                     cursor: 'pointer',
                     backdropFilter: 'blur(6px)',
-                    boxShadow: '0 4px 12px rgba(0,0,0,0.3)',
+                    boxShadow: '0 2px 8px rgba(0,0,0,0.3)',
                     transition: 'all 0.2s ease',
                   }}
                 >
-                  {isMuted ? <FaVolumeMute size={14} /> : <FaVolumeUp size={14} />}
+                  {isMuted ? <FaVolumeMute size={11} /> : <FaVolumeUp size={11} />}
                 </button>
               </div>
-
-              <div className={styles.imgRightBorder} />
             </div>
           </div>
 
