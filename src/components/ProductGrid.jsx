@@ -98,46 +98,49 @@ export default function ProductGrid() {
   // Fetch dynamic products from Backend API
   useEffect(() => {
     async function fetchProducts() {
-      try {
-        const baseUrl = process.env.NEXT_PUBLIC_API_URL || 'https://tweaki.pw/hiquality/admin';
-        const res = await fetch(`${baseUrl}/api/products`);
-        if (!res.ok) return; // keep defaults on HTTP error
+      const urlsToTry = [
+        'http://localhost:5000/api/products',
+        '/api/products',
+        `${process.env.NEXT_PUBLIC_API_URL || 'https://tweaki.pw/hiquality/admin'}/api/products`
+      ];
 
-        const data = await res.json();
+      const getIcon = (type, title = '') => {
+        const t = title.toUpperCase();
+        if (type === 'car' || t.includes('CAR')) return <FaCar />;
+        if (type === 'suv' || t.includes('SUV')) return <FaShuttleVan />;
+        if (type === 'lcv' || t.includes('LCV')) return <FaTruck />;
+        if (type === 'truck' || t.includes('TRUCK') || t.includes('BUS')) return <FaBus />;
+        if (type === 'catalytic' || t.includes('CATALYTIC')) return <FaCogs />;
+        return <FaWrench />;
+      };
 
-        const getIcon = (type, title = '') => {
-          const t = title.toUpperCase();
-          if (type === 'car' || t.includes('CAR')) return <FaCar />;
-          if (type === 'suv' || t.includes('SUV')) return <FaShuttleVan />;
-          if (type === 'lcv' || t.includes('LCV')) return <FaTruck />;
-          if (type === 'truck' || t.includes('TRUCK') || t.includes('BUS')) return <FaBus />;
-          if (type === 'catalytic' || t.includes('CATALYTIC')) return <FaCogs />;
-          return <FaWrench />;
-        };
+      for (const url of urlsToTry) {
+        try {
+          const res = await fetch(url, { cache: 'no-store' });
+          if (!res.ok) continue;
 
-        if (data.success && data.products && data.products.length > 0) {
-          const defaultIds = new Set(['prod-1', 'prod-2', 'prod-3', 'prod-4', 'prod-5']);
-          const legacyKeywords = ['passenger car', 'suv & pickup', 'lcv silencers', 'truck & bus', 'catalytic converters', 'dpf / doc / scr'];
+          const data = await res.json();
+          if (data.success && Array.isArray(data.products) && data.products.length > 0) {
+            const defaultIds = new Set(['prod-1', 'prod-2', 'prod-3', 'prod-4', 'prod-5']);
+            const legacyKeywords = ['passenger car', 'suv & pickup', 'lcv silencers', 'truck & bus', 'catalytic converters', 'dpf / doc / scr'];
 
-          // Format backend products with icons
-          const backendProducts = data.products.map(p => ({
-            ...p,
-            icon: getIcon(p.category, p.title)
-          }));
+            const backendProducts = data.products.map(p => ({
+              ...p,
+              icon: getIcon(p.category, p.title)
+            }));
 
-          const newFromBackend = backendProducts.filter(p => {
-            const pid = p.id || p._id;
-            const t = (p.title || '').toLowerCase();
-            if (defaultIds.has(pid)) return false;
-            if (legacyKeywords.some(kw => t.includes(kw))) return false;
-            return true;
-          });
+            const newFromBackend = backendProducts.filter(p => {
+              const pid = p.id || p._id;
+              const t = (p.title || '').toLowerCase();
+              if (defaultIds.has(pid)) return false;
+              if (legacyKeywords.some(kw => t.includes(kw))) return false;
+              return true;
+            });
 
-          setProductList([...defaultProducts, ...newFromBackend]);
-        }
-        // if empty backend → keep defaults (do nothing)
-      } catch (err) {
-        // Network error → keep defaults (do nothing)
+            setProductList([...defaultProducts, ...newFromBackend]);
+            break;
+          }
+        } catch (err) {}
       }
     }
     fetchProducts();

@@ -2,70 +2,77 @@ import { NextResponse } from 'next/server';
 import { connectDB, getJsonDb, saveJsonDb } from '@/lib/db';
 import Product from '@/lib/models/Product';
 
-// Default static products seed list
-const seedProducts = [
+const defaultCatalogProducts = [
   {
     id: 'prod-1',
-    title: 'PASSENGER CAR SILENCERS',
+    title: 'CAR SILENCERS',
+    category: 'PASSENGER CARS',
     image: '/images/prod_passenger_car.png',
-    iconType: 'car',
-    category: 'Passenger Cars',
-    desc: 'High performance silencers for all passenger cars. Built for durability and perfect fit.',
+    shortDesc: 'High performance OEM specification silencers for all passenger cars. Built for maximum durability.',
     spec: '1.6mm Galvanised Sheets or Pipe'
   },
   {
     id: 'prod-2',
-    title: 'SUV & PICKUP SILENCERS',
+    title: 'SUV SILENCERS',
+    category: 'SUV & PICKUP',
     image: '/images/prod_suv_pickup.png',
-    iconType: 'suv',
-    category: 'SUV & Pickup',
-    desc: 'Robust silencers designed for SUVs and pickup trucks for powerful performance.',
+    shortDesc: 'Robust silencers designed for SUVs and pickup trucks for powerful performance and acoustic dampening.',
     spec: '2.0mm Galvanised Sheets or Pipe'
   },
   {
     id: 'prod-3',
-    title: 'LCV SILENCERS',
-    image: '/images/prod_lcv.png',
-    iconType: 'lcv',
-    category: 'Commercial LCV',
-    desc: 'OEM specification silencers for Light Commercial Vehicles. Strong. Reliable. Long lasting.',
+    title: 'COMMERCIAL VEHICLE SILENCERS',
+    category: 'COMMERCIAL LCV',
+    image: '/images/prod_truck_bus.png',
+    shortDesc: 'Heavy duty silencers for LCVs, trucks, and commercial fleet vehicles with OEM precision fitment.',
     spec: 'OEM Grade Flange Fitment'
   },
   {
     id: 'prod-4',
-    title: 'TRUCK & BUS SILENCERS',
-    image: '/images/prod_truck_bus.png',
-    iconType: 'truck',
-    category: 'Heavy Commercial',
-    desc: 'Heavy duty silencers for trucks and buses. Built for high performance and extended life.',
+    title: 'GENERATOR SILENCERS',
+    category: 'SPECIALIZED SILENCERS',
+    image: '/images/prod_lcv.png',
+    shortDesc: 'Precision generator silencers engineered for consistent flow dynamics, low backpressure and long service life.',
     spec: 'Industrial Heavy Drum Assembly'
   },
   {
     id: 'prod-5',
-    title: 'CATALYTIC CONVERTERS',
+    title: 'CUSTOM SILENCERS',
+    category: 'CUSTOM FABRICATION',
     image: '/images/prod_catalytic.png',
-    iconType: 'catalytic',
-    category: 'Emission Control',
-    desc: 'High quality catalytic converters for reduced emissions and better engine performance.',
-    spec: 'Metallic Honeycomb Core'
-  },
-  {
-    id: 'prod-6',
-    title: 'DPF / DOC / SCR SERVICES',
-    image: '/images/prod_dpf_service.png',
-    iconType: 'service',
-    category: 'DPF Restoration',
-    desc: 'Professional DPF cleaning, restoration & replacement services with advanced technology.',
-    spec: '98%+ Soot & Ash Removal'
+    shortDesc: 'Bespoke custom-built silencers tailored to exact vehicle specifications and customer performance requirements.',
+    spec: 'Custom Flange & Baffle Tuning'
   }
 ];
 
-// GET /api/products -> Get list of products (combines default + dynamic MongoDB items)
 export async function GET() {
   try {
+    // 1. Try local Express backend
+    try {
+      const localRes = await fetch('http://localhost:5000/api/products', { cache: 'no-store' });
+      if (localRes.ok) {
+        const data = await localRes.json();
+        if (data.success && Array.isArray(data.products) && data.products.length > 0) {
+          return NextResponse.json({ success: true, products: data.products, defaultCatalogProducts });
+        }
+      }
+    } catch (err) {}
+
+    // 2. Try remote Express backend
+    const remoteUrl = process.env.NEXT_PUBLIC_API_URL || 'https://tweaki.pw/hiquality/admin';
+    try {
+      const remoteRes = await fetch(`${remoteUrl}/api/products`, { cache: 'no-store' });
+      if (remoteRes.ok) {
+        const data = await remoteRes.json();
+        if (data.success && Array.isArray(data.products) && data.products.length > 0) {
+          return NextResponse.json({ success: true, products: data.products, defaultCatalogProducts });
+        }
+      }
+    } catch (err) {}
+
+    // 3. Try MongoDB or JSON DB
     const db = await connectDB();
     let dynamicProducts = [];
-
     if (db) {
       dynamicProducts = await Product.find({}).sort({ createdAt: -1 }).lean();
       dynamicProducts = JSON.parse(JSON.stringify(dynamicProducts));
@@ -76,70 +83,43 @@ export async function GET() {
 
     return NextResponse.json({
       success: true,
-      count: seedProducts.length + dynamicProducts.length,
-      products: dynamicProducts,
-      seedProducts
+      products: dynamicProducts.length > 0 ? dynamicProducts : defaultCatalogProducts,
+      defaultCatalogProducts
     });
   } catch (error) {
-    return NextResponse.json({ success: false, error: 'Failed to fetch products' }, { status: 500 });
+    return NextResponse.json({ success: true, products: defaultCatalogProducts });
   }
 }
 
-// POST /api/products -> Add new product
 export async function POST(request) {
   try {
     const body = await request.json();
-    const { title, category, desc, image, iconType, spec } = body;
+    const { title, category, desc, shortDesc, fullDesc, image, spec } = body;
 
-    if (!title || !desc || !image) {
-      return NextResponse.json(
-        { success: false, error: 'Title, description and product image are required' },
-        { status: 400 }
-      );
+    if (!title || (!desc && !shortDesc)) {
+      return NextResponse.json({ success: false, error: 'Title and description are required' }, { status: 400 });
     }
 
-    const db = await connectDB();
+    const data = getJsonDb();
+    if (!data.products) data.products = [];
 
-    if (db) {
-      const newProd = await Product.create({
-        title: title.toUpperCase(),
-        category: category || 'OEM Silencers',
-        image,
-        iconType: iconType || 'car',
-        desc,
-        spec: spec || 'OEM Specification'
-      });
+    const newProd = {
+      id: `prod-${Date.now()}`,
+      _id: `prod-${Date.now()}`,
+      title: title.toUpperCase(),
+      category: category || 'General Silencer',
+      image: image || '/images/prod_passenger_car.png',
+      spec: spec || 'OEM Specification',
+      shortDesc: shortDesc || desc || 'High performance OEM specification silencer built for maximum durability.',
+      fullDesc: fullDesc || desc || shortDesc || 'High performance OEM specification silencer engineered with precision.',
+      desc: desc || shortDesc || 'High performance OEM specification silencer.'
+    };
 
-      return NextResponse.json({
-        success: true,
-        message: 'Product created successfully in MongoDB!',
-        product: newProd
-      }, { status: 201 });
-    } else {
-      const data = getJsonDb();
-      const newProd = {
-        id: `prod-${Date.now()}`,
-        _id: `prod-${Date.now()}`,
-        title: title.toUpperCase(),
-        category: category || 'OEM Silencers',
-        image,
-        iconType: iconType || 'car',
-        desc,
-        spec: spec || 'OEM Specification',
-        createdAt: new Date().toISOString()
-      };
+    data.products.unshift(newProd);
+    saveJsonDb(data);
 
-      data.products.unshift(newProd);
-      saveJsonDb(data);
-
-      return NextResponse.json({
-        success: true,
-        message: 'Product created successfully in local database!',
-        product: newProd
-      }, { status: 201 });
-    }
+    return NextResponse.json({ success: true, message: 'Product created', product: newProd }, { status: 201 });
   } catch (error) {
-    console.error('Create product error:', error);
     return NextResponse.json({ success: false, error: 'Failed to create product' }, { status: 500 });
   }
 }

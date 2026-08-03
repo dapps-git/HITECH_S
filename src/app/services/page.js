@@ -201,7 +201,7 @@ export default async function ServicesPage() {
             .srv-page-card {
               background: #ffffff;
               border: 1px solid #e2e8f0;
-              border-radius: 12px;
+              border-radius: 0;
               overflow: hidden;
               box-shadow: 0 4px 16px rgba(0,0,0,0.04);
               transition: all 0.25s ease;
@@ -225,7 +225,7 @@ export default async function ServicesPage() {
             .srv-page-icon-wrap {
               width: 52px;
               height: 52px;
-              border-radius: 12px;
+              border-radius: 0;
               display: flex;
               align-items: center;
               justify-content: center;
@@ -287,7 +287,7 @@ export default async function ServicesPage() {
               padding: 0.75rem 1rem;
               background: #f8fafc;
               border: 1px solid #e2e8f0;
-              border-radius: 8px;
+              border-radius: 0;
               font-size: 0.74rem;
               font-weight: 800;
               color: #dc2626;

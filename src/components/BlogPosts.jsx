@@ -30,15 +30,22 @@ export default function BlogPosts() {
 
   useEffect(() => {
     const fetchBlogs = async () => {
-      try {
-        const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'https://tweaki.pw/hiquality/admin';
-        const res = await fetch(`${apiUrl}/api/blogs`);
-        const data = await res.json();
-        if (data.success && data.blogs && data.blogs.length > 0) {
-          setBlogs(data.blogs.slice(0, 4));
-        }
-      } catch (err) {
-        console.error('Failed to load blogs:', err);
+      const urlsToTry = [
+        'http://localhost:5000/api/blogs',
+        '/api/blogs',
+        `${process.env.NEXT_PUBLIC_API_URL || 'https://tweaki.pw/hiquality/admin'}/api/blogs`
+      ];
+
+      for (const url of urlsToTry) {
+        try {
+          const res = await fetch(url, { cache: 'no-store' });
+          if (!res.ok) continue;
+          const data = await res.json();
+          if (data.success && Array.isArray(data.blogs) && data.blogs.length > 0) {
+            setBlogs(data.blogs.slice(0, 4));
+            break;
+          }
+        } catch (err) {}
       }
     };
     fetchBlogs();

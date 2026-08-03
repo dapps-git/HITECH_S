@@ -146,7 +146,7 @@ export default async function BlogIndexPage() {
             .blog-list-card {
               background: #ffffff;
               border: 1px solid #e2e8f0;
-              border-radius: 12px;
+              border-radius: 0;
               overflow: hidden;
               box-shadow: 0 4px 16px rgba(0,0,0,0.04);
               transition: all 0.25s ease;
@@ -185,7 +185,7 @@ export default async function BlogIndexPage() {
               font-size: 0.64rem;
               font-weight: 800;
               padding: 3px 10px;
-              border-radius: 4px;
+              border-radius: 0;
               text-transform: uppercase;
               letter-spacing: 0.06em;
               box-shadow: 0 2px 8px rgba(0,0,0,0.2);
@@ -202,7 +202,7 @@ export default async function BlogIndexPage() {
               display: flex;
               align-items: center;
               gap: 1rem;
-              fontSize: 0.72rem;
+              font-size: 0.72rem;
               color: #64748b;
               margin-bottom: 0.65rem;
             }
@@ -231,7 +231,7 @@ export default async function BlogIndexPage() {
               padding: 0.75rem 1rem;
               background: #f8fafc;
               border: 1px solid #e2e8f0;
-              border-radius: 8px;
+              border-radius: 0;
               font-size: 0.74rem;
               font-weight: 800;
               color: #dc2626;

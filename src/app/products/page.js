@@ -57,32 +57,37 @@ const defaultCatalogProducts = [
 ];
 
 async function getProducts() {
-  try {
-    const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'https://tweaki.pw/hiquality/admin';
-    const res = await fetch(`${apiUrl}/api/products`, { cache: 'no-store' });
-    if (!res.ok) return defaultCatalogProducts;
+  const urlsToTry = [
+    'http://localhost:5000/api/products',
+    `${process.env.NEXT_PUBLIC_API_URL || 'https://tweaki.pw/hiquality/admin'}/api/products`
+  ];
 
-    const data = await res.json();
-    if (!data.success || !data.products) return defaultCatalogProducts;
+  for (const url of urlsToTry) {
+    try {
+      const res = await fetch(url, { cache: 'no-store' });
+      if (!res.ok) continue;
 
-    const defaultIds = new Set(['prod-1', 'prod-2', 'prod-3', 'prod-4', 'prod-5']);
-    const legacyKeywords = [
-      'passenger car silencers', 'suv & pickup silencers', 'lcv silencers',
-      'truck & bus silencers', 'catalytic converters', 'dpf / doc / scr'
-    ];
+      const data = await res.json();
+      if (data.success && Array.isArray(data.products) && data.products.length > 0) {
+        const defaultIds = new Set(['prod-1', 'prod-2', 'prod-3', 'prod-4', 'prod-5']);
+        const legacyKeywords = [
+          'passenger car silencers', 'suv & pickup silencers', 'lcv silencers',
+          'truck & bus silencers', 'catalytic converters', 'dpf / doc / scr'
+        ];
 
-    const newFromApi = data.products.filter(p => {
-      const pid = p.id || String(p._id);
-      const t = (p.title || '').toLowerCase();
-      if (defaultIds.has(pid)) return false;
-      if (legacyKeywords.some(kw => t.includes(kw))) return false;
-      return true;
-    });
+        const newFromApi = data.products.filter(p => {
+          const pid = p.id || String(p._id);
+          const t = (p.title || '').toLowerCase();
+          if (defaultIds.has(pid)) return false;
+          if (legacyKeywords.some(kw => t.includes(kw))) return false;
+          return true;
+        });
 
-    return [...defaultCatalogProducts, ...newFromApi];
-  } catch (err) {
-    return defaultCatalogProducts;
+        return [...defaultCatalogProducts, ...newFromApi];
+      }
+    } catch (err) {}
   }
+  return defaultCatalogProducts;
 }
 
 export default async function ProductsPage() {

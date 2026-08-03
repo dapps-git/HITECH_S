@@ -2,55 +2,97 @@
   "products": [
     {
       "id": "prod-1",
-      "title": "PASSENGER CAR SILENCERS",
+      "title": "CAR SILENCERS",
       "image": "/images/prod_passenger_car.png",
       "category": "Passenger Cars",
-      "desc": "High performance silencers for all passenger cars. Built for durability and perfect fit.",
+      "shortDesc": "High performance OEM specification silencers for all passenger cars. Built for durability.",
+      "fullDesc": "High performance OEM specification silencer engineered for passenger cars. Features heavy-duty galvanised sheets or pipe construction, precision acoustic tuning, and minimum 10-year service life.",
       "spec": "1.6mm Galvanised Sheets or Pipe"
     },
     {
       "id": "prod-2",
-      "title": "SUV & PICKUP SILENCERS",
+      "title": "SUV SILENCERS",
       "image": "/images/prod_suv_pickup.png",
       "category": "SUV & Pickup",
-      "desc": "Robust silencers designed for SUVs and pickup trucks for powerful performance.",
+      "shortDesc": "Robust silencers designed for SUVs and pickup trucks for powerful performance.",
+      "fullDesc": "Robust silencers specially engineered for SUVs and 4x4 pickup trucks. Designed for high exhaust flow, maximum backpressure reduction, and durable performance under extreme driving conditions.",
       "spec": "2.0mm Galvanised Sheets or Pipe"
     },
     {
       "id": "prod-3",
-      "title": "LCV SILENCERS",
-      "image": "/images/prod_lcv.png",
+      "title": "COMMERCIAL VEHICLE SILENCERS",
+      "image": "/images/prod_truck_bus.png",
       "category": "Commercial LCV",
-      "desc": "OEM specification silencers for Light Commercial Vehicles. Strong. Reliable. Long lasting.",
+      "shortDesc": "Heavy duty silencers for LCVs, trucks, and commercial fleet vehicles.",
+      "fullDesc": "Heavy-duty commercial silencers built for LCVs, trucks, and buses. Engineered to handle high thermal stress and continuous long-distance fleet operations with OEM precision fitment.",
       "spec": "OEM Grade Flange Fitment"
     },
     {
       "id": "prod-4",
-      "title": "TRUCK & BUS SILENCERS",
-      "image": "/images/prod_truck_bus.png",
-      "category": "Heavy Commercial",
-      "desc": "Heavy duty silencers for trucks and buses. Built for high performance and extended life.",
+      "title": "GENERATED SILENCERS",
+      "image": "/images/prod_lcv.png",
+      "category": "Industrial & Heavy",
+      "shortDesc": "Precision generated silencers engineered for consistent flow dynamics and low back pressure.",
+      "fullDesc": "Precision generated silencers engineered for stationary generators, industrial engines, and heavy-duty machinery. Provides superior acoustic dampening and low backpressure flow dynamics.",
       "spec": "Industrial Heavy Drum Assembly"
     },
     {
       "id": "prod-5",
-      "title": "CATALYTIC CONVERTERS",
+      "title": "CUSTOM SILENCERS",
       "image": "/images/prod_catalytic.png",
-      "category": "Emission Control",
-      "desc": "High quality catalytic converters for reduced emissions and better engine performance.",
-      "spec": "Metallic Honeycomb Core"
-    },
-    {
-      "id": "prod-6",
-      "title": "DPF / DOC / SCR SERVICES",
-      "image": "/images/prod_dpf_service.png",
-      "category": "DPF Restoration",
-      "desc": "Professional DPF cleaning, restoration & replacement services with advanced technology.",
-      "spec": "98%+ Soot & Ash Removal"
+      "category": "Custom Fabrication",
+      "shortDesc": "Bespoke custom-built silencers tailored to exact vehicle specifications and customer requirements.",
+      "fullDesc": "Custom-engineered silencers built to exact client specifications, custom vehicle dimensions, and specialized noise control requirements. Crafted using premium corrosion-resistant alloys.",
+      "spec": "Custom Baffle & Flange Assembly"
     }
   ],
-  "enquiries": [],
-  "bookings": [],
+  "services": [
+    {
+      "id": "svc-1",
+      "title": "Professional DPF Restoration",
+      "desc": "5-stage scientific DPF cleaning restoring original exhaust flow & back pressure",
+      "icon": "FaFilter",
+      "link": "#dpf-cleaning",
+      "order": 1,
+      "visible": true
+    },
+    {
+      "id": "svc-2",
+      "title": "OEM Silencer Manufacturing",
+      "desc": "ISO certified silencer manufacturing with 15+ years of OEM precision experience",
+      "icon": "FaIndustry",
+      "link": "#products",
+      "order": 2,
+      "visible": true
+    },
+    {
+      "id": "svc-3",
+      "title": "Catalytic Converter Service",
+      "desc": "Complete diagnostic, cleaning & replacement for optimum emission control",
+      "icon": "FaLeaf",
+      "link": "#products",
+      "order": 3,
+      "visible": true
+    },
+    {
+      "id": "svc-4",
+      "title": "Flex Pipe Replacement",
+      "desc": "Precision flex pipe welding, replacement & vibration dampening exhaust repair",
+      "icon": "FaLink",
+      "link": "#products",
+      "order": 4,
+      "visible": true
+    },
+    {
+      "id": "svc-5",
+      "title": "Exhaust Repair",
+      "desc": "Complete exhaust system diagnostics, leak repair, and component restoration",
+      "icon": "FaWrench",
+      "link": "#contact",
+      "order": 5,
+      "visible": true
+    }
+  ],
   "blogs": [
     {
       "id": "blog-dpf-fault-codes",
@@ -93,24 +135,13 @@
       "publishDate": "2026-08-01T13:00:00.000Z",
       "visibility": "visible",
       "author": "Hi Quality Silencers Technical Team",
-      "seoTitle": "DPF Sensor & Pressure Pipe Cleaning Guidelines & Best Practices",
-      "seoDescription": "Learn how to clean DPF sensors (EGT, Oxygen/Lambda), connector plugs, wires, and differential pressure sensor pressure pipes safely to prevent fault codes.",
-      "keywords": "DPF sensor cleaning, EGT sensor, Lambda sensor, DPF pressure pipes, differential pressure sensor, diesel sensor maintenance",
-      "content": "<p>Modern diesel vehicles use several sensors to monitor Diesel Particulate Filter (DPF) performance and exhaust emissions. Proper cleaning of these components is essential to ensure accurate readings and prevent unnecessary fault codes. Follow the guidelines below to clean EGT sensors, Oxygen/Lambda sensors, connectors, wires, and pressure pipes safely.</p><h2>1. EGT (Exhaust Gas Temperature) Sensor</h2><p>The EGT sensor measures exhaust gas temperature and plays a vital role in DPF regeneration.</p><h3>Cleaning Procedure</h3><ul><li>If carbon deposits are present on the sensor tip, gently remove them using a soft nylon brush.</li><li>If required, use a small amount of Electrical Contact Cleaner or MAF Cleaner.</li><li>Avoid excessive force while cleaning.</li></ul><h3>⚠️ Do Not</h3><ul><li>Use wire brushes, sandpaper, or sharp tools.</li><li>Scratch or scrape the sensor tip, as this may permanently damage the sensor.</li></ul><h2>2. Oxygen (Lambda) Sensor</h2><p>The oxygen sensor monitors oxygen content in the exhaust and helps the ECU maintain the correct air-fuel ratio.</p><h3>Cleaning Procedure</h3><p>Only clean the following external parts:</p><ul><li>Metal sensor body</li><li>Hex nut</li><li>Threaded portion</li><li>Electrical connector</li><li>Sensor wire</li></ul><p>Use Electrical Contact Cleaner for the metal body and connector.</p><h3>⚠️ Do Not</h3><ul><li>Never clean or spray the sensor tip (sensing element).</li><li>Do not brush or scrape the sensing element, as the protective coating can be damaged, leading to incorrect readings and possible sensor replacement.</li></ul><h2>3. Connector Plug</h2><h3>Cleaning Procedure</h3><ul><li>Spray Electrical Contact Cleaner into the connector.</li><li>Allow it to dry completely before reconnecting.</li></ul><h2>4. Sensor Wire & Protective Sleeve</h2><h3>Cleaning Procedure</h3><ul><li>Clean only the exterior using mild soapy water or an All Purpose Cleaner (APC).</li><li>Allow the wire and sleeve to dry thoroughly.</li><li>Prevent water from entering the connector.</li></ul><h2>5. Differential Pressure Sensor Pressure Pipes</h2><p>These metal pipes measure exhaust pressure before and after the DPF.</p><h3>Cleaning Procedure</h3><ul><li>Remove the pipes from the sensor.</li><li>Flush the inside with clean water to remove carbon deposits.</li><li>Dry completely using compressed air or allow them to air dry before reinstalling.</li></ul><h3>⚠️ Important Precautions</h3><ul><li><strong>Never allow water to enter the Differential Pressure Sensor.</strong></li><li><strong>Never wash the pipes while they are connected to the sensor.</strong></li><li>Ensure the pipes are completely dry before installation. Residual water can result in incorrect pressure readings and may trigger the DPF warning light.</li></ul><h2>Conclusion</h2><p>Proper cleaning of DPF-related sensors and pressure pipes helps maintain accurate sensor readings, supports effective DPF regeneration, and reduces the risk of unnecessary fault codes. Always follow the vehicle manufacturer's service procedures, and replace any sensor that is physically damaged or provides inaccurate readings after testing.</p><p><em><strong>Note:</strong> This guide is intended for general maintenance purposes. Always confirm sensor condition using live diagnostic data and follow the manufacturer's recommended service procedures before replacing any component.</em></p>",
-      "faqs": [
-        {
-          "question": "Can I clean the sensor tip of an Oxygen (Lambda) sensor?",
-          "answer": "No. Never clean or spray the sensing element/tip of an oxygen sensor, as the protective coating can be easily damaged, leading to incorrect readings and sensor failure."
-        },
-        {
-          "question": "What should I use to clean EGT sensor tips?",
-          "answer": "Gently remove carbon deposits using a soft nylon brush. If required, use a small amount of Electrical Contact Cleaner or MAF Cleaner. Avoid wire brushes or sharp tools."
-        },
-        {
-          "question": "Is it safe to wash DPF pressure pipes while connected to the sensor?",
-          "answer": "No, never wash the pressure pipes while they are connected to the sensor. Water must never enter the Differential Pressure Sensor, as it will damage the internal electronics."
-        }
-      ]
+      "seoTitle": "DPF Sensor & Pressure Pipe Cleaning Guidelines",
+      "seoDescription": "Complete guidelines for cleaning DPF sensors and differential pressure pipes safely.",
+      "keywords": "DPF sensor cleaning, pressure pipe cleaning, EGT sensor, oxygen sensor cleaning",
+      "content": "<h2>DPF Sensor & Pressure Pipe Cleaning Guidelines</h2><p>Proper maintenance of DPF sensors and differential pressure pipes is essential to ensure accurate ECU readings and prevent false warning lights.</p><h3>1. Differential Pressure Pipes</h3><p>Ensure metal pressure pipes are free from carbon crust buildup. Flush with approved electrical contact cleaner or mild solvent before reinstalling.</p><h3>2. Exhaust Gas Temperature (EGT) Sensors</h3><p>Carefully clean sensor probe tips without using abrasive wire brushes to prevent damage to sensitive thermocouple elements.</p>",
+      "faqs": []
     }
-  ]
+  ],
+  "enquiries": [],
+  "bookings": []
 }
