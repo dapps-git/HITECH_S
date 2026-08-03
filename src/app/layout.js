@@ -14,15 +14,14 @@ export const metadata = {
   description: "ISO Certified OEM specification silencer manufacturer with 15+ years of experience. Professional DPF, DOC, SCR & ASC cleaning services.",
   icons: {
     icon: [
-      { url: '/images/social_preview.png', type: 'image/png' },
+      { url: '/favicon.ico', sizes: 'any' },
       { url: '/icon.png', type: 'image/png' },
     ],
-    shortcut: '/icon.png',
-    apple: '/icon.png',
-    apple: '/icon.png',
+    shortcut: '/favicon.ico',
+    apple: '/apple-icon.png',
   },
   openGraph: {
-    title: "Hi Quality Silencers | OEM Specification Silencer Manufacturer & Professional DPF Cleaning",
+    title: "Hi Quality Silencers | OEM Specification Silencer Manufacturer & Professional DPF Cleaning Experts",
     description: "ISO Certified OEM specification silencer manufacturer with 15+ years of experience. Professional DPF, DOC, SCR & ASC cleaning services.",
     url: "https://hiquality.info",
     siteName: "Hi Quality Silencers",
