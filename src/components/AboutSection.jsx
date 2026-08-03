@@ -18,7 +18,7 @@ export default function AboutSection() {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            videoElem.play().catch(() => {});
+            videoElem.play().catch(() => { });
             setIsPlaying(true);
           } else {
             videoElem.pause();
@@ -44,7 +44,7 @@ export default function AboutSection() {
   const togglePlay = () => {
     if (videoRef.current) {
       if (videoRef.current.paused) {
-        videoRef.current.play().catch(() => {});
+        videoRef.current.play().catch(() => { });
         setIsPlaying(true);
       } else {
         videoRef.current.pause();
@@ -93,7 +93,7 @@ export default function AboutSection() {
             <div className={styles.imgCard} style={{ position: 'relative', overflow: 'hidden' }}>
               <video
                 ref={videoRef}
-                src="/images/hi_quality_about_video.mp4"
+                src="/images/newvideo.mp4"
                 poster="/images/about_video_poster.jpg"
                 autoPlay
                 loop

@@ -10,8 +10,8 @@
 
 .aboutGrid {
   display: grid;
-  grid-template-columns: 0.8fr 1.4fr;
-  gap: 2rem;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
   align-items: center;
   margin-bottom: 4rem;
 }
@@ -267,14 +267,16 @@
 
 @media (max-width: 767px) {
   .aboutRight {
-    padding: 0 !important;
-    margin-top: 1rem !important;
-    width: 100% !important;
+    margin-top: 1.25rem !important;
+    margin-left: -18px !important;
+    margin-right: -18px !important;
+    width: calc(100% + 36px) !important;
     position: static !important;
     left: auto !important;
     right: auto !important;
-    margin-left: 0 !important;
-    margin-right: 0 !important;
+    transform: none !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
   }
   .imgCard {
     border-radius: 0 !important;
@@ -287,8 +289,8 @@
   .aboutVideoIframe {
     width: 100% !important;
     aspect-ratio: 16 / 9 !important;
-    min-height: unset;
-    height: auto !important;
+    min-height: 300px !important;
+    height: 300px !important;
     object-fit: cover !important;
     border-radius: 0 !important;
   }
