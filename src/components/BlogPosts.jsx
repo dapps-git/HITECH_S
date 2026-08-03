@@ -90,12 +90,14 @@ export default function BlogPosts() {
           ))}
         </div>
 
-        {/* VIEW ALL BLOGS BUTTON */}
-        <div style={{ textAlign: 'center', marginBottom: '3.5rem' }}>
-          <Link href="/blog" className={styles.viewAllBtn}>
-            VIEW ALL BLOGS <FaArrowRight size={12} />
-          </Link>
-        </div>
+        {/* VIEW ALL BLOGS BUTTON — Only show when there are more than 4 blogs */}
+        {blogs.length > 4 && (
+          <div style={{ textAlign: 'center', marginBottom: '3.5rem' }}>
+            <Link href="/blog" className={styles.viewAllBtn}>
+              VIEW ALL BLOGS <FaArrowRight size={12} />
+            </Link>
+          </div>
+        )}
       </div>
     </section>
   );
