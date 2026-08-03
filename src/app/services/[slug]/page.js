@@ -959,7 +959,8 @@ export default async function ServicePage({ params }) {
           )}
 
           {/* Mobile Responsive Style */}
-          <style dangerouslySetInnerHTML={{__html: `
+          <style dangerouslySetInnerHTML={{
+            __html: `
             @media (max-width: 680px) {
               .svc-content-grid {
                 grid-template-columns: 1fr !important;

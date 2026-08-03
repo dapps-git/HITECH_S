@@ -95,7 +95,7 @@ async function getBlogPost(slug, isPreview = false) {
         );
         if (found) return found;
       }
-    } catch (err) {}
+    } catch (err) { }
   }
 
   try {
@@ -106,7 +106,7 @@ async function getBlogPost(slug, isPreview = false) {
       const post = await BlogPost.findOne(query).lean();
       if (post) return JSON.parse(JSON.stringify(post));
     }
-  } catch (err) {}
+  } catch (err) { }
 
   try {
     const data = getJsonDb();
@@ -115,7 +115,7 @@ async function getBlogPost(slug, isPreview = false) {
       (isPreview || b.visibility === 'visible' || !b.visibility)
     );
     if (post) return post;
-  } catch (err) {}
+  } catch (err) { }
 
   const seedMatch = defaultSeedBlogs.find(b =>
     b.slug === cleanSlug || b.id === cleanSlug || cleanSlug.includes('fault-codes') || cleanSlug.includes('dpf')
@@ -176,7 +176,8 @@ export default async function BlogPostDetail({ params, searchParams }) {
               <BackButton />
             </div>
 
-            <style dangerouslySetInnerHTML={{__html: `
+            <style dangerouslySetInnerHTML={{
+              __html: `
               .blog-post-title {
                 font-size: 1.55rem;
                 font-weight: 800;
@@ -230,7 +231,8 @@ export default async function BlogPostDetail({ params, searchParams }) {
 
         {/* Main Article */}
         <article style={{ maxWidth: '780px', margin: '0 auto', padding: '1.75rem 1.25rem 0' }}>
-          <style dangerouslySetInnerHTML={{__html: `
+          <style dangerouslySetInnerHTML={{
+            __html: `
             .blog-article-content {
               font-size: 0.88rem;
               line-height: 1.78;

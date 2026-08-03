@@ -127,7 +127,7 @@ async function getServices() {
           }));
         return [...allServices, ...extraFromBackend];
       }
-    } catch (err) {}
+    } catch (err) { }
   }
   return allServices;
 }
@@ -185,7 +185,8 @@ export default async function ServicesPage() {
 
         {/* Services Grid */}
         <section style={{ maxWidth: '1240px', margin: '2.5rem auto 0', padding: '0 1.25rem' }}>
-          <style dangerouslySetInnerHTML={{__html: `
+          <style dangerouslySetInnerHTML={{
+            __html: `
             .srv-page-grid {
               display: grid;
               grid-template-columns: repeat(3, 1fr);

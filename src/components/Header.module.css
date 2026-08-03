@@ -250,9 +250,11 @@
   .navLinks {
     display: none !important;
   }
+
   .headerActions {
     display: none !important;
   }
+
   .mobileMenuBtn {
     display: flex !important;
   }
@@ -262,9 +264,8 @@
   .mobileMenuBtn {
     display: none !important;
   }
+
   .mobileDrawer {
     display: none !important;
   }
 }
-
-

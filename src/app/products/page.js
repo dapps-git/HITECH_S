@@ -89,7 +89,7 @@ async function getProducts() {
 
         return [...defaultCatalogProducts, ...newFromApi];
       }
-    } catch (err) {}
+    } catch (err) { }
   }
   return defaultCatalogProducts;
 }
@@ -151,7 +151,8 @@ export default async function ProductsPage() {
 
         {/* 5-Column Responsive Minimal Grid */}
         <section style={{ maxWidth: '1400px', margin: '2.5rem auto 0', padding: '0 1.25rem' }}>
-          <style dangerouslySetInnerHTML={{__html: `
+          <style dangerouslySetInnerHTML={{
+            __html: `
             .prod-page-grid {
               display: grid;
               grid-template-columns: repeat(5, 1fr);

@@ -19,6 +19,7 @@ export const metadata = {
     ],
     shortcut: '/icon.png',
     apple: '/icon.png',
+    apple: '/icon.png',
   },
   openGraph: {
     title: "Hi Quality Silencers | OEM Specification Silencer Manufacturer & Professional DPF Cleaning",

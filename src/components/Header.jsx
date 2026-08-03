@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import styles from './Header.module.css';
 import { LuMenu, LuX, LuDownload } from 'react-icons/lu';
+import TopTicker from './TopTicker';
 
 const links = [
   { label: 'HOME', href: '/' },
@@ -43,7 +44,9 @@ export default function Header() {
   };
 
   return (
-    <nav className={styles.navbar}>
+    <header className={styles.headerWrapper}>
+      <TopTicker />
+      <nav className={styles.navbar}>
       <div className={`container ${styles.container}`}>
         {/* Hi Quality Silencers Logo */}
         <Link href="/" onClick={(e) => handleNavClick(e, '/')} className={styles.logoLink}>
@@ -116,5 +119,7 @@ export default function Header() {
         </div>
       )}
     </nav>
+    </header>
   );
 }
+

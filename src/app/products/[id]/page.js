@@ -74,7 +74,7 @@ async function getProduct(id) {
         return data.products.find(p => (p.id === id || String(p._id) === id)) || null;
       }
     }
-  } catch (err) {}
+  } catch (err) { }
 
   return null;
 }
@@ -114,7 +114,8 @@ export default async function ProductDetailPage({ params }) {
       </header>
 
       <main style={{ flex: 1, paddingTop: '96px', paddingBottom: '3rem' }}>
-        <style dangerouslySetInnerHTML={{__html: `
+        <style dangerouslySetInnerHTML={{
+          __html: `
           .prod-detail-grid {
             display: grid;
             grid-template-columns: 1fr 1.2fr;

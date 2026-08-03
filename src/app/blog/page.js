@@ -59,7 +59,7 @@ async function getAllBlogs() {
       if (apiData.success && Array.isArray(apiData.blogs) && apiData.blogs.length > 0) {
         return apiData.blogs;
       }
-    } catch (err) {}
+    } catch (err) { }
   }
 
   try {
@@ -68,7 +68,7 @@ async function getAllBlogs() {
       const visible = data.blogs.filter(b => b.visibility === 'visible' || !b.visibility);
       if (visible.length > 0) return visible;
     }
-  } catch (err) {}
+  } catch (err) { }
 
   return defaultSeedBlogs;
 }
@@ -127,7 +127,8 @@ export default async function BlogIndexPage() {
 
         {/* Blog Grid */}
         <section style={{ maxWidth: '1200px', margin: '2.5rem auto 0', padding: '0 1.25rem' }}>
-          <style dangerouslySetInnerHTML={{__html: `
+          <style dangerouslySetInnerHTML={{
+            __html: `
             .blog-list-grid {
               display: grid;
               grid-template-columns: repeat(2, 1fr);
