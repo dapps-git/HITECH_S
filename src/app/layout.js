@@ -9,6 +9,7 @@ const montserrat = Montserrat({
 });
 
 export const metadata = {
+  metadataBase: new URL('https://hiquality.info'),
   title: "Hi Quality Silencers | OEM Specification Silencer Manufacturer & Professional DPF Cleaning",
   description: "ISO Certified OEM specification silencer manufacturer with 15+ years of experience. Professional DPF, DOC, SCR & ASC cleaning services.",
   icons: {
@@ -18,6 +19,28 @@ export const metadata = {
     ],
     shortcut: '/images/logo_hq.png',
     apple: '/images/logo_hq.png',
+  },
+  openGraph: {
+    title: "Hi Quality Silencers | OEM Specification Silencer Manufacturer & Professional DPF Cleaning",
+    description: "ISO Certified OEM specification silencer manufacturer with 15+ years of experience. Professional DPF, DOC, SCR & ASC cleaning services.",
+    url: "https://hiquality.info",
+    siteName: "Hi Quality Silencers",
+    images: [
+      {
+        url: "/images/logo_hq.png",
+        width: 800,
+        height: 600,
+        alt: "Hi Quality Silencers Logo",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Hi Quality Silencers | OEM Specification Silencer Manufacturer & Professional DPF Cleaning",
+    description: "ISO Certified OEM specification silencer manufacturer & professional DPF cleaning.",
+    images: ["/images/logo_hq.png"],
   },
 };
 

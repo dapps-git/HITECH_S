@@ -1,6 +1,8 @@
 'use client';
 import { useState } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import styles from './Header.module.css';
 import { LuMenu, LuX, LuDownload } from 'react-icons/lu';
 
@@ -15,12 +17,36 @@ const links = [
 
 export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const pathname = usePathname();
+
+  const handleNavClick = (e, href) => {
+    setMobileOpen(false);
+
+    if (href === '/') {
+      if (pathname === '/') {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+      return;
+    }
+
+    if (href.startsWith('/#')) {
+      const targetId = href.replace('/#', '');
+      if (pathname === '/') {
+        e.preventDefault();
+        const elem = document.getElementById(targetId);
+        if (elem) {
+          elem.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+    }
+  };
 
   return (
     <nav className={styles.navbar}>
       <div className={`container ${styles.container}`}>
         {/* Hi Quality Silencers Logo */}
-        <a href="/#hero" className={styles.logoLink}>
+        <Link href="/" onClick={(e) => handleNavClick(e, '/')} className={styles.logoLink}>
           <Image
             src="/images/logo_hq.png"
             alt="Hi Quality Silencers Logo"
@@ -29,14 +55,19 @@ export default function Header() {
             priority
             className={styles.logoImg}
           />
-        </a>
+        </Link>
 
         {/* Desktop Nav Links */}
         <div className={styles.navLinks}>
           {links.map((l) => (
-            <a key={l.label} href={l.href} className={styles.navLink}>
+            <Link
+              key={l.label}
+              href={l.href}
+              onClick={(e) => handleNavClick(e, l.href)}
+              className={styles.navLink}
+            >
               {l.label}
-            </a>
+            </Link>
           ))}
           <a
             href="/DPF FAQ 18.5 x 25 cm-3.pdf"
@@ -63,14 +94,14 @@ export default function Header() {
       {mobileOpen && (
         <div className={styles.mobileDrawer}>
           {links.map((l) => (
-            <a
+            <Link
               key={l.label}
               href={l.href}
-              onClick={() => setMobileOpen(false)}
+              onClick={(e) => handleNavClick(e, l.href)}
               className={styles.mobileDrawerLink}
             >
               {l.label}
-            </a>
+            </Link>
           ))}
           <a
             href="/DPF FAQ 18.5 x 25 cm-3.pdf"
@@ -87,5 +118,3 @@ export default function Header() {
     </nav>
   );
 }
-
-
