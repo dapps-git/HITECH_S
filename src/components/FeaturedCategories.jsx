@@ -72,23 +72,31 @@ export default function FeaturedCategories() {
 
   useEffect(() => {
     async function loadServices() {
-      try {
-        const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'https://tweaki.pw/hiquality/admin';
-        const res = await fetch(`${apiUrl}/api/services`);
-        if (!res.ok) return;
-        const data = await res.json();
-        if (data.success && Array.isArray(data.services) && data.services.length > 0) {
-          const apiServices = data.services.map(s => ({
-            ...s,
-            iconName: s.icon || s.iconName || 'FaWrench'
-          }));
-          const defaultTitles = new Set(defaultServices.map(d => d.title.toLowerCase()));
-          const newFromBackend = apiServices.filter(
-            s => !defaultTitles.has((s.title || '').toLowerCase())
-          );
-          setServices([...defaultServices, ...newFromBackend]);
-        }
-      } catch (err) {}
+      const urlsToTry = [
+        '/api/services',
+        'http://localhost:5000/api/services',
+        `${process.env.NEXT_PUBLIC_API_URL || 'https://tweaki.pw/hiquality/admin'}/api/services`
+      ];
+
+      for (const url of urlsToTry) {
+        try {
+          const res = await fetch(url, { cache: 'no-store' });
+          if (!res.ok) continue;
+          const data = await res.json();
+          if (data.success && Array.isArray(data.services) && data.services.length > 0) {
+            const apiServices = data.services.map(s => ({
+              ...s,
+              iconName: s.icon || s.iconName || 'FaWrench'
+            }));
+            const defaultTitles = new Set(defaultServices.map(d => d.title.toLowerCase()));
+            const newFromBackend = apiServices.filter(
+              s => !defaultTitles.has((s.title || '').toLowerCase())
+            );
+            setServices([...defaultServices, ...newFromBackend]);
+            break;
+          }
+        } catch (err) {}
+      }
     }
     loadServices();
   }, []);

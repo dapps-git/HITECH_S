@@ -266,8 +266,9 @@
 
 @media (max-width: 767px) {
   .aboutRight {
-    padding: 0 1rem;
+    padding: 0;
     margin-top: 1rem;
+    width: 100%;
   }
   .imgCard {
     border-radius: 12px;
@@ -275,6 +276,13 @@
     overflow: hidden;
     background: #ffffff;
     box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+    width: 100%;
+  }
+  .aboutVideoIframe {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    min-height: unset;
+    height: auto;
   }
   .silencerImg {
     min-height: 200px;

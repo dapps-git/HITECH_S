@@ -6,7 +6,9 @@ import { FaWhatsapp } from 'react-icons/fa';
 
 const quickLinks = [
   { label: 'Home', href: '/' },
+  { label: 'Services', href: '/services' },
   { label: 'Products', href: '/products' },
+  { label: 'Blog', href: '/blog' },
   { label: 'About Us', href: '/#about' },
   { label: 'Contact Us', href: '/contact' },
 ];

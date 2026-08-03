@@ -8,8 +8,8 @@ const links = [
   { label: 'HOME', href: '/' },
   { label: 'ABOUT US', href: '/#about' },
   { label: 'PRODUCTS', href: '/products' },
-  { label: 'SERVICES', href: '/#dpf-cleaning' },
-  { label: 'BLOG', href: '/#blog' },
+  { label: 'SERVICES', href: '/services' },
+  { label: 'BLOG', href: '/blog' },
   { label: 'CONTACT US', href: '/contact' },
 ];
 
