@@ -249,7 +249,7 @@ export default async function ProductsPage() {
             @media (max-width: 768px) {
               .prod-hero-header { padding: 0.85rem 1rem 0.75rem !important; }
               .prod-hero-title { font-size: 1.15rem !important; margin-bottom: 0.15rem !important; }
-              .prod-hero-sub { display: none !important; }
+              .prod-hero-sub { display: block !important; font-size: 0.72rem !important; line-height: 1.35 !important; color: #64748b !important; margin-top: 0.2rem !important; }
               .prod-hero-badge { font-size: 0.62rem !important; margin-bottom: 0.15rem !important; }
               .prod-hero-back { padding-bottom: 0.35rem !important; }
               .prod-page-grid { grid-template-columns: repeat(2, 1fr); gap: 0.75rem; margin-top: 0.85rem !important; }
