@@ -57,14 +57,18 @@ const defaultCatalogProducts = [
 ];
 
 async function getProducts() {
+  const isDev = process.env.NODE_ENV === 'development';
   const urlsToTry = [
-    'http://localhost:5000/api/products',
+    ...(isDev ? ['http://localhost:5000/api/products'] : []),
     `${process.env.NEXT_PUBLIC_API_URL || 'https://tweaki.pw/hiquality/admin'}/api/products`
   ];
 
   for (const url of urlsToTry) {
     try {
-      const res = await fetch(url, { cache: 'no-store' });
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 600);
+      const res = await fetch(url, { cache: 'no-store', signal: controller.signal });
+      clearTimeout(timeoutId);
       if (!res.ok) continue;
 
       const data = await res.json();

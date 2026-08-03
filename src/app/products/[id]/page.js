@@ -64,7 +64,10 @@ async function getProduct(id) {
 
   try {
     const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'https://tweaki.pw/hiquality/admin';
-    const res = await fetch(`${apiUrl}/api/products`, { cache: 'no-store' });
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 600);
+    const res = await fetch(`${apiUrl}/api/products`, { cache: 'no-store', signal: controller.signal });
+    clearTimeout(timeoutId);
     if (res.ok) {
       const data = await res.json();
       if (data.success && data.products) {

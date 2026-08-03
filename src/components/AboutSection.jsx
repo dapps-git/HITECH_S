@@ -1,14 +1,60 @@
 'use client';
-import Image from 'next/image';
+import { useState, useRef, useEffect } from 'react';
 import styles from './AboutSection.module.css';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
+import { FaVolumeMute, FaVolumeUp, FaPlay, FaPause } from 'react-icons/fa';
 
 export default function AboutSection() {
   useScrollReveal();
+  const videoRef = useRef(null);
+  const [isMuted, setIsMuted] = useState(true);
+  const [isPlaying, setIsPlaying] = useState(true);
+
+  useEffect(() => {
+    const videoElem = videoRef.current;
+    if (!videoElem) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            videoElem.play().catch(() => {});
+            setIsPlaying(true);
+          } else {
+            videoElem.pause();
+            setIsPlaying(false);
+          }
+        });
+      },
+      { threshold: 0.25 }
+    );
+
+    observer.observe(videoElem);
+    return () => observer.disconnect();
+  }, []);
+
+  const toggleMute = () => {
+    if (videoRef.current) {
+      const nextMuted = !videoRef.current.muted;
+      videoRef.current.muted = nextMuted;
+      setIsMuted(nextMuted);
+    }
+  };
+
+  const togglePlay = () => {
+    if (videoRef.current) {
+      if (videoRef.current.paused) {
+        videoRef.current.play().catch(() => {});
+        setIsPlaying(true);
+      } else {
+        videoRef.current.pause();
+        setIsPlaying(false);
+      }
+    }
+  };
 
   return (
     <section id="about" className={styles.aboutSection}>
-      {/* Main Split Grid */}
       <div className={`container ${styles.container}`}>
         <div className={styles.aboutGrid}>
 
@@ -42,16 +88,80 @@ export default function AboutSection() {
             </div>
           </div>
 
-          {/* Right: YouTube Video Card */}
+          {/* Right: High-Clarity Autoplay MP4 Video Player */}
           <div className={`${styles.aboutRight} reveal-right`}>
-            <div className={styles.imgCard}>
-              <iframe
-                src="https://www.youtube.com/embed/kvNoTJ2T_fw"
-                title="Hi Quality Silencers & DPF Restoration Overview"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowFullScreen
+            <div className={styles.imgCard} style={{ position: 'relative', overflow: 'hidden' }}>
+              <video
+                ref={videoRef}
+                src="/images/hi_quality_about_video.mp4"
+                poster="/images/aboutus.webp"
+                autoPlay
+                loop
+                muted={isMuted}
+                playsInline
+                preload="auto"
                 className={styles.aboutVideoIframe}
+                style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', cursor: 'pointer' }}
+                onClick={togglePlay}
               />
+
+              {/* Controls Overlay */}
+              <div style={{
+                position: 'absolute',
+                bottom: '14px',
+                right: '14px',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '8px',
+                zIndex: 10,
+              }}>
+                <button
+                  type="button"
+                  onClick={togglePlay}
+                  aria-label={isPlaying ? 'Pause Video' : 'Play Video'}
+                  style={{
+                    backgroundColor: 'rgba(15, 23, 42, 0.75)',
+                    color: '#ffffff',
+                    border: '1px solid rgba(255, 255, 255, 0.25)',
+                    borderRadius: '50%',
+                    width: '38px',
+                    height: '38px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    cursor: 'pointer',
+                    backdropFilter: 'blur(6px)',
+                    boxShadow: '0 4px 12px rgba(0,0,0,0.3)',
+                    transition: 'all 0.2s ease',
+                  }}
+                >
+                  {isPlaying ? <FaPause size={12} /> : <FaPlay size={12} style={{ marginLeft: '2px' }} />}
+                </button>
+
+                <button
+                  type="button"
+                  onClick={toggleMute}
+                  aria-label={isMuted ? 'Unmute Audio' : 'Mute Audio'}
+                  style={{
+                    backgroundColor: isMuted ? 'rgba(220, 38, 38, 0.9)' : 'rgba(15, 23, 42, 0.75)',
+                    color: '#ffffff',
+                    border: '1px solid rgba(255, 255, 255, 0.25)',
+                    borderRadius: '50%',
+                    width: '38px',
+                    height: '38px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    cursor: 'pointer',
+                    backdropFilter: 'blur(6px)',
+                    boxShadow: '0 4px 12px rgba(0,0,0,0.3)',
+                    transition: 'all 0.2s ease',
+                  }}
+                >
+                  {isMuted ? <FaVolumeMute size={14} /> : <FaVolumeUp size={14} />}
+                </button>
+              </div>
+
               <div className={styles.imgRightBorder} />
             </div>
           </div>

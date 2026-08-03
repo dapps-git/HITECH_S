@@ -73,15 +73,19 @@ const defaultSeedBlogs = [
 
 async function getBlogPost(slug, isPreview = false) {
   const cleanSlug = slug ? decodeURIComponent(slug).toLowerCase().trim() : '';
+  const isDev = process.env.NODE_ENV === 'development';
 
   const urlsToTry = [
-    'http://localhost:5000/api/blogs?all=true',
+    ...(isDev ? ['http://localhost:5000/api/blogs?all=true'] : []),
     `${process.env.NEXT_PUBLIC_API_URL || 'https://tweaki.pw/hiquality/admin'}/api/blogs?all=true`
   ];
 
   for (const url of urlsToTry) {
     try {
-      const res = await fetch(url, { cache: 'no-store' });
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 600);
+      const res = await fetch(url, { cache: 'no-store', signal: controller.signal });
+      clearTimeout(timeoutId);
       if (!res.ok) continue;
       const apiData = await res.json();
       if (apiData.success && Array.isArray(apiData.blogs)) {
