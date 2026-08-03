@@ -267,22 +267,29 @@
 @media (max-width: 767px) {
   .aboutRight {
     padding: 0;
-    margin-top: 1rem;
-    width: 100%;
+    margin-top: 1.25rem;
+    width: 100vw !important;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw !important;
+    margin-right: -50vw !important;
   }
   .imgCard {
-    border-radius: 12px;
-    border: 1px solid #e2e8f0;
-    overflow: hidden;
-    background: #ffffff;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.06);
-    width: 100%;
+    border-radius: 0 !important;
+    border-left: none !important;
+    border-right: none !important;
+    border-top: 1px solid #e2e8f0;
+    border-bottom: 1px solid #e2e8f0;
+    box-shadow: none !important;
+    width: 100% !important;
   }
   .aboutVideoIframe {
-    width: 100%;
-    aspect-ratio: 16 / 9;
+    width: 100% !important;
+    aspect-ratio: 16 / 9 !important;
     min-height: unset;
-    height: auto;
+    height: auto !important;
+    object-fit: cover !important;
   }
   .silencerImg {
     min-height: 200px;
