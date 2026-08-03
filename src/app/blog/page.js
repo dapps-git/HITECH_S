@@ -2,10 +2,11 @@ import Link from 'next/link';
 import TopTicker from '@/components/TopTicker';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import BackButton from '@/components/BackButton';
 import headerStyles from '@/components/Header.module.css';
 import { connectDB, getJsonDb } from '@/lib/db';
 import BlogPost from '@/lib/models/BlogPost';
-import { FaArrowLeft, FaArrowRight, FaCalendarAlt, FaUser, FaTag } from 'react-icons/fa';
+import { FaArrowRight, FaCalendarAlt, FaUser } from 'react-icons/fa';
 
 export const dynamic = 'force-dynamic';
 export const revalidate = 0;
@@ -83,28 +84,16 @@ export default async function BlogIndexPage() {
         <div style={{
           backgroundColor: '#ffffff',
           color: '#0f172a',
-          padding: '1.75rem 1.25rem 1.5rem',
+          padding: '1.5rem 1.25rem 1.25rem',
           textAlign: 'center',
           borderBottom: '1px solid #e2e8f0',
         }}>
-          <div style={{ maxWidth: '1200px', margin: '0 auto', textAlign: 'left', padding: '0 0.5rem 0.65rem' }}>
-            <Link href="/" style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '0.45rem',
-              color: '#dc2626',
-              fontSize: '0.78rem',
-              fontWeight: '700',
-              textDecoration: 'none',
-              textTransform: 'uppercase',
-              letterSpacing: '0.04em'
-            }}>
-              <FaArrowLeft size={11} /> BACK TO HOME
-            </Link>
+          <div style={{ maxWidth: '1200px', margin: '0 auto', textAlign: 'left', padding: '0 0.5rem 0.5rem' }}>
+            <BackButton />
           </div>
 
           <div style={{ maxWidth: '800px', margin: '0 auto' }}>
-            <span style={{
+            <span className="blog-hero-badge" style={{
               fontSize: '0.68rem',
               fontWeight: '800',
               color: '#dc2626',
@@ -115,7 +104,7 @@ export default async function BlogIndexPage() {
             }}>
               TECHNICAL BLOG &amp; DPF KNOWLEDGE BASE
             </span>
-            <h1 style={{
+            <h1 className="blog-hero-title" style={{
               fontSize: '1.65rem',
               fontWeight: '800',
               textTransform: 'uppercase',
@@ -126,7 +115,7 @@ export default async function BlogIndexPage() {
             }}>
               ARTICLES &amp; <span style={{ color: '#dc2626' }}>DIAGNOSTIC GUIDES</span>
             </h1>
-            <p style={{ fontSize: '0.85rem', color: '#64748b', margin: 0, fontWeight: '400', lineHeight: '1.5' }}>
+            <p className="blog-hero-sub" style={{ fontSize: '0.85rem', color: '#64748b', margin: 0, fontWeight: '400', lineHeight: '1.5' }}>
               Expert insights, OBD-II fault code resolutions, and DPF maintenance guides written by Hi Quality Silencers technical experts.
             </p>
           </div>
@@ -243,10 +232,16 @@ export default async function BlogIndexPage() {
             }
 
             @media (max-width: 768px) {
-              .blog-list-grid { grid-template-columns: 1fr; gap: 1.15rem; }
-              .blog-list-img-wrap { height: 180px; }
-              .blog-list-body { padding: 1.1rem; }
-              .blog-list-title { font-size: 0.95rem; }
+              .blog-hero-title { font-size: 1.15rem !important; margin-bottom: 0.15rem !important; }
+              .blog-hero-sub { font-size: 0.72rem !important; line-height: 1.35 !important; }
+              .blog-hero-badge { font-size: 0.6rem !important; }
+              .blog-list-grid { grid-template-columns: 1fr; gap: 0.85rem; }
+              .blog-list-img-wrap { height: 160px; }
+              .blog-list-body { padding: 0.85rem; }
+              .blog-list-title { font-size: 0.88rem; line-height: 1.3; }
+              .blog-list-excerpt { font-size: 0.74rem; margin-bottom: 0.75rem; -webkit-line-clamp: 2; }
+              .blog-list-meta { font-size: 0.65rem; gap: 0.65rem; margin-bottom: 0.4rem; }
+              .blog-list-btn { padding: 0.6rem 0.75rem; font-size: 0.66rem; }
             }
           `}} />
 

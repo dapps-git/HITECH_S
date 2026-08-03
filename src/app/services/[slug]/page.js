@@ -143,6 +143,8 @@ const iconMap = { FaFilter, FaIndustry, FaLeaf, FaLink, FaWrench };
 export const dynamic = 'force-dynamic';
 export const revalidate = 0;
 
+import BackButton from '@/components/BackButton';
+
 export default async function ServicePage({ params }) {
   const resolvedParams = await params;
   const slug = resolvedParams?.slug || params?.slug;
@@ -183,14 +185,9 @@ export default async function ServicePage({ params }) {
           padding: '0.85rem 1rem',
         }}>
           <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
-            <Link href="/#dpf-cleaning" style={{
-              display: 'inline-flex', alignItems: 'center', gap: '0.35rem',
-              color: '#dc2626', fontSize: '0.72rem', fontWeight: '700',
-              textDecoration: 'none', marginBottom: '0.5rem', textTransform: 'uppercase',
-              letterSpacing: '0.04em'
-            }}>
-              <FaArrowLeft size={10} /> BACK TO SERVICES
-            </Link>
+            <div style={{ marginBottom: '0.65rem' }}>
+              <BackButton />
+            </div>
             <div>
               <span style={{
                 backgroundColor: '#fef2f2',

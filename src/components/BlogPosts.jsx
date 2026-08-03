@@ -4,6 +4,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import styles from './BlogPosts.module.css';
 
+import { FaArrowRight } from 'react-icons/fa';
+
 const seedBlogs = [
   {
     id: 'blog-dpf-fault-codes',
@@ -42,7 +44,7 @@ export default function BlogPosts() {
           if (!res.ok) continue;
           const data = await res.json();
           if (data.success && Array.isArray(data.blogs) && data.blogs.length > 0) {
-            setBlogs(data.blogs.slice(0, 4));
+            setBlogs(data.blogs);
             break;
           }
         } catch (err) {}
@@ -54,6 +56,8 @@ export default function BlogPosts() {
   if (blogs.length === 0) {
     return null;
   }
+
+  const displayedBlogs = blogs.slice(0, 4);
 
   return (
     <section className={styles.section} id="blog">
@@ -71,7 +75,7 @@ export default function BlogPosts() {
           </p>
         </div>
         <div className={styles.grid}>
-          {blogs.map(post => (
+          {displayedBlogs.map(post => (
             <Link href={`/blog/${post.slug}`} key={post.id || post._id} className={styles.card} style={{ textDecoration: 'none' }}>
               <div className={styles.imageBox}>
                 <Image src={post.featuredImage || '/images/bg.webp'} alt={post.title} fill className={styles.image} />
@@ -84,6 +88,13 @@ export default function BlogPosts() {
               </div>
             </Link>
           ))}
+        </div>
+
+        {/* VIEW ALL BLOGS BUTTON */}
+        <div style={{ textAlign: 'center', marginBottom: '3.5rem' }}>
+          <Link href="/blog" className={styles.viewAllBtn}>
+            VIEW ALL BLOGS <FaArrowRight size={12} />
+          </Link>
         </div>
       </div>
     </section>

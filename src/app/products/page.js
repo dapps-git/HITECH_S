@@ -90,6 +90,8 @@ async function getProducts() {
   return defaultCatalogProducts;
 }
 
+import BackButton from '@/components/BackButton';
+
 export default async function ProductsPage() {
   const products = await getProducts();
 
@@ -101,28 +103,17 @@ export default async function ProductsPage() {
       </header>
 
       <main style={{ flex: 1, paddingTop: '100px', paddingBottom: '4rem' }}>
-        {/* Pretty Light Hero Header */}
+        {/* Page Hero Header */}
         <div className="prod-hero-header" style={{
           backgroundColor: '#ffffff',
           color: '#0f172a',
-          padding: '1.75rem 1.25rem 1.25rem',
+          padding: '1.5rem 1.25rem 1.25rem',
           textAlign: 'center',
           borderBottom: '1px solid #e2e8f0',
           position: 'relative'
         }}>
-          <div className="prod-hero-back" style={{ maxWidth: '1200px', margin: '0 auto', textAlign: 'left', padding: '0 0.5rem 0.65rem' }}>
-            <Link href="/" style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '0.45rem',
-              color: '#dc2626',
-              fontSize: '0.78rem',
-              fontWeight: '600',
-              textDecoration: 'none',
-              transition: 'opacity 0.2s'
-            }}>
-              <FaArrowLeft size={11} /> BACK TO HOME
-            </Link>
+          <div className="prod-hero-back" style={{ maxWidth: '1200px', margin: '0 auto', textAlign: 'left', padding: '0 0.5rem 0.5rem' }}>
+            <BackButton />
           </div>
 
           <div style={{ maxWidth: '800px', margin: '0 auto' }}>

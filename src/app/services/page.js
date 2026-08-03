@@ -2,8 +2,9 @@ import Link from 'next/link';
 import TopTicker from '@/components/TopTicker';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import BackButton from '@/components/BackButton';
 import headerStyles from '@/components/Header.module.css';
-import { FaArrowLeft, FaArrowRight, FaCheckCircle, FaFilter, FaIndustry, FaLeaf, FaLink, FaWrench } from 'react-icons/fa';
+import { FaArrowRight, FaCheckCircle, FaFilter, FaIndustry, FaLeaf, FaLink, FaWrench } from 'react-icons/fa';
 
 export const dynamic = 'force-dynamic';
 export const revalidate = 0;
@@ -36,7 +37,7 @@ const allServices = [
     shortDesc: 'ISO certified silencer manufacturing with 15+ years of OEM precision experience.',
     highlights: [
       'ISO 9001:2015 Certified Quality',
-      '1.6mm & 2.0mm Heavy-Duty Galvanised Steel',
+      '1.6mm or 2.0mm Galvanised Sheets or Pipe',
       '1000+ Vehicle Models Covered',
       '15-Month Manufacturer Warranty',
     ],
@@ -141,28 +142,16 @@ export default async function ServicesPage() {
         <div style={{
           backgroundColor: '#ffffff',
           color: '#0f172a',
-          padding: '1.75rem 1.25rem 1.5rem',
+          padding: '1.5rem 1.25rem 1.25rem',
           textAlign: 'center',
           borderBottom: '1px solid #e2e8f0',
         }}>
-          <div style={{ maxWidth: '1200px', margin: '0 auto', textAlign: 'left', padding: '0 0.5rem 0.65rem' }}>
-            <Link href="/" style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '0.45rem',
-              color: '#dc2626',
-              fontSize: '0.78rem',
-              fontWeight: '700',
-              textDecoration: 'none',
-              textTransform: 'uppercase',
-              letterSpacing: '0.04em'
-            }}>
-              <FaArrowLeft size={11} /> BACK TO HOME
-            </Link>
+          <div style={{ maxWidth: '1200px', margin: '0 auto', textAlign: 'left', padding: '0 0.5rem 0.5rem' }}>
+            <BackButton />
           </div>
 
           <div style={{ maxWidth: '800px', margin: '0 auto' }}>
-            <span style={{
+            <span className="srv-hero-badge" style={{
               fontSize: '0.68rem',
               fontWeight: '800',
               color: '#dc2626',
@@ -173,7 +162,7 @@ export default async function ServicesPage() {
             }}>
               EXHAUST &amp; EMISSION SERVICES
             </span>
-            <h1 style={{
+            <h1 className="srv-hero-title" style={{
               fontSize: '1.65rem',
               fontWeight: '800',
               textTransform: 'uppercase',
@@ -184,7 +173,7 @@ export default async function ServicesPage() {
             }}>
               OUR SPECIALIZED <span style={{ color: '#dc2626' }}>SERVICES</span>
             </h1>
-            <p style={{ fontSize: '0.85rem', color: '#64748b', margin: 0, fontWeight: '400', lineHeight: '1.5' }}>
+            <p className="srv-hero-sub" style={{ fontSize: '0.85rem', color: '#64748b', margin: 0, fontWeight: '400', lineHeight: '1.5' }}>
               ISO 9001:2015 certified silencer manufacturing and 5-stage scientific DPF restoration for all passenger and commercial vehicles.
             </p>
           </div>
@@ -305,9 +294,18 @@ export default async function ServicesPage() {
               .srv-page-grid { grid-template-columns: repeat(2, 1fr); }
             }
             @media (max-width: 640px) {
-              .srv-page-grid { grid-template-columns: 1fr; gap: 1rem; }
-              .srv-page-header { padding: 1.1rem 1rem 0.85rem; }
-              .srv-page-body { padding: 1rem; }
+              .srv-hero-title { font-size: 1.15rem !important; margin-bottom: 0.15rem !important; }
+              .srv-hero-sub { font-size: 0.72rem !important; line-height: 1.35 !important; }
+              .srv-hero-badge { font-size: 0.6rem !important; }
+              .srv-page-grid { grid-template-columns: 1fr; gap: 0.85rem; }
+              .srv-page-header { padding: 0.9rem 0.85rem 0.75rem; gap: 0.75rem; }
+              .srv-page-icon-wrap { width: 40px; height: 40px; font-size: 1.1rem; }
+              .srv-page-title { font-size: 0.82rem; }
+              .srv-page-category { font-size: 0.56rem; }
+              .srv-page-body { padding: 0.85rem; }
+              .srv-page-desc { font-size: 0.74rem; margin-bottom: 0.75rem; }
+              .srv-page-item { font-size: 0.68rem; gap: 0.35rem; }
+              .srv-page-btn { padding: 0.6rem 0.75rem; font-size: 0.66rem; }
             }
           `}} />
 

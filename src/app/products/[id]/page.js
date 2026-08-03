@@ -93,6 +93,8 @@ export async function generateMetadata({ params }) {
   };
 }
 
+import BackButton from '@/components/BackButton';
+
 export default async function ProductDetailPage({ params }) {
   const { id } = await params;
   const product = await getProduct(id);
@@ -167,20 +169,9 @@ export default async function ProductDetailPage({ params }) {
         {/* Light Breadcrumb Header */}
         <div className="prod-detail-header" style={{ backgroundColor: '#ffffff', color: '#0f172a', padding: '1.5rem 1.25rem 1rem', borderBottom: '1px solid #e2e8f0' }}>
           <div className="container" style={{ maxWidth: '1100px', margin: '0 auto' }}>
-            <Link href="/products" style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '0.4rem',
-              color: '#dc2626',
-              fontSize: '0.72rem',
-              fontWeight: '600',
-              textDecoration: 'none',
-              marginBottom: '0.4rem',
-              textTransform: 'uppercase',
-              letterSpacing: '0.05em'
-            }}>
-              <FaArrowLeft size={10} /> BACK TO ALL PRODUCTS
-            </Link>
+            <div style={{ marginBottom: '0.65rem' }}>
+              <BackButton />
+            </div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', flexWrap: 'wrap' }}>
               <span style={{
                 backgroundColor: '#fef2f2',

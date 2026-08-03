@@ -146,6 +146,8 @@ export async function generateMetadata({ params, searchParams }) {
   };
 }
 
+import BackButton from '@/components/BackButton';
+
 export default async function BlogPostDetail({ params, searchParams }) {
   const { slug } = await params;
   const sParams = await searchParams;
@@ -164,16 +166,11 @@ export default async function BlogPostDetail({ params, searchParams }) {
       <main style={{ flex: 1, paddingTop: '96px', paddingBottom: '4rem' }}>
 
         {/* Article Header */}
-        <div style={{ backgroundColor: '#ffffff', borderBottom: '1px solid #e2e8f0', padding: '2rem 1.25rem 1.5rem' }}>
+        <div style={{ backgroundColor: '#ffffff', borderBottom: '1px solid #e2e8f0', padding: '1.5rem 1.25rem 1.25rem' }}>
           <div style={{ maxWidth: '780px', margin: '0 auto' }}>
-            <Link href="/" className="blog-post-back-link" style={{
-              display: 'inline-flex', alignItems: 'center', gap: '0.4rem',
-              color: '#dc2626', fontSize: '0.72rem', fontWeight: '600',
-              textDecoration: 'none', marginBottom: '1.1rem',
-              textTransform: 'uppercase', letterSpacing: '0.05em',
-            }}>
-              <FaArrowLeft size={9} /> Back to Home
-            </Link>
+            <div style={{ marginBottom: '0.85rem' }}>
+              <BackButton />
+            </div>
 
             <style dangerouslySetInnerHTML={{__html: `
               .blog-post-title {
@@ -188,14 +185,9 @@ export default async function BlogPostDetail({ params, searchParams }) {
               }
               @media (max-width: 640px) {
                 .blog-post-title {
-                  font-size: 1rem !important;
+                  font-size: 1.1rem !important;
                   line-height: 1.25 !important;
-                  letter-spacing: 0em !important;
-                  margin-bottom: 0.85rem !important;
-                }
-                .blog-post-back-link {
-                  font-size: 0.65rem !important;
-                  margin-bottom: 0.85rem !important;
+                  margin-bottom: 0.75rem !important;
                 }
                 .blog-post-meta {
                   font-size: 0.66rem !important;
