@@ -93,7 +93,7 @@ export default function AboutSection() {
             <div className={styles.imgCard} style={{ position: 'relative', overflow: 'hidden' }}>
               <video
                 ref={videoRef}
-                src="/images/newvideo.mp4"
+                src="/images/newvideo_opt.mp4"
                 poster="/images/about_video_poster.jpg"
                 autoPlay
                 loop

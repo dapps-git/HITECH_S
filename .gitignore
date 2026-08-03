@@ -52,3 +52,8 @@ public/dpf/*.jpg
 public/dpf/*.png
 !public/dpf/optimized/
 
+# large raw video files (>100MB, excluded from git)
+public/images/newvideo.mp4
+public/images/hi_quality_about_video.mp4
+
+
