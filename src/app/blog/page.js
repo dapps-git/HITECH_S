@@ -41,30 +41,27 @@ const defaultSeedBlogs = [
 ];
 
 async function getAllBlogs() {
-  try {
-    const db = await connectDB();
-    if (db) {
-      const posts = await BlogPost.find({ visibility: 'visible' }).sort({ publishDate: -1 }).lean();
-      if (posts && posts.length > 0) return JSON.parse(JSON.stringify(posts));
-    }
-  } catch (err) {}
+  const urlsToTry = [
+    'http://localhost:5000/api/blogs',
+    `${process.env.NEXT_PUBLIC_API_URL || 'https://tweaki.pw/hiquality/admin'}/api/blogs`
+  ];
+
+  for (const url of urlsToTry) {
+    try {
+      const res = await fetch(url, { cache: 'no-store' });
+      if (!res.ok) continue;
+      const apiData = await res.json();
+      if (apiData.success && Array.isArray(apiData.blogs) && apiData.blogs.length > 0) {
+        return apiData.blogs;
+      }
+    } catch (err) {}
+  }
 
   try {
     const data = getJsonDb();
     if (data.blogs && data.blogs.length > 0) {
       const visible = data.blogs.filter(b => b.visibility === 'visible' || !b.visibility);
       if (visible.length > 0) return visible;
-    }
-  } catch (err) {}
-
-  try {
-    const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'https://tweaki.pw/hiquality/admin';
-    const res = await fetch(`${apiUrl}/api/blogs`, { cache: 'no-store' });
-    if (res.ok) {
-      const apiData = await res.json();
-      if (apiData.success && Array.isArray(apiData.blogs) && apiData.blogs.length > 0) {
-        return apiData.blogs;
-      }
     }
   } catch (err) {}
 

@@ -74,6 +74,26 @@ const defaultSeedBlogs = [
 async function getBlogPost(slug, isPreview = false) {
   const cleanSlug = slug ? decodeURIComponent(slug).toLowerCase().trim() : '';
 
+  const urlsToTry = [
+    'http://localhost:5000/api/blogs?all=true',
+    `${process.env.NEXT_PUBLIC_API_URL || 'https://tweaki.pw/hiquality/admin'}/api/blogs?all=true`
+  ];
+
+  for (const url of urlsToTry) {
+    try {
+      const res = await fetch(url, { cache: 'no-store' });
+      if (!res.ok) continue;
+      const apiData = await res.json();
+      if (apiData.success && Array.isArray(apiData.blogs)) {
+        const found = apiData.blogs.find(b =>
+          (b.slug === cleanSlug || b.id === cleanSlug || b._id === cleanSlug || b.slug?.includes(cleanSlug) || cleanSlug.includes(b.slug)) &&
+          (isPreview || b.visibility === 'visible' || !b.visibility)
+        );
+        if (found) return found;
+      }
+    } catch (err) {}
+  }
+
   try {
     const db = await connectDB();
     if (db) {
@@ -91,21 +111,6 @@ async function getBlogPost(slug, isPreview = false) {
       (isPreview || b.visibility === 'visible' || !b.visibility)
     );
     if (post) return post;
-  } catch (err) {}
-
-  try {
-    const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'https://tweaki.pw/hiquality/admin';
-    const res = await fetch(`${apiUrl}/api/blogs?all=true`, { cache: 'no-store' });
-    if (res.ok) {
-      const apiData = await res.json();
-      if (apiData.success && Array.isArray(apiData.blogs)) {
-        const found = apiData.blogs.find(b =>
-          (b.slug === cleanSlug || b.id === cleanSlug || b._id === cleanSlug) &&
-          (isPreview || b.visibility === 'visible' || !b.visibility)
-        );
-        if (found) return found;
-      }
-    }
   } catch (err) {}
 
   const seedMatch = defaultSeedBlogs.find(b =>
