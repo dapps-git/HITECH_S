@@ -51,7 +51,7 @@ async function getAllBlogs() {
   for (const url of urlsToTry) {
     try {
       const controller = new AbortController();
-      const timeoutId = setTimeout(() => controller.abort(), 600);
+      const timeoutId = setTimeout(() => controller.abort(), 8000);
       const res = await fetch(url, { cache: 'no-store', signal: controller.signal });
       clearTimeout(timeoutId);
       if (!res.ok) continue;
