@@ -3,7 +3,7 @@ import { NextResponse } from 'next/server';
 export async function GET() {
   const apiKey = process.env.GOOGLE_PLACES_API_KEY;
   const placeId = process.env.GOOGLE_PLACE_ID;
-  const backendApiUrl = process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:5000';
+  const backendApiUrl = process.env.NEXT_PUBLIC_API_URL || process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:5000';
 
   // Fallback default data matching Hi-Quality Silencers Google Business Profile
   const defaultData = {
