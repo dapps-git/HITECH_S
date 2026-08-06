@@ -10,7 +10,7 @@ export async function GET() {
     businessName: 'Hi-Quality Silencers',
     rating: 4.8,
     user_ratings_total: 45,
-    googleReviewUrl: 'https://www.google.com/search?hl=en-IN&gl=in&q=Hi+Quality+Silencers,+Cross+Road,+behind+Ambika+Hotel,+Passport+Office,+East+Nadakkave,+Nadakkave,+Kozhikode,+Kerala+673006&ludocid=11199802823282393819&lsig=AB86z5Vtm5x1ryatQXnDIqYArUw9#lrd=0x3ba65ec90c5bbccd:0x9b6db154242a02db,3,,,,',
+    googleReviewUrl: 'https://search.google.com/local/writereview?placeid=ChIJzbxbD1lepjsR2wIqJFSxbZs',
     reviews: [
       {
         author_name: 'Sahil Mo',
