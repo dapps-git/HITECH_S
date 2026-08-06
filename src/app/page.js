@@ -6,6 +6,7 @@ import FeaturedCategories from '@/components/FeaturedCategories';
 import ProductGrid from '@/components/ProductGrid';
 import FaqSection from '@/components/FaqSection';
 import BlogPosts from '@/components/BlogPosts';
+import GoogleReviews from '@/components/GoogleReviews';
 import Footer from '@/components/Footer';
 
 export const dynamic = 'force-dynamic';
@@ -23,6 +24,7 @@ export default function Home() {
         <WhyChooseSection />
         <BlogPosts />
         <FaqSection />
+        <GoogleReviews />
       </main>
       <Footer />
     </div>

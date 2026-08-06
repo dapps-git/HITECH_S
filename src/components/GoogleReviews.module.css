@@ -1,0 +1,451 @@
+.reviewsSection {
+  padding: 60px 0;
+  background-color: #ffffff;
+  width: 100%;
+}
+
+.container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 20px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+.flexLayout {
+  display: flex;
+  align-items: flex-start;
+  gap: 36px;
+}
+
+/* Left Header Card */
+.headerCard {
+  width: 210px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  padding-top: 6px;
+}
+
+.businessHeaderRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.businessAvatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 0;
+  overflow: hidden;
+  background: transparent;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.businessLogoImg {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.businessTitle {
+  font-size: 20px;
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: 0.3px;
+  line-height: 1.25;
+}
+
+.ratingRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.ratingScore {
+  font-size: 17px;
+  font-weight: 800;
+  color: #f97316;
+}
+
+.stars {
+  display: flex;
+  gap: 2px;
+  font-size: 18px;
+}
+
+.starFilled {
+  color: #ff9800;
+  opacity: 1;
+}
+
+.starEmpty {
+  color: #cbd5e1;
+  opacity: 0.6;
+}
+
+.reviewCountText {
+  font-size: 14px;
+  color: #64748b;
+  margin-bottom: 8px;
+  font-weight: 400;
+}
+
+.poweredBy {
+  font-size: 14px;
+  color: #64748b;
+  font-weight: 500;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.googleText {
+  font-weight: 800;
+  font-size: 15px;
+  letter-spacing: -0.2px;
+}
+
+.googleG { color: #4285F4; }
+.googleO1 { color: #EA4335; }
+.googleO2 { color: #FBBC05; }
+.googleG2 { color: #4285F4; }
+.googleL { color: #34A853; }
+.googleE { color: #EA4335; }
+
+.reviewUsBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #2563eb;
+  color: #ffffff;
+  padding: 10px 22px;
+  border-radius: 25px;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.35);
+  transition: all 0.2s ease;
+}
+
+.reviewUsBtn:hover {
+  background: #1d4ed8;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(37, 99, 235, 0.45);
+}
+
+.gBtnIconWebp {
+  width: 19px;
+  height: 19px;
+  border-radius: 50%;
+  object-fit: contain;
+  background: #ffffff;
+  padding: 2px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* Right Cards Slider Area */
+.sliderArea {
+  flex: 1;
+  position: relative;
+  min-width: 0;
+  width: 100%;
+}
+
+.cardsTrack {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  width: 100%;
+  transition: transform 0.4s ease;
+}
+
+.reviewCard {
+  background: #f4f5f7;
+  border-radius: 0;
+  padding: 22px;
+  height: 220px;
+  width: 100%;
+  box-sizing: border-box;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.reviewCard:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+  padding-right: 26px;
+}
+
+.reviewerAvatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: #6d28d9;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 20px;
+  flex-shrink: 0;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+.reviewerMeta {
+  flex: 1;
+  min-width: 0;
+}
+
+.reviewerName {
+  font-size: 15px;
+  font-weight: 700;
+  color: #1d4ed8;
+  margin-bottom: 2px;
+  line-height: 1.2;
+}
+
+.reviewTime {
+  font-size: 12px;
+  color: #64748b;
+}
+
+.googleCardIcon {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.googleWebpIcon {
+  width: 19px;
+  height: 19px;
+  object-fit: contain;
+}
+
+.cardStars {
+  display: flex;
+  gap: 3px;
+  font-size: 18px;
+  margin-bottom: 12px;
+}
+
+.reviewText {
+  font-size: 13.5px;
+  color: #334155;
+  line-height: 1.5;
+  font-weight: 400;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+}
+
+/* Nav Buttons flanking right cards area */
+.navBtnPrev, .navBtnNext {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  color: #475569;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+  transition: all 0.2s ease;
+  z-index: 10;
+}
+
+.navBtnPrev {
+  left: -20px;
+}
+
+.navBtnNext {
+  right: -20px;
+}
+
+.navBtnPrev:hover, .navBtnNext:hover {
+  background: #ffffff;
+  color: #0f172a;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
+  transform: translateY(-50%) scale(1.05);
+}
+
+/* Dots */
+.dotsRow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #cbd5e1;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.activeDot {
+  background: #ff9800;
+  width: 10px;
+  height: 10px;
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 1024px) {
+  .cardsTrack {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+}
+
+@media (max-width: 900px) {
+  .flexLayout {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+  .headerCard {
+    width: 100%;
+    align-items: center;
+    text-align: center;
+    padding-top: 0;
+  }
+  .businessHeaderRow {
+    justify-content: center;
+  }
+  .poweredBy {
+    justify-content: center;
+  }
+}
+
+/* Tablet View (641px to 1024px) - 2 Boxes */
+@media (max-width: 1024px) and (min-width: 641px) {
+  .cardsTrack {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+  .reviewCard {
+    padding: 16px 12px;
+    height: 195px;
+  }
+  .cardHeader {
+    padding-right: 22px;
+    gap: 8px;
+  }
+  .reviewerAvatar {
+    width: 38px;
+    height: 38px;
+    font-size: 15px;
+  }
+  .reviewerName {
+    font-size: 13.5px;
+    word-break: break-word;
+  }
+  .navBtnPrev { left: -14px; width: 32px; height: 32px; font-size: 12px; }
+  .navBtnNext { right: -14px; width: 32px; height: 32px; font-size: 12px; }
+}
+
+/* Mobile View (<= 640px) - 1 Box */
+@media (max-width: 640px) {
+  .container {
+    padding: 0 14px;
+  }
+  .businessAvatar {
+    width: 36px;
+    height: 36px;
+  }
+  .businessTitle {
+    font-size: 15px;
+  }
+  .ratingScore {
+    font-size: 14px;
+  }
+  .stars {
+    font-size: 14px;
+  }
+  .reviewCountText {
+    font-size: 11.5px;
+  }
+  .poweredBy {
+    font-size: 11.5px;
+    margin-bottom: 10px;
+  }
+  .googleText {
+    font-size: 12.5px;
+  }
+  .reviewUsBtn {
+    padding: 6px 15px;
+    font-size: 11.5px;
+  }
+  .gBtnIconWebp {
+    width: 18px;
+    height: 18px;
+  }
+  .sliderArea {
+    width: 100%;
+    max-width: 380px;
+    margin: 0 auto;
+  }
+  .cardsTrack {
+    grid-template-columns: 1fr;
+    width: 100%;
+    gap: 0;
+  }
+  .reviewCard {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 16px 14px;
+    height: 175px;
+  }
+  .cardStars {
+    font-size: 15px;
+    margin-bottom: 8px;
+  }
+  .reviewerName {
+    font-size: 13.5px;
+  }
+  .reviewText {
+    font-size: 12.5px;
+    line-height: 1.4;
+  }
+  .navBtnPrev, .navBtnNext {
+    width: 24px;
+    height: 24px;
+    font-size: 10px;
+  }
+  .navBtnPrev { left: -8px; }
+  .navBtnNext { right: -8px; }
+}
