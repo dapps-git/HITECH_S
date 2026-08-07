@@ -23,20 +23,21 @@
   flex-shrink: 0;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  text-align: left;
+  align-items: center;
+  text-align: center;
   padding-top: 6px;
 }
 
 .businessHeaderRow {
   display: flex;
   align-items: center;
-  gap: 12px;
-  margin-bottom: 10px;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 12px;
 }
 
 .businessAvatar {
-  width: 56px;
+  width: 145px;
   height: 56px;
   border-radius: 0;
   overflow: hidden;
@@ -54,17 +55,10 @@
   object-fit: contain;
 }
 
-.businessTitle {
-  font-size: 20px;
-  font-weight: 800;
-  color: #0f172a;
-  letter-spacing: 0.3px;
-  line-height: 1.25;
-}
-
 .ratingRow {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
   margin-bottom: 4px;
 }
@@ -105,6 +99,7 @@
   margin-bottom: 16px;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 4px;
 }
 
@@ -384,11 +379,8 @@
     padding: 0 14px;
   }
   .businessAvatar {
-    width: 36px;
-    height: 36px;
-  }
-  .businessTitle {
-    font-size: 15px;
+    width: 120px;
+    height: 46px;
   }
   .ratingScore {
     font-size: 14px;

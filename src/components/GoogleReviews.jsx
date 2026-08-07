@@ -159,7 +159,6 @@ export default function GoogleReviews() {
                   onError={(e) => { e.currentTarget.style.display = 'none'; }}
                 />
               </div>
-              <h3 className={styles.businessTitle}>{data.businessName}</h3>
             </div>
 
             <div className={styles.ratingRow}>
