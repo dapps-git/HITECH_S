@@ -42,6 +42,14 @@ const defaultCatalogProducts = [
     image: '/images/prod_catalytic.png',
     shortDesc: 'Bespoke custom-built silencers tailored to exact vehicle specifications and customer performance requirements.',
     spec: 'Custom Flange & Baffle Tuning'
+  },
+  {
+    id: 'prod-6',
+    title: 'EXHAUST FLEXIBLE BELLOWS',
+    category: 'FLEXIBLE COMPONENTS',
+    image: '/images/prod_bellows.png',
+    shortDesc: 'Premium Stainless Steel Flexible Bellows for Automotive & Industrial Applications.',
+    spec: 'High-Grade Stainless Steel'
   }
 ];
 

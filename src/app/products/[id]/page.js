@@ -5,6 +5,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import headerStyles from '@/components/Header.module.css';
 import { FaArrowLeft, FaPhoneAlt, FaWhatsapp, FaCheckCircle, FaShieldAlt } from 'react-icons/fa';
+import BellowsShowcaseViewer from '@/components/BellowsShowcaseViewer';
 
 export const dynamic = 'force-dynamic';
 export const revalidate = 0;
@@ -55,11 +56,76 @@ const defaultProducts = [
     shortDesc: 'Bespoke custom-built silencers tailored to exact vehicle specifications.',
     fullDesc: 'Custom-engineered silencers built to exact client specifications, custom vehicle dimensions, and specialized noise control requirements. Crafted using premium corrosion-resistant alloys with precision baffle tuning.',
     spec: 'Custom Flange & Baffle Assembly'
+  },
+  {
+    id: 'prod-6',
+    slug: 'exhaust-flexible-bellows',
+    title: 'EXHAUST FLEXIBLE BELLOWS',
+    category: 'AUTOMOTIVE & INDUSTRIAL',
+    image: '/images/prod_bellows.png',
+    galleryImages: ['/images/bellows.webp', '/images/bellows1.webp'],
+    shortDesc: 'Premium Stainless Steel Flexible Bellows for Automotive & Industrial Applications.',
+    fullDesc: `Hi Quality Silencers offers a wide range of premium-quality Exhaust Flexible Bellows engineered to absorb engine vibrations, reduce stress on exhaust systems, and compensate for thermal expansion. Manufactured from high-grade stainless steel, our bellows deliver exceptional durability, flexibility, and long-lasting performance under demanding operating conditions.\n\nWhether for passenger cars, commercial vehicles, or industrial exhaust systems, we provide the right bellows solution for every application.`,
+    spec: 'High-Grade Stainless Steel Bellows',
+    bellowsVariants: [
+      {
+        title: 'Interlock Bellows',
+        desc: 'Designed with an internal interlock liner for maximum strength and durability.',
+        features: [
+          'Internal Interlock Liner',
+          'Superior Vibration Absorption',
+          'Excellent Heat Resistance',
+          'Heavy-Duty Construction',
+          'High Flow Efficiency',
+          'Long Service Life'
+        ],
+        applications: 'Heavy Commercial Vehicles, Trucks, Buses, SUVs, Performance Vehicles'
+      },
+      {
+        title: 'Extra Flex Bellows',
+        desc: 'Designed for applications requiring greater flexibility and movement compensation.',
+        features: [
+          'Extra Flexible Construction',
+          'High Movement Absorption',
+          'Reduces Engine Vibration',
+          'Smooth Exhaust Flow',
+          'Improved Fatigue Resistance',
+          'Long Operational Life'
+        ],
+        applications: 'Passenger Cars, SUVs, Performance Vehicles, Modified Exhaust Systems'
+      },
+      {
+        title: 'Wiremesh Bellows',
+        desc: 'Manufactured with a heavy-duty stainless steel wire mesh outer layer for enhanced protection.',
+        features: [
+          'Stainless Steel Wire Mesh Protection',
+          'Excellent Mechanical Strength',
+          'High Temperature Resistance',
+          'Increased Durability',
+          'Corrosion Resistant',
+          'Suitable for Harsh Operating Conditions'
+        ],
+        applications: 'Commercial Vehicles, Industrial Equipment, Generator Exhaust Systems'
+      },
+      {
+        title: 'No Outer Mesh Bellows',
+        desc: 'A compact bellows without an external braid, ideal for installations with limited space.',
+        features: [
+          'Compact Design',
+          'Lightweight Construction',
+          'Excellent Flexibility',
+          'High Temperature Resistance',
+          'Easy Installation',
+          'Suitable for Custom Exhaust Fabrication'
+        ],
+        applications: 'Custom Exhaust Systems, Performance Applications, Tight Installation Spaces'
+      }
+    ]
   }
 ];
 
 async function getProduct(id) {
-  const staticMatch = defaultProducts.find(p => p.id === id || String(p._id) === id);
+  const staticMatch = defaultProducts.find(p => p.id === id || String(p._id) === id || p.slug === id);
   if (staticMatch) return staticMatch;
 
   try {
@@ -243,7 +309,7 @@ export default async function ProductDetailPage({ params }) {
                     <FaCheckCircle color="#dc2626" size={12} /> ISO Certified OEM Precision Fitment
                   </li>
                   <li style={{ display: 'flex', alignItems: 'center', gap: '0.45rem' }}>
-                    <FaCheckCircle color="#dc2626" size={12} /> Heavy-duty Galvanised Sheets or Pipe
+                    <FaCheckCircle color="#dc2626" size={12} /> High-Grade Stainless Steel Construction
                   </li>
                   <li style={{ display: 'flex', alignItems: 'center', gap: '0.45rem' }}>
                     <FaShieldAlt color="#dc2626" size={12} /> 15-Month Manufacturer Warranty Included
@@ -295,7 +361,7 @@ export default async function ProductDetailPage({ params }) {
                 gap: '0.75rem'
               }}>
                 <div style={{ fontSize: '0.75rem', color: '#64748b', fontWeight: '500' }}>
-                  Interested in bulk OEM order or silencer replacement for this model?
+                  Interested in bulk OEM order or flexible bellows replacement for this model?
                 </div>
                 <div style={{ display: 'flex', gap: '0.65rem', flexWrap: 'wrap' }}>
                   <a
@@ -330,6 +396,63 @@ export default async function ProductDetailPage({ params }) {
               </div>
             </div>
           </div>
+
+          {/* Bellows Gallery Showcase (bellows.webp and bellows1.webp) */}
+          {product.galleryImages && product.galleryImages.length > 0 && (
+            <BellowsShowcaseViewer images={product.galleryImages} title={product.title} />
+          )}
+
+          {/* Our Product Range - Single Combined Box */}
+          {product.bellowsVariants && product.bellowsVariants.length > 0 && (
+            <div style={{ marginTop: '1.5rem', border: '1px solid #e2e8f0', padding: '1.5rem', backgroundColor: '#ffffff' }}>
+              <div style={{ textAlign: 'center', marginBottom: '1.5rem', borderBottom: '1px solid #e2e8f0', paddingBottom: '0.85rem' }}>
+                <h2 style={{ fontSize: '1.3rem', fontWeight: '800', color: '#0f172a', margin: 0, textTransform: 'uppercase', fontFamily: 'var(--font-heading)' }}>
+                  OUR PRODUCT RANGE
+                </h2>
+              </div>
+
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+                {product.bellowsVariants.map((variant, idx) => (
+                  <div
+                    key={idx}
+                    style={{
+                      paddingBottom: idx < product.bellowsVariants.length - 1 ? '1.5rem' : '0',
+                      borderBottom: idx < product.bellowsVariants.length - 1 ? '1px solid #e2e8f0' : 'none'
+                    }}
+                  >
+                    <h3 style={{ fontSize: '1.1rem', fontWeight: '800', color: '#0f172a', margin: '0 0 0.4rem 0', fontFamily: 'var(--font-heading)' }}>
+                      {idx + 1}. {variant.title.replace(/^\d+\.\s*/, '')}
+                    </h3>
+                    <p style={{ fontSize: '0.84rem', color: '#475569', margin: '0 0 0.85rem 0', lineHeight: '1.55' }}>
+                      {variant.desc}
+                    </p>
+
+                    <div style={{ marginBottom: '0.85rem' }}>
+                      <span style={{ fontSize: '0.72rem', fontWeight: '800', color: '#0f172a', textTransform: 'uppercase', display: 'block', marginBottom: '0.4rem' }}>
+                        Features:
+                      </span>
+                      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))', gap: '0.45rem' }}>
+                        {variant.features.map((feat, fIdx) => (
+                          <div key={fIdx} style={{ display: 'flex', alignItems: 'center', gap: '0.45rem', fontSize: '0.78rem', color: '#334155' }}>
+                            <FaCheckCircle color="#dc2626" size={12} style={{ flexShrink: 0 }} /> {feat}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div style={{ backgroundColor: '#f8fafc', border: '1px solid #e2e8f0', padding: '0.65rem 0.85rem', display: 'flex', alignItems: 'center', gap: '0.5rem', flexWrap: 'wrap' }}>
+                      <span style={{ fontSize: '0.7rem', fontWeight: '800', color: '#dc2626', textTransform: 'uppercase', flexShrink: 0 }}>
+                        Applications:
+                      </span>
+                      <span style={{ fontSize: '0.78rem', color: '#334155', fontWeight: '600' }}>
+                        {variant.applications}
+                      </span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
 
           {/* Bottom Full-Width Manufacturing Showcase (if workImage exists) */}
           {product.workImage && (

@@ -44,6 +44,15 @@
       "shortDesc": "Bespoke custom-built silencers tailored to exact vehicle specifications and customer requirements.",
       "fullDesc": "Custom-engineered silencers built to exact client specifications, custom vehicle dimensions, and specialized noise control requirements. Crafted using premium corrosion-resistant alloys.",
       "spec": "Custom Baffle & Flange Assembly"
+    },
+    {
+      "id": "prod-6",
+      "title": "EXHAUST FLEXIBLE BELLOWS",
+      "image": "/images/prod_bellows.png",
+      "category": "Automotive & Industrial",
+      "shortDesc": "Premium Stainless Steel Flexible Bellows for Automotive & Industrial Applications.",
+      "fullDesc": "Hi Quality Silencers offers a wide range of premium-quality Exhaust Flexible Bellows engineered to absorb engine vibrations, reduce stress on exhaust systems, and compensate for thermal expansion. Manufactured from high-grade stainless steel, our bellows deliver exceptional durability, flexibility, and long-lasting performance under demanding operating conditions.\nWhether for passenger cars, commercial vehicles, or industrial exhaust systems, we provide the right bellows solution for every application.",
+      "spec": "High-Grade Stainless Steel Bellows"
     }
   ],
   "services": [

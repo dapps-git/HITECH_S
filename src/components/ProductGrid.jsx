@@ -13,6 +13,7 @@ import {
   FaLeaf,
   FaArrowRight,
   FaShuttleVan,
+  FaLink,
   FaPlus,
   FaTimes
 } from 'react-icons/fa';
@@ -52,6 +53,13 @@ const defaultProducts = [
     image: '/images/prod_catalytic.png',
     icon: <FaWrench />,
     desc: 'Bespoke custom-built silencers tailored to exact vehicle specifications and customer requirements.'
+  },
+  {
+    id: 'prod-6',
+    title: 'EXHAUST FLEXIBLE BELLOWS',
+    image: '/images/prod_bellows.png',
+    icon: <FaLink />,
+    desc: 'Premium Stainless Steel Flexible Bellows for Automotive & Industrial Applications.'
   }
 ];
 
@@ -121,7 +129,7 @@ export default function ProductGrid() {
 
           const data = await res.json();
           if (data.success && Array.isArray(data.products) && data.products.length > 0) {
-            const defaultIds = new Set(['prod-1', 'prod-2', 'prod-3', 'prod-4', 'prod-5']);
+            const defaultIds = new Set(['prod-1', 'prod-2', 'prod-3', 'prod-4', 'prod-5', 'prod-6']);
             const legacyKeywords = ['passenger car', 'suv & pickup', 'lcv silencers', 'truck & bus', 'catalytic converters', 'dpf / doc / scr'];
 
             const backendProducts = data.products.map(p => ({
