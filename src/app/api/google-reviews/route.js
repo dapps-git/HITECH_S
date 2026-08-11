@@ -10,7 +10,7 @@ export async function GET() {
     businessName: 'Hi-Quality Silencers',
     rating: 4.8,
     user_ratings_total: 45,
-    googleReviewUrl: 'https://search.google.com/local/writereview?placeid=ChIJzbxbD1lepjsR2wIqJFSxbZs',
+    googleReviewUrl: 'https://share.google/5HwKyhWB5Gzvw3Oao',
     reviews: [
       {
         author_name: 'Sahil Mo',

@@ -74,28 +74,43 @@ async function getProducts() {
   for (const url of urlsToTry) {
     try {
       const controller = new AbortController();
-      const timeoutId = setTimeout(() => controller.abort(), 600);
+      const timeoutId = setTimeout(() => controller.abort(), 800);
       const res = await fetch(url, { cache: 'no-store', signal: controller.signal });
       clearTimeout(timeoutId);
       if (!res.ok) continue;
 
       const data = await res.json();
       if (data.success && Array.isArray(data.products) && data.products.length > 0) {
-        const defaultIds = new Set(['prod-1', 'prod-2', 'prod-3', 'prod-4', 'prod-5', 'prod-6']);
-        const legacyKeywords = [
-          'passenger car silencers', 'suv & pickup silencers', 'lcv silencers',
-          'truck & bus silencers', 'catalytic converters', 'dpf / doc / scr'
-        ];
-
-        const newFromApi = data.products.filter(p => {
+        const apiMap = new Map();
+        data.products.forEach(p => {
           const pid = p.id || String(p._id);
-          const t = (p.title || '').toLowerCase();
-          if (defaultIds.has(pid)) return false;
-          if (legacyKeywords.some(kw => t.includes(kw))) return false;
-          return true;
+          if (pid) apiMap.set(pid, p);
         });
 
-        return [...defaultCatalogProducts, ...newFromApi];
+        // Merge backend updates over default products
+        const mergedDefaults = defaultCatalogProducts.map(def => {
+          const apiProd = apiMap.get(def.id);
+          if (!apiProd) return def;
+          return {
+            ...def,
+            ...apiProd,
+            title: apiProd.title || def.title,
+            category: apiProd.category || def.category,
+            spec: apiProd.spec || def.spec,
+            image: apiProd.image || def.image,
+            shortDesc: apiProd.shortDesc || apiProd.desc || def.shortDesc,
+            fullDesc: apiProd.fullDesc || apiProd.desc || def.fullDesc
+          };
+        });
+
+        // Collect new dynamic products created in admin panel that aren't in defaults
+        const defaultIds = new Set(defaultCatalogProducts.map(d => d.id));
+        const extraFromApi = data.products.filter(p => {
+          const pid = p.id || String(p._id);
+          return !defaultIds.has(pid);
+        });
+
+        return [...mergedDefaults, ...extraFromApi];
       }
     } catch (err) { }
   }

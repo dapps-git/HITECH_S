@@ -146,10 +146,56 @@ export const revalidate = 0;
 
 import BackButton from '@/components/BackButton';
 
+async function getService(slug) {
+  const staticService = SERVICES.find(s => s?.slug === slug || s?.id === slug);
+
+  const isDev = process.env.NODE_ENV === 'development';
+  const urlsToTry = [
+    ...(isDev ? ['http://localhost:5000/api/services'] : []),
+    `${process.env.NEXT_PUBLIC_API_URL || 'https://tweaki.pw/hiquality/admin'}/api/services`
+  ];
+
+  for (const url of urlsToTry) {
+    try {
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 800);
+      const res = await fetch(url, { cache: 'no-store', signal: controller.signal });
+      clearTimeout(timeoutId);
+      if (!res.ok) continue;
+
+      const data = await res.json();
+      if (data.success && Array.isArray(data.services)) {
+        const apiSvc = data.services.find(s => 
+          s.slug === slug || 
+          s.id === slug || 
+          (s.link && s.link.includes(slug)) ||
+          (staticService && s.title && s.title.toLowerCase() === staticService.title.toLowerCase())
+        );
+
+        if (apiSvc) {
+          if (apiSvc.visible === false) return null;
+          return {
+            ...staticService,
+            ...apiSvc,
+            title: apiSvc.title || staticService?.title,
+            shortDesc: apiSvc.desc || apiSvc.shortDesc || staticService?.shortDesc,
+            fullDesc: apiSvc.fullDesc || apiSvc.desc || staticService?.fullDesc,
+            heroImage: apiSvc.image || staticService?.heroImage,
+            beforeAfterImage: apiSvc.beforeAfterImage || staticService?.beforeAfterImage,
+            iconName: apiSvc.icon || staticService?.iconName
+          };
+        }
+      }
+    } catch (err) { }
+  }
+
+  return staticService || null;
+}
+
 export default async function ServicePage({ params }) {
   const resolvedParams = await params;
   const slug = resolvedParams?.slug || params?.slug;
-  const service = SERVICES.find(s => s?.slug === slug);
+  const service = await getService(slug);
   if (!service) notFound();
 
   const isDpfRestoration = slug === 'dpf-restoration';

@@ -8,7 +8,7 @@ export default function GoogleReviews() {
     businessName: 'Hi-Quality Silencers',
     rating: 4.8,
     user_ratings_total: 45,
-    googleReviewUrl: 'https://www.google.com/search?hl=en-IN&gl=in&q=Hi+Quality+Silencers,+Cross+Road,+behind+Ambika+Hotel,+Passport+Office,+East+Nadakkave,+Nadakkave,+Kozhikode,+Kerala+673006&ludocid=11199802823282393819&lsig=AB86z5Vtm5x1ryatQXnDIqYArUw9#lrd=0x3ba65ec90c5bbccd:0x9b6db154242a02db,3,,,,',
+    googleReviewUrl: 'https://share.google/5HwKyhWB5Gzvw3Oao',
     reviews: [
       {
         author_name: 'Sahil Mo',
@@ -183,7 +183,7 @@ export default function GoogleReviews() {
             </div>
 
             <a
-              href="https://search.google.com/local/writereview?placeid=ChIJzbxbD1lepjsR2wIqJFSxbZs"
+              href={data.googleReviewUrl || 'https://share.google/5HwKyhWB5Gzvw3Oao'}
               target="_blank"
               rel="noopener noreferrer"
               className={styles.reviewUsBtn}

@@ -99,33 +99,66 @@ async function getServices() {
     `${process.env.NEXT_PUBLIC_API_URL || 'https://tweaki.pw/hiquality/admin'}/api/services`
   ];
 
+  const iconMap = {
+    FaFilter, FaIndustry, FaLeaf, FaLink, FaWrench
+  };
+
   for (const url of urlsToTry) {
     try {
       const controller = new AbortController();
-      const timeoutId = setTimeout(() => controller.abort(), 600);
+      const timeoutId = setTimeout(() => controller.abort(), 800);
       const res = await fetch(url, { cache: 'no-store', signal: controller.signal });
       clearTimeout(timeoutId);
       if (!res.ok) continue;
       const data = await res.json();
       if (data.success && Array.isArray(data.services) && data.services.length > 0) {
+        const apiMap = new Map();
+        data.services.forEach((s, idx) => {
+          const key = s.id || `svc-${idx + 1}`;
+          apiMap.set(key, s);
+          if (s.title) apiMap.set(s.title.toLowerCase(), s);
+        });
+
+        // Merge backend updates over default services
+        const mergedDefaults = allServices
+          .map((def, idx) => {
+            const apiSvc = apiMap.get(`svc-${idx + 1}`) || apiMap.get(def.title.toLowerCase());
+            if (!apiSvc) return def;
+            if (apiSvc.visible === false) return null;
+
+            const iconComp = apiSvc.icon ? (iconMap[apiSvc.icon] || FaWrench) : def.iconComponent;
+            return {
+              ...def,
+              title: apiSvc.title || def.title,
+              shortDesc: apiSvc.desc || apiSvc.shortDesc || def.shortDesc,
+              fullDesc: apiSvc.fullDesc || def.fullDesc,
+              iconComponent: iconComp
+            };
+          })
+          .filter(Boolean);
+
+        // Collect new dynamic services created in admin panel
+        const defaultKeys = new Set(allServices.map((d, i) => `svc-${i + 1}`));
         const defaultTitles = new Set(allServices.map(d => d.title.toLowerCase()));
+
         const extraFromBackend = data.services
-          .filter(s => !defaultTitles.has((s.title || '').toLowerCase()))
+          .filter(s => s.visible !== false && !defaultKeys.has(s.id) && !defaultTitles.has((s.title || '').toLowerCase()))
           .map(s => ({
             slug: s.slug || s.link?.replace('/services/', '').replace('/#', '') || `service-${s.id}`,
             title: s.title,
             category: 'SPECIALIZED SERVICE',
-            shortDesc: s.desc || s.fullDesc || 'Specialized service engineered for maximum performance and fitment.',
+            shortDesc: s.desc || s.fullDesc || 'Specialized service engineered for maximum performance.',
             highlights: [
               '100% Quality Inspected & Tested',
               'OEM Specification Guaranteed',
               'Experienced Technicians & Warranty'
             ],
-            iconComponent: FaWrench,
+            iconComponent: s.icon ? (iconMap[s.icon] || FaWrench) : FaWrench,
             badgeColor: '#dc2626',
             bgColor: '#fef2f2'
           }));
-        return [...allServices, ...extraFromBackend];
+
+        return [...mergedDefaults, ...extraFromBackend];
       }
     } catch (err) { }
   }

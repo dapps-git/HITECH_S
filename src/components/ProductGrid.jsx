@@ -129,23 +129,36 @@ export default function ProductGrid() {
 
           const data = await res.json();
           if (data.success && Array.isArray(data.products) && data.products.length > 0) {
-            const defaultIds = new Set(['prod-1', 'prod-2', 'prod-3', 'prod-4', 'prod-5', 'prod-6']);
-            const legacyKeywords = ['passenger car', 'suv & pickup', 'lcv silencers', 'truck & bus', 'catalytic converters', 'dpf / doc / scr'];
-
-            const backendProducts = data.products.map(p => ({
-              ...p,
-              icon: getIcon(p.category, p.title)
-            }));
-
-            const newFromBackend = backendProducts.filter(p => {
-              const pid = p.id || p._id;
-              const t = (p.title || '').toLowerCase();
-              if (defaultIds.has(pid)) return false;
-              if (legacyKeywords.some(kw => t.includes(kw))) return false;
-              return true;
+            const apiMap = new Map();
+            data.products.forEach(p => {
+              const pid = p.id || String(p._id);
+              if (pid) apiMap.set(pid, p);
             });
 
-            setProductList([...defaultProducts, ...newFromBackend]);
+            // Merge backend updates over default products
+            const mergedDefaults = defaultProducts.map(def => {
+              const apiProd = apiMap.get(def.id);
+              if (!apiProd) return def;
+              return {
+                ...def,
+                ...apiProd,
+                title: apiProd.title || def.title,
+                image: apiProd.image || def.image,
+                desc: apiProd.shortDesc || apiProd.desc || def.desc,
+                icon: getIcon(apiProd.category || def.category, apiProd.title || def.title)
+              };
+            });
+
+            // Collect new dynamic products created in admin panel that aren't in defaults
+            const defaultIds = new Set(defaultProducts.map(d => d.id));
+            const extraFromBackend = data.products
+              .filter(p => !defaultIds.has(p.id || String(p._id)))
+              .map(p => ({
+                ...p,
+                icon: getIcon(p.category, p.title)
+              }));
+
+            setProductList([...mergedDefaults, ...extraFromBackend]);
             break;
           }
         } catch (err) {}

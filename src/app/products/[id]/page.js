@@ -126,23 +126,41 @@ const defaultProducts = [
 
 async function getProduct(id) {
   const staticMatch = defaultProducts.find(p => p.id === id || String(p._id) === id || p.slug === id);
-  if (staticMatch) return staticMatch;
 
-  try {
-    const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'https://tweaki.pw/hiquality/admin';
-    const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 600);
-    const res = await fetch(`${apiUrl}/api/products`, { cache: 'no-store', signal: controller.signal });
-    clearTimeout(timeoutId);
-    if (res.ok) {
+  const isDev = process.env.NODE_ENV === 'development';
+  const urlsToTry = [
+    ...(isDev ? ['http://localhost:5000/api/products'] : []),
+    `${process.env.NEXT_PUBLIC_API_URL || 'https://tweaki.pw/hiquality/admin'}/api/products`
+  ];
+
+  for (const url of urlsToTry) {
+    try {
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 800);
+      const res = await fetch(url, { cache: 'no-store', signal: controller.signal });
+      clearTimeout(timeoutId);
+      if (!res.ok) continue;
+
       const data = await res.json();
-      if (data.success && data.products) {
-        return data.products.find(p => (p.id === id || String(p._id) === id)) || null;
+      if (data.success && Array.isArray(data.products)) {
+        const apiProd = data.products.find(p => p.id === id || String(p._id) === id || p.slug === id);
+        if (apiProd) {
+          return {
+            ...staticMatch,
+            ...apiProd,
+            title: apiProd.title || staticMatch?.title,
+            category: apiProd.category || staticMatch?.category,
+            spec: apiProd.spec || staticMatch?.spec,
+            image: apiProd.image || staticMatch?.image,
+            shortDesc: apiProd.shortDesc || apiProd.desc || staticMatch?.shortDesc,
+            fullDesc: apiProd.fullDesc || apiProd.desc || staticMatch?.fullDesc
+          };
+        }
       }
-    }
-  } catch (err) { }
+    } catch (err) { }
+  }
 
-  return null;
+  return staticMatch || null;
 }
 
 export async function generateMetadata({ params }) {
@@ -311,9 +329,15 @@ export default async function ProductDetailPage({ params }) {
                   <li style={{ display: 'flex', alignItems: 'center', gap: '0.45rem' }}>
                     <FaCheckCircle color="#dc2626" size={12} /> High-Grade Stainless Steel Construction
                   </li>
-                  <li style={{ display: 'flex', alignItems: 'center', gap: '0.45rem' }}>
-                    <FaShieldAlt color="#dc2626" size={12} /> 15-Month Manufacturer Warranty Included
-                  </li>
+                  {product.id === 'prod-6' ? (
+                    <li style={{ display: 'flex', alignItems: 'center', gap: '0.45rem' }}>
+                      <FaCheckCircle color="#dc2626" size={12} /> Superior Vibration &amp; Thermal Expansion Absorption
+                    </li>
+                  ) : (
+                    <li style={{ display: 'flex', alignItems: 'center', gap: '0.45rem' }}>
+                      <FaShieldAlt color="#dc2626" size={12} /> 15-Month Manufacturer Warranty Included
+                    </li>
+                  )}
                 </ul>
               </div>
             </div>
