@@ -167,8 +167,9 @@
 .reviewCard {
   background: #f4f5f7;
   border-radius: 0;
-  padding: 22px;
-  height: 220px;
+  padding: 20px 22px 22px;
+  height: 235px;
+  min-height: 235px;
   width: 100%;
   box-sizing: border-box;
   position: relative;
@@ -187,7 +188,7 @@
   display: flex;
   align-items: center;
   gap: 12px;
-  margin-bottom: 14px;
+  margin-bottom: 12px;
   padding-right: 26px;
 }
 
@@ -243,20 +244,21 @@
 .cardStars {
   display: flex;
   gap: 3px;
-  font-size: 18px;
-  margin-bottom: 12px;
+  font-size: 17px;
+  margin-bottom: 10px;
 }
 
 .reviewText {
   font-size: 13.5px;
   color: #334155;
-  line-height: 1.5;
+  line-height: 1.45;
   font-weight: 400;
   overflow: hidden;
   display: -webkit-box;
   -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
   text-overflow: ellipsis;
+  flex: 1;
 }
 
 /* Nav Buttons flanking right cards area */
@@ -353,8 +355,9 @@
     gap: 12px;
   }
   .reviewCard {
-    padding: 16px 12px;
-    height: 195px;
+    padding: 16px 14px 18px;
+    height: 215px;
+    min-height: 215px;
   }
   .cardHeader {
     padding-right: 22px;
@@ -419,8 +422,9 @@
   .reviewCard {
     width: 100%;
     box-sizing: border-box;
-    padding: 16px 14px;
-    height: 175px;
+    padding: 16px 14px 18px;
+    height: 195px;
+    min-height: 195px;
   }
   .cardStars {
     font-size: 15px;
