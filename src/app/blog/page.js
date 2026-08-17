@@ -42,9 +42,9 @@ const defaultSeedBlogs = [
 ];
 
 async function getAllBlogs() {
-  const isDev = process.env.NODE_ENV === 'development';
   const urlsToTry = [
-    ...(isDev ? ['http://localhost:5000/api/blogs'] : []),
+    'http://localhost:5000/api/blogs',
+    '/api/blogs',
     `${process.env.NEXT_PUBLIC_API_URL || 'https://tweaki.pw/hiquality/admin'}/api/blogs`
   ];
 

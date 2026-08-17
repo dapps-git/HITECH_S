@@ -96,12 +96,14 @@ const dpfSteps = [
   }
 ];
 
+import { ProductSkeleton } from './SkeletonLoader';
+
 export default function ProductGrid() {
   const [productList, setProductList] = useState(defaultProducts);
   const [showAddModal, setShowAddModal] = useState(false);
   const [newTitle, setNewTitle] = useState('');
   const [newDesc, setNewDesc] = useState('');
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   // Fetch dynamic products from Backend API
   useEffect(() => {
@@ -163,6 +165,7 @@ export default function ProductGrid() {
           }
         } catch (err) {}
       }
+      setLoading(false);
     }
     fetchProducts();
   }, []);
@@ -224,7 +227,10 @@ export default function ProductGrid() {
 
           {/* Product Cards Grid */}
           <div className={styles.productGrid}>
-            {productList.map((p, i) => (
+            {loading ? (
+              <ProductSkeleton count={6} />
+            ) : (
+              productList.map((p, i) => (
               <a key={`prod-card-${p.id || p._id || i}-${i}`} href={`/products/${p.id || p._id || i}`} className={styles.productCard} style={{ textDecoration: 'none' }}>
                 {/* Card Top: White Box with Image */}
                 <div className={styles.cardTop}>
@@ -252,7 +258,8 @@ export default function ProductGrid() {
                   </div>
                 </div>
               </a>
-            ))}
+              ))
+            )}
           </div>
 
           {/* VIEW ALL PRODUCTS BUTTON */}

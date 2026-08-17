@@ -1,0 +1,115 @@
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.skeletonBase {
+  background: linear-gradient(90deg, #1e293b 25%, #334155 37%, #1e293b 63%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite linear;
+  border-radius: 8px;
+}
+
+/* Product Skeleton Card */
+.productSkeletonCard {
+  background: #0f172a;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 340px;
+}
+
+.productSkeletonImage {
+  height: 180px;
+  width: 100%;
+}
+
+.productSkeletonContent {
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  flex: 1;
+}
+
+.productSkeletonTitle {
+  height: 20px;
+  width: 70%;
+}
+
+.productSkeletonText1 {
+  height: 14px;
+  width: 100%;
+}
+
+.productSkeletonText2 {
+  height: 14px;
+  width: 60%;
+}
+
+/* Service Skeleton Card */
+.serviceSkeletonCard {
+  background: rgba(15, 23, 42, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  height: 220px;
+}
+
+.serviceSkeletonIcon {
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+}
+
+.serviceSkeletonTitle {
+  height: 22px;
+  width: 75%;
+}
+
+.serviceSkeletonDesc {
+  height: 14px;
+  width: 90%;
+}
+
+/* Blog Skeleton Card */
+.blogSkeletonCard {
+  background: #0f172a;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 380px;
+}
+
+.blogSkeletonImage {
+  height: 200px;
+  width: 100%;
+}
+
+.blogSkeletonContent {
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.blogSkeletonTitle {
+  height: 22px;
+  width: 85%;
+}
+
+.blogSkeletonExcerpt {
+  height: 14px;
+  width: 100%;
+}

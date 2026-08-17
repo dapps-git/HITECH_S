@@ -66,9 +66,12 @@ const defaultServices = [
   },
 ];
 
+import { ServiceSkeleton } from './SkeletonLoader';
+
 export default function FeaturedCategories() {
   useScrollReveal();
   const [services, setServices] = useState(defaultServices);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     async function loadServices() {
@@ -97,6 +100,7 @@ export default function FeaturedCategories() {
           }
         } catch (err) {}
       }
+      setLoading(false);
     }
     loadServices();
   }, []);
@@ -120,24 +124,28 @@ export default function FeaturedCategories() {
 
         {/* Dynamic Service Cards */}
         <div className={styles.grid}>
-          {services.map((item, i) => {
-            const IconComponent = iconMap[item.iconName] || FaWrench;
-            const targetHref = item.slug ? `/services/${item.slug}` : '/#dpf-cleaning';
-            return (
-              <Link
-                key={item.id || i}
-                href={targetHref}
-                className={styles.card}
-              >
-                <div className={styles.iconWrap}>
-                  <IconComponent className={styles.icon} />
-                </div>
-                <h3 className={styles.cardTitle}>{item.title ? item.title.toUpperCase() : ''}</h3>
-                <p className={styles.cardDesc}>{item.desc}</p>
-                <div className={styles.tapMoreBtn}>VIEW DETAILS →</div>
-              </Link>
-            );
-          })}
+          {loading ? (
+            <ServiceSkeleton count={5} />
+          ) : (
+            services.map((item, i) => {
+              const IconComponent = iconMap[item.iconName] || FaWrench;
+              const targetHref = item.slug ? `/services/${item.slug}` : '/#dpf-cleaning';
+              return (
+                <Link
+                  key={item.id || i}
+                  href={targetHref}
+                  className={styles.card}
+                >
+                  <div className={styles.iconWrap}>
+                    <IconComponent className={styles.icon} />
+                  </div>
+                  <h3 className={styles.cardTitle}>{item.title ? item.title.toUpperCase() : ''}</h3>
+                  <p className={styles.cardDesc}>{item.desc}</p>
+                  <div className={styles.tapMoreBtn}>VIEW DETAILS →</div>
+                </Link>
+              );
+            })
+          )}
         </div>
       </div>
     </section>

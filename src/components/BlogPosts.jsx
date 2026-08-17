@@ -27,8 +27,11 @@ const seedBlogs = [
   }
 ];
 
+import { BlogSkeleton } from './SkeletonLoader';
+
 export default function BlogPosts() {
   const [blogs, setBlogs] = useState(seedBlogs);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchBlogs = async () => {
@@ -49,6 +52,7 @@ export default function BlogPosts() {
           }
         } catch (err) {}
       }
+      setLoading(false);
     };
     fetchBlogs();
   }, []);
@@ -75,19 +79,23 @@ export default function BlogPosts() {
           </p>
         </div>
         <div className={styles.grid}>
-          {displayedBlogs.map(post => (
-            <Link href={`/blog/${post.slug}`} key={post.id || post._id} className={styles.card} style={{ textDecoration: 'none' }}>
-              <div className={styles.imageBox}>
-                <Image src={post.featuredImage || '/images/bg.webp'} alt={post.title} fill className={styles.image} />
-                <span className={styles.guideBadge}>{post.category || 'GUIDE'}</span>
-              </div>
-              <div className={styles.content}>
-                <h3 className={styles.title}>{post.title}</h3>
-                <p className={styles.excerpt}>{post.excerpt || (post.content ? post.content.replace(/<[^>]+>/g, '').substring(0, 110) + '...' : '')}</p>
-                <span className={styles.readMore}>Read Full Article</span>
-              </div>
-            </Link>
-          ))}
+          {loading ? (
+            <BlogSkeleton count={3} />
+          ) : (
+            displayedBlogs.map(post => (
+              <Link href={`/blog/${post.slug}`} key={post.id || post._id} className={styles.card} style={{ textDecoration: 'none' }}>
+                <div className={styles.imageBox}>
+                  <Image src={post.featuredImage || '/images/bg.webp'} alt={post.title} fill className={styles.image} />
+                  <span className={styles.guideBadge}>{post.category || 'GUIDE'}</span>
+                </div>
+                <div className={styles.content}>
+                  <h3 className={styles.title}>{post.title}</h3>
+                  <p className={styles.excerpt}>{post.excerpt || (post.content ? post.content.replace(/<[^>]+>/g, '').substring(0, 110) + '...' : '')}</p>
+                  <span className={styles.readMore}>Read Full Article</span>
+                </div>
+              </Link>
+            ))
+          )}
         </div>
 
         {/* VIEW ALL BLOGS BUTTON — Only show when there are more than 4 blogs */}

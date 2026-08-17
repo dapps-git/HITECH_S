@@ -93,9 +93,9 @@ const allServices = [
 ];
 
 async function getServices() {
-  const isDev = process.env.NODE_ENV === 'development';
   const urlsToTry = [
-    ...(isDev ? ['http://localhost:5000/api/services'] : []),
+    'http://localhost:5000/api/services',
+    '/api/services',
     `${process.env.NEXT_PUBLIC_API_URL || 'https://tweaki.pw/hiquality/admin'}/api/services`
   ];
 
@@ -106,7 +106,7 @@ async function getServices() {
   for (const url of urlsToTry) {
     try {
       const controller = new AbortController();
-      const timeoutId = setTimeout(() => controller.abort(), 800);
+      const timeoutId = setTimeout(() => controller.abort(), 4000);
       const res = await fetch(url, { cache: 'no-store', signal: controller.signal });
       clearTimeout(timeoutId);
       if (!res.ok) continue;
