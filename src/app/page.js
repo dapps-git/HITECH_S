@@ -8,6 +8,7 @@ import FaqSection from '@/components/FaqSection';
 import BlogPosts from '@/components/BlogPosts';
 import GoogleReviews from '@/components/GoogleReviews';
 import Footer from '@/components/Footer';
+import DataPrefetcher from '@/components/DataPrefetcher';
 
 export const dynamic = 'force-dynamic';
 export const revalidate = 0;
@@ -15,6 +16,7 @@ export const revalidate = 0;
 export default function Home() {
   return (
     <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
+      <DataPrefetcher />
       <Header />
       <main style={{ flex: 1, paddingTop: '94px' }}>
         <HeroBanner />

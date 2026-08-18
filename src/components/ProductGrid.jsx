@@ -96,6 +96,7 @@ const dpfSteps = [
   }
 ];
 
+import { fetchProductsApi } from '@/lib/apiPrefetch';
 import { ProductSkeleton } from './SkeletonLoader';
 
 export default function ProductGrid() {
@@ -103,71 +104,54 @@ export default function ProductGrid() {
   const [showAddModal, setShowAddModal] = useState(false);
   const [newTitle, setNewTitle] = useState('');
   const [newDesc, setNewDesc] = useState('');
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
-  // Fetch dynamic products from Backend API
+  // Fetch dynamic products from Backend API (pre-triggered on home mount)
   useEffect(() => {
-    async function fetchProducts() {
-      const urlsToTry = [
-        'http://localhost:5000/api/products',
-        '/api/products',
-        `${process.env.NEXT_PUBLIC_API_URL || 'https://tweaki.pw/hiquality/admin'}/api/products`
-      ];
+    const getIcon = (type, title = '') => {
+      const t = title.toUpperCase();
+      if (type === 'car' || t.includes('CAR')) return <FaCar />;
+      if (type === 'suv' || t.includes('SUV')) return <FaShuttleVan />;
+      if (type === 'lcv' || t.includes('LCV')) return <FaTruck />;
+      if (type === 'truck' || t.includes('TRUCK') || t.includes('BUS')) return <FaBus />;
+      if (type === 'catalytic' || t.includes('CATALYTIC')) return <FaCogs />;
+      return <FaWrench />;
+    };
 
-      const getIcon = (type, title = '') => {
-        const t = title.toUpperCase();
-        if (type === 'car' || t.includes('CAR')) return <FaCar />;
-        if (type === 'suv' || t.includes('SUV')) return <FaShuttleVan />;
-        if (type === 'lcv' || t.includes('LCV')) return <FaTruck />;
-        if (type === 'truck' || t.includes('TRUCK') || t.includes('BUS')) return <FaBus />;
-        if (type === 'catalytic' || t.includes('CATALYTIC')) return <FaCogs />;
-        return <FaWrench />;
-      };
+    fetchProductsApi().then(apiProducts => {
+      if (apiProducts && Array.isArray(apiProducts) && apiProducts.length > 0) {
+        const apiMap = new Map();
+        apiProducts.forEach(p => {
+          const pid = p.id || String(p._id);
+          if (pid) apiMap.set(pid, p);
+        });
 
-      for (const url of urlsToTry) {
-        try {
-          const res = await fetch(url, { cache: 'no-store' });
-          if (!res.ok) continue;
+        // Merge backend updates over default products
+        const mergedDefaults = defaultProducts.map(def => {
+          const apiProd = apiMap.get(def.id);
+          if (!apiProd) return def;
+          return {
+            ...def,
+            ...apiProd,
+            title: apiProd.title || def.title,
+            image: apiProd.image || def.image,
+            desc: apiProd.shortDesc || apiProd.desc || def.desc,
+            icon: getIcon(apiProd.category || def.category, apiProd.title || def.title)
+          };
+        });
 
-          const data = await res.json();
-          if (data.success && Array.isArray(data.products) && data.products.length > 0) {
-            const apiMap = new Map();
-            data.products.forEach(p => {
-              const pid = p.id || String(p._id);
-              if (pid) apiMap.set(pid, p);
-            });
+        // Collect new dynamic products created in admin panel that aren't in defaults
+        const defaultIds = new Set(defaultProducts.map(d => d.id));
+        const extraFromBackend = apiProducts
+          .filter(p => !defaultIds.has(p.id || String(p._id)))
+          .map(p => ({
+            ...p,
+            icon: getIcon(p.category, p.title)
+          }));
 
-            // Merge backend updates over default products
-            const mergedDefaults = defaultProducts.map(def => {
-              const apiProd = apiMap.get(def.id);
-              if (!apiProd) return def;
-              return {
-                ...def,
-                ...apiProd,
-                title: apiProd.title || def.title,
-                image: apiProd.image || def.image,
-                desc: apiProd.shortDesc || apiProd.desc || def.desc,
-                icon: getIcon(apiProd.category || def.category, apiProd.title || def.title)
-              };
-            });
-
-            // Collect new dynamic products created in admin panel that aren't in defaults
-            const defaultIds = new Set(defaultProducts.map(d => d.id));
-            const extraFromBackend = data.products
-              .filter(p => !defaultIds.has(p.id || String(p._id)))
-              .map(p => ({
-                ...p,
-                icon: getIcon(p.category, p.title)
-              }));
-
-            setProductList([...mergedDefaults, ...extraFromBackend]);
-            break;
-          }
-        } catch (err) {}
+        setProductList([...mergedDefaults, ...extraFromBackend]);
       }
-      setLoading(false);
-    }
-    fetchProducts();
+    });
   }, []);
 
   // Handle Add Product via Backend API POST /api/products

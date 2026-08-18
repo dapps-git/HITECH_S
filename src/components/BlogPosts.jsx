@@ -27,34 +27,19 @@ const seedBlogs = [
   }
 ];
 
+import { fetchBlogsApi } from '@/lib/apiPrefetch';
 import { BlogSkeleton } from './SkeletonLoader';
 
 export default function BlogPosts() {
   const [blogs, setBlogs] = useState(seedBlogs);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    const fetchBlogs = async () => {
-      const urlsToTry = [
-        'http://localhost:5000/api/blogs',
-        '/api/blogs',
-        `${process.env.NEXT_PUBLIC_API_URL || 'https://tweaki.pw/hiquality/admin'}/api/blogs`
-      ];
-
-      for (const url of urlsToTry) {
-        try {
-          const res = await fetch(url, { cache: 'no-store' });
-          if (!res.ok) continue;
-          const data = await res.json();
-          if (data.success && Array.isArray(data.blogs) && data.blogs.length > 0) {
-            setBlogs(data.blogs);
-            break;
-          }
-        } catch (err) {}
+    fetchBlogsApi().then(apiBlogs => {
+      if (apiBlogs && Array.isArray(apiBlogs) && apiBlogs.length > 0) {
+        setBlogs(apiBlogs);
       }
-      setLoading(false);
-    };
-    fetchBlogs();
+    });
   }, []);
 
   if (blogs.length === 0) {

@@ -66,43 +66,28 @@ const defaultServices = [
   },
 ];
 
+import { fetchServicesApi } from '@/lib/apiPrefetch';
 import { ServiceSkeleton } from './SkeletonLoader';
 
 export default function FeaturedCategories() {
   useScrollReveal();
   const [services, setServices] = useState(defaultServices);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    async function loadServices() {
-      const urlsToTry = [
-        '/api/services',
-        'http://localhost:5000/api/services',
-        `${process.env.NEXT_PUBLIC_API_URL || 'https://tweaki.pw/hiquality/admin'}/api/services`
-      ];
-
-      for (const url of urlsToTry) {
-        try {
-          const res = await fetch(url, { cache: 'no-store' });
-          if (!res.ok) continue;
-          const data = await res.json();
-          if (data.success && Array.isArray(data.services) && data.services.length > 0) {
-            const apiServices = data.services.map(s => ({
-              ...s,
-              iconName: s.icon || s.iconName || 'FaWrench'
-            }));
-            const defaultTitles = new Set(defaultServices.map(d => d.title.toLowerCase()));
-            const newFromBackend = apiServices.filter(
-              s => !defaultTitles.has((s.title || '').toLowerCase())
-            );
-            setServices([...defaultServices, ...newFromBackend]);
-            break;
-          }
-        } catch (err) {}
+    fetchServicesApi().then(apiData => {
+      if (apiData && Array.isArray(apiData) && apiData.length > 0) {
+        const apiServices = apiData.map(s => ({
+          ...s,
+          iconName: s.icon || s.iconName || 'FaWrench'
+        }));
+        const defaultTitles = new Set(defaultServices.map(d => d.title.toLowerCase()));
+        const newFromBackend = apiServices.filter(
+          s => !defaultTitles.has((s.title || '').toLowerCase())
+        );
+        setServices([...defaultServices, ...newFromBackend]);
       }
-      setLoading(false);
-    }
-    loadServices();
+    });
   }, []);
 
   return (
