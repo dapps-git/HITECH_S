@@ -198,6 +198,18 @@ export default function Footer() {
       <div className={styles.bottomBar}>
         <div className={`container ${styles.bottomContainer}`}>
           <span className={styles.copyText}>© {new Date().getFullYear()} Hi Quality Silencers. All rights reserved.</span>
+
+        <p className="mt-2 text-xs opacity-75 text-center">
+          Powered by{" "}
+          <a
+            href="https://www.crevionads.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-medium underline hover:opacity-100 transition-opacity"
+          >
+            Crevion Ads
+          </a>
+        </p>
           <div className={styles.policyLinks}>
             <a href="#" className={styles.policyLink}>Privacy Policy</a>
             <a href="#" className={styles.policyLink}>Terms of Service</a>
